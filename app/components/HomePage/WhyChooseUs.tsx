@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Code, Shield, ShieldCheck } from "lucide-react";
+import { Code, Shield, ShieldCheck, Star } from "lucide-react";
 
 const data = [
   {
@@ -31,15 +31,15 @@ export default function WhyChoose() {
         <div>
 
           {/* LABEL */}
-          <div className="flex items-center gap-2 text-[#00B89C] text-[12px] tracking-[2px] uppercase mb-6">
-            <span>☆</span>
+          <div className="flex items-center text-[#00B89C] text-[12px] font-bold uppercase mb-6 gap-2">
+            <Star className="w-5 h-5 text-[#00B89C]" />
             <span>Why Choose ACME Global Hub</span>
           </div>
 
           {/* HEADING */}
-          <h2 className="text-white text-[48px] leading-[1.15] font-semibold max-w-[600px]">
+          <h2 className="font-playfair text-white text-[35px] font-extrabold max-w-[600px]">
             Designed for Scale.{" "}
-            <span className="text-[#6EA8FF] italic font-medium">
+            <span className="font-playfair text-[#6EA8FF] italic font-extrabold">
               Built on Trust.
             </span>
           </h2>

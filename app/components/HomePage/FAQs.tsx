@@ -83,7 +83,7 @@ export default function FAQSection() {
                     onClick={() => toggleFAQ(index)}
                     className="w-full flex justify-between items-center px-6 py-5 text-left cursor-pointer"
                   >
-                    <span className="text-[16px] font-medium text-[#111827]">
+                    <span className="text-[14px] font-medium text-[#111827]">
                       {item.q}
                     </span>
 

@@ -1,46 +1,68 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Hero() {
+export default function AboutHero() {
   return (
-    <section className="w-full h-[450px] bg-[#1E3A5F] flex items-center justify-center overflow-hidden">
-      <div className="max-w-7xl w-full px-6 md:px-12 flex flex-col md:flex-row items-center justify-between h-full relative">
+    //<section className="relative bg-[#07142A] pt-[72px] min-h-[520px] overflow-hidden">
+       <section className="w-full min-h-[480px] bg-[#07142A] pt-[72px] 
+        flex items-center justify-center overflow-hidden
+        relative
+        before:absolute before:inset-0
+        before:bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)]
+        before:bg-[size:60px_60px]
+        before:opacity-40
+        before:pointer-events-none
+        ">
 
-        {/* Left Side: Text Content */}
-        <div className="w-full md:w-1/2 flex flex-col justify-between h-full py-16 text-white z-10">
-          <div className="flex flex-col justify-center flex-grow">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 tracking-tight">
-              About Us
-            </h1>
-            <p className="text-lg text-blue-100 max-w-md leading-relaxed text-balance">
-              Discover our story, our mission, and the passionate team driving our global success forward.
-            </p>
-          </div>
-
-          {/* Breadcrumb - down part */}
-          <div className="text-sm font-medium tracking-wide text-blue-200 flex items-center gap-2">
-            <span className="hover:text-white transition-colors cursor-pointer">HOME</span>
-            <span className="text-blue-400">/</span>
-            <span className="text-white">ABOUT US</span>
-          </div>
-        </div>
-
-        {/* Right Side: Image touching bottom */}
-        <div className="w-full md:w-1/2 flex items-end justify-center md:justify-end h-full">
-          <div className="relative w-full max-w-[500px] h-[350px] lg:h-[450px]">
-            <Image
-              src="/media/AboutUs.png"
-              alt="About Us Hero"
-              fill
-              className="object-cover object-right rounded-t-2xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 500px"
-              priority
-            />
-          </div>
-        </div>
-
+      {/* LEFT GLOW GRADIENT */}
+      <div className="absolute left-0 top-0 w-[600px] h-[600px] z-0
+        bg-[radial-gradient(circle_at_0%_50%,rgba(0,180,255,0.28),transparent_40%)]">
       </div>
+
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-[1300px] mx-auto px-6 lg:px-20 h-full flex items-center">
+
+        <div className="grid lg:grid-cols-2 gap-[80px] items-center w-full">
+
+          {/* LEFT CONTENT */}
+          <div className="text-white">
+
+            <h1 className="font-playfair text-[48px] leading-[1.1] font-bold mb-6">
+              About ACME Global
+            </h1>
+
+            <p className="text-[18px] text-white/70 leading-[32px] max-w-[520px] mb-8">
+              We empower clients with world-class technology <br />
+              services, and solutions
+            </p>
+
+            {/* BREADCRUMB */}
+            <div className="text-sm text-white/60 flex items-center gap-2">
+              {/*<span className="hover:text-white cursor-pointer">Home</span>*/}
+              <Link href="/" className="hover:text-white cursor-pointer">Home</Link>
+              <span>/</span>
+              <span className="text-[#ffffff]/42">About Us</span>
+            </div>
+
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="flex justify-end">
+            <div className="w-[520px] h-[280px] relative rounded-md overflow-hidden">
+              <Image
+                src="/media/hero.jpeg" // replace with your image
+                alt="about"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </section>
   );
 }

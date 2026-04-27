@@ -2,11 +2,34 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, Shield } from "lucide-react";
+import { Check, Shield, Clock, ShieldCheck, Code, Users, Cloud } from "lucide-react";
+
+const data = [
+  {
+    title: "XaaS-First Approach",
+    desc: "Delivering Everything-as-a-Service to simplify technology consumption and accelerate digital transformation.",
+    icon: <Shield className="w-6 h-6" />,
+  },
+  {
+    title: "Scalable & Secure Solutions",
+    desc: "Built to support growth while ensuring security, compliance, and business continuity.",
+    icon: <Shield className="w-6 h-6" />,
+  },
+  {
+    title: "Cloud & Digital Expertise",
+    desc: "Delivering Everything-as-a-Service to simplify technology consumption and accelerate digital transformation.",
+    icon: <Cloud className="w-6 h-6" />,
+  },
+  {
+    title: "End-to-End Partnership",
+    desc: "Supporting enterprises from strategy and design through implementation and ongoing operations.",
+    icon: <Users className="w-6 h-6" />,
+  }
+];
 
 export default function WhatWeDo() {
   return (
-    <section className="bg-[#f5f6f8] py-24 px-6 lg:px-20">
+    <section className="bg-[#FFFFFF] py-24 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT IMAGES */}
@@ -50,7 +73,7 @@ export default function WhatWeDo() {
           {/* TOP LABEL */}
           <div className="flex items-center gap-2 text-blue-600 text-sm font-semibold mb-4">
           
-            <Shield className="w-5 h-5 text-blue-600 text-[12px] uppercase" />
+            <Clock className="w-5 h-5 text-blue-600 text-[12px] uppercase" />
             <span>WHAT WE DO</span>
           </div>
 
@@ -64,7 +87,7 @@ export default function WhatWeDo() {
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="font-Dm_Sans text-[#5E6E90] text-Regular mt-6 text-[16px] leading-[28px] max-w-xl">
+          <p className="font-Dm_Sans text-[#5E6E90] font-Regular mt-6 text-[16px] leading-[28px] max-w-xl">
             ACME Global is a prominent Cloud Service Provider, Managed 
             Service Provider and Resource Outsourcing Partner, offering 
             transformational solutions across different market verticals. 
@@ -75,44 +98,46 @@ export default function WhatWeDo() {
             by providing one-stop solutions, from strategy to execution.
           </p>
 
-          {/* FEATURES GRID */}
-          <div className="grid grid-cols-2 gap-y-4 gap-x-8 mt-8 text-Regular text-[#0B1120] text-[14px] leading-[24px]">
-
-            {/* ITEM */}
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[#00B89C]/12 flex items-center justify-center">
-                <Check className="w-3 h-3 text-[#00B89C]" />
-              </div>
-              <p>Everything-as-a-Service (XaaS) delivery</p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[#00B89C]/12 flex items-center justify-center">
-                <Check className="w-3 h-3 text-[#00B89C]" />
-              </div>
-              <p>Cloud-first and security-driven architecture</p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[#00B89C]/12 flex items-center justify-center">
-                <Check className="w-3 h-3 text-[#00B89C]" />
-              </div>
-              <p>Flexible pricing with scalable service plans</p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[#00B89C]/12 flex items-center justify-center">
-                <Check className="w-3 h-3 text-[#00B89C]" />
-              </div>
-              <p>Global delivery backed by regional expertise</p>
-            </div>
-
-          </div>
-
-          {/* BUTTON */}
-          <button className="mt-10 bg-[#1A4FD6] hover:bg-[#2E66FF] text-[#FFFFFF] px-6 py-3 rounded-xl shadow-lg transition">
-            Learn More About Us
-          </button>
+           {/* CARDS */}
+                    <div className="mt-10 flex flex-col gap-3">
+          
+                      {data.map((item, i) => (
+                        <motion.div
+                          key={i}
+                          whileHover={{ x: 10 }}
+                          transition={{ duration: 0.15, ease: "easeOut" }}
+                          className="group relative bg-[#F4F6FB] border border-[#1A4FD6]/10 rounded-2xl p-4 flex gap-3 cursor-pointer transition-all duration-300"
+                        >
+                          {/* HOVER BG 
+                          <div className="absolute inset-0 bg-[#1A4FD6]/10 opacity-0 group-hover:opacity-100 transition duration-300 rounded-2xl"></div>*/}
+          
+                          {/* ICON */}
+                          <div className="relative z-10 w-[50px] h-[50px] rounded-xl bg-[#1A4FD6]/10 flex items-center justify-center text-[#1A4FD6]">
+                            {typeof item.icon === 'string' ? (
+                              <Image src={item.icon} alt="" width={20} height={20} />
+                            ) : (
+                              item.icon
+                            )}
+                          </div>
+          
+                          {/* TEXT */}
+                          <div className="relative z-10">
+                            <h3 className="font-playfair text-[#0B1120] font-semibold text-[15px]">
+                              {item.title}
+                            </h3>
+          
+                            <p className="text-[#5E6E90] text-[13px] mt-2 leading-[22px] max-w-[420px]">
+                              {item.desc}
+                            </p>
+                          </div>
+          
+                          {/* BORDER HOVER */}
+                          <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[#1A4FD6] transition-all duration-300"></div>
+          
+                        </motion.div>
+                      ))}
+          
+                    </div>
 
         </div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -27,9 +28,22 @@ export default function Hero() {
             you operate, scale, and succeed
           </p>
 
-          <button className=" mt-6 bg-[#1A4FD6] text-[#FFFFFF] px-6 py-3 rounded-lg hover:bg-blue-700">
+          {/* BUTTON */}
+          <Link
+            href="/service"
+            className="inline-block mt-6 px-6 py-3 rounded-lg text-white 
+            bg-[#1A4FD6]
+
+            shadow-[0_4px_12px_rgba(26,79,214,0.25)]
+
+            hover:bg-[#2E66FF]
+            hover:-translate-y-[2px]
+            hover:shadow-[0_12px_30px_rgba(26,79,214,0.45)]
+
+            transition-all duration-300"
+          >
             Explore Solutions
-          </button>
+          </Link>
         </motion.div>
 
         {/* RIGHT IMAGE */}
@@ -39,7 +53,7 @@ export default function Hero() {
           className="relative"
         >
           <Image
-            src="/media/Image 1 (720x720px).png"  // 👉 put in public folder
+            src="/media/Image 1 (720x720px).png"  
             alt="hero"
             width={600}
             height={500}

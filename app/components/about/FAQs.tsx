@@ -5,20 +5,20 @@ import Image from "next/image";
 
 const faqs = [
   {
-    q: "What is Everything-as-a-Service (XaaS)?",
-    a: "XaaS delivers any IT capability — software, infrastructure, platforms, or services — on a subscription basis. It replaces large capital expenditures with predictable operating costs and gives your team instant access to enterprise-grade tools that scale with your business.",
+    q: "What does ACME Global do?",
+    a: "ACME Global is a Cloud Service Provider, Managed Service Provider, and Resource Outsourcing Partner. We deliver transformational technology solutions across cloud, application services, cybersecurity, managed IT, and staffing — covering the full enterprise technology lifecycle.",
   },
   {
-    q: "Do you provide customized enterprise solutions?",
-    a: "Yes. Every engagement starts with a discovery workshop to understand your specific challenges, existing stack, and growth roadmap. We design a tailored service bundle that fits your organization's needs and budget.",
+    q: "What industries does ACME Global serve?",
+    a: "We serve enterprises across a wide range of verticals including finance, healthcare, retail, government, and technology. Our flexible XaaS delivery model is designed to adapt to the regulatory and operational requirements of each sector.",
   },
   {
-    q: "Can services scale with business growth?",
-    a: "Scalability is core to our XaaS model. You can expand or reduce service tiers, add new capabilities, or shift delivery models without renegotiating large contracts.",
+    q: "How is ACME Global different from other service providers?",
+    a: "We offer a true one-stop XaaS portfolio — from cloud and security to ERP and talent — with regional delivery expertise across India, Bahrain, and Kuwait. Our end-to-end ownership model means we stay accountable from strategy through to ongoing operations.",
   },
   {
-    q: "Do you support regional and global operations?",
-    a: "Yes. We operate delivery centers across India, Bahrain, and Kuwait, giving us the regional compliance knowledge and language capabilities to serve clients across South Asia, the Middle East, and beyond.",
+    q: "How does ACME Global support long-term business growth?",
+    a: "Through subscription-based, scalable service models that grow with your business. We provide continuous optimization, proactive managed services, and strategic advisory — ensuring your technology investments deliver value over the long term.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function FAQSection() {
                     onClick={() => toggleFAQ(index)}
                     className="w-full flex justify-between items-center px-6 py-5 text-left"
                   >
-                    <span className="text-[16px] font-medium text-[#111827]">
+                    <span className="text-[14px] font-medium text-[#111827]">
                       {item.q}
                     </span>
 

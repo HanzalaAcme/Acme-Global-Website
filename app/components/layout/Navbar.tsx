@@ -52,11 +52,22 @@ export default function Navbar() {
 
         {/* BUTTON */}
         <Link
-          href="/contact"
-          className="px-6 py-3 bg-[#1A4FD6] text-white rounded-"
-        >
-          Get in Touch
-        </Link>
+            href="/contact"
+            className="px-6 py-3 bg-[#1A4FD6] text-white rounded-lg 
+
+            shadow-[0_4px_12px_rgba(26,79,214,0.25)]
+
+            hover:bg-[#2E66FF]
+            hover:-translate-y-[2px]
+            hover:shadow-[0_10px_25px_rgba(26,79,214,0.4)]
+
+            active:translate-y-0
+            active:shadow-[0_4px_12px_rgba(26,79,214,0.25)]
+
+            transition-all duration-300 ease-out"
+            >
+            Get in Touch
+          </Link>
 
       </div>
     </nav>

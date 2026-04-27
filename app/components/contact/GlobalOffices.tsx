@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function GlobalOffices() {
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-[#FAF8F3] py-20 px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}

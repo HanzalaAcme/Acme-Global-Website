@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check, Shield } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutSection() {
   return (
@@ -107,15 +108,21 @@ export default function AboutSection() {
           </div>
 
           {/* BUTTON */}
-          <button
-            className="mt-10 bg-[#1A4FD6] hover:bg-[#2E66FF] text-white 
-            px-6 py-3 rounded-xl 
-            shadow-md 
-            hover:shadow-[0_8px_30px_rgba(26,79,214,0.35)]
+          <Link
+            href="/about"
+            className="inline-block mt-6 px-6 py-3 rounded-lg text-white 
+            bg-[#1A4FD6]
+
+            shadow-[0_4px_12px_rgba(26,79,214,0.25)]
+
+            hover:bg-[#2E66FF]
             hover:-translate-y-[2px]
-            transition-all duration-300">
-             Learn More About Us
-          </button>
+            hover:shadow-[0_12px_30px_rgba(26,79,214,0.45)]
+
+            transition-all duration-300"
+          >
+            Learn More About Us
+          </Link>
 
         </div>
 
