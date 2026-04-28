@@ -4,101 +4,144 @@ import Image from "next/image";
 
 export default function GlobalOffices() {
   return (
-    <section className="bg-[#FAF8F3] py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#F7F6F2] py-[96px] px-6 lg:px-20">
+      <div className="max-w-[1300px] mx-auto">
 
-        {/* Heading */}
-        <h2 className="text-center text-3xl font-bold mb-20">
-          Connect with one of our <span className="text-blue-600">global offices</span>
+        {/* HEADING */}
+        <h2 className="text-center font-playfair text-[40px] leading-tight font-semibold text-[#0B1120] mb-[80px]">
+          Connect with one of{" "}
+          <span className="text-[#2E66FF]">our global offices</span>
         </h2>
 
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-[80px]">
 
           {/* INDIA */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <Image
-              src="/media/acmeglobal.png"
-              alt="India"
-              width={700}
-              height={450}
-              className="rounded-xl w-full object-cover"
-            />
+          <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
-            {/* Text */}
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Hyderabad, India</h3>
-              <p className="font-semibold mb-3">ACME Global Hub</p>
+            {/* IMAGE */}
+            <div className="w-full h-[320px] lg:h-[360px] rounded-[20px] overflow-hidden">
+              <Image
+                src="/media/acmeglobal.png"
+                alt="India Office"
+                width={700}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-              <p className="font-semibold">Address</p>
-              <p className="text-gray-600 mb-4">
+            {/* CONTENT */}
+            <div className="max-w-[420px]">
+              <h3 className="font-playfair text-[28px] font-semibold text-[#0B1120] mb-3">
+                Hyderabad, India
+              </h3>
+
+              <p className="text-[16px] font-semibold text-[#0B1120] mb-6">
+                ACME Global Hub
+              </p>
+
+              <p className="text-[11px] tracking-[1.5px] text-[#6B7280] uppercase mb-2">
+                Address
+              </p>
+
+              <p className="text-[14px] text-[#4B5C7A] leading-[24px] mb-6">
                 504 & 506, 4th Floor, KTC Illumination, HITEC City Madhapur,
                 Hyderabad, Telangana, India
               </p>
 
-              <p className="font-semibold">Phone</p>
-              <p className="text-gray-600">+91 4040117942</p>
+              <p className="text-[11px] tracking-[1.5px] text-[#6B7280] uppercase mb-2">
+                Phone
+              </p>
+
+              <p className="text-[14px] text-[#4B5C7A]">
+                +91 4040117942
+              </p>
             </div>
           </div>
 
           {/* BAHRAIN */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Text */}
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Manama, Bahrain</h3>
-              <p className="font-semibold mb-3">
+          <div className="grid lg:grid-cols-2 gap-[60px] items-center">
+
+            {/* CONTENT */}
+            <div className="max-w-[420px]">
+              <h3 className="font-playfair text-[28px] font-semibold text-[#0B1120] mb-3">
+                Manama, Bahrain
+              </h3>
+
+              <p className="text-[16px] font-semibold text-[#0B1120] mb-6">
                 Almoayyed Computers Middle East
               </p>
 
-              <p className="font-semibold">Address</p>
-              <p className="text-gray-600 mb-4">
+              <p className="text-[11px] tracking-[1.5px] text-[#6B7280] uppercase mb-2">
+                Address
+              </p>
+
+              <p className="text-[14px] text-[#4B5C7A] leading-[24px] mb-6">
                 Refinery Road No. 3501, Area 635, Yard 75, Ma'ameer,
                 P.O. Box 26259, Manama, Kingdom of Bahrain
               </p>
 
-              <p className="font-semibold">Phone</p>
-              <p className="text-gray-600">
+              <p className="text-[11px] tracking-[1.5px] text-[#6B7280] uppercase mb-2">
+                Phone
+              </p>
+
+              <p className="text-[14px] text-[#4B5C7A]">
                 +973 77996640 <br />
                 +973 33601101
               </p>
             </div>
 
-            {/* Image */}
-            <Image
-              src="/media/ACME.jpg"
-              alt="Bahrain"
-              width={700}
-              height={450}
-              className="rounded-xl w-full object-cover"
-            />
+            {/* IMAGE */}
+            <div className="w-full h-[320px] lg:h-[360px] rounded-[20px] overflow-hidden">
+              <Image
+                src="/media/ACME.jpg"
+                alt="Bahrain Office"
+                width={700}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
           {/* KUWAIT */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <Image
-              src="/media/ACME kuwait.jpg"
-              alt="Kuwait"
-              width={700}
-              height={450}
-              className="rounded-xl w-full object-cover"
-            />
+          <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
-            {/* Text */}
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Kuwait City, Kuwait</h3>
-              <p className="font-semibold mb-3">
+            {/* IMAGE */}
+            <div className="w-full h-[320px] lg:h-[360px] rounded-[20px] overflow-hidden">
+              <Image
+                src="/media/ACME kuwait.jpg"
+                alt="Kuwait Office"
+                width={700}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* CONTENT */}
+            <div className="max-w-[420px]">
+              <h3 className="font-playfair text-[28px] font-semibold text-[#0B1120] mb-3">
+                Kuwait City, Kuwait
+              </h3>
+
+              <p className="text-[16px] font-semibold text-[#0B1120] mb-6">
                 Alghanim and Almoayyed Computer Solutions
               </p>
 
-              <p className="font-semibold">Address</p>
-              <p className="text-gray-600 mb-4">
+              <p className="text-[11px] tracking-[1.5px] text-[#6B7280] uppercase mb-2">
+                Address
+              </p>
+
+              <p className="text-[14px] text-[#4B5C7A] leading-[24px] mb-6">
                 Al Hamra Business Tower, 31st Floor, Al Shuhada Street,
                 Sharq, Kuwait City, Kuwait
               </p>
 
-              <p className="font-semibold">Phone</p>
-              <p className="text-gray-200">+965 98839566</p>
+              <p className="text-[11px] tracking-[1.5px] text-[#6B7280] uppercase mb-2">
+                Phone
+              </p>
+
+              <p className="text-[14px] text-[#4B5C7A]">
+                +965 98839566
+              </p>
             </div>
           </div>
 

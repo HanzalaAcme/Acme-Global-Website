@@ -1,65 +1,83 @@
-import Image from "next/image";
+"use client";
 
-export default function Hero() {
+import Image from "next/image";
+import Link from "next/link";
+
+export default function AboutHero() {
   return (
-    <section className="w-full h-[450px] bg-[#1E3A5F] flex items-center justify-center overflow-hidden">
-      {/*<section className="w-full h-[450px] bg-[#1E3A5F] 
+    //<section className="relative bg-[#07142A] pt-[72px] min-h-[520px] overflow-hidden">
+       <section className="w-full min-h-[500px] bg-[#07142A] pt-[72px] 
         flex items-center justify-center overflow-hidden
         relative
         before:absolute before:inset-0
         before:bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)]
-        before:bg-[size:40px_40px]
+        before:bg-[size:60px_60px]
         before:opacity-40
         before:pointer-events-none
-        ">*/}
-      <div className="max-w-7xl w-full px-6 md:px-12 flex flex-col md:flex-row items-center justify-between h-full relative">
+        ">
 
-        {/* Left Side: Text Content */}
-        <div className="w-full md:w-1/2 flex flex-col justify-between h-full py-16 text-white z-10">
-          <div className="flex flex-col justify-center flex-grow">
-
-            <div className="flex items-center gap-3 mb-4">
-  
-             {/* BLINKING DOT */}
-              <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
-
-              <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
-              Our Strategic Partners
-              </h1>
-              </div>
-
-           {/* <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 tracking-tight">
-              Our Strategic Partners
-            </h1>  */}
-
-            <p className="text-lg text-blue-100 max-w-md leading-relaxed text-balance">
-              We collaborate with industry leaders to deliver exceptional value and innovative solutions worldwide.
-            </p>
-          </div>
-
-          {/* Breadcrumb - down part */}
-          <div className="text-sm font-medium tracking-wide text-blue-200 flex items-center gap-2">
-            <span className="text-white transition-colors cursor-pointer">HOME</span>
-            <span className="text-white ">/</span>
-            <span className="text-white">PARTNERS</span>
-          </div>
-        </div>
-
-        {/* Right Side: Image */}
-        <div className="w-full h-[450px] md:w-1/2 flex items-center justify-center md:justify-end h-full py-12">
-          <div className="relative w-full max-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
-            <Image
-              src="/media/Partner_Hero.jpg"
-              alt="Partners"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 450px"
-              priority
-            />
-          </div>
-        </div>
-
+      {/* LEFT GLOW GRADIENT */}
+      <div className="absolute left-0 top-0 w-[600px] h-[600px] z-0
+        bg-[radial-gradient(circle_at_0%_50%,rgba(0,180,255,0.28),transparent_40%)]">
       </div>
+
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-[1300px] mx-auto px-6 lg:px-20 h-full flex items-center">
+
+        <div className="grid lg:grid-cols-2 gap-[80px] items-center w-full">
+
+          {/* LEFT CONTENT */}
+          
+          <div className="text-white">
+            {/* EYEBROW */}
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-2.5 h-2.5 bg-[#00B89C] font-bold rounded-full animate-pulse"></span>
+            <span className="text-[12px] tracking-[1px] text-[#00B89C] font-bold uppercase">
+              Trusted Technology Alliances
+            </span>
+          </div>
+
+            {/* HEADING */}
+          <h1 className="font-playfair text-white text-[52px] leading-[1.15] font-extrabold">
+            Our{" "}  
+            <span className="text-[#7AADFF] italic font-extrabold">
+              Strategic
+            </span>{" "}
+            <br />
+            <span className="italic">Partner</span>
+          </h1>
+
+            <p className="text-[18px] text-white/70 leading-[32px] max-w-[520px] mb-8">
+              We work with leading technology providers to deliver <br />
+              secure, scalable, and high-performance solutions  <br />
+              across cloud, infrastructure, and software.
+            </p>
+
+            {/* BREADCRUMB */}
+            <div className="text-sm text-white/60 flex items-center gap-2">
+              {/*<span className="hover:text-white cursor-pointer">Home</span>*/}
+              <Link href="/" className="hover:text-white cursor-pointer">Home</Link>
+              <span>/</span>
+              <span className="text-[#ffffff]/42">About Us</span>
+            </div>
+
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="flex justify-end">
+            <div className="w-[520px] h-[280px] relative rounded-md overflow-hidden">
+              <Image
+                src="/media/hero.jpeg" // replace with your image
+                alt="about"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </section>
   );
 }

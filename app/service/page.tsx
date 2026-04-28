@@ -4,7 +4,7 @@ import Navbar from "../components/layout/Navbar";
 import Hero from "@/app/components/service/Hero";
 import Service from "@/app/components/HomePage/Services";
 import WhyChooseUs from "../components/HomePage/WhyChooseUs";
-import FAQ from "../components/HomePage/FAQs";
+import FAQs from "@/app/components/service/FAQs";
 
 export default function Services() {
     return (
@@ -13,7 +13,7 @@ export default function Services() {
             <Hero />
             <Service />
             <WhyChooseUs />
-            <FAQ />
+            <FAQs />
             <Footer />
            
         </div>

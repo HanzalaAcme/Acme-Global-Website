@@ -7,15 +7,28 @@ export default function ContactSection() {
   return (
     <section className="bg-[#FFFFFF] py-[120px] px-6 lg:px-20">
 
-      {/* TITLE */}
-      <h2 className="text-center text-[36px] font-semibold text-[#2E66FF] mb-[120px]">
-        Ask us anytime
-      </h2>
+          <div className="text-center mb-16">
 
+            {/* ICON */}
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Phone className="w-5 h-5 text-[#2E66FF]" />
+              <span className="text-[#2E66FF] text-[13px] font-semibold uppercase tracking-[1px]">
+                Contact Us
+              </span>
+            </div>
+
+            {/* HEADING */}
+            <h2 className="font-playfair text-[36px] font-extrabold text-[#0B1120] mt-4">
+              Do you have any questions? <br />
+              <span className="text-[#2E66FF] font-extrabold">Ask us anytime</span>
+            </h2>
+
+          </div>
+      
       {/* WRAPPER */}
       <div className="max-w-[1100px] mx-auto relative">
 
-        {/* 🔹 TOP CARD (NO OVERLAP NOW) */}
+        {/* TOP CARD (NO OVERLAP NOW) */}
         <div className="relative z-10 mb-[-80px]">
 
           <div className="bg-gradient-to-r from-[#2E66FF] to-[#14B8A6] 
@@ -59,7 +72,7 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* 🔹 BACKGROUND IMAGE SECTION */}
+        {/* BACKGROUND IMAGE SECTION */}
         <div className="relative rounded-[18px] overflow-hidden">
 
           {/* IMAGE */}

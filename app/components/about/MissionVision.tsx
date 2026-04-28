@@ -86,7 +86,7 @@ export default function MissionVision() {
         </div>
 
         {/* RIGHT → IMAGE */}
-        <div className="w-full h-[420px] rounded-[28px] overflow-hidden">
+        <div className="w-full  rounded-[28px] overflow-hidden">
           <Image
             src="/media/MissionVision.jpeg"
             alt="mission"

@@ -5,20 +5,20 @@ import Image from "next/image";
 
 const faqs = [
   {
-    q: "What does ACME Global do?",
-    a: "ACME Global is a Cloud Service Provider, Managed Service Provider, and Resource Outsourcing Partner. We deliver transformational technology solutions across cloud, application services, cybersecurity, managed IT, and staffing — covering the full enterprise technology lifecycle.",
+    q: "What does ACME Global offer?",
+    a: "ACME Global is a Cloud Service Provider, Managed Service Provider, and Resource Outsourcing Partner. We deliver end-to-end enterprise IT services — from cloud infrastructure and cybersecurity to ERP platforms, staff augmentation, and proprietary SaaS products — through a scalable XaaS delivery model.",
   },
   {
-    q: "What industries does ACME Global serve?",
-    a: "We serve enterprises across a wide range of verticals including finance, healthcare, retail, government, and technology. Our flexible XaaS delivery model is designed to adapt to the regulatory and operational requirements of each sector.",
+    q: "How do you tailor solutions to our business needs?",
+    a: "We begin every engagement with a discovery and assessment phase to understand your technology landscape, business objectives, and constraints. Based on this, we design a tailored delivery model — subscription, project-based, or hybrid — with clear SLAs and measurable outcomes.",
   },
   {
-    q: "How is ACME Global different from other service providers?",
-    a: "We offer a true one-stop XaaS portfolio — from cloud and security to ERP and talent — with regional delivery expertise across India, Bahrain, and Kuwait. Our end-to-end ownership model means we stay accountable from strategy through to ongoing operations.",
+    q: "Do you provide support after project implementation?",
+    a: "Yes. Our managed services and continuous support offerings ensure that every implementation is backed by ongoing monitoring, optimisation, and helpdesk support. We manage the full service lifecycle — from strategy through to day-two operations.",
   },
   {
-    q: "How does ACME Global support long-term business growth?",
-    a: "Through subscription-based, scalable service models that grow with your business. We provide continuous optimization, proactive managed services, and strategic advisory — ensuring your technology investments deliver value over the long term.",
+    q: "How do your services improve business performance?",
+    a: "Our XaaS delivery model converts capital expenditure into predictable operational costs, accelerates time-to-value for technology investments, and provides access to specialised skills on demand — enabling your organisation to respond faster, operate leaner, and scale with confidence.",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function FAQSection() {
       <div className="max-w-[1300px] mx-auto grid lg:grid-cols-2 gap-[60px] items-center">
 
         {/* LEFT IMAGE */}
-        <div className="w-full rounded-[28px] overflow-hidden">
+        <div className="w-full h-[500px] rounded-[28px] overflow-hidden">
           <Image
             src="/media/FAQ.jpeg"
             alt="faq"
@@ -81,20 +81,24 @@ export default function FAQSection() {
                   {/* QUESTION */}
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full flex justify-between items-center px-6 py-5 text-left"
+                    className="w-full flex justify-between items-center px-6 py-5 text-left cursor-pointer"
                   >
                     <span className="text-[14px] font-medium text-[#111827]">
                       {item.q}
                     </span>
 
-                    <span className="text-xl text-[#2563EB]">
-                      {isOpen ? "×" : "+"}
-                    </span>
+                    <div
+                    className={`w-6 h-6 flex items-center justify-center text-[#2563EB] 
+                    transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+                    ${isOpen ? "rotate-45 scale-110" : "rotate-0 scale-100"}`}
+>
+                     <span className="text-2xl leading-none">+</span>
+                    </div>
                   </button>
 
                   {/* ANSWER (HEIGHT ANIMATION EXACT) */}
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[180px] px-6 pb-5" : "max-h-0 px-6"
+                    className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-[180px] px-6 pb-5" : "max-h-0 px-6"
                       }`}
                   >
                     <p className="text-[14px] leading-[24px] text-[#6B7280]">
