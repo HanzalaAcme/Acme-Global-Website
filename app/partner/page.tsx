@@ -8,12 +8,12 @@ import Partners from "@/app/components/partner/Partners";
 export default function Partner() {
     return (
         <div>
-            <Navbar />
+            
             <Hero />
             <WhyPartnership />
             <Partners />
             <FAQs />
-            <Footer />
+            
         </div>
     );
 }

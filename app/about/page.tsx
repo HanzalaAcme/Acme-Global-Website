@@ -1,6 +1,5 @@
 "use client";
-import Footer from "@/app/components/layout/Footer";
-import Navbar from "@/app/components/layout/Navbar";
+
 
 // sections
  
@@ -12,14 +11,12 @@ import CTA from "@/app/components/about/CTA";
 
 export default function AboutPage() {
   return (
-    <main>
-      <Navbar />
+    <main> 
       <Hero />
       <WhatWeDo />
       <MissionVision />
       <FAQs />
       <CTA />
-      <Footer />
     </main>
   );
 }

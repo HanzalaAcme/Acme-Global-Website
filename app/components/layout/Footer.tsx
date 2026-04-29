@@ -64,11 +64,11 @@ export default function Footer() {
 
         <ul className="space-y-3 text-[13px]">
           <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
-          <li><Link href="/services" className="hover:text-white transition">Services</Link></li>
+          <li><Link href="/service" className="hover:text-white transition">Services</Link></li>
           <li><Link href="/blogs" className="hover:text-white transition">Blogs</Link></li>
           <li><Link href="/contact" className="hover:text-white transition">Contact Us</Link></li>
           <li><Link href="/careers" className="hover:text-white transition">Careers</Link></li>
-          <li><Link href="/partners" className="hover:text-white transition">Partners</Link></li>
+          <li><Link href="/partner" className="hover:text-white transition">Partners</Link></li>
         </ul>
       </div>
 
@@ -79,10 +79,39 @@ export default function Footer() {
         </h3>
 
         <ul className="space-y-3 text-[13px] leading-[24px]">
-          <li><Link href="/locations/india" className="hover:text-white transition">ACME Global Hub, India</Link></li>
-          <li><Link href="/locations/bahrain" className="hover:text-white transition">Almoayyed Computers Middle East, <br/> Bahrain</Link></li>
-          <li><Link href="/locations/kuwait" className="hover:text-white transition">Alghanim & Almoayyed Computer <br /> Solutions, Kuwait</Link></li>
-        </ul>
+  <li>
+    <a 
+      href="https://acmeglobal.tech/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition"
+    >
+      ACME Global Hub, India
+    </a>
+  </li>
+
+  <li>
+    <a 
+      href="https://acme.tech/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition"
+    >
+      Almoayyed Computers Middle East, <br /> Bahrain
+    </a>
+  </li>
+
+  <li>
+    <a 
+      href="http://www.alghanimalmoayyed.tech/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition"
+    >
+      Alghanim & Almoayyed Computer <br /> Solutions, Kuwait
+    </a>
+  </li>
+</ul>
       </div>
 
     </div>
