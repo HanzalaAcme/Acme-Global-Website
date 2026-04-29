@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 const playfair = localFont({
   src: "../public/fonts/PlayfairDisplay-VariableFont_wght.ttf",
@@ -31,7 +33,11 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${Dm_Sans.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

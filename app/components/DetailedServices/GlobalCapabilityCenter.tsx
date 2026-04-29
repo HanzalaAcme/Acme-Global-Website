@@ -8,7 +8,7 @@ import { Code2, Layers, Smartphone, Globe, Cloud, Shield } from "lucide-react";
 export default function GlobalCapability() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-indigo-100 text-gray-900 overflow-hidden">
-        <Navbar />
+        
       {/* ===================== HERO ===================== */}
       <section
     className="relative bg-cover bg-top bg-no-repeat h-[100vh] flex items-center justify-right px-6 lg:px-90 text-center"
@@ -168,7 +168,6 @@ export default function GlobalCapability() {
         </motion.div>
         <div className="absolute inset-0 opacity-10 bg-[url('/pattern.svg')] bg-cover bg-center" />
       </section>
-      <Footer />
     </main>
   );
 }
