@@ -64,10 +64,10 @@ export async function POST(req: Request) {
     const resumeUrl = upload.secure_url; // stored for future use
 
     // SAVE TO MYSQL
-    await db.query(
-      "INSERT INTO applications (name, email, phone, role, resume_url) VALUES (?, ?, ?, ?, ?)",
-      [name, email, phone, role, resumeUrl]
-    );
+    //await db.query(
+    //  "INSERT INTO applications (name, email, phone, role, resume_url) VALUES (?, ?, ?, ?, ?)",
+    //  [name, email, phone, role, resumeUrl]
+    //);
 
     // SEND EMAIL WITH ATTACHMENT
     await transporter.sendMail({
