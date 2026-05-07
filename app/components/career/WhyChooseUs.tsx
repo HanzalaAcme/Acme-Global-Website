@@ -2,32 +2,32 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, Shield, Clock, ShieldCheck, Code, Users, Cloud } from "lucide-react";
+import { Check, Shield, CircleCheckBig, Users, Cloud, Star, Sun } from "lucide-react";
 
 const data = [
   {
-    title: "XaaS-First Approach",
-    desc: "Delivering Everything-as-a-Service to simplify technology consumption and accelerate digital transformation.",
+    title: "Impactful Work",
+    desc: "Your work creates real-world impact — solving meaningful problems that drive growth, value, and lasting change for clients worldwide.",
+    icon: <CircleCheckBig className="w-6 h-6" />,
+  },
+  {
+    title: "Secure Future",
+    desc: "We offer stability, long-term growth opportunities, and a secure environment where careers are built with confidence and trust.",
     icon: <Shield className="w-6 h-6" />,
   },
   {
-    title: "Scalable & Secure Solutions",
-    desc: "Built to support growth while ensuring security, compliance, and business continuity.",
-    icon: <Shield className="w-6 h-6" />,
-  },
-  {
-    title: "Cloud & Digital Expertise",
-    desc: "Delivering Everything-as-a-Service to simplify technology consumption and accelerate digital transformation.",
-    icon: <Cloud className="w-6 h-6" />,
-  },
-  {
-    title: "End-to-End Partnership",
-    desc: "Supporting enterprises from strategy and design through implementation and ongoing operations.",
+    title: "Collaborative Culture",
+    desc: "Our culture thrives on teamwork, open communication, and mutual respect — empowering people to grow and succeed together.",
     icon: <Users className="w-6 h-6" />,
+  },
+  {
+    title: "Innovation-Driven Approach",
+    desc: "We embrace innovation, modern technologies, and forward-thinking solutions to stay ahead in an ever-evolving digital landscape.",
+    icon: <Sun className="w-6 h-6" />,
   }
 ];
 
-export default function WhatWeDo() {
+export default function WhyChooseUs() {
   return (
     <section className="bg-[#FFFFFF] py-24 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
@@ -73,29 +73,28 @@ export default function WhatWeDo() {
           {/* TOP LABEL */}
           <div className="flex items-center gap-2 text-blue-600 text-sm font-semibold mb-4">
           
-            <Clock className="w-5 h-5 text-blue-600 text-[12px] uppercase" />
-            <span>WHAT WE DO</span>
+            <Star className="w-5 h-5 text-blue-600 text-[12px] uppercase" />
+            <span>WHAT CHOOSE ACME GLOBAL HUB</span>
           </div>
 
           {/* HEADING */}
-          <h2 className="font-playfair text-[35px] leading-[1.2] font-bold text-gray-900">
-            Enabling Agile, Secure, and
+          <h2 
+          className="font-playfair text-[35px] leading-[1.2] font-bold text-gray-900">
+            Why Choose {""}
+            <span className="text-blue-600 font-extrabold">ACME Global Hub?</span>
           </h2>
 
-          <h2 className="font-playfair text-[35px] leading-[1.2] font-bold text-blue-600 mt-2">
-            Future-Ready Enterprises
-          </h2>
+        
 
           {/* DESCRIPTION */}
           <p className="font-Dm_Sans text-[#5E6E90] font-Regular mt-6 text-[16px] leading-[28px] max-w-xl">
-            ACME Global is a prominent Cloud Service Provider, Managed 
-            Service Provider and Resource Outsourcing Partner, offering 
-            transformational solutions across different market verticals. 
-            Our primary lines of business include: Cloud, Application, 
-            Cybersecurity & Managed IT Services, amongst many others. 
-            With our comprehensive portfolio of service offerings, 
-            we efficiently address enterprise-wide technology needs 
-            by providing one-stop solutions, from strategy to execution.
+           At ACME Global, we believe in empowering our people to grow, 
+           innovate, and make a meaningful impact. We foster a collaborative 
+           and inclusive work environment where talent is valued, ideas are 
+           encouraged, and continuous learning is supported. By joining our team,
+          you become part of a forward-thinking organisation committed to 
+          professional development, cutting-edge technology, and delivering 
+          excellence to clients worldwide.
           </p>
 
            {/* CARDS */}
