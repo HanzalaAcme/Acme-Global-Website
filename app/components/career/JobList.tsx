@@ -28,7 +28,7 @@ export default function JobList() {
   // 🚀 FETCH DATA
   useEffect(() => {
     fetch(
-      "https://public-api.wordpress.com/rest/v1.1/sites/hanzala1387-xzjqf.wordpress.com/posts/?category=careers"
+      "https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/?category=careers"
     )
       .then((res) => res.json())
       .then((data) => {

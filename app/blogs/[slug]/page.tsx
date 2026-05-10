@@ -5,7 +5,7 @@ import BlogEnhancements from "../../components/BlogEnhancements";
 
 async function getPost(slug: string) {
   const res = await fetch(
-    `https://public-api.wordpress.com/rest/v1.1/sites/hanzala1387-xzjqf.wordpress.com/posts/slug:${slug}`,
+    `https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/slug:${slug}`,
     { cache: "no-store" }
   );
 

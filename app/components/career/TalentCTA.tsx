@@ -14,7 +14,7 @@ export default function TalentCTA() {
 
           {/* LEFT */}
           <div className="flex-1">
-            <h2 className="font-playfair text-[24px] md:text-[32px] leading-[1.3] font-extrabold text-[#0B1120]">
+            <h2 className="font-playfair text-[24px] md:text-[32px] leading-[1.3] font-bold text-[#0B1120]">
               Didn't Find the Role You're Looking For? We'd Still Love to Hear From Talented People.
             </h2>
           </div>

@@ -2,11 +2,13 @@ import JobHero from "@/app/components/career/JobHero";
 import JobContent from "@/app/components/career/JobContent";
 import JobSidebar from "@/app/components/career/JobSidebar";
 import JobCTA from "@/app/components/career/JobCTA";
+//import Benefits from "@/app/components/career/Benefits";
 import { parseJob, cleanContent } from "@/lib/parsejob";
+import Benefits from "@/app/components/career/Benefits";
 
 async function getJob(slug: string) {
   const res = await fetch(
-    `https://public-api.wordpress.com/rest/v1.1/sites/hanzala1387-xzjqf.wordpress.com/posts/slug:${slug}`,
+    `https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/slug:${slug}`,
     { cache: "no-store" }
   );
 
@@ -44,7 +46,11 @@ export default async function Page({
           {/* LEFT CONTENT */}
           <div className="col-span-12 lg:col-span-8">
             <JobContent content={content} />
+           {/*} {meta.benefits.length > 0 && (
+            <Benefits items={meta.benefits} />
+              )} */}
           </div>
+          
 
           {/* RIGHT SIDEBAR */}
           <div className="col-span-12 lg:col-span-4">
