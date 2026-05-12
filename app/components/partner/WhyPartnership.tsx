@@ -24,7 +24,7 @@ const data = [
 
 export default function WhyPartnership() {
   return (
-    <section className="bg-[#FFFFFF] py-[96px] px-6 lg:px-20">
+    <section className="bg-[#F4F6FA] py-[96px] px-6 lg:px-20">
       <div className="max-w-[1300px] mx-auto grid lg:grid-cols-2 gap-[80px] items-center">
 
         {/* LEFT IMAGE */}

@@ -1,20 +1,26 @@
 "use client";
 import { motion } from "framer-motion";
 
-export default function ImageText() {
+export default function CTA() {
   return (
     <motion.section
       id="contact"
-      className="py-20 bg-gradient-to-r from-[#5B5CE6] to-[#6FB6E8] text-white text-center"
+      className="py-20 text-white text-center"
+      style={{
+      background:
+      "linear-gradient(30deg, #1A4FD6 0%, #1060F0 50%, #2E80FF 100%)",
+   }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-4">Ready to Transform Your IT Strategy?</h2>
-        <p className="text-lg mb-8">Discover how ACME Global Hub can help your organization scale, secure, <br />
-and optimize digital operations through Everything-as-a-Service.</p>
-        <button className="px-4 py-2 bg-[#155DFC] text-[#FFFFFF] font-semibold rounded-lg hover:bg-blue-400 transition">
+        <h2 className="font-playfair text-[38px] font-extrabold mb-6">Let's Start the Conversation</h2>
+        <p className="text-lg mb-8 text-[#FFFFFF]/75">
+          Our team is ready to understand your needs and help you find the right <br /> 
+          solutions for your business.
+        </p>
+        <button className="px-6 py-3 bg-[#FFFFFF] text-[#1A4FD6] font-medium rounded-lg ">
           Get Started Today
         </button>
       </div>

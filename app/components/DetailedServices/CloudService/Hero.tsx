@@ -39,11 +39,11 @@ export default function CloudHero() {
           </div>
 
           {/* HEADING */}
-          <h1 className="font-playfair text-[52px] leading-[1.1] text-white font-bold">
-            Protect. Detect. <br />
-            Respond. <br />
-            <span className="text-[#7AAFFF] italic font-medium">
-              Secure Your Digital <br /> Enterprise.
+          <h1 className="font-playfair text-[48px] leading-[1.1] text-white font-bold">
+            Accelerate Your <br />
+            Digital Future with {""}
+            <span className="text-[#7AAFFF] italic font-bold">
+              ACME Global Multi-Cloud Expertise
             </span>
           </h1>
 
@@ -52,14 +52,16 @@ export default function CloudHero() {
 
           {/* DESCRIPTION */}
           <p className="text-white/70 text-[16px] leading-[28px] max-w-[520px]">
-            Cloud services unlocks unmatched scalability, cost savings, and agility to drive your business forward.
+            ACME Global empowers businesses across the GCC to modernize, 
+            innovate, and scale with secure, high-performance cloud solutions. 
+            As a trusted multi-cloud partner, ACME Global delivers end-to-end 
+            services across AWS, Microsoft Azure, Oracle Cloud Infrastructure (OCI), 
+            and Google Cloud Platform (GCP).
           </p>
 
-         {/* <p className="text-white/70 text-[16px] leading-[28px] max-w-[520px] mt-4">
-            ACME Global delivers end-to-end cybersecurity services powered by
-            industry-leading platforms and advanced threat intelligence to safeguard
-            your digital ecosystem across cloud, applications, networks, and endpoints.
-          </p> */}
+          <p className="text-white/70 text-[16px] leading-[28px] max-w-[520px] mt-4">
+            With certified experts, proven methodologies, and strong regional delivery capabilities, we help enterprises unlock agility, optimize costs, strengthen security, and achieve measurable business outcomes.
+          </p> 
 
           {/* BUTTONS */}
           <div className="flex items-center gap-4 mt-8">

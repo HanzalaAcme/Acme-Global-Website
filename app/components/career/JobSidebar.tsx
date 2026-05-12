@@ -1,5 +1,5 @@
 import ShareBox from "./ShareBox";
-import ApplyBox from "./ApplyBox";
+//import ApplyBox from "./ApplyBox";
 
 export default function JobSidebar({ meta, date, url }: any) {
   return (
@@ -50,7 +50,7 @@ export default function JobSidebar({ meta, date, url }: any) {
       <ShareBox url={url} />
 
       {/* APPLY BOX */}
-      <ApplyBox url={url} />
+      {/* <ApplyBox url={url} /> */}
 
     </div>
   );

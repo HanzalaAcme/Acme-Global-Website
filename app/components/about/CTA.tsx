@@ -11,10 +11,12 @@ export default function ImageText() {
       transition={{ duration: 1 }}
     >
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-4">Ready to Transform Your IT Strategy?</h2>
-        <p className="text-lg mb-8">Discover how ACME Global Hub can help your organization scale, secure, <br />
-and optimize digital operations through Everything-as-a-Service.</p>
-        <button className="px-4 py-2 bg-[#155DFC] text-[#FFFFFF] font-semibold rounded-lg hover:bg-blue-400 transition">
+        <h2 className="font-playfair text-[38px] font-extrabold mb-4">Ready to Transform Your IT Strategy?</h2>
+        <p className="text-lg mb-8 text-[#FFFFFF]/75">
+          Discover how ACME Global Hub can help your organization scale, secure, <br />
+          and optimize digital operations through Everything-as-a-Service.
+        </p>
+        <button className="px-4 py-2 bg-[#FFFFFF] text-[#155DFC] font-semibold rounded-lg hover:bg-blue-400 transition">
           Get Started Today
         </button>
       </div>

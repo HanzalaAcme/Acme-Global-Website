@@ -5,10 +5,19 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
 const playfair = localFont({
-  src: "../public/fonts/PlayfairDisplay-VariableFont_wght.ttf",
-  weight: "600 700 800",
+  src: [
+    {
+      path: "../public/fonts/PlayfairDisplay-VariableFont_wght.ttf",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf",
+      style: "italic",
+    },
+  ],
   variable: "--font-playfair",
   fallback: ["Playfair Display", "georgia", "New Times Roman", "serif"],
+  display: "swap",
 });
 
 const Dm_Sans = localFont({
@@ -33,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${Dm_Sans.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="overflow-x-hidden min-h-full flex flex-col">
         <Navbar />
         {children}
         <Footer />

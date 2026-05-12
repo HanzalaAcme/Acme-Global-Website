@@ -10,54 +10,23 @@ export function parseJob(content: string) {
     salary: "",
     industry: "",
     department: "",
-    benefits: [] as { title: string; desc: string }[],
   };
-
-  let isBenefits = false;
 
   lines.forEach((line) => {
     const l = line.toLowerCase();
 
-    if (l.startsWith("location"))
-      meta.location = line.split(":")[1]?.trim();
-
-    if (l.startsWith("type"))
-      meta.type = line.split(":")[1]?.trim();
-
-    if (l.startsWith("mode"))
-      meta.mode = line.split(":")[1]?.trim();
-
-    if (l.startsWith("experience"))
-      meta.experience = line.split(":")[1]?.trim();
-
-    if (l.startsWith("salary"))
-      meta.salary = line.split(":")[1]?.trim();
-
-    if (l.startsWith("industry"))
-      meta.industry = line.split(":")[1]?.trim();
-
-    if (l.startsWith("department"))
-      meta.department = line.split(":")[1]?.trim();
-
-    // 🔥 START BENEFITS BLOCK
-    if (l.startsWith("benefits")) {
-      isBenefits = true;
-      return;
-    }
-
-    // 🔥 PARSE BENEFITS LINES
-    if (isBenefits && line.length > 0) {
-      const parts = line.split("-");
-
-      meta.benefits.push({
-        title: parts[0]?.trim() || "",
-        desc: parts[1]?.trim() || "",
-      });
-    }
+    if (l.startsWith("location")) meta.location = line.split(":")[1]?.trim();
+    if (l.startsWith("type")) meta.type = line.split(":")[1]?.trim();
+    if (l.startsWith("mode")) meta.mode = line.split(":")[1]?.trim();
+    if (l.startsWith("experience")) meta.experience = line.split(":")[1]?.trim();
+    if (l.startsWith("salary")) meta.salary = line.split(":")[1]?.trim();
+    if (l.startsWith("industry")) meta.industry = line.split(":")[1]?.trim();
+    if (l.startsWith("department")) meta.department = line.split(":")[1]?.trim();
   });
 
   return meta;
 }
+
 export function cleanContent(html: string) {
   return html
     .split("\n")
@@ -69,8 +38,7 @@ export function cleanContent(html: string) {
         !line.toLowerCase().includes("experience:") &&
         !line.toLowerCase().includes("salary:") &&
         !line.toLowerCase().includes("industry:") &&
-        !line.toLowerCase().includes("department:") 
-     
+        !line.toLowerCase().includes("department:")
     )
     .join("\n");
 }
@@ -92,6 +60,5 @@ export function parseJobMeta(html: string) {
     salary: get("Salary"),
     industry: get("Industry"),
     department: get("Department"),
-    benefits: get("Benefits").split(",").map((b) => b.trim()),
   };
 }

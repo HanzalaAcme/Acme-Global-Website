@@ -1,20 +1,48 @@
 "use client";
 import { useParams } from "next/navigation";
-import CloudService from "@/app/components/DetailedServices/CloudService";
-import CloudCapabilities from "@/app/components/DetailedServices/CloudService/Capabilities";
-//import ApplicationService from "@/components/services/ApplicationService";
-import CyberSecurityCapabilities from "@/app/components/DetailedServices/Cybersecurity/Capabilities";
-import WhyAcme from "@/app/components/DetailedServices/Cybersecurity/Why-acme";
-import CyberHero from "@/app/components/DetailedServices/Cybersecurity/Hero";
+
 import CloudHero from "@/app/components/DetailedServices/CloudService/Hero";
-//import RemoteInfrastructure from "@/components/services/RemoteInfrastructure";
-//import PayDynamics from "@/components/services/PayDynamics";
-//import StaffDynamics from "@/components/services/StaffDynamics";
-import GlobalCapability from "@/app/components/DetailedServices/GlobalCapabilityCenter";
-//import PactRevenue from "@/components/services/PactRevenue";
-//import StaffService from "@/components/services/StaffServices";
-import Navbar from "@/app/components/layout/Navbar";
-import Footer from "@/app/components/layout/Footer";
+import WhyChooseACME from "@/app/components/DetailedServices/CloudService/Why-acme";
+import CloudPlatforms  from "@/app/components/DetailedServices/CloudService/CloudPlatforms";
+import CloudCTA from "@/app/components/DetailedServices/CloudService/CTA"
+
+
+import ApplicationHero from "@/app/components/DetailedServices/ApplicationService/Hero";
+import ApplicationCTA from "@/app/components/DetailedServices/ApplicationService/CTA"
+
+import CyberSecurityCapabilities from "@/app/components/DetailedServices/CybersecurityService/Capabilities";
+import WhyAcme from "@/app/components/DetailedServices/CybersecurityService/Why-acme";
+import CyberHero from "@/app/components/DetailedServices/CybersecurityService/Hero";
+import CyberCTA from "@/app/components/DetailedServices/CybersecurityService/CTA";
+
+import RemoteInfrastructureHero from "@/app/components/DetailedServices/RemoteInfrastructure/Hero";
+import RemoteCTA from "@/app/components/DetailedServices/RemoteInfrastructure/CTA";
+
+import GCCHero from "@/app/components/DetailedServices/GCC/Hero";
+import GCCCTA from "@/app/components/DetailedServices/GCC/CTA";
+
+import StaffAugmentationHero from "@/app/components/DetailedServices/StaffAugmentationService/Hero";
+import StaffCTA from "@/app/components/DetailedServices/StaffAugmentationService/CTA";
+
+import ERPHero from "@/app/components/DetailedServices/ERPPlatforms/Hero";
+import ERPCTA from "@/app/components/DetailedServices/ERPPlatforms/CTA";
+
+import ManagedITServicesHero from "@/app/components/DetailedServices/ManagedITServices/Hero";
+import ManagedCTA from "@/app/components/DetailedServices/ManagedITServices/CTA";
+
+import RaaSHero from "@/app/components/DetailedServices/RaaS/Hero";
+import RaaSCTA from "@/app/components/DetailedServices/RaaS/CTA";
+
+import PactRevenuHero from "@/app/components/DetailedServices/PactRevenu/Hero";
+import PactCTA from "@/app/components/DetailedServices/PactRevenu/CTA";
+
+import StaffDynamicsHero from "@/app/components/DetailedServices/StaffDynamics/Hero";
+import StaffDynamicsCTA from "@/app/components/DetailedServices/StaffDynamics/CTA";
+
+import PayDynamicsHero from "@/app/components/DetailedServices/PayDynamics/Hero";
+import PayDynamicsCTA from "@/app/components/DetailedServices/PayDynamics/CTA";
+
+
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -24,32 +52,103 @@ export default function ServicePage() {
       return (
     <>
       <CloudHero />
-      <CloudCapabilities />
-      <WhyAcme />
+      <WhyChooseACME />
+      <CloudPlatforms />
+      <CloudCTA />
     </>
   );
-    //case "application-services":
-      //return <ApplicationService />;
+
+      case "application-services":
+      return (
+    <>
+      <ApplicationHero />
+      <ApplicationCTA />
+    </>
+  );
+    
     case "cyber-security":
        return (
     <>
       <CyberHero />
       <CyberSecurityCapabilities />
       <WhyAcme />
+      <CyberCTA />
     </>
   );
-    //case "remote-infrastructure":
-      //return <RemoteInfrastructure />;
-   // case "paydynamics":
-     // return <PayDynamics />;
-   // case "staffdynamics":
-    //  return <StaffDynamics />;
-    case "global-capability-center":
-      return <GlobalCapability />;
-   // case "pact-revenue-plus":
-    //  return <PactRevenue />;
-    //case "staff-augmentation-services":
-     // return <StaffService />;
+
+    case "remote-infrastructure":
+       return (
+    <>
+      <RemoteInfrastructureHero />
+      <RemoteCTA />
+    </>
+  );
+
+    
+     case "global-capability-center":
+       return (
+    <>
+      <GCCHero />
+      <GCCCTA />
+    </>
+  );
+
+     case "staff-augmentation-services":
+       return (
+    <>
+      <StaffAugmentationHero />
+      <StaffCTA />
+    </>
+  );
+
+     case "erp-business-platforms":
+       return (
+    <>
+      <ERPHero />
+      <ERPCTA />
+    </>
+  );
+
+     case "managed-it-services":
+       return (
+    <>
+      <ManagedITServicesHero />
+      <ManagedCTA />
+    </>
+  );
+
+     case "recruitment-as-a-service":
+       return (
+    <>
+      <RaaSHero />
+      <RaaSCTA />
+    </>
+  );
+
+     case "pact-revenue-plus":
+       return (
+    <>
+      <PactRevenuHero />
+      <PactCTA />
+    </>
+  );
+
+     case "staffdynamics":
+       return (
+    <>
+      <StaffDynamicsHero />
+      <StaffDynamicsCTA />
+    </>
+  );
+
+     case "paydynamics":
+       return (
+    <>
+      <PayDynamicsHero />
+      <PayDynamicsCTA />
+    </>
+  );
+
     default:
       return (
         <div className="min-h-screen flex items-center justify-center">

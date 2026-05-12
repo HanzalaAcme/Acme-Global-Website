@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Target } from "lucide-react";
 import Image from "next/image";
 
 const faqs = [
@@ -34,12 +35,12 @@ export default function FAQSection() {
       <div className="max-w-[1300px] mx-auto grid lg:grid-cols-2 gap-[60px] items-center">
 
         {/* LEFT IMAGE */}
-        <div className="w-full rounded-[28px] overflow-hidden">
+        <div className="w-full h-[320px] lg:h-[480px] rounded-[20px] overflow-hidden">
           <Image
             src="/media/FAQ.jpeg"
-            alt="faq"
-            width={650}
-            height={520}
+            alt="FAQ Image"
+            width={700}
+            height={500}
             className="w-full h-full object-cover"
           />
         </div>
@@ -49,7 +50,7 @@ export default function FAQSection() {
 
           {/* LABEL */}
           <div className="flex items-center gap-2 text-[#2563EB] text-[13px] tracking-[2px] uppercase mb-4">
-            <span>◎</span>
+            <Target className="w-[15px] h-[15px]" />
             <span>Frequently Asked Questions</span>
           </div>
 

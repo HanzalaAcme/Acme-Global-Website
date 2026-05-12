@@ -2,9 +2,7 @@ import JobHero from "@/app/components/career/JobHero";
 import JobContent from "@/app/components/career/JobContent";
 import JobSidebar from "@/app/components/career/JobSidebar";
 import JobCTA from "@/app/components/career/JobCTA";
-//import Benefits from "@/app/components/career/Benefits";
 import { parseJob, cleanContent } from "@/lib/parsejob";
-import Benefits from "@/app/components/career/Benefits";
 
 async function getJob(slug: string) {
   const res = await fetch(
@@ -46,9 +44,6 @@ export default async function Page({
           {/* LEFT CONTENT */}
           <div className="col-span-12 lg:col-span-8">
             <JobContent content={content} />
-           {/*} {meta.benefits.length > 0 && (
-            <Benefits items={meta.benefits} />
-              )} */}
           </div>
           
 
