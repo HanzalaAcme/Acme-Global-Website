@@ -1,3 +1,4 @@
+"use client"
 import ApplyForm from "@/app/components/career/ApplyForm";
 
 export default function ApplyPage() {
