@@ -1,9 +1,11 @@
-"use client"
+import { Suspense } from "react";
+
 import ApplyForm from "@/app/components/career/ApplyForm";
 
 export default function ApplyPage() {
 
   return (
+
     <main className="bg-[#F5F7FB] min-h-screen py-[120px] px-6">
 
       <div className="max-w-4xl mx-auto">
@@ -27,7 +29,9 @@ export default function ApplyPage() {
         </div>
 
         {/* FORM */}
-        <ApplyForm />
+        <Suspense fallback={<div />}>
+          <ApplyForm />
+        </Suspense>
 
       </div>
 
