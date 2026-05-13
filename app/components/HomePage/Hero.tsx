@@ -99,9 +99,7 @@ export default function Hero() {
           "
         >
 
-          {/* =========================
-              LEFT CONTENT
-          ========================= */}
+          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -256,9 +254,7 @@ export default function Hero() {
 
           </motion.div>
 
-          {/* =========================
-              RIGHT IMAGE
-          ========================= */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}

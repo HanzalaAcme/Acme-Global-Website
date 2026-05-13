@@ -5,128 +5,408 @@ import { motion } from "framer-motion";
 import { Check, Shield } from "lucide-react";
 import Link from "next/link";
 
+const features = [
+  "Everything-as-a-Service (XaaS) delivery",
+  "Cloud-first and security-driven architecture",
+  "Flexible pricing with scalable service plans",
+  "Global delivery backed by regional expertise",
+];
+
 export default function AboutSection() {
   return (
-    <section className="bg-[#FFFFFF] py-24 px-6 lg:px-20">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <section
+      className="
+        relative
+        overflow-hidden
 
-        {/* LEFT IMAGES */}
-        <div className="relative w-full h-[520px]">
+        bg-[#FFFFFF]
+
+        py-[80px]
+        md:py-[100px]
+        lg:py-[120px]
+
+        px-5
+        sm:px-6
+        lg:px-20
+      "
+    >
+
+      {/* BACKGROUND GLOW */}
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+
+          w-[500px]
+          h-[500px]
+
+          bg-[radial-gradient(circle_at_100%_0%,rgba(46,102,255,0.06),transparent_45%)]
+
+          pointer-events-none
+        "
+      />
+
+      <div
+        className="
+          relative
+          z-10
+
+          max-w-[1320px]
+          mx-auto
+
+          grid
+          lg:grid-cols-2
+
+          gap-[70px]
+          xl:gap-[90px]
+
+          items-center
+        "
+      >
+
+        {/* =========================
+            LEFT IMAGE SECTION
+        ========================= */}
+        <div
+          className="
+            relative
+
+            w-full
+
+            h-[420px]
+            sm:h-[500px]
+            lg:h-[560px]
+
+            max-w-[620px]
+
+            mx-auto
+            lg:mx-0
+          "
+        >
 
           {/* BIG IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute left-0 top-0 w-[340px] h-[340px] rounded-3xl overflow-hidden"
+
+            transition={{
+              duration: 0.7,
+              ease: "easeOut",
+            }}
+
+            viewport={{ once: true }}
+
+            className="
+              absolute
+
+              left-0
+              top-0
+
+              w-[78%]
+              sm:w-[72%]
+
+              h-[280px]
+              sm:h-[360px]
+              lg:h-[400px]
+
+              rounded-[28px]
+
+              overflow-hidden
+
+              shadow-[0_20px_60px_rgba(0,0,0,0.12)]
+            "
           >
+
             <Image
               src="/media/About_us1.avif"
-              alt="about"
+              alt="ACME Global Enterprise Services"
+
               fill
-              className="object-cover"
+
+              priority
+
+              className="
+                object-cover
+              "
             />
+
           </motion.div>
 
-          {/* SMALL OVERLAY IMAGE */}
+          {/* SMALL IMAGE */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute bottom-0 left-[40%] w-[285px] h-[260px] rounded-2xl overflow-hidden border-[4px] border-white shadow-xl"
+
+            transition={{
+              duration: 0.7,
+              delay: 0.2,
+              ease: "easeOut",
+            }}
+
+            viewport={{ once: true }}
+
+            className="
+              absolute
+
+              bottom-0
+              right-0
+
+              w-[68%]
+              sm:w-[58%]
+
+              h-[220px]
+              sm:h-[260px]
+              lg:h-[290px]
+
+              rounded-[24px]
+
+              overflow-hidden
+
+              border-[6px]
+              border-white
+
+              shadow-[0_20px_50px_rgba(0,0,0,0.15)]
+            "
           >
+
             <Image
               src="/media/About_us2.avif"
-              alt="about"
+              alt="Digital Transformation"
+
               fill
-              className="object-cover"
+
+              className="
+                object-cover
+              "
             />
+
           </motion.div>
 
         </div>
 
         {/* RIGHT CONTENT */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
 
-          {/* TOP LABEL */}
-          <div className="flex items-center gap-2 text-[#2E66FF] text-[12px] font-semibold mb-4">
-          
-            <Shield className="w-5 h-5 text-[#2E66FF]" />
-            <span>ABOUT ACME GLOBAL HUB</span>
+          transition={{
+            duration: 0.7,
+            ease: "easeOut",
+          }}
+
+          viewport={{ once: true }}
+
+          className="
+            w-full
+          "
+        >
+
+          {/* LABEL */}
+          <div
+            className="
+              flex
+              items-center
+
+              gap-2
+
+              text-[#2E66FF]
+
+              text-[12px]
+
+              font-semibold
+
+              tracking-[1.5px]
+
+              uppercase
+
+              mb-5
+            "
+          >
+
+            <Shield className="w-5 h-5" />
+
+            <span>About ACME Global Hub</span>
+
           </div>
 
           {/* HEADING */}
-          <h2 className="font-playfair text-[35px] leading-[1.2] font-bold text-gray-900">
+          <h2
+            className="
+              font-playfair
+
+              text-[#0B1120]
+
+              font-bold
+
+              leading-[1.15]
+
+              text-[34px]
+              sm:text-[36px]
+              lg:text-[40px]
+            "
+          >
             A Smarter Way to Consume
           </h2>
 
-          <h2 className="font-playfair text-[35px] leading-[1.2] font-bold text-[#2E66FF] mt-2">
+          <h2
+            className="
+              font-playfair
+
+              text-[#2E66FF]
+
+              font-bold
+
+              leading-[1.15]
+
+              mt-2
+
+              text-[34px]
+              sm:text-[42px]
+              lg:text-[36px]
+            "
+          >
             Enterprise IT Services
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="font-Dm_Sans text-[#5E6E90] text-Regular mt-6 text-[16px] leading-[28px] max-w-xl">
-            ACME Global Hub enables organizations to access critical digital
-            capabilities as scalable, subscription-based services. Our XaaS
-            approach replaces rigid IT models with flexible solutions that
-            support cloud adoption, operational efficiency, and long-term
-            digital transformation across regional and global markets.
+          <p
+            className="
+              mt-7
+
+              text-[#5E6E90]
+
+              text-[15px]
+              sm:text-[16px]
+
+              leading-[30px]
+
+              max-w-[650px]
+            "
+          >
+            ACME Global Hub enables organizations to access critical
+            digital capabilities as scalable, subscription-based
+            services. Our XaaS approach replaces rigid IT models
+            with flexible solutions that support cloud adoption,
+            operational efficiency, and long-term digital
+            transformation across regional and global markets.
           </p>
 
-          {/* FEATURES GRID */}
-          <div className="grid grid-cols-2 gap-y-4 gap-x-8 mt-8 text-Regular text-[#0B1120] text-[14px] leading-[24px]">
+          {/* FEATURES */}
+          <div
+            className="
+              grid
+              sm:grid-cols-2
 
-            {/* ITEM */}
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[#00B89C]/12 flex items-center justify-center">
-                <Check className="w-3 h-3 text-[#00B89C]" />
-              </div>
-              <p>Everything-as-a-Service (XaaS) delivery</p>
-            </div>
+              gap-x-8
+              gap-y-5
 
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[#00B89C]/12 flex items-center justify-center">
-                <Check className="w-3 h-3 text-[#00B89C]" />
-              </div>
-              <p>Cloud-first and security-driven architecture</p>
-            </div>
+              mt-10
+            "
+          >
 
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[#00B89C]/12 flex items-center justify-center">
-                <Check className="w-3 h-3 text-[#00B89C]" />
-              </div>
-              <p>Flexible pricing with scalable service plans</p>
-            </div>
+            {features.map((item, index) => (
 
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[#00B89C]/12 flex items-center justify-center">
-                <Check className="w-3 h-3 text-[#00B89C]" />
+              <div
+                key={index}
+
+                className="
+                  flex
+                  items-start
+
+                  gap-3
+                "
+              >
+
+                {/* ICON */}
+                <div
+                  className="
+                    w-7
+                    h-7
+
+                    rounded-[8px]
+
+                    bg-[#00B89C]/12
+
+                    flex
+                    items-center
+                    justify-center
+
+                    shrink-0
+
+                    mt-[2px]
+                  "
+                >
+
+                  <Check
+                    className="
+                      w-4
+                      h-4
+
+                      text-[#00B89C]
+                    "
+                  />
+
+                </div>
+
+                {/* TEXT */}
+                <p
+                  className="
+                    text-[#0B1120]
+
+                    text-[14px]
+                    sm:text-[15px]
+
+                    leading-[26px]
+                  "
+                >
+                  {item}
+                </p>
+
               </div>
-              <p>Global delivery backed by regional expertise</p>
-            </div>
+
+            ))}
 
           </div>
 
           {/* BUTTON */}
           <Link
             href="/about"
-            className="inline-block mt-6 px-6 py-3 rounded-lg text-white 
-            bg-[#1A4FD6]
 
-            shadow-[0_4px_12px_rgba(26,79,214,0.25)]
+            className="
+              inline-flex
+              items-center
+              justify-center
 
-            hover:bg-[#2E66FF]
-            hover:-translate-y-[2px]
-            hover:shadow-[0_12px_30px_rgba(26,79,214,0.45)]
+              mt-10
 
-            transition-all duration-300"
+              px-7
+              py-4
+
+              rounded-xl
+
+              bg-[#1A4FD6]
+              hover:bg-[#2E66FF]
+
+              text-white
+              font-semibold
+
+              transition-all
+              duration-300
+
+              shadow-[0_4px_12px_rgba(26,79,214,0.25)]
+              hover:shadow-[0_12px_30px_rgba(26,79,214,0.4)]
+
+              hover:-translate-y-[2px]
+            "
           >
             Learn More About Us
           </Link>
 
-        </div>
+        </motion.div>
 
       </div>
+
     </section>
   );
 }
