@@ -60,7 +60,7 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP MENU */}
-          <ul className="hidden lg:flex items-center gap-6 xl:gap-10 text-[#0B1120] font-medium text-[14px]">
+          <ul className="hidden lg:flex items-center gap-10 xl:gap-10 text-[#0B1120] font-medium text-[14px]">
 
             {navItems.map((item, i) => {
               const isActive = isItemActive(item.href);
