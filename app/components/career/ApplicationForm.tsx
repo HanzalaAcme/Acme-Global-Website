@@ -41,7 +41,7 @@ export default function ApplicationForm({
 
       setTimeout(() => {
         onClose();
-      }, 4000);
+      }, 3000);
     } catch (err) {
       setError("Failed to submit. Please try again.");
     }
@@ -105,14 +105,14 @@ export default function ApplicationForm({
                   Drag & drop your resume here
                 </p>
                 <p className="text-xs text-gray-400 mb-3">
-                  PDF only, max 5MB
+                  PDF, DOX & DOCX, max 5MB
                 </p>
 
                 <label className="cursor-pointer text-blue-600 font-medium">
                   Browse File
                   <input
                     type="file"
-                    accept=".pdf"
+                    accept=".pdf , .dox , .docx"
                     className="hidden"
                     onChange={handleFileChange}
                     required
@@ -145,7 +145,7 @@ export default function ApplicationForm({
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-blue-700 cursor-pointer transition"
           >
             {loading ? (
               <>

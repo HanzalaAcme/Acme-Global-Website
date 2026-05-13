@@ -6,62 +6,335 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="bg-[#0B1120] min-h-screen flex items-center px-6 lg:px-20 relative overflow-hidden">
+    <section
+      className="
+        relative
+        overflow-hidden
 
-      <div className="pt-[72px] grid lg:grid-cols-2 gap-8 items-center w-full max-w-7xl mx-auto pl-10">
+        bg-[#0B1120]
 
-        {/* LEFT */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+        min-h-screen
+
+        flex
+        items-center
+
+        px-6
+        lg:px-20
+
+        pt-[110px]
+        pb-[70px]
+      "
+    >
+
+      {/* GRID BACKGROUND */}
+      <div
+        className="
+          absolute
+          inset-0
+
+          opacity-[0.06]
+
+          bg-[linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)]
+
+          bg-[size:60px_60px]
+
+          pointer-events-none
+        "
+      />
+
+      {/* LEFT GLOW */}
+      <div
+        className="
+          absolute
+          left-0
+          top-0
+
+          w-[700px]
+          h-[700px]
+
+          bg-[radial-gradient(circle_at_0%_20%,rgba(0,180,255,0.18),transparent_38%)]
+
+          pointer-events-none
+        "
+      />
+
+      {/* RIGHT GLOW */}
+      <div
+        className="
+          absolute
+          right-0
+          bottom-0
+
+          w-[500px]
+          h-[500px]
+
+          bg-[radial-gradient(circle_at_100%_100%,rgba(46,102,255,0.14),transparent_40%)]
+
+          pointer-events-none
+        "
+      />
+
+      {/* CONTENT */}
+      <div
+        className="
+          relative
+          z-10
+
+          w-full
+
+          max-w-[1320px]
+          mx-auto
+        "
+      >
+
+        <div
+          className="
+            grid
+            lg:grid-cols-2
+
+            gap-[50px]
+            xl:gap-[80px]
+
+            items-center
+          "
         >
-          <h1 className="font-playfair text-[#FFFFFF] font-extrabold text-[54px] leading-tight">
-            Transform Your Business with{" "}
-            <span className="text-[#7AADFF] text-extrabold">
-              Complete XaaS Solutions
-            </span>
-          </h1>
 
-          <p className=" text-[#FFFFFF]/60 mt-6 max-w-lg text-[17px] leading-[30px]">
-            Unlock unlimited potential with our comprehensive <br />
-            Everything-as-a-Service platform that revolutionizes how <br />
-            you operate, scale, and succeed
-          </p>
+          {/* =========================
+              LEFT CONTENT
+          ========================= */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              ease: "easeOut",
+            }}
 
-          {/* BUTTON */}
-          <Link
-            href="/service"
-            className="inline-block mt-6 px-6 py-3 rounded-lg text-white 
-            bg-[#1A4FD6]
-
-            shadow-[0_4px_12px_rgba(26,79,214,0.25)]
-
-            hover:bg-[#2E66FF]
-            hover:-translate-y-[2px]
-            hover:shadow-[0_12px_30px_rgba(26,79,214,0.45)]
-
-            transition-all duration-300"
+            className="
+              text-center
+              lg:text-left
+            "
           >
-            Explore Solutions
-          </Link>
-        </motion.div>
 
-        {/* RIGHT IMAGE */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="relative"
-        >
-          <Image
-            src="/media/Image 1 (720x720px).png"  
-            alt="hero"
-            width={600}
-            height={500}
-            className="rounded-xl opacity-80"
-          />
-        </motion.div>
+           
+
+            {/* HEADING */}
+            <h1
+              className="
+                font-playfair
+
+                text-white
+
+                font-extrabold
+
+                leading-[1.1]
+
+                text-[40px]
+                sm:text-[52px]
+                lg:text-[60px]
+                xl:text-[68px]
+              "
+            >
+
+              Transform Your Business with{" "}
+
+              <span
+                className="
+                  text-[#7AADFF]
+                "
+              >
+                Complete XaaS Solutions
+              </span>
+
+            </h1>
+
+            {/* DESCRIPTION */}
+            <p
+              className="
+                text-white/65
+
+                mt-6
+
+                text-[15px]
+                sm:text-[17px]
+
+                leading-[30px]
+
+                max-w-[620px]
+
+                mx-auto
+                lg:mx-0
+              "
+            >
+              Unlock unlimited potential with our comprehensive
+              Everything-as-a-Service platform that revolutionizes
+              how you operate, scale, and succeed.
+            </p>
+
+            {/* BUTTONS */}
+            <div
+              className="
+                mt-8
+
+                flex
+                flex-wrap
+
+                items-center
+
+                gap-4
+
+                justify-center
+                lg:justify-start
+              "
+            >
+
+              {/* PRIMARY BUTTON */}
+              <Link
+                href="/service"
+
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+
+                  px-7
+                  py-4
+
+                  rounded-xl
+
+                  bg-[#1A4FD6]
+                  hover:bg-[#2E66FF]
+
+                  text-white
+                  font-semibold
+
+                  transition-all
+                  duration-300
+
+                  shadow-[0_4px_12px_rgba(26,79,214,0.25)]
+                  hover:shadow-[0_12px_30px_rgba(26,79,214,0.45)]
+
+                  hover:-translate-y-[2px]
+                "
+              >
+                Explore Solutions
+              </Link>
+
+              {/* SECONDARY BUTTON */}
+              <Link
+                href="/contact"
+
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+
+                  px-7
+                  py-4
+
+                  rounded-xl
+
+                  border
+                  border-white/12
+
+                  bg-white/5
+                  hover:bg-white/10
+
+                  text-white
+                  font-semibold
+
+                  backdrop-blur-sm
+
+                  transition-all
+                  duration-300
+                "
+              >
+                Talk to Experts
+              </Link>
+
+            </div>
+
+          </motion.div>
+
+          {/* =========================
+              RIGHT IMAGE
+          ========================= */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+            }}
+
+            className="
+              relative
+
+              flex
+              justify-center
+              lg:justify-end
+            "
+          >
+
+            {/* IMAGE GLOW */}
+            <div
+              className="
+                absolute
+
+                inset-0
+
+                blur-[100px]
+
+                bg-[radial-gradient(circle,rgba(46,102,255,0.22),transparent_60%)]
+
+                pointer-events-none
+              "
+            />
+
+            {/* IMAGE WRAPPER */}
+            <div
+              className="
+                relative
+
+                w-full
+                max-w-[620px]
+
+                rounded-[28px]
+
+                overflow-hidden
+              "
+            >
+
+              <Image
+                src="/media/Image 1 (720x720px).png"
+                alt="ACME Global XaaS Platform"
+
+                width={720}
+                height={720}
+
+                priority
+
+                className="
+                  w-full
+                  h-auto
+
+                  object-contain
+
+                  rounded-[28px]
+
+                  opacity-95
+                "
+              />
+
+            </div>
+
+          </motion.div>
+
+        </div>
 
       </div>
+
     </section>
   );
 }

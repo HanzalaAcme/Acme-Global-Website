@@ -52,7 +52,7 @@ export default function CyberSecurityCapabilities() {
       <div className="max-w-[1300px] mx-auto">
 
         {/* LABEL */}
-        <div className="flex justify-center items-center gap-2 text-[#2E66FF] text-[12px] tracking-[2px] uppercase mb-4">
+        <div className="flex justify-center font-bold items-center gap-2 text-[#2E66FF] text-[12px] tracking-[1px] uppercase mb-4">
           <Shield className="w-4 h-4" />
           <span>Our Core Cybersecurity Capabilities</span>
         </div>
@@ -77,9 +77,8 @@ export default function CyberSecurityCapabilities() {
               hover:shadow-[0_12px_30px_rgba(46,102,255,0.15)]"
             >
 
-              {/* 🔵 TOP BORDER EFFECT */}
+              {/*  TOP BORDER EFFECT */}
               <div className="absolute inset-0 rounded-[18px] pointer-events-none">
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-transparent group-hover:bg-[#2E66FF] transition-all duration-300"></div>
                 <div className="absolute inset-0 border border-transparent group-hover:border-[#2E66FF] rounded-[18px] transition-all duration-300"></div>
               </div>
 
@@ -113,7 +112,6 @@ export default function CyberSecurityCapabilities() {
 
             {/* BORDER EFFECT */}
             <div className="absolute inset-0 rounded-[18px] pointer-events-none">
-              <div className="absolute top-0 left-0 w-full h-[3px] bg-transparent group-hover:bg-[#2E66FF] transition-all duration-300"></div>
               <div className="absolute inset-0 border border-transparent group-hover:border-[#2E66FF] rounded-[18px] transition-all duration-300"></div>
             </div>
 

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import ScrollToJobsButton  from "@/app/components/ScrollToJobsButton";
 
 export default function AboutHero() {
   return (
@@ -50,12 +51,17 @@ export default function AboutHero() {
               Careers at ACME Global — Innovate with Impact.
             </p>
             {/* Button */}
-            <Link
-              href="#open-positions"
-              className="inline-block bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-xl font-medium shadow-lg mb-8"
+           <ScrollToJobsButton
+              className="
+                px-6 py-3
+                bg-[#1A4FD6]
+                text-white
+                rounded-xl
+                cursor-pointer
+              "
             >
-              See Open Roles
-            </Link>
+              View All Roles
+            </ScrollToJobsButton>
 
             {/* BREADCRUMB */}
             <div className="text-sm text-white/60 flex items-center gap-2">

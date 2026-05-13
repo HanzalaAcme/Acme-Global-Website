@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock } from "lucide-react"; 
-import BlogEnhancements from "../../components/BlogEnhancements"; 
+import BlogEnhancements from "../../components/blog/BlogEnhancements"; 
 
 async function getPost(slug: string) {
   const res = await fetch(

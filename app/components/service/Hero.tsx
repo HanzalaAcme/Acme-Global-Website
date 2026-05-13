@@ -54,7 +54,7 @@ export default function Hero() {
 
           {/* CTA */}
           <Link
-            href="/service"
+            href="#services"
             className="inline-block mt-8 px-6 py-3 rounded-lg text-white 
               bg-[#1A4FD6]
               shadow-[0_4px_12px_rgba(26,79,214,0.25)]

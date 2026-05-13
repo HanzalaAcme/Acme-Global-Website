@@ -33,6 +33,11 @@ export default function Navbar() {
       return true;
     }
 
+    //service detail page
+    if (href === "/service" && pathname.startsWith("/services/")) {
+      return true;
+    }
+
     return false;
   };
 

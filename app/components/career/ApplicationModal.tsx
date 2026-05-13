@@ -16,7 +16,7 @@ export default function ApplicationModal({
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500"
+          className="absolute top-4 right-4 text-gray-500 cursor-pointer"
         >
           ✕
         </button>

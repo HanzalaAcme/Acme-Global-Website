@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Blog from "@/app/components/blog/Hero"
+import CTA from "@/app/components/blog/CTA";
 
 export default function BlogsPage() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -25,16 +27,17 @@ export default function BlogsPage() {
   }, [page]);
 
   return (
-    <section className="py-20 px-6 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto">
+          <>
+          {/* HERO */}
+          <Blog />
+            
+          
+          <section className="py-20 px-6 bg-[#F8FAFC]">
+          <div className="max-w-7xl mx-auto">
+        
 
-        {/* HEADING */}
-        <h1 className="text-center text-[42px] font-playfair font-bold mb-14">
-          Our <span className="text-[#2E66FF]">Blogs</span>
-        </h1>
-
-        {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+         {/* GRID */}
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {posts.map((post: any) => (
             <Link key={post.ID} href={`/blogs/${post.slug}`}>
@@ -58,12 +61,12 @@ export default function BlogsPage() {
 
                   {/* TITLE */}
                   <h3
-                    className="font-semibold text-[16px] leading-[24px] text-[#0B1120]"
+                    className="font-bold text-[16px] leading-[24px] text-[#0B1120]"
                     dangerouslySetInnerHTML={{ __html: post.title }}
                   />
 
                   {/* READ MORE */}
-                  <div className="flex items-center gap-2 text-[#2E66FF] text-[14px] font-medium">
+                  <div className="flex items-center gap-2 text-[#2E66FF] text-[14px] font-bold">
 
                     <span>Read more</span>
 
@@ -106,5 +109,7 @@ export default function BlogsPage() {
 
       </div>
     </section>
+    <CTA />
+    </>
   );
 }

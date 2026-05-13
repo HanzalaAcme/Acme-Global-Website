@@ -8,7 +8,7 @@ type Benefit = {
 export default function Benefits({ items = [] }: { items?: Benefit[] }) {
   const icons = [Shield, Activity, Briefcase, Users];
 
-  if (!items.length) return null; // ✅ avoid crash
+  if (!items.length) return null; // avoid crash
 
   return (
     <div className="mt-16">

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function AboutHero() {
+export default function Hero() {
   return (
     //<section className="relative bg-[#07142A] pt-[72px] min-h-[520px] overflow-hidden">
        <section className="w-full min-h-[500px] bg-[#07142A] pt-[72px] 

@@ -23,8 +23,8 @@ export default async function Page({
 
   if (!job) return <div>Job not found</div>;
 
-  const meta = parseJob(job.content);          // ✅ META
-  const content = cleanContent(job.content);   // ✅ FIXED
+  const meta = parseJob(job.content);          
+  const content = cleanContent(job.content);   
   const date = new Date(job.date).toLocaleDateString("en-GB");
 
   return (
@@ -44,7 +44,20 @@ export default async function Page({
           {/* LEFT CONTENT */}
           <div className="col-span-12 lg:col-span-8">
             <JobContent content={content} />
+            <div className="mt-12">
+
+            <a
+              href={`/careers/apply?role=${encodeURIComponent(job.title.replace(/<[^>]+>/g, ""))}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#1A4FD6] hover:bg-[#2E66FF] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Apply Now
+            </a>
+
           </div>
+          </div>
+          
           
 
           {/* RIGHT SIDEBAR */}

@@ -7,7 +7,8 @@ import { ArrowRight } from "lucide-react";
 
 export default function Services() {
   return (
-    <section className="py-20 bg-[#F4F6FA]">
+    <section id="services"
+    className="py-20 bg-[#F4F6FA]">
       
       <div className="max-w-[1200px] mx-auto px-[64px]">
 

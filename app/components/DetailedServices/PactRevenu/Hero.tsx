@@ -66,7 +66,7 @@ export default function PactRevenuHero() {
 
             {/* PRIMARY */}
             <Link
-              href="/contact"
+              href="/demo"
               className="
               px-7 py-3 rounded-xl text-white 
               bg-[#2E66FF]

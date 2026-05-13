@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import ScrollToJobsButton from "@/app/components/ScrollToJobsButton";
 import Link from "next/link";
 
 export default function ImageText() {
@@ -15,11 +16,16 @@ export default function ImageText() {
         <h2 className="font-playfair text-[36px] text-3xl font-extrabold mb-4">Looking for More Opportunities?</h2>
         <p className="text-[16px] mb-8">Explore other roles within our organisation and find the position that <br />
             best matches your expertise.</p>
-        <Link href="/careers#open-positions">
-          <button className="px-6 py-3 bg-[#FFFFFF] text-[#155DFC] font-medium rounded-lg  transition cursor-pointer hover:bg-gray-100">
-            View All Openings
-          </button>
-        </Link>
+        <ScrollToJobsButton
+          className="
+            px-6 py-3
+            bg-[#1A4FD6]
+            text-white
+            rounded-xl
+          "
+        >
+          View Open Position
+        </ScrollToJobsButton>
       </div>
     </motion.section>
   );

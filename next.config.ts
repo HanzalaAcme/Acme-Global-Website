@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**.wordpress.com", // ✅ allows all wordpress images
+        hostname: "**.wordpress.com", // allows all wordpress images
       },
     ],
   },

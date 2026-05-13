@@ -56,19 +56,47 @@ export default function JobHero({ title, date, type, mode }: Props) {
 
           <div>Posted on {date}</div>
         </div>
+          {/* BUTTONS */}
+          <div className="flex justify-center gap-4 flex-wrap mb-10">
 
-        {/* BUTTONS */}
-        <div className="flex justify-center gap-4 flex-wrap mb-10">
+            <a
+              href={`/careers/apply?role=${encodeURIComponent(
+                title.replace(/<[^>]+>/g, "")
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex
+                items-center
+                justify-center
 
-          <button className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-xl font-semibold shadow-lg">
-            Apply Now
-          </button>
+                bg-blue-600
+                hover:bg-blue-700
 
-          <Link href="/careers">
+                transition-all
+                duration-300
+
+                px-6
+                py-3
+
+                rounded-xl
+
+                font-semibold
+                shadow-lg
+
+                text-white
+              "
+            >
+              Apply Now
+            </a>
+
+
+
+           <Link href="/careers">
             <button className="bg-white text-gray-800 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition cursor-pointer">
               ← View All Roles
             </button>
-          </Link>
+           </Link>
 
         </div>
 
