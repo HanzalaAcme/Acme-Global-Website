@@ -40,7 +40,7 @@ export default function WhyChooseAcme() {
         <div>
 
           {/* LABEL */}
-          <div className="flex items-center gap-2 text-[#2E66FF] text-[12px] tracking-[2px] uppercase mb-4">
+          <div className="flex items-center gap-2 text-[#2E66FF] text-[12px] tracking-[1px] font-bold uppercase mb-4">
             <Star className="w-4 h-4" />
             <span>Why Corporate Clients Choose ACME Global </span>
           </div>
