@@ -66,7 +66,7 @@ export default function StaffAugmentationHero() {
 
             {/* PRIMARY */}
             <Link
-              href="/contact"
+              href="#req-form"
               className="
               px-7 py-3 rounded-xl text-white 
               bg-[#2E66FF]
@@ -79,7 +79,7 @@ export default function StaffAugmentationHero() {
               transition-all duration-300
             "
             >
-              Request a Demo
+              Request Consulation
             </Link>
 
             {/* SECONDARY */}

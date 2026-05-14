@@ -79,6 +79,7 @@ serviceType,
 
   return (
     <section
+    id="req-form"
       className="
         py-[90px]
         px-6
@@ -554,8 +555,7 @@ serviceType,
                     name="requirements"
                     required
 
-                    placeholder="
-                      Describe your current infrastructure,
+                    placeholder="Describe your current infrastructure,
                       challenges, goals, timelines, or
                       technical requirements...
                     "

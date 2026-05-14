@@ -67,7 +67,7 @@ export default function CyberHero() {
 
             {/* PRIMARY */}
             <Link
-              href="/contact"
+              href="#req-form"
               className="
               px-7 py-3 rounded-xl text-white 
               bg-[#2E66FF]
@@ -80,7 +80,7 @@ export default function CyberHero() {
               transition-all duration-300
             "
             >
-              Request a Demo
+              Request Consultation
             </Link>
 
             {/* SECONDARY */}

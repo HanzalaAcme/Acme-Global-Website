@@ -8,7 +8,7 @@ const platforms = [
   {
     name: "Amazon Web Services AWS – Innovation at Scale",
     desc: "Leverage the world's most comprehensive cloud platform with:",
-    logo: "/media/partners/aws.png",
+    logo: "/media/partners/AWS.png",
     color: "#F59E0B",
     points: [
       "Elastic Compute Cloud (EC2)",
@@ -24,7 +24,7 @@ const platforms = [
   {
     name: "Microsoft Azure – Enterprise Cloud Transformation",
     desc: "Accelerate Microsoft-centric environments with:",
-    logo: "/media/partners/azure.png",
+    logo: "/media/partners/Azure.png",
     color: "#2563EB",
     points: [
       "Azure Virtual Machines",
