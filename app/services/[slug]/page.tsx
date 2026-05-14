@@ -110,7 +110,7 @@ export default function ServicePage() {
      case "staff-augmentation-services":
        return (
     <>
-      <StaffAugmentatio nHero />
+      <StaffAugmentationHero />
       {/*<StaffCTA /> */}
       <RequirementsFormStaffAug serviceType="Staff Augmentation" />
     </>
