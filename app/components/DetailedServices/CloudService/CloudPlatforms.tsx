@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Cloud } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const platforms = [
   {
@@ -10,6 +11,7 @@ const platforms = [
     desc: "Leverage the world's most comprehensive cloud platform with:",
     logo: "/media/partners/AWS.png",
     color: "#F59E0B",
+    href: "/services/cloud-services/aws",
     points: [
       "Elastic Compute Cloud (EC2)",
       "Amazon RDS, Aurora & DynamoDB",
@@ -26,6 +28,7 @@ const platforms = [
     desc: "Accelerate Microsoft-centric environments with:",
     logo: "/media/partners/Azure.png",
     color: "#2563EB",
+    href: "/services/cloud-services/azure",
     points: [
       "Azure Virtual Machines",
       "Microsoft 365 / Entra ID Integration",
@@ -42,6 +45,7 @@ const platforms = [
     desc: "Transform enterprise applications with:",
     logo: "/media/partners/OCI.png",
     color: "#DC2626",
+    href: "/services/cloud-services/oci",
     points: [
       "OCI Compute & Storage",
       "Exadata Cloud Services",
@@ -58,6 +62,7 @@ const platforms = [
     desc: "Drive innovation through:",
     logo: "/media/partners/GCP.png",
     color: "#2563EB",
+    href: "/services/cloud-services/gcp",
     points: [
       "Google Compute Engine",
       "BigQuery Analytics",
@@ -126,137 +131,150 @@ export default function CloudPlatforms() {
         {/* GRID */}
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
 
-          {platforms.map((platform, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.25 }}
+  {platforms.map((platform, index) => (
+
+    <Link
+      key={index}
+      href={platform.href}
+    >
+
+      <motion.div
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.25 }}
+
+        className="
+          group
+
+          bg-white
+
+          border border-[#DFE7F5]
+
+          rounded-[24px]
+
+          p-6
+          sm:p-7
+
+          cursor-pointer
+
+          transition-all
+          duration-300
+
+          hover:border-[#2E66FF]
+          hover:shadow-[0_18px_45px_rgba(46,102,255,0.12)]
+        "
+      >
+
+        {/* TOP */}
+        <div className="flex items-start gap-4 mb-5">
+
+          {/* LOGO */}
+          <div
+            className="
+              w-[62px]
+              h-[62px]
+
+              rounded-[14px]
+
+              bg-[#F8FAFF]
+
+              border border-[#E7ECF6]
+
+              flex
+              items-center
+              justify-center
+
+              shrink-0
+            "
+          >
+
+            <Image
+              src={platform.logo}
+              alt={platform.name}
+              width={38}
+              height={38}
+              className="object-contain"
+            />
+
+          </div>
+
+          {/* CONTENT */}
+          <div>
+
+            <h3
               className="
-                group
+                font-playfair
 
-                bg-white
+                text-[22px]
+                leading-[1.2]
 
-                border border-[#DFE7F5]
+                font-extrabold
+                text-[#0B1120]
 
-                rounded-[24px]
-
-                p-6
-                sm:p-7
-
-                transition-all
-                duration-300
-
-                hover:border-[#2E66FF]
-                hover:shadow-[0_18px_45px_rgba(46,102,255,0.12)]
+                mb-2
               "
             >
+              {platform.name}
+            </h3>
 
-              {/* TOP */}
-              <div className="flex items-start gap-4 mb-5">
+            <p
+              className="
+                text-[14px]
+                text-[#64748B]
+                leading-[24px]
+              "
+            >
+              {platform.desc}
+            </p>
 
-                {/* LOGO */}
-                <div
-                  className="
-                    w-[62px]
-                    h-[62px]
+          </div>
 
-                    rounded-[14px]
+        </div>
 
-                    bg-[#F8FAFF]
+        {/* DIVIDER */}
+        <div className="h-[1px] w-full bg-[#E8EDF7] mb-5" />
 
-                    border border-[#E7ECF6]
+        {/* POINTS */}
+        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
 
-                    flex
-                    items-center
-                    justify-center
+          {platform.points.map((point, i) => (
 
-                    shrink-0
-                  "
-                >
+            <div
+              key={i}
+              className="flex items-start gap-1"
+            >
 
-                  <Image
-                    src={platform.logo}
-                    alt={platform.name}
-                    width={38}
-                    height={38}
-                    className="object-contain"
-                  />
+              {/* DOT */}
+              <div
+                className="w-[6px] h-[6px] rounded-full mt-[9px] shrink-0"
+                style={{
+                  backgroundColor: platform.color,
+                }}
+              />
 
-                </div>
+              {/* TEXT */}
+              <p
+                className="
+                  text-[13px]
+                  leading-[24px]
+                  text-[#334155]
+                "
+              >
+                {point}
+              </p>
 
-                {/* CONTENT */}
-                <div>
+            </div>
 
-                  <h3
-                    className="
-                      font-playfair
-
-                      text-[22px]
-                      leading-[1.2]
-
-                      font-extrabold
-                      text-[#0B1120]
-
-                      mb-2
-                    "
-                  >
-                    {platform.name}
-                  </h3>
-
-                  <p
-                    className="
-                      text-[14px]
-                      text-[#64748B]
-                      leading-[24px]
-                    "
-                  >
-                    {platform.desc}
-                  </p>
-
-                </div>
-
-              </div>
-
-              {/* DIVIDER */}
-              <div className="h-[1px] w-full bg-[#E8EDF7] mb-5" />
-
-              {/* POINTS */}
-              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
-
-                {platform.points.map((point, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-1"
-                  >
-
-                    {/* DOT */}
-                    <div
-                      className="w-[6px] h-[6px] rounded-full mt-[9px] shrink-0"
-                      style={{
-                        backgroundColor: platform.color,
-                      }}
-                    />
-
-                    {/* TEXT */}
-                    <p
-                      className="
-                        text-[13px]
-                        leading-[24px]
-                        text-[#334155]
-                      "
-                    >
-                      {point}
-                    </p>
-
-                  </div>
-                ))}
-
-              </div>
-
-            </motion.div>
           ))}
 
         </div>
+
+      </motion.div>
+
+    </Link>
+
+  ))}
+
+</div>
 
       </div>
 

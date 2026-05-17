@@ -41,7 +41,7 @@ import RaaSHero from "@/app/components/DetailedServices/RaaS/Hero";
 //import RaaSCTA from "@/app/components/DetailedServices/RaaS/CTA";
 import RequirementsFormRaaS from "@/app/components/DetailedServices/RaaS/RequirementForm";
 
-import PactRevenuHero from "@/app/components/DetailedServices/PactRevenu/Hero";
+import AIHero from "@/app/components/DetailedServices/PactRevenu/Hero";
 //import PactCTA from "@/app/components/DetailedServices/PactRevenu/CTA";
 
 import StaffDynamicsHero from "@/app/components/DetailedServices/StaffDynamics/Hero";
@@ -143,10 +143,10 @@ export default function ServicePage() {
     </>
   );
 
-     case "pact-revenue-plus":
+     case "ai-and-generative-ai-services":
        return (
     <>
-      <PactRevenuHero />
+      <AIHero />
       {/*<PactCTA /> */}
     </>
   );

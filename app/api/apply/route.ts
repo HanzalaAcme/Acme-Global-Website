@@ -209,8 +209,7 @@ export async function POST(req: Request) {
         `"ACME Global Careers" <${process.env.EMAIL_USER}>`,
 
       to:
-        process.env.EMAIL_USER ||
-        process.env.EMAIL_USER,
+        process.env.HR_EMAIL,
 
       replyTo: email,
 

@@ -176,6 +176,24 @@ export default function Footer() {
                 </Link>
               </li>
 
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-white transition-colors duration-300"
+                >
+                  FAQ's
+                </Link>
+              </li>
+                
+                <li>
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-white transition-colors duration-300"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+
             </ul>
 
           </div>

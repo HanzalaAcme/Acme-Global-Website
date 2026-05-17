@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "About Us", href: "/about" },
-  { name: "Services", href: "/service" },
+  { name: "Services", href: "/services" },
   { name: "Blogs", href: "/blogs" },
   { name: "Careers", href: "/careers" },
   { name: "Partners", href: "/partner" },
@@ -34,7 +34,7 @@ export default function Navbar() {
     }
 
     //service detail page
-    if (href === "/service" && pathname.startsWith("/services/")) {
+    if (href === "/services" && pathname.startsWith("/services/")) {
       return true;
     }
 

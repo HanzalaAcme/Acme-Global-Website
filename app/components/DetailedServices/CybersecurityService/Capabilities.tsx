@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Search,
   Shield,
   Lock,
   Activity,
@@ -16,7 +17,7 @@ const data = [
   {
     title: "Vulnerability Assessment & Penetration Testing (VAPT)",
     desc: "Identify, prioritize, and remediate vulnerabilities across your IT landscape using advanced platforms like Qualys and Tenable, ensuring continuous risk visibility and compliance.",
-    icon: <Shield className="w-5 h-5" />,
+    icon: <Search className="w-5 h-5" />,
   },
   {
     title: "Privileged Access Management (PAM)",
