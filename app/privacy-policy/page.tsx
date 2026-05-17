@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
 
       <div className="w-full max-w-7xl mx-auto h-[85vh] border shadow-lg">
         <iframe
-          src="/policy/privacyPolicy.pdf"
+          src="/policy/PrivacyPolicy.pdf"
           className="w-full h-full"
         />
       </div>
