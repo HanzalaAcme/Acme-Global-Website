@@ -1,5 +1,7 @@
 import { transporter } from "@/lib/mail";
 
+import { supabase } from "@/lib/supabase";
+
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -9,9 +11,7 @@ export async function POST(req: Request) {
     const data =
       await req.formData();
 
-    /* =========================
-       EXTRACT DATA
-    ========================= */
+    /* EXTRACT DATA */
 
     const serviceType =
       (data.get("serviceType") as string) || "";
@@ -31,16 +31,18 @@ export async function POST(req: Request) {
     const requirements =
       (data.get("requirements") as string) || "";
 
-    /* =========================
-       VALIDATION
-    ========================= */
+    const designation =
+      (data.get("designation") as string) || "";
+
+    /* VALIDATION */
 
     if (
       !serviceType ||
       !name ||
       !email ||
       !company ||
-      !requirements
+      !requirements ||
+      !designation
     ) {
 
       return NextResponse.json(
@@ -53,9 +55,48 @@ export async function POST(req: Request) {
       );
     }
 
-    /* =========================
-       SEND EMAIL
-    ========================= */
+    /* SAVE TO SUPABASE */
+
+    const { error } =
+      await supabase
+        .from("requirements")
+        .insert([
+          {
+            service_type:
+              serviceType,
+
+            name,
+
+            email,
+
+            phone,
+
+            company,
+
+            designation,
+
+            requirements,
+          },
+        ]);
+
+    if (error) {
+
+      console.error(
+        "SUPABASE ERROR:",
+        error
+      );
+
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Failed to save data.",
+        },
+        { status: 500 }
+      );
+    }
+
+    /* SEND EMAIL */
 
     await transporter.sendMail({
 
@@ -167,6 +208,27 @@ export async function POST(req: Request) {
                   font-weight: bold;
                 "
               >
+                Designation
+              </td>
+
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                "
+              >
+                ${designation}
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                  font-weight: bold;
+                "
+              >
                 Email
               </td>
 
@@ -229,9 +291,7 @@ export async function POST(req: Request) {
       `,
     });
 
-    /* =========================
-       SUCCESS
-    ========================= */
+    /* SUCCESS */
 
     return NextResponse.json({
       success: true,

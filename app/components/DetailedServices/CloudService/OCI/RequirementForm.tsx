@@ -12,7 +12,7 @@ type Props = {
   serviceType: string;
 };
 
-export default function RequirementsFormCyber({
+export default function OCIRequirementsForm({
 serviceType,
 }: Props) {
 
@@ -79,7 +79,7 @@ serviceType,
 
   return (
     <section
-      id="req-form"
+    id="req-form"
       className="
         py-[90px]
         px-6
@@ -187,7 +187,7 @@ serviceType,
 
                   <ShieldCheck className="w-4 h-4" />
 
-                  Enterprise Requirement Form
+                  AWS Requirement Form
 
                 </div>
 
@@ -400,6 +400,107 @@ serviceType,
                         mb-3
                       "
                     >
+                       Company Name *
+                    </label>
+
+                    <input
+                      type="text"
+                      name="company"
+                      required
+                      placeholder="Your Organization"
+
+                      className="
+                        w-full
+
+                        bg-[#F7F9FD]
+
+                        border
+                        border-[#E4EAF5]
+
+                        rounded-2xl
+
+                        px-5
+                        py-4
+
+                        outline-none
+
+                        text-[#0B1120]
+                        placeholder:text-[#9BA8C0]
+
+                        transition-all
+                        duration-300
+
+                        focus:border-[#1A4FD6]
+                        focus:ring-4
+                        focus:ring-blue-100
+                      "
+                    />
+
+                  </div>
+
+                  <div>
+
+                    <label
+                      className="
+                        block
+                        text-[#0B1120]
+                        font-semibold
+                        mb-3
+                      "
+                    >
+                      Designation *
+                    </label>
+
+                    <input
+                      type="text"
+                      name="designation"
+                      required
+                      placeholder="Your Designation"
+
+                      className="
+                        w-full
+
+                        bg-[#F7F9FD]
+
+                        border
+                        border-[#E4EAF5]
+
+                        rounded-2xl
+
+                        px-5
+                        py-4
+
+                        outline-none
+
+                        text-[#0B1120]
+                        placeholder:text-[#9BA8C0]
+
+                        transition-all
+                        duration-300
+
+                        focus:border-[#1A4FD6]
+                        focus:ring-4
+                        focus:ring-blue-100
+                      "
+                    />
+
+                  </div>
+
+                </div>
+
+                {/* GRID */}
+                <div className="grid md:grid-cols-2 gap-5">
+
+                  <div>
+
+                    <label
+                      className="
+                        block
+                        text-[#0B1120]
+                        font-semibold
+                        mb-3
+                      "
+                    >
                       Email Address *
                     </label>
 
@@ -448,12 +549,13 @@ serviceType,
                         mb-3
                       "
                     >
-                      Phone Number
+                      Phone Number *
                     </label>
 
                     <input
                       type="text"
                       name="phone"
+                      required
                       placeholder="+91 9876543210"
 
                       className="
@@ -487,55 +589,6 @@ serviceType,
 
                 </div>
 
-                {/* COMPANY */}
-                <div>
-
-                  <label
-                    className="
-                      block
-                      text-[#0B1120]
-                      font-semibold
-                      mb-3
-                    "
-                  >
-                    Company Name *
-                  </label>
-
-                  <input
-                    type="text"
-                    name="company"
-                    required
-                    placeholder="Your organisation"
-
-                    className="
-                      w-full
-
-                      bg-[#F7F9FD]
-
-                      border
-                      border-[#E4EAF5]
-
-                      rounded-2xl
-
-                      px-5
-                      py-4
-
-                      outline-none
-
-                      text-[#0B1120]
-                      placeholder:text-[#9BA8C0]
-
-                      transition-all
-                      duration-300
-
-                      focus:border-[#1A4FD6]
-                      focus:ring-4
-                      focus:ring-blue-100
-                    "
-                  />
-
-                </div>
-
                 {/* REQUIREMENTS */}
                 <div>
 
@@ -551,13 +604,11 @@ serviceType,
                   </label>
 
                   <textarea
-                    rows={5}
+                    rows={4}
                     name="requirements"
                     required
 
-                    placeholder="Describe your current infrastructure,
-                      challenges, goals, timelines, or
-                      technical requirements...
+                    placeholder="Brief on AWS Cloud Requirement [Hosting, New workloads or Migration]
                     "
 
                     className="

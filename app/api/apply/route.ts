@@ -382,32 +382,7 @@ export async function POST(req: Request) {
               : ""
           }
 
-          ${
-            resumeUrl
-              ? `
-            <div style="margin-top: 28px;">
-
-              <a
-                href="${resumeUrl}"
-                target="_blank"
-                style="
-                  display: inline-block;
-                  padding: 12px 18px;
-                  background: #1A4FD6;
-                  color: white;
-                  text-decoration: none;
-                  border-radius: 8px;
-                  font-weight: 600;
-                "
-              >
-                View Resume Backup
-              </a>
-
-            </div>
-          `
-              : ""
-          }
-
+          
           <p
             style="
               margin-top: 28px;
