@@ -149,7 +149,7 @@ export default function Hero() {
                 italic
               "
             >
-              Demo
+              Consultation
             </span>
 
           </h1>
@@ -203,7 +203,7 @@ export default function Hero() {
             <span>/</span>
 
             <span className="text-white/40">
-              Request a Demo
+              Request a Consultation
             </span>
 
           </div>

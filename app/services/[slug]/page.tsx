@@ -9,13 +9,16 @@ import CloudCTA from "@/app/components/DetailedServices/CloudService/CTA"
 
 
 import ApplicationHero from "@/app/components/DetailedServices/ApplicationService/Hero";
-//import ApplicationCTA from "@/app/components/DetailedServices/ApplicationService/CTA"
+import ApplicationCTA from "@/app/components/DetailedServices/ApplicationService/CTA"
+import BeyondERP from "@/app/components/DetailedServices/ApplicationService/BeyondERP";
+import ApplicationServicesPortfolio from "@/app/components/DetailedServices/ApplicationService/Portfolio";
+import ERPPlatforms from "@/app/components/DetailedServices/ApplicationService/ERPPlatforms";
 
 
 import CyberSecurityCapabilities from "@/app/components/DetailedServices/CybersecurityService/Capabilities";
 import WhyAcme from "@/app/components/DetailedServices/CybersecurityService/Why-acme";
 import CyberHero from "@/app/components/DetailedServices/CybersecurityService/Hero";
-//import CyberCTA from "@/app/components/DetailedServices/CybersecurityService/CTA";
+import CyberCTA from "@/app/components/DetailedServices/CybersecurityService/CTA";
 
 
 import RemoteInfrastructureHero from "@/app/components/DetailedServices/RemoteInfrastructure/Hero";
@@ -23,7 +26,11 @@ import RemoteInfrastructureHero from "@/app/components/DetailedServices/RemoteIn
 
 
 import GCCHero from "@/app/components/DetailedServices/GCC/Hero";
-//import GCCCTA from "@/app/components/DetailedServices/GCC/CTA";
+import GCCStrategicAdvantage from "@/app/components/DetailedServices/GCC/StrategicAdv";
+import GCCLifecycleServices from "@/app/components/DetailedServices/GCC/GCCLifecycle";
+import SpecializedGCCModels from "@/app/components/DetailedServices/GCC/SpecializedGCCModels";
+import Differentiators from "@/app/components/DetailedServices/GCC/Differentiators";
+import GCCCTA from "@/app/components/DetailedServices/GCC/CTA";
 
 
 import StaffAugmentationHero from "@/app/components/DetailedServices/StaffAugmentationService/Hero";
@@ -35,7 +42,9 @@ import ERPHero from "@/app/components/DetailedServices/ERPPlatforms/Hero";
 
 
 import ManagedITServicesHero from "@/app/components/DetailedServices/ManagedITServices/Hero";
-//import ManagedCTA from "@/app/components/DetailedServices/ManagedITServices/CTA";
+import BusinessBenefits from "@/app/components/DetailedServices/ManagedITServices/BusinessACME";
+import ManagedServicesPortfolio from "@/app/components/DetailedServices/ManagedITServices/Portfolio";
+import ManagedCTA from "@/app/components/DetailedServices/ManagedITServices/CTA";
 
 
 import RaaSHero from "@/app/components/DetailedServices/RaaS/Hero";
@@ -73,7 +82,10 @@ export default function ServicePage() {
       return (
     <>
       <ApplicationHero />
-      {/*<ApplicationCTA /> */}
+      <ERPPlatforms />
+      <BeyondERP />
+      <ApplicationServicesPortfolio />
+      <ApplicationCTA /> 
       
     </>
   );
@@ -84,7 +96,7 @@ export default function ServicePage() {
       <CyberHero />
       <CyberSecurityCapabilities />
       <WhyAcme />
-      {/*<CyberCTA /> */}
+      <CyberCTA /> 
       
     </>
   );
@@ -103,7 +115,11 @@ export default function ServicePage() {
        return (
     <>
       <GCCHero />
-      {/*<GCCCTA /> */}
+      <GCCStrategicAdvantage />
+      <GCCLifecycleServices />
+      <SpecializedGCCModels />
+      <Differentiators />
+      <GCCCTA /> 
       
     </>
   );
@@ -130,7 +146,9 @@ export default function ServicePage() {
        return (
     <>
       <ManagedITServicesHero />
-     {/* <ManagedCTA /> */}
+      <ManagedServicesPortfolio />
+      <BusinessBenefits />
+      <ManagedCTA /> 
       
     </>
   );

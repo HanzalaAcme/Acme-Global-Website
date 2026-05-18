@@ -57,7 +57,7 @@ export default function BlogShare({
 
   return (
 
-    <div className="flex items-center gap-4 mt-10 pl-40">
+    <div className="flex items-center gap-4 mt-4">
 
       {/* SHARE TEXT */}
       <h4

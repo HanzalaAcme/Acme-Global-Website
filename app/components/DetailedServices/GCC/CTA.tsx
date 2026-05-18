@@ -6,7 +6,7 @@ export default function GCCCTA() {
   return (
     <motion.section
       id="contact"
-      className="py-20 bg-white text-center"
+      className="py-20 bg-[#F4F6FB] text-center"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}

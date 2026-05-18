@@ -56,7 +56,7 @@ export default function RelatedBlogs({
 
   return (
 
-    <section className="mt-28 pl-10">
+    <section className=" pl-10 bg-[#f3f4f6] py-10">
 
       {/* HEADING */}
       <div className="mb-10">

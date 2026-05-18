@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Blog from "@/app/components/blog/Hero"
-import CTA from "@/app/components/blog/CTA";
+
 
 export default function BlogsPage() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -32,7 +32,9 @@ export default function BlogsPage() {
           <Blog />
             
           
-          <section className="py-20 px-6 bg-[#F8FAFC]">
+          <section 
+          id="blogs"
+          className="py-20 px-6 bg-[#F8FAFC]">
           <div className="max-w-7xl mx-auto">
         
 
@@ -109,7 +111,6 @@ export default function BlogsPage() {
 
       </div>
     </section>
-    <CTA />
     </>
   );
 }

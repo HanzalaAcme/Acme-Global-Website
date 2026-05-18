@@ -8,7 +8,15 @@ import {
   FileText,
   X,
   CheckCircle2,
+  MapPin,
+  Star,
+  MessageSquare,
+  Phone,
+  Mail,
+  User,
+  Globe,
 } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa6";
 
 export default function ApplyForm() {
 
@@ -91,20 +99,26 @@ export default function ApplyForm() {
           rounded-[28px]
           border
           border-[#E6EAF2]
-          p-12
+
+          p-8
+          md:p-12
+
           text-center
+
           shadow-sm
         "
       >
 
         <div className="flex justify-center mb-5">
+
           <CheckCircle2
             className="
               text-green-500
-              w-20
-              h-20
+              w-16
+              h-16
             "
           />
+
         </div>
 
         <h2
@@ -123,6 +137,8 @@ export default function ApplyForm() {
           className="
             text-[#5E6E90]
             leading-[30px]
+            max-w-[600px]
+            mx-auto
           "
         >
           Thank you for applying.
@@ -138,15 +154,19 @@ export default function ApplyForm() {
   return (
     <form
       onSubmit={handleSubmit}
+
       className="
         bg-white
+
         rounded-[28px]
+
         border
         border-[#E6EAF2]
+
         shadow-sm
 
-        p-8
-        md:p-12
+        p-6
+        md:p-10
       "
     >
 
@@ -155,13 +175,21 @@ export default function ApplyForm() {
 
         <label
           className="
-            block
+            flex
+            items-center
+            gap-2
+
             text-[#0B1120]
             font-semibold
+
             mb-3
           "
         >
+
+          <User className="w-4 h-4 text-[#1A4FD6]" />
+
           Position Applying For *
+
         </label>
 
         <input
@@ -170,44 +198,78 @@ export default function ApplyForm() {
           defaultValue={role}
           required
           readOnly
+
           className="
             w-full
+
+            h-[52px]
+
             placeholder:text-[#9BA8C0]
             text-[#0B1120]
+
             bg-[#F5F7FB]
+
             border
             border-[#E6EAF2]
+
             rounded-xl
-            px-5
-            py-4
+
+            px-4
+
             outline-none
           "
         />
 
       </div>
 
-      {/* GRID */}
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
+      {/* NAME + EMAIL */}
+      <div className="grid md:grid-cols-2 gap-5 mb-5">
 
+        {/* NAME */}
         <div>
 
-          <label className="block font-semibold mb-3 text-[#0B1120]">
-            First Name *
+          <label
+            className="
+              flex
+              items-center
+              gap-2
+
+              font-semibold
+
+              mb-3
+
+              text-[#0B1120]
+            "
+          >
+
+            <User className="w-4 h-4 text-[#1A4FD6]" />
+
+            Full Name *
+
           </label>
 
           <input
             type="text"
-            name="firstName"
+            name="name"
             required
+
+            placeholder="Enter your full name"
+
             className="
               w-full
+
+              h-[52px]
+
               placeholder:text-[#9BA8C0]
               text-[#0B1120]
+
               border
               border-[#E6EAF2]
+
               rounded-xl
-              px-5
-              py-4
+
+              px-4
+
               outline-none
 
               focus:border-[#1A4FD6]
@@ -220,92 +282,51 @@ export default function ApplyForm() {
 
         </div>
 
+        {/* EMAIL */}
         <div>
 
-          <label className="block font-semibold mb-3 text-[#0B1120]">
-            Last Name *
-          </label>
-
-          <input
-            type="text"
-            name="lastName"
-            required
+          <label
             className="
-              w-full
-              placeholder:text-[#9BA8C0]
+              flex
+              items-center
+              gap-2
+
+              font-semibold
+
+              mb-3
+
               text-[#0B1120]
-              border
-              border-[#E6EAF2]
-              rounded-xl
-              px-5
-              py-4
-              outline-none
-
-              focus:border-[#1A4FD6]
-              focus:ring-4
-              focus:ring-blue-100
-
-              transition-all
             "
-          />
+          >
 
-        </div>
+            <Mail className="w-4 h-4 text-[#1A4FD6]" />
 
-      </div>
-
-      {/* GRID */}
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-
-        <div>
-
-          <label className="block font-semibold mb-3 text-[#0B1120]">
             Email Address *
+
           </label>
 
           <input
             type="email"
             name="email"
             required
+
+            placeholder="Enter your email"
+
             className="
               w-full
+
+              h-[52px]
+
               placeholder:text-[#9BA8C0]
               text-[#0B1120]
+
               border
               border-[#E6EAF2]
+
               rounded-xl
-              px-5
-              py-4
-              outline-none
 
-              focus:border-[#1A4FD6]
-              focus:ring-4
-              focus:ring-blue-100
+              px-4
 
-              transition-all
-            "
-          />
-
-        </div>
-
-        <div>
-
-          <label className="block font-semibold mb-3 text-[#0B1120]">
-            Phone Number *
-          </label>
-
-          <input
-            type="text"
-            name="phone"
-            required
-            className="
-              w-full
-              placeholder:text-[#9BA8C0]
-              text-[#0B1120]
-              border
-              border-[#E6EAF2]
-              rounded-xl
-              px-5
-              py-4
               outline-none
 
               focus:border-[#1A4FD6]
@@ -320,27 +341,289 @@ export default function ApplyForm() {
 
       </div>
 
-      {/* EXPERIENCE */}
-      <div className="mb-6">
+      {/* PHONE + CITY */}
+      <div className="grid md:grid-cols-2 gap-5 mb-5">
 
-        <label className="block font-semibold mb-3 text-[#0B1120]">
-          Years of Experience *
+        {/* PHONE */}
+        <div>
+
+          <label
+            className="
+              flex
+              items-center
+              gap-2
+
+              font-semibold
+
+              mb-3
+
+              text-[#0B1120]
+            "
+          >
+
+            <Phone className="w-4 h-4 text-[#1A4FD6]" />
+
+            Mobile Number *
+
+          </label>
+
+          <input
+            type="text"
+            name="phone"
+            required
+
+            placeholder="Enter your mobile number"
+
+            className="
+              w-full
+
+              h-[52px]
+
+              placeholder:text-[#9BA8C0]
+              text-[#0B1120]
+
+              border
+              border-[#E6EAF2]
+
+              rounded-xl
+
+              px-4
+
+              outline-none
+
+              focus:border-[#1A4FD6]
+              focus:ring-4
+              focus:ring-blue-100
+
+              transition-all
+            "
+          />
+
+        </div>
+
+        {/* CITY */}
+        <div>
+
+          <label
+            className="
+              flex
+              items-center
+              gap-2
+
+              font-semibold
+
+              mb-3
+
+              text-[#0B1120]
+            "
+          >
+
+            <MapPin className="w-4 h-4 text-[#1A4FD6]" />
+
+            City *
+
+          </label>
+
+          <input
+            type="text"
+            name="city"
+            required
+
+            placeholder="Enter your city"
+
+            className="
+              w-full
+
+              h-[52px]
+
+              placeholder:text-[#9BA8C0]
+              text-[#0B1120]
+
+              border
+              border-[#E6EAF2]
+
+              rounded-xl
+
+              px-4
+
+              outline-none
+
+              focus:border-[#1A4FD6]
+              focus:ring-4
+              focus:ring-blue-100
+
+              transition-all
+            "
+          />
+
+        </div>
+
+      </div>
+
+      {/* STATE + COUNTRY */}
+      <div className="grid md:grid-cols-2 gap-5 mb-5">
+
+        {/* STATE */}
+        <div>
+
+          <label
+            className="
+              flex
+              items-center
+              gap-2
+
+              font-semibold
+
+              mb-3
+
+              text-[#0B1120]
+            "
+          >
+
+            <MapPin className="w-4 h-4 text-[#1A4FD6]" />
+
+            State *
+
+          </label>
+
+          <input
+            type="text"
+            name="state"
+            required
+
+            placeholder="Enter your state"
+
+            className="
+              w-full
+
+              h-[52px]
+
+              placeholder:text-[#9BA8C0]
+              text-[#0B1120]
+
+              border
+              border-[#E6EAF2]
+
+              rounded-xl
+
+              px-4
+
+              outline-none
+
+              focus:border-[#1A4FD6]
+              focus:ring-4
+              focus:ring-blue-100
+
+              transition-all
+            "
+          />
+
+        </div>
+
+        {/* COUNTRY */}
+        <div>
+
+          <label
+            className="
+              flex
+              items-center
+              gap-2
+
+              font-semibold
+
+              mb-3
+
+              text-[#0B1120]
+            "
+          >
+
+            <Globe className="w-4 h-4 text-[#1A4FD6]" />
+
+            Country *
+
+          </label>
+
+          <input
+            type="text"
+            name="country"
+            required
+
+            placeholder="Enter your country"
+
+            className="
+              w-full
+
+              h-[52px]
+
+              placeholder:text-[#9BA8C0]
+              text-[#0B1120]
+
+              border
+              border-[#E6EAF2]
+
+              rounded-xl
+
+              px-4
+
+              outline-none
+
+              focus:border-[#1A4FD6]
+              focus:ring-4
+              focus:ring-blue-100
+
+              transition-all
+            "
+          />
+
+        </div>
+
+      </div>
+
+      {/* LINKEDIN */}
+      <div className="mb-5">
+
+        <label
+          className="
+            flex
+            items-center
+            gap-2
+
+            font-semibold
+
+            mb-3
+
+            text-[#0B1120]
+          "
+        >
+
+          <FaLinkedin className="w-4 h-4 text-[#1A4FD6]" />
+
+          LinkedIn Profile URL
+          
+
         </label>
 
         <input
-          type="text"
-          name="experience"
-          required
-          placeholder="4 Years"
+          type="url"
+          name="linkedin"
+
+          placeholder="https://linkedin.com/in/yourprofile"
+
           className="
             w-full
+
+            h-[52px]
+
             placeholder:text-[#9BA8C0]
             text-[#0B1120]
+
             border
             border-[#E6EAF2]
+
             rounded-xl
-            px-5
-            py-4
+
+            px-4
+
             outline-none
 
             focus:border-[#1A4FD6]
@@ -353,27 +636,52 @@ export default function ApplyForm() {
 
       </div>
 
-      {/* MESSAGE */}
+      {/* COVER LETTER */}
       <div className="mb-8">
 
-        <label className="block font-semibold mb-3 text-[#0B1120]">
-          Message
+        <label
+          className="
+            flex
+            items-center
+            gap-2
+
+            font-semibold
+
+            mb-3
+
+            text-[#0B1120]
+          "
+        >
+
+          <MessageSquare className="w-4 h-4 text-[#1A4FD6]" />
+
+          Cover Letter / Comments
+          
+
         </label>
 
         <textarea
-          rows={5}
+          rows={4}
           name="message"
-          placeholder="Tell us about yourself and your experience..."
+
+          placeholder="Tell us about your experience, skills, or anything you'd like us to know..."
+
           className="
             w-full
+
             placeholder:text-[#9BA8C0]
             text-[#0B1120]
+
             border
             border-[#E6EAF2]
+
             rounded-xl
-            px-5
-            py-4
+
+            px-4
+            py-3
+
             outline-none
+
             resize-none
 
             focus:border-[#1A4FD6]
@@ -389,8 +697,15 @@ export default function ApplyForm() {
       {/* RESUME */}
       <div className="mb-8">
 
-        <label className="block font-semibold mb-3 text-[#0B1120]">
-          Upload Resume *
+        <label
+          className="
+            block
+            font-semibold
+            mb-3
+            text-[#0B1120]
+          "
+        >
+          Upload Resume / JD *
         </label>
 
         <label
@@ -409,7 +724,7 @@ export default function ApplyForm() {
             rounded-2xl
 
             px-6
-            py-10
+            py-8
 
             bg-[#FAFBFF]
 
@@ -423,8 +738,11 @@ export default function ApplyForm() {
           <input
             type="file"
             name="resume"
+
             accept=".pdf,.doc,.docx"
+
             required
+
             className="hidden"
 
             onChange={(e: any) => {
@@ -445,8 +763,9 @@ export default function ApplyForm() {
             <>
               <div
                 className="
-                  w-16
-                  h-16
+                  w-14
+                  h-14
+
                   rounded-2xl
 
                   bg-blue-100
@@ -462,19 +781,19 @@ export default function ApplyForm() {
                 <Upload
                   className="
                     text-[#1A4FD6]
-                    w-8
-                    h-8
+                    w-7
+                    h-7
                   "
                 />
 
               </div>
 
-              <p className="font-semibold text-[#0B1120] mb-2">
-                Upload your resume
+              <p className="font-semibold text-[#0B1120] mb-1">
+                Upload Resume
               </p>
 
-              <p className="text-[#5E6E90] text-sm">
-                PDF, DOC, DOCX (max 5MB)
+              <p className="text-[#5E6E90] text-sm text-center">
+                PDF, DOC, DOCX supported (Max 5MB)
               </p>
             </>
 
@@ -494,7 +813,7 @@ export default function ApplyForm() {
                 rounded-xl
 
                 px-5
-                py-4
+                py-3
               "
             >
 
@@ -524,6 +843,7 @@ export default function ApplyForm() {
                   setFileName("");
                 }}
               >
+
                 <X
                   className="
                     text-red-500
@@ -531,9 +851,11 @@ export default function ApplyForm() {
                     h-5
                   "
                 />
+
               </button>
 
             </div>
+
           )}
 
         </label>
@@ -542,17 +864,40 @@ export default function ApplyForm() {
 
       {/* ERROR */}
       {error && (
-        <p className="text-red-500 text-sm mb-6">
+
+        <div
+          className="
+            mb-6
+
+            rounded-xl
+
+            border
+            border-red-200
+
+            bg-red-50
+
+            px-4
+            py-3
+
+            text-sm
+
+            text-red-600
+          "
+        >
           {error}
-        </p>
+        </div>
+
       )}
 
       {/* BUTTON */}
       <button
         type="submit"
         disabled={loading}
+
         className="
           w-full
+
+          h-[52px]
 
           bg-[#1A4FD6]
           hover:bg-[#2E66FF]
@@ -560,20 +905,21 @@ export default function ApplyForm() {
           text-white
           font-semibold
 
-          py-4
-
           rounded-xl
 
           transition-all
           duration-300
 
           disabled:opacity-70
+
           cursor-pointer
         "
       >
+
         {loading
           ? "Submitting Application..."
           : "Submit Application"}
+
       </button>
 
     </form>
