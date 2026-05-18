@@ -8,6 +8,10 @@ import FAQ from "@/app/components/HomePage/FAQs";
 import Blogs from "@/app/components/HomePage/Blogs";
 import CTA from "@/app/components/HomePage/CTA";
 
+export const metadata = {
+  title: "ACME Global",
+};
+
 export default function Home() {
   return (
     <div className="size-full">

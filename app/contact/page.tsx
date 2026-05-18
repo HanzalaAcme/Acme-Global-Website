@@ -1,4 +1,4 @@
-"use client";
+
 
 import Hero from "@/app/components/contact/Hero";
 import CTA from "@/app/components/contact/CTA";

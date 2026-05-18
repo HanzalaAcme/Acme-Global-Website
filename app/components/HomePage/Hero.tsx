@@ -188,7 +188,7 @@ export default function Hero() {
 
               {/* PRIMARY BUTTON */}
               <Link
-                href="/service"
+                href="/services"
 
                 className="
                   inline-flex

@@ -1,7 +1,13 @@
+
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, Clock } from "lucide-react"; 
+import {
+  Calendar,
+  Clock,
+} from "lucide-react";
 import BlogEnhancements from "../../components/blog/BlogEnhancements"; 
+import BlogShare from "@/app/components/blog/BlogShare";
+import RelatedBlogs from "../../components/blog/RelatedBlog";
 
 async function getPost(slug: string) {
   const res = await fetch(
@@ -22,6 +28,8 @@ export default async function BlogDetail({
   const { slug } = await params; 
 
   const post = await getPost(slug);
+
+  const tags = Object.values(post.tags || {});
 
   if (!post || !post.ID) {
     return (
@@ -116,7 +124,7 @@ export default async function BlogDetail({
 
         
         {/* GRID */}
-        <div className="grid grid-cols-12 gap-12">
+        <div className="grid grid-cols-12 gap-12 pb-20">
 
           {/* TOC */}
           <aside className="hidden lg:block col-span-3">
@@ -124,35 +132,128 @@ export default async function BlogDetail({
           </aside>
 
           {/* CONTENT */}
-          <article className="col-span-12 lg:col-span-9">
+          <article className="col-span-12 lg:col-span-9 min-w-0 overflow-hidden">
 
             <div
-              className="prose prose-lg max-w-none text-gray-700 leading-relaxed
+              className="
+                prose
+                prose-base
+                sm:prose-lg
 
-                         [&_img]:mx-auto [&_img]:rounded-xl
+                max-w-none
 
-                         [&_h2]:text-3xl
-			                   [&_h2]:font-playfair
-                         [&_h2]:font-bold
-                         [&_h2]:text-[#0B1120]
-                         [&_h2]:mt-10
-                        
+                text-gray-700
+                leading-relaxed
 
+                break-words
 
-                         [&_h3]:text-xl
-                         [&_h3]:font-semibold
-                         [&_h3]:font-playfair
-                         [&_h3]:text-gray-800
-                         [&_h3]:mt-6
-                        
+                prose-p:text-[#475569]
+                prose-p:leading-[30px]
 
-                         [&_p]:mt-4"
+                prose-img:mx-auto
+                prose-img:rounded-2xl
+                prose-img:w-full
+                prose-img:max-w-full
+                prose-img:h-auto
+
+                prose-h2:text-[28px]
+                lg:prose-h2:text-[34px]
+
+                prose-h2:leading-[1.2]
+
+                prose-h2:font-playfair
+                prose-h2:font-bold
+                prose-h2:text-[#0B1120]
+
+                prose-h2:mt-12
+
+                prose-h3:text-[22px]
+
+                prose-h3:font-semibold
+                prose-h3:font-playfair
+
+                prose-h3:text-[#0B1120]
+
+                prose-h3:mt-8
+
+                prose-a:text-[#2563EB]
+
+                [&_ul]:mt-6
+                [&_li]:mt-2
+
+                [&_img]:max-w-full
+                [&_img]:h-auto
+
+                [&_iframe]:w-full
+                [&_iframe]:max-w-full
+
+                [&_table]:block
+                [&_table]:overflow-x-auto
+
+                [&_pre]:overflow-x-auto
+
+                [&_code]:break-words
+
+                [&>*]:max-w-full
+              "
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
           </article>
         </div>
       </div>
+
+      {/* line separator */}
+      <div className="flex justify-center">
+      <div className="w-full max-w-[1000px] h-[1px] bg-black/10"></div>
+      </div>
+
+      {/* TAGS */}
+      <div className="flex flex-wrap gap-2 mt-6 pt-10 pl-40">
+        <h4
+        className="
+          text-gray-500
+          font-bold
+          text-[13px]
+          tracking-[0.15em]
+          whitespace-nowrap
+        "
+      >
+        TAGS:
+      </h4>
+
+        {tags.map((tag: any) => (
+
+          <span
+            key={tag.ID}
+
+            className="
+              px-3
+              py-1
+
+              rounded-full
+
+              bg-[#EEF4FF]
+
+              text-[#2563EB]
+
+              text-[12px]
+              font-bold
+
+              border border-[#D9E7FF]
+            "
+          >
+            {tag.name}
+          </span>
+
+        ))}
+
+      </div>
+        <BlogShare slug={slug} />
+        <RelatedBlogs currentSlug={slug} />
+      
+
+
     </section>
   );
 }

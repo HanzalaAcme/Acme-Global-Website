@@ -65,9 +65,7 @@ export default function AboutSection() {
         "
       >
 
-        {/* =========================
-            LEFT IMAGE SECTION
-        ========================= */}
+        {/* LEFT IMAGE SECTION */}
         <div
           className="
             relative

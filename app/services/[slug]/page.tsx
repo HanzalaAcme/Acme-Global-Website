@@ -4,7 +4,8 @@ import { useParams } from "next/navigation";
 import CloudHero from "@/app/components/DetailedServices/CloudService/Hero";
 import WhyChooseACME from "@/app/components/DetailedServices/CloudService/Why-acme";
 import CloudPlatforms  from "@/app/components/DetailedServices/CloudService/CloudPlatforms";
-//import CloudCTA from "@/app/components/DetailedServices/CloudService/CTA"
+import CloudPortfolioSection from "@/app/components/DetailedServices/CloudService/Portfolio";
+import CloudCTA from "@/app/components/DetailedServices/CloudService/CTA"
 
 
 import ApplicationHero from "@/app/components/DetailedServices/ApplicationService/Hero";
@@ -63,7 +64,8 @@ export default function ServicePage() {
       <CloudHero />
       <WhyChooseACME />
       <CloudPlatforms />
-      {/* <CloudCTA /> */}
+      <CloudPortfolioSection />
+      <CloudCTA /> 
     </>
   );
 

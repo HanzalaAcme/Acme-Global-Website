@@ -1,8 +1,10 @@
-"use client";
+
 
 
 // sections
- 
+ export const metadata = {
+  title: "About Us | ACME Global",
+};
 import Hero from "@/app/components/about/Hero";
 import WhatWeDo from "@/app/components/about/WhatWeDo";
 import MissionVision from "@/app/components/about/MissionVision";

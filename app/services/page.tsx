@@ -1,4 +1,4 @@
-"use client";
+
 
 import Hero from "@/app/components/service/Hero";
 import Service from "@/app/components/HomePage/Services";

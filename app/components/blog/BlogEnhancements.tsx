@@ -46,43 +46,66 @@ export default function BlogEnhancements() {
     ]);
 
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const navbarHeight = 72;
 
-      if (!firstPara) return;
+  const scrollY = window.scrollY;
 
-      const start = firstPara.offsetTop - navbarHeight;
+  const navbarHeight = 72;
 
-      const articleBottom =
-        article.offsetTop + article.offsetHeight;
+  if (!firstPara) return;
 
-      const end = articleBottom - window.innerHeight;
+  // START POINT
+  const start =
+    firstPara.offsetTop - navbarHeight;
 
-      //  Progress Logic
-      if (scrollY < start) {
-        setProgress(0);
-      } else if (scrollY > end) {
-        setProgress(100);
-      } else {
-        const percent = ((scrollY - start) / (end - start)) * 100;
-        setProgress(percent);
-      }
+  // ARTICLE DIMENSIONS
+  const articleTop =
+    article.offsetTop;
 
-      //  Active Section
-      let current = "introduction";
+  const articleHeight =
+    article.offsetHeight;
 
-      if (scrollY >= start) {
-        current = "introduction";
-      }
+  // FULL ARTICLE BOTTOM
+  const articleBottom =
+    articleTop + articleHeight;
 
-      elements.forEach((el) => {
-        if (scrollY >= el.offsetTop - 140) {
-          current = el.id;
-        }
-      });
+  // END ONLY AFTER ARTICLE FULLY PASSES VIEWPORT
+  const end =
+    articleBottom - 300;
 
-      setActiveId(current);
-    };
+  /* PROGRESS */
+
+  if (scrollY <= start) {
+
+    setProgress(0);
+
+  } else if (scrollY >= end) {
+
+    setProgress(100);
+
+  } else {
+
+    const percent =
+      ((scrollY - start) / (end - start)) * 100;
+
+    setProgress(percent);
+  }
+
+  /* ACTIVE SECTION */
+
+  let current = "introduction";
+
+  elements.forEach((el) => {
+
+    if (
+      scrollY >= el.offsetTop - 140
+    ) {
+
+      current = el.id;
+    }
+  });
+
+  setActiveId(current);
+};
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
@@ -101,7 +124,22 @@ export default function BlogEnhancements() {
       </div>
 
       {/* TOC */}
-      <div className="sticky top-28 bg-[#F4F6FB] rounded-xl p-6 border shadow-sm">
+              <div
+          className="
+            sticky
+            top-28
+            self-start
+
+            max-h-[calc(100vh-140px)]
+            overflow-y-auto
+
+            bg-[#F4F6FB]
+            rounded-xl
+            p-6
+            border
+            shadow-sm
+          "
+        >
         <h3 className="text-xs font-semibold tracking-wide text-gray-400 mb-4">
           TABLE OF CONTENTS
         </h3>

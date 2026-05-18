@@ -31,16 +31,16 @@ export default function WhyChoose() {
         <div>
 
           {/* LABEL */}
-          <div className="flex items-center text-[#00B89C] text-[12px] font-bold uppercase mb-6 gap-2">
+          <div className="flex items-center text-[#00B89C] text-[12px] tracking-[1.5px] font-bold uppercase mb-6 gap-2">
             <Star className="w-5 h-5 text-[#00B89C]" />
-            <span>Why Choose ACME Global Hub</span>
+            <span>Designed for scale. Built on trust</span>
           </div>
 
           {/* HEADING */}
           <h2 className="font-playfair text-white text-[35px] font-extrabold max-w-[600px]">
-            Designed for Scale.{" "}
+            Why Choose {" "}
             <span className="font-playfair text-[#6EA8FF] italic font-extrabold">
-              Built on Trust.
+              ACME Global Hub
             </span>
           </h2>
 
