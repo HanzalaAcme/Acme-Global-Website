@@ -22,7 +22,8 @@ import CyberCTA from "@/app/components/DetailedServices/CybersecurityService/CTA
 
 
 import RemoteInfrastructureHero from "@/app/components/DetailedServices/RemoteInfrastructure/Hero";
-//import RemoteCTA from "@/app/components/DetailedServices/RemoteInfrastructure/CTA";
+import WhyChooseAcme from "@/app/components/DetailedServices/RemoteInfrastructure/WhyChooseACME";
+import RemoteCTA from "@/app/components/DetailedServices/RemoteInfrastructure/CTA";
 
 
 import GCCHero from "@/app/components/DetailedServices/GCC/Hero";
@@ -34,11 +35,15 @@ import GCCCTA from "@/app/components/DetailedServices/GCC/CTA";
 
 
 import StaffAugmentationHero from "@/app/components/DetailedServices/StaffAugmentationService/Hero";
-//import StaffCTA from "@/app/components/DetailedServices/StaffAugmentationService/CTA";
+import StaffAugmentationApproach from "@/app/components/DetailedServices/StaffAugmentationService/StaffAugmentattionApproach";
+import StaffAugmentationBenefits from "@/app/components/DetailedServices/StaffAugmentationService/StaffAugmentationBenefits";
+import StaffCTA from "@/app/components/DetailedServices/StaffAugmentationService/CTA";
 
 
 import ERPHero from "@/app/components/DetailedServices/ERPPlatforms/Hero";
-//import ERPCTA from "@/app/components/DetailedServices/ERPPlatforms/CTA";
+import ERPPlatformExpertise from "@/app/components/DetailedServices/ERPPlatforms/ERPPlatforms";
+import ERPWhatWeDeliver from "@/app/components/DetailedServices/ERPPlatforms/ERPDeliver";
+import ERPCTA from "@/app/components/DetailedServices/ERPPlatforms/CTA";
 
 
 import ManagedITServicesHero from "@/app/components/DetailedServices/ManagedITServices/Hero";
@@ -48,7 +53,11 @@ import ManagedCTA from "@/app/components/DetailedServices/ManagedITServices/CTA"
 
 
 import RaaSHero from "@/app/components/DetailedServices/RaaS/Hero";
-//import RaaSCTA from "@/app/components/DetailedServices/RaaS/CTA";
+import RaaSModels from "@/app/components/DetailedServices/RaaS/RaasModels";
+import WhyRaaS from "@/app/components/DetailedServices/RaaS/WhyRaaS";
+import RaaSBusinessBenefits from "@/app/components/DetailedServices/RaaS/RaaSBenefits";
+import ComprehensiveRecruitmentCoverage from "@/app/components/DetailedServices/RaaS/RecruitmentCoverage";
+import RaaSCTA from "@/app/components/DetailedServices/RaaS/CTA";
 
 
 import AIHero from "@/app/components/DetailedServices/GenAI/Hero";
@@ -105,7 +114,8 @@ export default function ServicePage() {
        return (
     <>
       <RemoteInfrastructureHero />
-      {/*<RemoteCTA /> */}
+      <WhyChooseAcme />
+      <RemoteCTA /> 
       
     </>
   );
@@ -128,7 +138,9 @@ export default function ServicePage() {
        return (
     <>
       <StaffAugmentationHero />
-      {/*<StaffCTA /> */}
+      <StaffAugmentationApproach />
+      <StaffAugmentationBenefits />
+      <StaffCTA /> 
       
     </>
   );
@@ -137,7 +149,10 @@ export default function ServicePage() {
        return (
     <>
       <ERPHero />
-      {/*<ERPCTA /> */}
+      <ERPWhatWeDeliver />
+      <ERPPlatformExpertise />
+      
+      <ERPCTA /> 
       
     </>
   );
@@ -157,7 +172,11 @@ export default function ServicePage() {
        return (
     <>
       <RaaSHero />
-     {/* <RaaSCTA /> */}
+      <WhyRaaS />
+      <RaaSModels />
+      <ComprehensiveRecruitmentCoverage />
+      <RaaSBusinessBenefits />
+      <RaaSCTA /> 
       
     </>
   );

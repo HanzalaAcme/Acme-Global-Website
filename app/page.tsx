@@ -21,8 +21,8 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <Blogs />
-      <FAQ />
       <CTA />
+      <FAQ />
     </div>
   );
 }

@@ -124,7 +124,7 @@ export default function AboutHero() {
               About{" "}
 
               <span className="text-[#7AADFF] italic">
-                ACME Global
+                ACME Global Hub
               </span>
 
             </h1>

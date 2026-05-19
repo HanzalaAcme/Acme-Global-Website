@@ -117,7 +117,7 @@ export default function AboutSection() {
           >
 
             <Image
-              src="/media/About_us1.avif"
+              src="/media/AboutUs1.jpg"
               alt="ACME Global Enterprise Services"
 
               fill
@@ -169,7 +169,7 @@ export default function AboutSection() {
           >
 
             <Image
-              src="/media/About_us2.avif"
+              src="/media/AboutUs2.jpg"
               alt="Digital Transformation"
 
               fill

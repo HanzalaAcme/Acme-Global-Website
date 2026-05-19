@@ -254,78 +254,81 @@ export default function Hero() {
 
           </motion.div>
 
-          {/* RIGHT IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-
-            transition={{
-              duration: 0.8,
-              ease: "easeOut",
-            }}
-
-            className="
-              relative
-
-              flex
-              justify-center
-              lg:justify-end
-            "
-          >
-
-            {/* IMAGE GLOW */}
-            <div
-              className="
-                absolute
-
-                inset-0
-
-                blur-[100px]
-
-                bg-[radial-gradient(circle,rgba(46,102,255,0.22),transparent_60%)]
-
-                pointer-events-none
-              "
-            />
-
-            {/* IMAGE WRAPPER */}
-            <div
+         {/* RIGHT IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
               className="
                 relative
 
+                flex
+                justify-center
+                lg:justify-end
+
                 w-full
-                max-w-[620px]
-
-                rounded-[28px]
-
-                overflow-hidden
               "
             >
 
-              <Image
-                src="/media/Image 1 (720x720px).png"
-                alt="ACME Global XaaS Platform"
-
-                width={720}
-                height={720}
-
-                priority
-
+              {/* IMAGE GLOW */}
+              <div
                 className="
-                  w-full
-                  h-auto
+                  absolute
 
-                  object-contain
+                  inset-0
 
-                  rounded-[28px]
+                  blur-[120px]
 
-                  opacity-95
+                  bg-[radial-gradient(circle,rgba(46,102,255,0.22),transparent_60%)]
+
+                  pointer-events-none
                 "
               />
 
-            </div>
+              {/* IMAGE WRAPPER */}
+              <div
+                className="
+                  relative
 
-          </motion.div>
+                  w-full
+
+                  max-w-[520px]
+                  sm:max-w-[620px]
+                  lg:max-w-[760px]
+
+                  min-h-[320px]
+                  sm:min-h-[420px]
+                  lg:min-h-[500px]
+
+                  rounded-[28px]
+
+                  overflow-hidden
+                "
+              >
+
+                <Image
+                  src="/media/Hero.jpg"
+                  alt="ACME Global XaaS Platform"
+
+                  fill
+
+                  priority
+
+                  className="
+                    object-cover
+
+                    rounded-[28px]
+
+                    opacity-95
+                  "
+                />
+
+              </div>
+
+            </motion.div>
 
         </div>
 

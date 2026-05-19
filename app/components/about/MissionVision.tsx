@@ -115,6 +115,101 @@ export default function MissionVision() {
           {/* LEFT SIDE */}
           <div className="flex flex-col gap-5">
 
+            
+
+            {/* CARD 1 */}
+            <motion.div
+              whileHover={{ x: 6 }}
+              transition={{ duration: 0.22 }}
+              className="
+                group
+
+                bg-white
+                border border-[#E6EAF2]
+
+                rounded-[22px]
+
+                p-5
+                sm:p-6
+
+                flex
+                gap-4
+                sm:gap-5
+
+                cursor-pointer
+
+                hover:border-[#1A4FD6]
+                hover:shadow-[0_12px_28px_rgba(26,79,214,0.12)]
+
+                transition-all duration-300
+              "
+            >
+
+              {/* ICON */}
+              <div
+                className="
+                  w-[52px]
+                  h-[52px]
+
+                  sm:w-[56px]
+                  sm:h-[56px]
+
+                  rounded-2xl
+
+                  bg-[#1A4FD6]/10
+
+                  flex
+                  items-center
+                  justify-center
+
+                  shrink-0
+                "
+              >
+
+                <Globe className="w-5 h-5 text-[#1A4FD6]" />
+
+              </div>
+
+              {/* CONTENT */}
+              <div>
+
+                <h3
+                  className="
+                    font-playfair
+                    text-[18px]
+                    sm:text-[20px]
+
+                    font-bold
+                    text-[#0B1120]
+                  "
+                >
+                  Our Vision
+                </h3>
+
+                <p
+                  className="
+                    text-[14px]
+                    sm:text-[15px]
+
+                    text-[#5E6E90]
+
+                    mt-2
+
+                    leading-[1.9]
+
+                    max-w-[440px]
+                  "
+                >
+                  To be the regional leader by setting
+                  benchmarks for superior quality products,
+                  innovative services, long-term partnerships,
+                  and customer satisfaction.
+                </p>
+
+              </div>
+
+            </motion.div>
+
             {/* CARD 1 */}
             <motion.div
               whileHover={{ x: 6 }}
@@ -202,99 +297,6 @@ export default function MissionVision() {
                   innovative solutions that meet client
                   objectives and their evolving business
                   requirements.
-                </p>
-
-              </div>
-
-            </motion.div>
-
-            {/* CARD 2 */}
-            <motion.div
-              whileHover={{ x: 6 }}
-              transition={{ duration: 0.22 }}
-              className="
-                group
-
-                bg-white
-                border border-[#E6EAF2]
-
-                rounded-[22px]
-
-                p-5
-                sm:p-6
-
-                flex
-                gap-4
-                sm:gap-5
-
-                cursor-pointer
-
-                hover:border-[#1A4FD6]
-                hover:shadow-[0_12px_28px_rgba(26,79,214,0.12)]
-
-                transition-all duration-300
-              "
-            >
-
-              {/* ICON */}
-              <div
-                className="
-                  w-[52px]
-                  h-[52px]
-
-                  sm:w-[56px]
-                  sm:h-[56px]
-
-                  rounded-2xl
-
-                  bg-[#1A4FD6]/10
-
-                  flex
-                  items-center
-                  justify-center
-
-                  shrink-0
-                "
-              >
-
-                <Globe className="w-5 h-5 text-[#1A4FD6]" />
-
-              </div>
-
-              {/* CONTENT */}
-              <div>
-
-                <h3
-                  className="
-                    font-playfair
-                    text-[18px]
-                    sm:text-[20px]
-
-                    font-bold
-                    text-[#0B1120]
-                  "
-                >
-                  Our Vision
-                </h3>
-
-                <p
-                  className="
-                    text-[14px]
-                    sm:text-[15px]
-
-                    text-[#5E6E90]
-
-                    mt-2
-
-                    leading-[1.9]
-
-                    max-w-[440px]
-                  "
-                >
-                  To be the regional leader by setting
-                  benchmarks for superior quality products,
-                  innovative services, long-term partnerships,
-                  and customer satisfaction.
                 </p>
 
               </div>

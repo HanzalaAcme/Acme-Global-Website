@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function RaaSCTA() {
+export default function ApplicationCTA() {
   return (
     <motion.section
       id="contact"
@@ -12,18 +12,25 @@ export default function RaaSCTA() {
       transition={{ duration: 1 }}
     >
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-playfair text-[32px] text-[#0B1120] font-extrabold mb-4">Partner with ACME Global</h2>
-        <p className="text-[16px] text-[#5E6E90] mb-8">Whether you need AWS, Azure, OCI, GCP, or a strategic multi-cloud model, ACME Global delivers the expertise,
-                                governance, and managed services to help your business succeed in the cloud. <br />
-            </p>
-            <h2 className="font-playfair text-[24px] text-[#2E66FF] font-bold italic mb-10">Transform. Optimize. Scale. Secure.</h2>
+        
+        <h2 className="font-playfair text-[30px] text-[#0B1120] italic font-extrabold mb-4">"Partner with ACME Global to accelerate hiring, reduce costs, and build a future-ready workforce."  <br />
+          
+          
+        
+         </h2>
+          
+          <h4 className="font-playfair text-[22px] text-[#2E66FF] font-bold mb-10">
+          Hire Smarter. Scale Faster. Succeed Confidently.
+          </h4>
+
+        
         
           {/* BUTTONS */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
 
             {/* PRIMARY */}
             <Link
-              href="/contact"
+              href="/consultation"
               className="
               px-7 py-3 rounded-xl text-white 
               bg-[#2E66FF]
@@ -36,23 +43,10 @@ export default function RaaSCTA() {
               transition-all duration-300
             "
             >
-              Request a Demo
+              Request Consultation
             </Link>
 
-            {/* SECONDARY */}
-            <Link
-              href="/contact"
-              className="
-            px-7 py-3 rounded-xl text-[#1A4FD6] border border-gray-300
-
-              hover:border-gray-300
-              hover:bg-gray-100
-
-              transition-all duration-300
-            "
-            >
-              Get in Touch
-            </Link>
+            
 
           </div>
         

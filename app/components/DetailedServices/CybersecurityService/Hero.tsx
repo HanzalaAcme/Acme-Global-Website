@@ -298,7 +298,7 @@ export default function ApplicationHero() {
 
               {/* PRIMARY */}
               <Link
-                href="#req-form"
+                href="/consultation"
 
                 className="
                   inline-flex

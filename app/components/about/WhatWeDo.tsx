@@ -1,41 +1,98 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 import {
   Shield,
-  Clock,
-  Users,
   Cloud,
+  Users,
+  Layers3,
+  ArrowUpRight,
 } from "lucide-react";
 
 const data = [
   {
     title: "XaaS-First Approach",
+
     desc:
       "Delivering Everything-as-a-Service to simplify technology consumption and accelerate digital transformation.",
-    icon: <Shield className="w-6 h-6" />,
+
+    icon: Shield,
+
+    glow:
+      "hover:shadow-[0_20px_50px_rgba(46,102,255,0.14)]",
+
+    border:
+      "hover:border-[#2E66FF]/40",
+
+    iconBg:
+      "bg-[#2E66FF]/10",
+
+    iconColor:
+      "text-[#2E66FF]",
   },
 
   {
     title: "Scalable & Secure Solutions",
+
     desc:
       "Built to support growth while ensuring security, compliance, and business continuity.",
-    icon: <Shield className="w-6 h-6" />,
+
+    icon: Shield,
+
+    glow:
+      "hover:shadow-[0_20px_50px_rgba(46,102,255,0.14)]",
+
+    border:
+      "hover:border-[#2E66FF]/40",
+
+    iconBg:
+      "bg-[#2E66FF]/10",
+
+    iconColor:
+      "text-[#2E66FF]",
   },
 
   {
     title: "Cloud & Digital Expertise",
+
     desc:
-      "Delivering Everything-as-a-Service to simplify technology consumption and accelerate digital transformation.",
-    icon: <Cloud className="w-6 h-6" />,
+      "Deep expertise across AWS, Azure, Google Cloud, and Oracle. Enabling organizations to design, migrate, and manage cloud environments that are secure, scalable, and optimized for performance.",
+
+    icon: Cloud,
+
+    glow:
+      "hover:shadow-[0_20px_50px_rgba(46,102,255,0.14)]",
+
+    border:
+      "hover:border-[#2E66FF]/40",
+
+    iconBg:
+      "bg-[#2E66FF]/10",
+
+    iconColor:
+      "text-[#2E66FF]",
   },
 
   {
     title: "End-to-End Partnership",
-    desc:"Supporting enterprises from strategy and design through implementation and ongoing operations.",
-    icon: <Users className="w-6 h-6" />,
+
+    desc:
+      "Supporting enterprises from strategy and design through implementation and ongoing operations.",
+
+    icon: Users,
+
+    glow:
+      "hover:shadow-[0_20px_50px_rgba(46,102,255,0.14)]",
+
+    border:
+      "hover:border-[#2E66FF]/40",
+
+    iconBg:
+      "bg-[#2E66FF]/10",
+
+    iconColor:
+      "text-[#2E66FF]",
   },
 ];
 
@@ -48,25 +105,25 @@ export default function WhatWeDo() {
 
         bg-white
 
-        py-[80px]
-        md:py-[100px]
-        lg:py-[100px]
+        py-16
+        md:py-24
+        lg:py-28
 
         px-5
         sm:px-6
-        lg:px-20
+        lg:px-10
       "
     >
 
-      {/* BACKGROUND GLOW */}
+      {/* BG GLOW */}
       <div
         className="
           absolute
           right-0
           top-0
 
-          w-[500px]
-          h-[500px]
+          w-[600px]
+          h-[600px]
 
           bg-[radial-gradient(circle_at_100%_0%,rgba(46,102,255,0.05),transparent_45%)]
 
@@ -79,138 +136,12 @@ export default function WhatWeDo() {
           relative
           z-10
 
-          max-w-[1320px]
+          max-w-[1400px]
           mx-auto
-
-          grid
-          lg:grid-cols-2
-
-          gap-[70px]
-          xl:gap-[90px]
-
-          items-center
         "
       >
 
-        {/* =========================
-            LEFT IMAGE SECTION
-        ========================= */}
-        <div
-          className="
-            relative
-
-            w-full
-
-            h-[420px]
-            sm:h-[500px]
-            lg:h-[560px]
-
-            max-w-[620px]
-
-            mx-auto
-            lg:mx-0
-          "
-        >
-
-          {/* BIG IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-
-            transition={{
-              duration: 0.7,
-              ease: "easeOut",
-            }}
-
-            viewport={{ once: true }}
-
-            className="
-              absolute
-
-              left-0
-              top-0
-
-              w-[78%]
-              sm:w-[72%]
-
-              h-[280px]
-              sm:h-[360px]
-              lg:h-[400px]
-
-              rounded-[28px]
-
-              overflow-hidden
-
-              shadow-[0_20px_60px_rgba(0,0,0,0.12)]
-            "
-          >
-
-            <Image
-              src="/media/About_us1.avif"
-              alt="What We Do"
-
-              fill
-
-              priority
-
-              className="object-cover"
-            />
-
-          </motion.div>
-
-          {/* SMALL IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-
-            transition={{
-              duration: 0.7,
-              delay: 0.2,
-              ease: "easeOut",
-            }}
-
-            viewport={{ once: true }}
-
-            className="
-              absolute
-
-              bottom-0
-              right-0
-
-              w-[68%]
-              sm:w-[58%]
-
-              h-[220px]
-              sm:h-[260px]
-              lg:h-[290px]
-
-              rounded-[24px]
-
-              overflow-hidden
-
-              border-[6px]
-              border-white
-
-              shadow-[0_20px_50px_rgba(0,0,0,0.15)]
-            "
-          >
-
-            <Image
-              src="/media/About_us2.avif"
-              alt="Enterprise Solutions"
-
-              fill
-
-              className="object-cover"
-            />
-
-          </motion.div>
-
-        </div>
-
-        {/* =========================
-            RIGHT CONTENT
-        ========================= */}
+        {/* TOP */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -221,23 +152,32 @@ export default function WhatWeDo() {
           }}
 
           viewport={{ once: true }}
+
+          className="
+            text-center
+
+            max-w-[900px]
+
+            mx-auto
+          "
         >
 
           {/* LABEL */}
           <div
             className="
-              flex
+              inline-flex
               items-center
 
               gap-2
 
               text-[#2E66FF]
 
-              text-[12px]
+              text-[11px]
+              md:text-[12px]
 
-              font-semibold
+              font-bold
 
-              tracking-[1.5px]
+              tracking-[0.18em]
 
               uppercase
 
@@ -245,9 +185,11 @@ export default function WhatWeDo() {
             "
           >
 
-            <Clock className="w-5 h-5" />
+            <Layers3 className="w-4 h-4" />
 
-            <span>What We Do</span>
+            <span>
+              What We Do
+            </span>
 
           </div>
 
@@ -260,11 +202,11 @@ export default function WhatWeDo() {
 
               font-bold
 
-              leading-[1.15]
+              leading-[1.08]
 
-              text-[34px]
-              sm:text-[42px]
-              lg:text-[36px]
+              text-[36px]
+              sm:text-[48px]
+              lg:text-[40px]
             "
           >
             Enabling Agile, Secure, and
@@ -278,13 +220,13 @@ export default function WhatWeDo() {
 
               font-bold
 
-              leading-[1.15]
+              leading-[1.08]
 
               mt-2
 
-              text-[34px]
-              sm:text-[42px]
-              lg:text-[36px]
+              text-[36px]
+              sm:text-[48px]
+              lg:text-[40px]
             "
           >
             Future-Ready Enterprises
@@ -299,17 +241,21 @@ export default function WhatWeDo() {
 
               text-[15px]
               sm:text-[16px]
+              lg:text-[16px]
 
               leading-[30px]
+              sm:leading-[32px]
 
-              max-w-[650px]
+              max-w-[850px]
+
+              mx-auto
             "
           >
             ACME Global is a prominent Cloud Service Provider,
             Managed Service Provider and Resource Outsourcing
             Partner, offering transformational solutions across
             different market verticals. Our primary lines of
-            business include: Cloud, Application,
+            business include Cloud, Application,
             Cybersecurity & Managed IT Services, amongst many
             others. With our comprehensive portfolio of service
             offerings, we efficiently address enterprise-wide
@@ -317,81 +263,123 @@ export default function WhatWeDo() {
             from strategy to execution.
           </p>
 
-          {/* CARDS */}
-          <div
-            className="
-              mt-10
+        </motion.div>
 
-              flex
-              flex-col
+        {/* CARDS */}
+        <div
+          className="
+            mt-14
 
-              gap-4
-            "
-          >
+            grid
+            md:grid-cols-2
 
-            {data.map((item, i) => (
+            gap-5
+            lg:gap-5
+          "
+        >
+
+          {data.map((item, i) => {
+
+            const Icon = item.icon;
+
+            return (
 
               <motion.div
                 key={i}
 
-                whileHover={{ x: 8 }}
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+
+                whileHover={{
+                  
+                  x: 4,
+                }}
 
                 transition={{
-                  duration: 0.18,
+                  duration: 0.28,
                   ease: "easeOut",
                 }}
 
-                className="
+                viewport={{ once: true }}
+
+                className={`
                   group
                   relative
 
-                  bg-[#F4F6FB]
+                  rounded-[24px]
 
                   border
-                  border-[#1A4FD6]/10
+                  border-[#E6ECF8]
 
-                  rounded-[22px]
+                  bg-[#F8FAFD]
 
-                  p-5
+                  p-7
+                  sm:p-8
+                  lg:p-9
 
-                  flex
-                  gap-4
-
-                  cursor-pointer
+                  min-h-[260px]
 
                   transition-all
                   duration-300
 
-                  hover:border-[#1A4FD6]
-
-                  hover:shadow-[0_10px_30px_rgba(26,79,214,0.12)]
-                "
+                  ${item.border}
+                  ${item.glow}
+                `}
               >
 
-                {/* ICON */}
+                {/* TOP */}
                 <div
                   className="
-                    shrink-0
-
-                    w-[52px]
-                    h-[52px]
-
-                    rounded-xl
-
-                    bg-[#1A4FD6]/10
-
                     flex
-                    items-center
-                    justify-center
+                    items-start
+                    justify-between
 
-                    text-[#1A4FD6]
+                    gap-5
                   "
                 >
-                  {item.icon}
+
+                  {/* ICON */}
+                  <div
+                    className={`
+                      shrink-0
+
+                      w-[55px]
+                      h-[55px]
+
+                      rounded-2xl
+
+                      flex
+                      items-center
+                      justify-center
+
+                      ${item.iconBg}
+                    `}
+                  >
+
+                    <Icon
+                      className={`
+                        w-7
+                        h-7
+
+                        ${item.iconColor}
+                      `}
+                    />
+
+                  </div>
+
+                  
+
                 </div>
 
-                {/* TEXT */}
-                <div>
+                {/* CONTENT */}
+                <div className="mt-5">
 
                   <h3
                     className="
@@ -401,7 +389,10 @@ export default function WhatWeDo() {
 
                       font-bold
 
-                      text-[18px]
+                      leading-[1.2]
+
+                      text-[24px]
+                      sm:text-[22px]
                     "
                   >
                     {item.title}
@@ -413,10 +404,11 @@ export default function WhatWeDo() {
 
                       text-[14px]
                       sm:text-[15px]
+                      lg:text-[16px]
 
-                      mt-2
+                      mt-5
 
-                      leading-[26px]
+                      leading-[25px]
                     "
                   >
                     {item.desc}
@@ -424,13 +416,34 @@ export default function WhatWeDo() {
 
                 </div>
 
+                {/* HOVER GRADIENT */}
+                <div
+                  className="
+                    absolute
+
+                    inset-0
+
+                    opacity-0
+
+                    group-hover:opacity-100
+
+                    transition-opacity
+                    duration-300
+
+                    rounded-[28px]
+
+                    bg-[linear-gradient(135deg,rgba(46,102,255,0.02),rgba(0,209,178,0.02))]
+
+                    pointer-events-none
+                  "
+                />
+
               </motion.div>
 
-            ))}
+            );
+          })}
 
-          </div>
-
-        </motion.div>
+        </div>
 
       </div>
 
