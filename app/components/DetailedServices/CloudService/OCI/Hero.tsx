@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { User } from "lucide-react";
+import { CloudCheck } from "lucide-react";
 
-export default function ApplicationHero() {
+export default function OCIHero() {
   return (
     <section
       className="
@@ -131,13 +131,13 @@ export default function ApplicationHero() {
                 rounded-full
 
                 border
-                border-[#00D1B2]/20
+                border-[#FF9900]/20
 
-                bg-[linear-gradient(135deg,rgba(0,209,178,0.16),rgba(14,165,233,0.14))]
+                bg-[linear-gradient(135deg,rgba(255,153,0,0.16),rgba(255,153,0,0.14))]
 
                 backdrop-blur-md
 
-                shadow-[0_0_30px_rgba(14,165,233,0.08)]
+                shadow-[0_0_30px_rgba(255,153,0,0.1)]
 
                 mb-7
               "
@@ -151,7 +151,7 @@ export default function ApplicationHero() {
 
                   rounded-full
 
-                  bg-[#00D1B2]/15
+                  bg-[#FF9900]/15
 
                   flex
                   items-center
@@ -159,12 +159,12 @@ export default function ApplicationHero() {
                 "
               >
 
-                <User
+                <CloudCheck
                   className="
                     w-4
                     h-4
 
-                    text-[#00D1B2]
+                    text-[#FF9900]
                   "
                 />
 
@@ -178,14 +178,14 @@ export default function ApplicationHero() {
 
                   tracking-[1px]
 
-                  text-[#7CEEDC]
+                  text-[#FF9900]
 
                   font-semibold
 
                   uppercase
                 "
               >
-                StaffDynamics
+               Oracle Cloud Services
               </span>
 
             </div>
@@ -203,13 +203,13 @@ export default function ApplicationHero() {
 
                 text-[38px]
                 sm:text-[52px]
-                lg:text-[47px]
+                lg:text-[48px]
               "
             >
-              Intelligent HR & 
+              Power Enterprise Transformation
               <br />
 
-              Payroll Management{" "}
+              
 
               <span
                 className="
@@ -217,10 +217,13 @@ export default function ApplicationHero() {
                   italic
                 "
               >
-                For Modern Enterprises
+                with Oracle Cloud
               </span>
 
             </h1>
+            <p className="mt-6 text-[#FF9900] text-[14px] font-medium ">
+                 Leverage Oracle Cloud to modernize applications, databases, and enterprise systems with high performance, security, and cost efficiency.
+              </p>
 
             {/* SMALL LINE */}
             <div
@@ -256,10 +259,10 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              StaffDynamics is ACME Global's comprehensive HR and Payroll platform that helps organizations streamline workforce management, automate payroll, and enhance employee engagement.
+               ACME Global enables organizations across the GCC to deploy and manage Oracle Cloud solutions that support ERP modernization, database consolidation, analytics, and business-critical workloads.
             </p>
 
-            <p
+          {/*  <p
               className="
                 text-white/70
 
@@ -276,8 +279,12 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              Built for businesses across the GCC, StaffDynamics supports both cloud and on-premise deployments and is aligned with regional HR, payroll, and statutory requirements.
-            </p>
+              With certified experts, proven methodologies,
+              and strong regional delivery capabilities, we
+              help enterprises unlock agility, optimize costs,
+              strengthen security, and achieve measurable
+              business outcomes.
+            </p> */}
 
             {/* BUTTONS */}
             <div
@@ -298,7 +305,7 @@ export default function ApplicationHero() {
 
               {/* PRIMARY */}
               <Link
-                href="/consultation"
+                href="#req-form"
 
                 className="
                   inline-flex
@@ -326,7 +333,7 @@ export default function ApplicationHero() {
                   duration-300
                 "
               >
-                Request Consultation
+                Requirement Form
               </Link>
 
               {/* SECONDARY */}
@@ -372,7 +379,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -410,15 +417,17 @@ export default function ApplicationHero() {
 
               <span>/</span>
 
-              <span className="text-white/40">
-                StaffDynamics
+              <span className="text-white/60">
+                Oracle Cloud Services
               </span>
 
             </div>
 
           </motion.div>
 
-          {/* RIGHT IMAGE */}
+          {/* ===================================
+              RIGHT IMAGE
+          =================================== */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}

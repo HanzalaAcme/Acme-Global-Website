@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { Cloudy } from "lucide-react";
 
 export default function AWSHero() {
   return (
@@ -9,28 +12,37 @@ export default function AWSHero() {
         relative
         overflow-hidden
 
-        bg-[#07142A]
+        bg-[#030B1F]
 
-        pt-[110px]
-        pb-[60px]
-
-        min-h-[420px]
+        min-h-[92vh]
 
         flex
         items-center
-        justify-center
 
-        before:absolute
-        before:inset-0
+        px-5
+        sm:px-6
+        lg:px-20
 
-        before:bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)]
-
-        before:bg-[size:60px_60px]
-
-        before:opacity-40
-        before:pointer-events-none
+        pt-[120px]
+        pb-[80px]
       "
     >
+
+      {/* GRID BACKGROUND */}
+      <div
+        className="
+          absolute
+          inset-0
+
+          opacity-[0.08]
+
+          bg-[linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)]
+
+          bg-[size:60px_60px]
+
+          pointer-events-none
+        "
+      />
 
       {/* LEFT GLOW */}
       <div
@@ -39,16 +51,32 @@ export default function AWSHero() {
           left-0
           top-0
 
-          w-[600px]
-          h-[600px]
+          w-[700px]
+          h-[700px]
 
-          z-0
+          bg-[radial-gradient(circle_at_0%_45%,rgba(0,180,255,0.22),transparent_45%)]
 
-          bg-[radial-gradient(circle_at_0%_50%,rgba(0,180,255,0.28),transparent_40%)]
+          pointer-events-none
         "
       />
 
-      {/* CONTENT */}
+      {/* RIGHT GLOW */}
+      <div
+        className="
+          absolute
+          right-0
+          bottom-0
+
+          w-[500px]
+          h-[500px]
+
+          bg-[radial-gradient(circle_at_100%_100%,rgba(46,102,255,0.10),transparent_45%)]
+
+          pointer-events-none
+        "
+      />
+
+      {/* MAIN CONTENT */}
       <div
         className="
           relative
@@ -56,157 +84,437 @@ export default function AWSHero() {
 
           w-full
 
-          max-w-[1300px]
+          max-w-[1320px]
           mx-auto
-
-          px-6
-          lg:px-20
-
-          flex
-          justify-center
         "
       >
 
-        {/* CENTER CONTENT */}
         <div
           className="
-            text-center
+            grid
+            lg:grid-cols-2
 
-            max-w-[820px]
+            gap-[60px]
+            xl:gap-[90px]
 
-            flex
-            flex-col
             items-center
           "
         >
 
-          {/* EYEBROW */}
-          <div
-            className="
-              flex
-              items-center
-              gap-3
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
 
-              mb-6
+            transition={{
+              duration: 0.7,
+              ease: "easeOut",
+            }}
+
+            className="
+              text-center
+              lg:text-left
             "
           >
 
-            <span
+            {/* TAG */}
+            <div
               className="
-                w-2.5
-                h-2.5
+                inline-flex
+                items-center
+
+                gap-3
+
+                px-5
+                py-2.5
 
                 rounded-full
 
-                bg-[#00B89C]
+                border
+                border-[#FF9900]/20
 
-                animate-pulse
+                bg-[linear-gradient(135deg,rgba(255,153,0,0.16),rgba(255,153,0,0.14))]
+
+                backdrop-blur-md
+
+                shadow-[0_0_30px_rgba(255,153,0,0.1)]
+
+                mb-7
+              "
+            >
+
+              {/* ICON */}
+              <div
+                className="
+                  w-7
+                  h-7
+
+                  rounded-full
+
+                  bg-[#FF9900]/15
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+
+                <Cloudy
+                  className="
+                    w-4
+                    h-4
+
+                    text-[#FF9900]
+                  "
+                />
+
+              </div>
+
+              {/* TEXT */}
+              <span
+                className="
+                  text-[11px]
+                  sm:text-[12px]
+
+                  tracking-[1px]
+
+                  text-[#FF9900]
+
+                  font-semibold
+
+                  uppercase
+                "
+              >
+               AWS Cloud Services
+              </span>
+
+            </div>
+
+            {/* HEADING */}
+            <h1
+              className="
+                font-playfair
+
+                text-white
+
+                font-bold
+
+                leading-[1.08]
+
+                text-[38px]
+                sm:text-[52px]
+                lg:text-[48px]
+              "
+            >
+              Accelerate Innovation
+              <br />
+
+              
+
+              <span
+                className="
+                  text-[#7AAFFF]
+                  italic
+                "
+              >
+                with AWS Cloud
+              </span>
+
+            </h1>
+            <p className="mt-6 text-[#FF9900] text-[14px] font-medium ">
+                Unlock the power of Amazon Web Services to modernize infrastructure, optimize costs, and scale with confidence.
+              </p>
+
+            {/* SMALL LINE */}
+            <div
+              className="
+                w-14
+                h-[3px]
+
+                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
+
+                rounded-full
+
+                mt-7
+                mb-7
+
+                mx-auto
+                lg:mx-0
               "
             />
 
-            <span
+            {/* DESCRIPTION */}
+            <p
               className="
-                text-[11px]
-                sm:text-[12px]
+                text-white/70
 
-                tracking-[1.5px]
+                text-[15px]
+                sm:text-[16px]
 
-                text-[#00B89C]
+                leading-[30px]
 
-                font-bold
-                uppercase
+                max-w-[560px]
+
+                mx-auto
+                lg:mx-0
               "
             >
-              Personalized walkthrough
-            </span>
+              ACME Global helps organizations across the GCC design, migrate, and manage secure, high-performance AWS environments that support mission-critical workloads and digital transformation initiatives..
+            </p>
 
-          </div>
-
-          {/* HEADING */}
-          <h1
-            className="
-              font-playfair
-
-              text-white
-
-              text-[42px]
-              sm:text-[54px]
-              lg:text-[64px]
-
-              leading-[1.1]
-
-              font-extrabold
-
-              mb-6
-            "
-          >
-
-            Request a{" "}
-
-            <span
+          {/*  <p
               className="
-                text-[#7AADFF]
-                italic
+                text-white/70
+
+                text-[15px]
+                sm:text-[16px]
+
+                leading-[30px]
+
+                max-w-[560px]
+
+                mt-5
+
+                mx-auto
+                lg:mx-0
               "
             >
-              Demo
-            </span>
+              With certified experts, proven methodologies,
+              and strong regional delivery capabilities, we
+              help enterprises unlock agility, optimize costs,
+              strengthen security, and achieve measurable
+              business outcomes.
+            </p> */}
 
-          </h1>
+            {/* BUTTONS */}
+            <div
+              className="
+                flex
+                flex-wrap
 
-          {/* DESCRIPTION */}
-          <p
+                items-center
+
+                gap-4
+
+                justify-center
+                lg:justify-start
+
+                mt-9
+              "
+            >
+
+              {/* PRIMARY */}
+              <Link
+                href="#req-form"
+
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+
+                  px-7
+                  py-4
+
+                  rounded-xl
+
+                  text-white
+                  font-semibold
+
+                  bg-[#2E66FF]
+
+                  shadow-[0_6px_20px_rgba(46,102,255,0.35)]
+
+                  hover:bg-[#4F8CFF]
+                  hover:-translate-y-[2px]
+
+                  hover:shadow-[0_14px_35px_rgba(46,102,255,0.5)]
+
+                  transition-all
+                  duration-300
+                "
+              >
+                Requirement Form
+              </Link>
+
+              {/* SECONDARY */}
+              <Link
+                href="/contact"
+
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+
+                  px-7
+                  py-4
+
+                  rounded-xl
+
+                  text-white
+                  font-semibold
+
+                  border
+                  border-white/20
+
+                  bg-white/5
+
+                  backdrop-blur-sm
+
+                  hover:border-white/40
+                  hover:bg-white/10
+
+                  transition-all
+                  duration-300
+                "
+              >
+                Talk to an Expert
+              </Link>
+
+            </div>
+
+            {/* BREADCRUMB */}
+            <div
+              className="
+                mt-7
+
+                text-sm
+
+                text-white/40
+
+                flex
+                items-center
+
+                gap-2
+
+                justify-center
+                lg:justify-start
+              "
+            >
+
+              <Link
+                href="/"
+
+                className="
+                  hover:text-white
+                  transition-colors
+                "
+              >
+                Home
+              </Link>
+
+              <span>/</span>
+
+              <Link
+                href="/services"
+
+                className="
+                  hover:text-white
+                  transition-colors
+                "
+              >
+                Services
+              </Link>
+
+              <span>/</span>
+
+              <span className="text-white/60">
+                AWS Cloud Services
+              </span>
+
+            </div>
+
+          </motion.div>
+
+          {/* ===================================
+              RIGHT IMAGE
+          =================================== */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+            }}
+
             className="
-              text-[15px]
-              sm:text-[16px]
+              relative
 
-              text-white/70
-
-              leading-[30px]
-              sm:leading-[32px]
-
-              max-w-[700px]
-
-              mb-10
-            "
-          >
-            See exactly how ACME Global Hub can transform your
-            IT operations. Book a personalized demo with one of
-            our enterprise solutions experts.
-          </p>
-
-          {/* BREADCRUMB */}
-          <div
-            className="
               flex
-              items-center
               justify-center
-              gap-2
-
-              text-sm
-
-              text-white/60
+              lg:justify-end
             "
           >
 
-            <Link
-              href="/"
+            {/* IMAGE GLOW */}
+            <div
               className="
-                hover:text-white
-                transition-colors
-                duration-300
+                absolute
+
+                inset-0
+
+                blur-[100px]
+
+                bg-[radial-gradient(circle,rgba(46,102,255,0.18),transparent_60%)]
+
+                pointer-events-none
+              "
+            />
+
+            {/* IMAGE CONTAINER */}
+            <div
+              className="
+                relative
+
+                w-full
+                max-w-[620px]
+
+                h-[260px]
+                sm:h-[360px]
+                lg:h-[440px]
+
+                rounded-[30px]
+
+                overflow-hidden
+
+                border
+                border-white/10
+
+                shadow-[0_25px_80px_rgba(0,0,0,0.45)]
               "
             >
-              Home
-            </Link>
 
-            <span>/</span>
+              {/* OVERLAY */}
+              <div
+                className="
+                  absolute
+                  inset-0
 
-            <span className="text-white/40">
-              Request a Demo
-            </span>
+                  bg-gradient-to-r
+                  from-[#030B1F]/55
+                  via-transparent
+                  to-transparent
 
-          </div>
+                  z-10
+                "
+              />
+
+              <Image
+                src="/media/Service_Hero.jpg"
+                alt="Application Services"
+
+                fill
+
+                priority
+
+                className="
+                  object-cover
+                "
+              />
+
+            </div>
+
+          </motion.div>
 
         </div>
 

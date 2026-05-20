@@ -25,7 +25,7 @@ export default function JobSidebar({ meta, date, url }: any) {
 
           <div>
             <p className="text-gray-500">Industry</p>
-            <p>{meta.industry || "IT Services"}</p>
+            <p>{meta.department || "IT Services"}</p>
           </div>
 
           <div>
@@ -33,10 +33,6 @@ export default function JobSidebar({ meta, date, url }: any) {
             <p>{meta.experience}</p>
           </div>
 
-          <div>
-            <p className="text-gray-500">Salary</p>
-            <p>{meta.salary}</p>
-          </div>
 
           <div>
             <p className="text-gray-500">Work Mode</p>

@@ -101,21 +101,21 @@ export default function JobHero({ title, date, type, mode }: Props) {
         </div>
 
         {/* BREADCRUMB */}
-        <div className="flex justify-center items-center gap-2 text-sm text-gray-400">
+        <div className="flex justify-center items-center gap-2 text-sm text-white/60">
 
           <Link href="/" className="hover:text-white transition">
             Home
           </Link>
 
-          <span>›</span>
+          <span>/</span>
 
           <Link href="/careers" className="hover:text-white transition">
             Careers
           </Link>
 
-          <span>›</span>
+          <span>/</span>
 
-          <span className="text-gray-300">
+          <span className="text-white/40">
             {title.replace(/<[^>]+>/g, "")}
           </span>
 

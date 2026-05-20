@@ -22,6 +22,7 @@ import CyberCTA from "@/app/components/DetailedServices/CybersecurityService/CTA
 
 
 import RemoteInfrastructureHero from "@/app/components/DetailedServices/RemoteInfrastructure/Hero";
+import CoreRIMServices from "@/app/components/DetailedServices/RemoteInfrastructure/CoreRIMServices";
 import WhyChooseAcme from "@/app/components/DetailedServices/RemoteInfrastructure/WhyChooseACME";
 import RemoteCTA from "@/app/components/DetailedServices/RemoteInfrastructure/CTA";
 
@@ -61,14 +62,21 @@ import RaaSCTA from "@/app/components/DetailedServices/RaaS/CTA";
 
 
 import AIHero from "@/app/components/DetailedServices/GenAI/Hero";
-//import PactCTA from "@/app/components/DetailedServices/PactRevenu/CTA";
+import BusinessBenefitsWhyChoose from "@/app/components/DetailedServices/GenAI/BenefitsWhyChoose";
+import LeadingPlatforms from "@/app/components/DetailedServices/GenAI/LeadingPlatforms";
+import AIServicePortfolio from "@/app/components/DetailedServices/GenAI/ServicePortfolio"; 
+import PactCTA from "@/app/components/DetailedServices/GenAI/CTA";
 
 import StaffDynamicsHero from "@/app/components/DetailedServices/StaffDynamics/Hero";
-//import StaffDynamicsCTA from "@/app/components/DetailedServices/StaffDynamics/CTA";
+import BusinessBenefitsWhyStaffDynamics from "@/app/components/DetailedServices/StaffDynamics/BenefitsStaffDynamics";
+import KeyCapabilitiesStaff from "@/app/components/DetailedServices/StaffDynamics/KeyCapabilitiesStaff";
+import StaffDynamicsCTA from "@/app/components/DetailedServices/StaffDynamics/CTA";
 
 
 import PayDynamicsHero from "@/app/components/DetailedServices/PayDynamics/Hero";
-//import PayDynamicsCTA from "@/app/components/DetailedServices/PayDynamics/CTA";
+import BusinessBenefitsWhyPayDynamics from "@/app/components/DetailedServices/PayDynamics/BenefitsPayDynamics";
+import KeyCapabilities from "@/app/components/DetailedServices/PayDynamics/KeyCapabilities";
+import PayDynamicsCTA from "@/app/components/DetailedServices/PayDynamics/CTA";
 
 
 
@@ -114,6 +122,7 @@ export default function ServicePage() {
        return (
     <>
       <RemoteInfrastructureHero />
+      <CoreRIMServices />
       <WhyChooseAcme />
       <RemoteCTA /> 
       
@@ -185,7 +194,10 @@ export default function ServicePage() {
        return (
     <>
       <AIHero />
-      {/*<PactCTA /> */}
+      <BusinessBenefitsWhyChoose />
+      <LeadingPlatforms />
+      <AIServicePortfolio />
+      <PactCTA /> 
     </>
   );
 
@@ -193,7 +205,9 @@ export default function ServicePage() {
        return (
     <>
       <StaffDynamicsHero />
-      {/*<StaffDynamicsCTA /> */}
+      <KeyCapabilitiesStaff />
+      <BusinessBenefitsWhyStaffDynamics />
+      <StaffDynamicsCTA /> 
       
     </>
   );
@@ -202,7 +216,9 @@ export default function ServicePage() {
        return (
     <>
       <PayDynamicsHero />
-      {/*<PayDynamicsCTA /> */}
+      <KeyCapabilities />
+      <BusinessBenefitsWhyPayDynamics />
+      <PayDynamicsCTA />
       
     </>
   );

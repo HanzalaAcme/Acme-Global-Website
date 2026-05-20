@@ -178,7 +178,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/privacy-policy"
+                  href="/faqs"
                   className="hover:text-white transition-colors duration-300"
                 >
                   FAQ's

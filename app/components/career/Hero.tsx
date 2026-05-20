@@ -88,9 +88,7 @@ export default function AboutHero() {
           "
         >
 
-          {/* =========================
-              LEFT CONTENT
-          ========================= */}
+          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -212,7 +210,7 @@ export default function AboutHero() {
                 lg:mx-0
               "
             >
-              Shape the Future with{" "}
+              Innovate with {" "}
 
               <span
                 className="
@@ -220,7 +218,7 @@ export default function AboutHero() {
                   italic
                 "
               >
-                Us
+                Impact
               </span>
 
             </h1>
@@ -244,7 +242,7 @@ export default function AboutHero() {
                 lg:mx-0
               "
             >
-              Careers at ACME Global — Innovate with Impact.
+              Careers at ACME Global Hub — Shape the Future with us
             </p>
 
             {/* BUTTON */}

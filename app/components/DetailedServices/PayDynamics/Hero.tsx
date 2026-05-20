@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Layers3 } from "lucide-react";
+import { DollarSign } from "lucide-react";
 
 export default function ApplicationHero() {
   return (
@@ -159,7 +159,7 @@ export default function ApplicationHero() {
                 "
               >
 
-                <Layers3
+                <DollarSign
                   className="
                     w-4
                     h-4
@@ -185,7 +185,7 @@ export default function ApplicationHero() {
                   uppercase
                 "
               >
-                Application Services
+                PayDynamics
               </span>
 
             </div>
@@ -206,10 +206,10 @@ export default function ApplicationHero() {
                 lg:text-[48px]
               "
             >
-              Modernize Operations.
+              Revolutionizing
               <br />
 
-              Empower Users.{" "}
+              
 
               <span
                 className="
@@ -217,7 +217,7 @@ export default function ApplicationHero() {
                   italic
                 "
               >
-                Accelerate Growth with ACME Global.
+                Payroll Automation
               </span>
 
             </h1>
@@ -256,7 +256,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              In today's competitive business landscape, enterprise applications are the backbone of operational efficiency, financial control, workforce productivity, and customer engagement. Organizations need intelligent, scalable, and integrated business platforms that can adapt quickly to change.
+              PayDynamics is an advanced payroll automation platform designed to eliminate manual effort, reduce errors, and accelerate salary processing.
             </p>
 
             <p
@@ -276,7 +276,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global delivers end-to-end Application Services that help businesses across the GCC implement, optimize, support, and modernize world-class ERP and business application platforms.
+              It transforms payroll operations into a highly efficient, controlled, and auditable process, ensuring every payroll cycle is accurate, timely, and fully traceable.
             </p>
 
             {/* BUTTONS */}
@@ -395,7 +395,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -408,19 +408,17 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <span className="text-white/40">
-                Application Services
+               PayDynamics
               </span>
 
             </div>
 
           </motion.div>
 
-          {/* ===================================
-              RIGHT IMAGE
-          =================================== */}
+          {/* RIGHT IMAGE*/}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}

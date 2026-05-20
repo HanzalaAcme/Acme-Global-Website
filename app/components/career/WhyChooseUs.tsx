@@ -1,94 +1,258 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, Shield, CircleCheckBig, Users, Cloud, Star, Sun } from "lucide-react";
+
+import {
+  Shield,
+  Cloud,
+  Users,
+  Layers3,
+  ArrowUpRight,
+  CircleCheckBig,
+} from "lucide-react";
 
 const data = [
   {
     title: "Impactful Work",
-    desc: "Your work creates real-world impact — solving meaningful problems that drive growth, value, and lasting change for clients worldwide.",
-    icon: <CircleCheckBig className="w-6 h-6" />,
+
+    desc:
+      "Your work creates real-world impact — solving meaningful problems that drive growth, value, and lasting change for clients worldwide.",
+
+    icon: CircleCheckBig,
+
+    glow:
+      "hover:shadow-[0_20px_50px_rgba(46,102,255,0.14)]",
+
+    border:
+      "hover:border-[#2E66FF]/40",
+
+    iconBg:
+      "bg-[#2E66FF]/10",
+
+    iconColor:
+      "text-[#2E66FF]",
   },
+
   {
     title: "Secure Future",
-    desc: "We offer stability, long-term growth opportunities, and a secure environment where careers are built with confidence and trust.",
-    icon: <Shield className="w-6 h-6" />,
+
+    desc:
+      "We offer stability, long-term growth opportunities, and a secure environment where careers are built with confidence and trust",
+
+    icon: Shield,
+
+    glow:
+      "hover:shadow-[0_20px_50px_rgba(46,102,255,0.14)]",
+
+    border:
+      "hover:border-[#2E66FF]/40",
+
+    iconBg:
+      "bg-[#2E66FF]/10",
+
+    iconColor:
+      "text-[#2E66FF]",
   },
+
   {
     title: "Collaborative Culture",
-    desc: "Our culture thrives on teamwork, open communication, and mutual respect — empowering people to grow and succeed together.",
-    icon: <Users className="w-6 h-6" />,
+
+    desc:
+      "Our culture thrives on teamwork, open communication, and mutual respect — empowering people to grow and succeed together.",
+
+    icon: Cloud,
+
+    glow:
+      "hover:shadow-[0_20px_50px_rgba(46,102,255,0.14)]",
+
+    border:
+      "hover:border-[#2E66FF]/40",
+
+    iconBg:
+      "bg-[#2E66FF]/10",
+
+    iconColor:
+      "text-[#2E66FF]",
   },
+
   {
     title: "Innovation-Driven Approach",
-    desc: "We embrace innovation, modern technologies, and forward-thinking solutions to stay ahead in an ever-evolving digital landscape.",
-    icon: <Sun className="w-6 h-6" />,
-  }
+
+    desc:
+      "We embrace innovation, modern technologies, and forward-thinking solutions to stay ahead in an ever-evolving digital landscape.",
+
+    icon: Users,
+
+    glow:
+      "hover:shadow-[0_20px_50px_rgba(46,102,255,0.14)]",
+
+    border:
+      "hover:border-[#2E66FF]/40",
+
+    iconBg:
+      "bg-[#2E66FF]/10",
+
+    iconColor:
+      "text-[#2E66FF]",
+  },
 ];
 
-export default function WhyChooseUs() {
+export default function WhatWeDo() {
   return (
-    <section className="bg-[#FFFFFF] py-24 px-6 lg:px-20">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <section
+      className="
+        relative
+        overflow-hidden
 
-        {/* LEFT IMAGES */}
-        <div className="relative w-full h-[520px]">
+        bg-white
 
-          {/* BIG IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute left-0 top-0 w-[340px] h-[340px] rounded-3xl overflow-hidden"
+        py-16
+        md:py-24
+        lg:py-28
+
+        px-5
+        sm:px-6
+        lg:px-10
+      "
+    >
+
+      {/* BG GLOW */}
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+
+          w-[600px]
+          h-[600px]
+
+          bg-[radial-gradient(circle_at_100%_0%,rgba(46,102,255,0.05),transparent_45%)]
+
+          pointer-events-none
+        "
+      />
+
+      <div
+        className="
+          relative
+          z-10
+
+          max-w-[1400px]
+          mx-auto
+        "
+      >
+
+        {/* TOP */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+
+          transition={{
+            duration: 0.7,
+            ease: "easeOut",
+          }}
+
+          viewport={{ once: true }}
+
+          className="
+            text-center
+
+            max-w-[900px]
+
+            mx-auto
+          "
+        >
+
+          {/* LABEL */}
+          <div
+            className="
+              inline-flex
+              items-center
+
+              gap-2
+
+              text-[#2E66FF]
+
+              text-[11px]
+              md:text-[12px]
+
+              font-bold
+
+              tracking-[0.18em]
+
+              uppercase
+
+              mb-5
+            "
           >
-            <Image
-              src="/media/About_us1.avif"
-              alt="about"
-              fill
-              className="object-cover"
-            />
-          </motion.div>
 
-          {/* SMALL OVERLAY IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute bottom-0 left-[40%] w-[285px] h-[260px] rounded-2xl overflow-hidden border-[4px] border-white shadow-xl"
-          >
-            <Image
-              src="/media/About_us2.avif"
-              alt="about"
-              fill
-              className="object-cover"
-            />
-          </motion.div>
+            <Layers3 className="w-4 h-4" />
 
-        </div>
+            <span>
+              What We Do
+            </span>
 
-        {/* RIGHT CONTENT */}
-        <div>
-
-          {/* TOP LABEL */}
-          <div className="flex items-center gap-2 text-blue-600 text-sm font-semibold mb-4">
-          
-            <Star className="w-5 h-5 text-blue-600 text-[12px] uppercase" />
-            <span>WHAT CHOOSE ACME GLOBAL HUB</span>
           </div>
 
           {/* HEADING */}
-          <h2 
-          className="font-playfair text-[35px] leading-[1.2] font-bold text-gray-900">
-            Why Choose {""}
-            <span className="text-blue-600 font-extrabold">ACME Global Hub?</span>
+          <h2
+            className="
+              font-playfair
+
+              text-[#0B1120]
+
+              font-bold
+
+              leading-[1.08]
+
+              text-[36px]
+              sm:text-[48px]
+              lg:text-[40px]
+            "
+          >
+            Enabling Agile, Secure, and
           </h2>
 
-        
+          <h2
+            className="
+              font-playfair
+
+              text-[#2E66FF]
+
+              font-bold
+
+              leading-[1.08]
+
+              mt-2
+
+              text-[36px]
+              sm:text-[48px]
+              lg:text-[40px]
+            "
+          >
+            Future-Ready Enterprises
+          </h2>
 
           {/* DESCRIPTION */}
-          <p className="font-Dm_Sans text-[#5E6E90] font-Regular mt-6 text-[16px] leading-[28px] max-w-xl">
-           At ACME Global, we believe in empowering our people to grow, 
+          <p
+            className="
+              mt-7
+
+              text-[#5E6E90]
+
+              text-[15px]
+              sm:text-[16px]
+              lg:text-[16px]
+
+              leading-[30px]
+              sm:leading-[32px]
+
+              max-w-[850px]
+
+              mx-auto
+            "
+          >
+            At ACME Global Hub, we believe in empowering our people to grow, 
            innovate, and make a meaningful impact. We foster a collaborative 
            and inclusive work environment where talent is valued, ideas are 
            encouraged, and continuous learning is supported. By joining our team,
@@ -97,50 +261,190 @@ export default function WhyChooseUs() {
           excellence to clients worldwide.
           </p>
 
-           {/* CARDS */}
-                    <div className="mt-10 flex flex-col gap-3">
-          
-                      {data.map((item, i) => (
-                        <motion.div
-                          key={i}
-                          whileHover={{ x: 10 }}
-                          transition={{ duration: 0.15, ease: "easeOut" }}
-                          className="group relative bg-[#F4F6FB] border border-[#1A4FD6]/10 rounded-2xl p-4 flex gap-3 cursor-pointer transition-all duration-300"
-                        >
-                          {/* HOVER BG 
-                          <div className="absolute inset-0 bg-[#1A4FD6]/10 opacity-0 group-hover:opacity-100 transition duration-300 rounded-2xl"></div>*/}
-          
-                          {/* ICON */}
-                          <div className="relative z-10 w-[50px] h-[50px] rounded-xl bg-[#1A4FD6]/10 flex items-center justify-center text-[#1A4FD6]">
-                            {typeof item.icon === 'string' ? (
-                              <Image src={item.icon} alt="" width={20} height={20} />
-                            ) : (
-                              item.icon
-                            )}
-                          </div>
-          
-                          {/* TEXT */}
-                          <div className="relative z-10">
-                            <h3 className="font-playfair text-[#0B1120] font-bold text-[16px]">
-                              {item.title}
-                            </h3>
-          
-                            <p className="text-[#5E6E90] text-[14px] mt-2 leading-[22px] max-w-[420px]">
-                              {item.desc}
-                            </p>
-                          </div>
-          
-                          {/* BORDER HOVER */}
-                          <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[#1A4FD6] transition-all duration-300"></div>
-          
-                        </motion.div>
-                      ))}
-          
-                    </div>
+        </motion.div>
+
+        {/* CARDS */}
+        <div
+          className="
+            mt-14
+
+            grid
+            md:grid-cols-2
+
+            gap-5
+            lg:gap-5
+          "
+        >
+
+          {data.map((item, i) => {
+
+            const Icon = item.icon;
+
+            return (
+
+              <motion.div
+                key={i}
+
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+
+                whileHover={{
+                  
+                  x: 4,
+                }}
+
+                transition={{
+                  duration: 0.28,
+                  ease: "easeOut",
+                }}
+
+                viewport={{ once: true }}
+
+                className={`
+                  group
+                  relative
+
+                  rounded-[24px]
+
+                  border
+                  border-[#E6ECF8]
+
+                  bg-[#F8FAFD]
+
+                  p-7
+                  sm:p-8
+                  lg:p-9
+
+                  min-h-[260px]
+
+                  transition-all
+                  duration-300
+
+                  ${item.border}
+                  ${item.glow}
+                `}
+              >
+
+                {/* TOP */}
+                <div
+                  className="
+                    flex
+                    items-start
+                    justify-between
+
+                    gap-5
+                  "
+                >
+
+                  {/* ICON */}
+                  <div
+                    className={`
+                      shrink-0
+
+                      w-[55px]
+                      h-[55px]
+
+                      rounded-2xl
+
+                      flex
+                      items-center
+                      justify-center
+
+                      ${item.iconBg}
+                    `}
+                  >
+
+                    <Icon
+                      className={`
+                        w-7
+                        h-7
+
+                        ${item.iconColor}
+                      `}
+                    />
+
+                  </div>
+
+                  
+
+                </div>
+
+                {/* CONTENT */}
+                <div className="mt-5">
+
+                  <h3
+                    className="
+                      font-playfair
+
+                      text-[#0B1120]
+
+                      font-bold
+
+                      leading-[1.2]
+
+                      text-[24px]
+                      sm:text-[22px]
+                    "
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p
+                    className="
+                      text-[#5E6E90]
+
+                      text-[14px]
+                      sm:text-[15px]
+                      lg:text-[16px]
+
+                      mt-5
+
+                      leading-[25px]
+                    "
+                  >
+                    {item.desc}
+                  </p>
+
+                </div>
+
+                {/* HOVER GRADIENT */}
+                <div
+                  className="
+                    absolute
+
+                    inset-0
+
+                    opacity-0
+
+                    group-hover:opacity-100
+
+                    transition-opacity
+                    duration-300
+
+                    rounded-[28px]
+
+                    bg-[linear-gradient(135deg,rgba(46,102,255,0.02),rgba(0,209,178,0.02))]
+
+                    pointer-events-none
+                  "
+                />
+
+              </motion.div>
+
+            );
+          })}
 
         </div>
 
       </div>
+
     </section>
   );
 }

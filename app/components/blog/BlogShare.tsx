@@ -90,7 +90,7 @@ export default function BlogShare({
         </a>
 
         {/* TWITTER / X */}
-        <a
+       {/* <a
           href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
             shareUrl
           )}`}
@@ -101,7 +101,7 @@ export default function BlogShare({
           className={buttonStyles}
         >
           <FaXTwitter className="w-4 h-4" />
-        </a>
+        </a> */}
 
         {/* COPY LINK */}
         <button

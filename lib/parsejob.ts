@@ -7,8 +7,6 @@ export function parseJob(content: string) {
     type: "",
     mode: "",
     experience: "",
-    salary: "",
-    industry: "",
     department: "",
   };
 
@@ -19,8 +17,6 @@ export function parseJob(content: string) {
     if (l.startsWith("type")) meta.type = line.split(":")[1]?.trim();
     if (l.startsWith("mode")) meta.mode = line.split(":")[1]?.trim();
     if (l.startsWith("experience")) meta.experience = line.split(":")[1]?.trim();
-    if (l.startsWith("salary")) meta.salary = line.split(":")[1]?.trim();
-    if (l.startsWith("industry")) meta.industry = line.split(":")[1]?.trim();
     if (l.startsWith("department")) meta.department = line.split(":")[1]?.trim();
   });
 
@@ -36,8 +32,6 @@ export function cleanContent(html: string) {
         !line.toLowerCase().includes("type:") &&
         !line.toLowerCase().includes("mode:") &&
         !line.toLowerCase().includes("experience:") &&
-        !line.toLowerCase().includes("salary:") &&
-        !line.toLowerCase().includes("industry:") &&
         !line.toLowerCase().includes("department:")
     )
     .join("\n");
@@ -47,7 +41,7 @@ export function parseJobMeta(html: string) {
   const text = html.replace(/<[^>]+>/g, "");
 
   const get = (label: string) => {
-    const regex = new RegExp(`${label}:\\s*(.*)`, "i"); // ✅ case-insensitive
+    const regex = new RegExp(`${label}:\\s*(.*)`, "i"); //  case-insensitive
     const match = text.match(regex);
     return match ? match[1].trim() : "";
   };
@@ -57,8 +51,6 @@ export function parseJobMeta(html: string) {
     type: get("Type"),
     mode: get("Mode"),
     experience: get("Experience"),
-    salary: get("Salary"),
-    industry: get("Industry"),
     department: get("Department"),
   };
 }

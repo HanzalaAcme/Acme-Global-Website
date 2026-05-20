@@ -96,10 +96,10 @@ export default function BlogHero() {
 
                 font-semibold
 
-                mb-4
+                mb-3
               "
             >
-              The ACME
+              The ACME GLOBAL HUB
             </p>
 
             {/* TITLE */}
@@ -151,7 +151,7 @@ export default function BlogHero() {
 
               <span className="text-white/30">/</span>
 
-              <span className="text-white">
+              <span className="text-white/40">
                 Blogs
               </span>
 
@@ -207,9 +207,7 @@ export default function BlogHero() {
                   font-light
                 "
               >
-                Explore expert insights and trending topics on our blog.
-                
-                  Your next big idea starts with a single read!
+                Expert insights, technology trends, and practical thinking from the ACME Global Hub team helping enterprises across the GCC stay ahead in cloud, security, AI, and beyond.
                 
               </p>
 

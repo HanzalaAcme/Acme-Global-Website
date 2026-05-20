@@ -35,9 +35,7 @@ export default function Contact() {
             </h1>
 
             <p className="text-[18px] text-white/70 leading-[32px] max-w-[520px] mb-8">
-              Want to get in touch?       <br />
-              We'd love to hear from you. <br />
-              Here's how you can reach us.
+              Have a question or want to explore how ACME Global Hub can support your business? Drop us a message and one of our specialists will be in touch.
             </p>
 
             {/* BREADCRUMB */}
