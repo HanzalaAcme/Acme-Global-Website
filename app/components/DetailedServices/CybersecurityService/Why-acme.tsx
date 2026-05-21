@@ -39,12 +39,12 @@ export default function WhyAcme() {
           {/* LABEL */}
           <div className="flex items-center gap-2 text-[#00D1B2] text-[12px] tracking-[2px] uppercase mb-4">
             <CheckCircle className="w-4 h-4" />
-            <span>Why ACME Global?</span>
+            <span>Why ACME Global Hub?</span>
           </div>
 
           {/* HEADING */}
           <h2 className="font-playfair text-[42px] font-bold text-white mb-10">
-            Why <span className="text-[#00D1B2]">ACME Global?</span>
+            Why <span className="text-[#00D1B2]">ACME Global Hub?</span>
           </h2>
 
           {/* POINTS */}

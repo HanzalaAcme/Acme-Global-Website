@@ -101,7 +101,7 @@ export default function RaaSBusinessBenefits() {
               className="
                 uppercase
 
-                tracking-[0.18em]
+                tracking-[0.1em]
 
                 text-[11px]
                 md:text-[12px]
@@ -111,7 +111,7 @@ export default function RaaSBusinessBenefits() {
                 text-[#00D1B2]
               "
             >
-              KEY BUSINESS BENEFITS
+              HIRING THAT WORKS FOR YOUR BUSINESS
             </span>
 
           </div>
@@ -261,7 +261,7 @@ export default function RaaSBusinessBenefits() {
                 className="
                   uppercase
 
-                  tracking-[0.18em]
+                  tracking-[0.1em]
 
                   text-[11px]
                   md:text-[12px]
@@ -271,7 +271,7 @@ export default function RaaSBusinessBenefits() {
                   text-[#7AAFFF]
                 "
               >
-                BUILT FOR GCC ENTERPRISES
+                DESIGNED FOR YOUR REGION
               </span>
 
             </div>
@@ -427,7 +427,7 @@ export default function RaaSBusinessBenefits() {
                 className="
                   uppercase
 
-                  tracking-[0.18em]
+                  tracking-[0.1em]
 
                   text-[11px]
                   md:text-[12px]
@@ -437,7 +437,7 @@ export default function RaaSBusinessBenefits() {
                   text-[#00B89C]
                 "
               >
-                WHY ACME GLOBAL HUB
+                OUR EDGE
               </span>
 
             </div>

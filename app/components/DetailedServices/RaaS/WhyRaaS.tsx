@@ -61,7 +61,7 @@ export default function WhyRaaS() {
               h-[320px]
               sm:h-[420px]
               md:h-[520px]
-              lg:h-[650px]
+              lg:h-[500px]
 
               rounded-[32px]
 
@@ -72,7 +72,7 @@ export default function WhyRaaS() {
           >
 
             <Image
-              src="/media/raas-team.jpg"
+              src="/media/WhyRaaS.png"
               alt="RaaS Team"
               fill
               className="object-cover"
@@ -100,7 +100,7 @@ export default function WhyRaaS() {
               className="
                 uppercase
 
-                tracking-[0.18em]
+                tracking-[0.1em]
 
                 text-[11px]
                 md:text-[12px]
@@ -110,7 +110,7 @@ export default function WhyRaaS() {
                 text-[#3F6BFF]
               "
             >
-              WHY RAAS WITH ACME GLOBAL HUB?
+              BEYOND TRADITIONAL RECRUITMENT
             </span>
 
           </div>
@@ -166,7 +166,7 @@ export default function WhyRaaS() {
           </div>
 
           {/* BENEFITS */}
-          <div className="mt-10 space-y-5">
+          <div className="mt-10 space-y-3">
 
             {benefits.map((item, index) => (
 

@@ -232,7 +232,7 @@ export default function AboutHero() {
             >
 
               <Image
-                src="/media/hero.jpeg"
+                src="/media/AboutUs_Hero.jpg"
                 alt="About ACME Global"
 
                 fill

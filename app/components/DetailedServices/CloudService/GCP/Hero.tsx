@@ -131,13 +131,13 @@ export default function GCPHero() {
                 rounded-full
 
                 border
-                border-[#FF9900]/20
+                border-[#4285F4]/20
 
-                bg-[linear-gradient(135deg,rgba(255,153,0,0.16),rgba(255,153,0,0.14))]
+                bg-[linear-gradient(135deg,rgba(66,133,244,0.16),rgba(66,133,244,0.14))]
 
                 backdrop-blur-md
 
-                shadow-[0_0_30px_rgba(255,153,0,0.1)]
+                shadow-[0_0_30px_rgba(66,133,244,0.1)]
 
                 mb-7
               "
@@ -151,7 +151,7 @@ export default function GCPHero() {
 
                   rounded-full
 
-                  bg-[#FF9900]/15
+                  bg-[#4285F4]/15
 
                   flex
                   items-center
@@ -164,7 +164,7 @@ export default function GCPHero() {
                     w-4
                     h-4
 
-                    text-[#FF9900]
+                    text-[#4285F4]
                   "
                 />
 
@@ -178,7 +178,7 @@ export default function GCPHero() {
 
                   tracking-[1px]
 
-                  text-[#FF9900]
+                  text-[#4285F4]
 
                   font-semibold
 
@@ -221,7 +221,7 @@ export default function GCPHero() {
               </span>
 
             </h1>
-            <p className="mt-6 text-[#FF9900] text-[14px] font-medium ">
+            <p className="mt-6 text-[#4285F4] text-[14px] font-medium ">
                 Leverage Google Cloud to build modern applications, analyze data, and accelerate AI-driven transformation.
               </p>
 
@@ -259,7 +259,7 @@ export default function GCPHero() {
                 lg:mx-0
               "
             >
-              ACME Global enables enterprises across the GCC to adopt Google Cloud with secure, scalable, and high-performance architectures tailored to business growth and operational excellence.
+              ACME Global Hub enables enterprises across the GCC to adopt Google Cloud with secure, scalable, and high-performance architectures tailored to business growth and operational excellence.
             </p>
 
           {/*  <p

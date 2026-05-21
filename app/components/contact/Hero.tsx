@@ -52,7 +52,7 @@ export default function Contact() {
           <div className="flex justify-end">
             <div className="w-[520px] h-[280px] relative rounded-md overflow-hidden">
               <Image
-                src="/media/Contact_Hero.jpeg" 
+                src="/media/ContactUs_Hero.jpg"
                 alt="contact"
                 fill
                 className="object-cover"

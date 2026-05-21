@@ -199,10 +199,18 @@ const faqData: FAQCategory[] = [
     faqs: [
       {
         question:
-          "What cybersecurity services does ACME Global provide?",
+          "What cybersecurity services does ACME Global Hub provide?",
 
         answer:
-          "We provide SOC monitoring, vulnerability management, SIEM, IAM, endpoint security, and compliance services.",
+          "Our portfolio covers Threat Protection & Security Posture management, Incident Response & Endpoint Detection, network security, identity and access management, security compliance and auditing, and SOC services across cloud and on-premise environments.",
+      },
+
+      {
+        question:
+          "Can you help us achieve compliance with industry security standards?",
+
+        answer:
+          "Yes. We support ISO 27001, NIST, PCI-DSS, GDPR-aligned frameworks, and GCC regulatory requirements through gap assessment, remediation roadmap, control implementation, and audit documentation.",
       },
 
       {
@@ -210,8 +218,18 @@ const faqData: FAQCategory[] = [
           "Do you offer 24x7 security monitoring?",
 
         answer:
-          "Yes. Our SOC teams provide continuous monitoring and threat response services.",
+          "Yes. Our managed cybersecurity services include 24x7 monitoring, threat detection, and alerting via SIEM and EDR tools, with incidents triaged and managed according to agreed SLAs.",
       },
+
+      {
+        question:
+          "How do you handle security for cloud environments?",
+
+        answer:
+          "Cloud security is built into all our cloud engagements — IAM configuration, network security groups, encryption at rest and in transit, and cloud-native threat detection (AWS GuardDuty, Microsoft Defender, Google Security Command Centre) with least-privilege access enforced."
+      },
+
+      
     ],
   },
 
@@ -224,10 +242,34 @@ const faqData: FAQCategory[] = [
     faqs: [
       {
         question:
-          "What does Remote Infrastructure Management include?",
+          "What does Remote Infrastructure Management (RIM) include?",
 
         answer:
-          "RIM includes monitoring, server management, patching, help desk, automation, and infrastructure operations.",
+          "RIM covers end-to-end management of servers, storage, network devices, and cloud environments remotely — including 24x7 monitoring, patch management, backup and DR, performance optimization, incident management, and reporting.",
+      },
+
+      {
+        question:
+          "How are managed service engagements structured?",
+
+        answer:
+          "Engagements are structured around a formal SLA defining scope, response times, escalation paths, and reporting cadence. We begin with onboarding and discovery, then move into steady-state operations. Engagements are typically contracted annually.",
+      },
+
+      {
+        question:
+          "Can ACME Global Hub manage our database and applications?",
+
+        answer:
+          "Yes. Our Database & Application Management service covers performance tuning, patching, maintenance, and capacity planning for Oracle, SQL Server, MySQL, PostgreSQL, and enterprise applications.",
+      },
+
+      {
+        question:
+          "What reporting do managed services clients receive?",
+
+        answer:
+          "Monthly reports cover uptime, incident summaries, patch compliance, capacity trends, and SLA performance. Executive-level quarterly business reviews and real-time dashboards are also available."
       },
     ],
   },
@@ -244,7 +286,31 @@ const faqData: FAQCategory[] = [
           "What is the difference between AI and Generative AI?",
 
         answer:
-          "AI focuses on intelligent automation and predictions, while Generative AI creates new content and outputs.",
+          "AI broadly refers to systems that perform tasks requiring human intelligence — pattern recognition, prediction, decision-making. Generative AI is a branch that creates new content (text, code, images) from learned patterns. Enterprise Generative AI enables knowledge assistants and document summarization; broader AI enables predictive analytics and fraud detection.",
+      },
+
+      {
+        question:
+          "What is RAG and how is it used in enterprise AI?",
+
+        answer:
+          "RAG (Retrieval-Augmented Generation) enhances AI models by letting them retrieve information from your private enterprise data before generating a response. The AI answers accurately based on your own documents and policies without exposing sensitive data to public models — one of the most practical and secure Generative AI patterns for enterprise use.",
+      },
+
+      {
+        question:
+          "Which AI platforms does ACME Global Hub supports?",
+
+        answer:
+          "We support Microsoft AI (Copilot for Microsoft 365, Azure AI, Power Platform), AWS AI (Amazon Bedrock, SageMaker, Amazon Q), Google Cloud AI (Vertex AI, Gemini), and Oracle AI (OCI AI Services, Oracle Fusion AI).",
+      },
+
+      {
+        question:
+          "How do you ensure AI deployments are secure and compliant?",
+
+        answer:
+          "AI Governance & Security is a dedicated service. We implement data privacy controls, access management, model monitoring, lifecycle management, and human-in-the-loop review processes to keep enterprise data protected throughout every AI workflow."
       },
     ],
   },
@@ -261,7 +327,47 @@ const faqData: FAQCategory[] = [
           "What is the difference between Staff Augmentation and RaaS?",
 
         answer:
-          "Staff Augmentation provides skilled resources while RaaS delivers end-to-end recruitment as a managed service.",
+          "Staff Augmentation places pre-vetted professionals within your team on a contract basis. RaaS is a fully managed talent acquisition service. RaaS is available in two models: Pay for Success Model (pay per placement) and Committed Model (dedicated recruitment resources for high-volume hiring).",
+      },
+
+      {
+        question:
+          "What types of roles does ACME Global Hub help recruit?",
+
+        answer:
+          "We specialize in cloud architects, ERP consultants (Oracle, SAP, Dynamics, PACT), cybersecurity engineers, DevOps engineers, data engineers, AI/ML engineers, infrastructure specialists, project managers, and business analysts.",
+      },
+
+      {
+        question:
+          "What is Re-bading and when it is used?",
+
+        answer:
+          "Re-badging transitions employees from one employer to another — typically during outsourcing or restructuring. ACME Global manages contracts, benefits transition, compliance, and onboarding to ensure a smooth experience for the organization and employees.",
+      },
+
+      {
+        question:
+          "What is StaffDynamics?",
+
+        answer:
+          "StaffDynamics is ACME Global's proprietary HR and Payroll management platform. It streamlines workforce management, automates payroll, and enhances employee engagement — supporting cloud and on-premise deployments aligned with GCC regional requirements.",
+      },
+
+      {
+        question:
+          "What is PayDynamics?",
+
+        answer:
+          "PayDynamics is ACME Global's advanced payroll automation platform for organizations processing complex, high-volume payrolls. It automates the full payroll cycle — from data entry through approval workflows to salary disbursement — with real-time validation, exception handling, and complete audit trails."
+      },
+
+      {
+        question:
+          "Are staffDynamics and PayDynamics compliant with GCC labour Laws?",
+
+        answer:
+          "Yes. Both platforms are built for the GCC market and include end-of-service gratuity calculations and WPS (Wages Protection System) compliance. Regulatory updates are incorporated as part of ongoing platform maintenance."
       },
     ],
   },

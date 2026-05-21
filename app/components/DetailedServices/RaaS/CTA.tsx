@@ -12,10 +12,15 @@ export default function ApplicationCTA() {
       transition={{ duration: 1 }}
     >
       <div className="max-w-3xl mx-auto">
+
         
-        <h2 className="font-playfair text-[30px] text-[#0B1120] italic font-extrabold mb-4">"Partner with ACME Global to accelerate hiring, reduce costs, and build a future-ready workforce."  <br />
-          
-          
+        <h4 className=" text-[14px] text-[#2E66FF] font-bold leading[1.18px] mb-4 uppercase">
+          Ready to Transform Your Hiring Strategy?
+        </h4>
+
+        
+        <h2 className="font-playfair text-[30px] text-[#0B1120] italic font-extrabold mb-4">"Partner with ACME Global Hub to accelerate hiring, reduce costs, and build a future-ready workforce."  <br />
+
         
          </h2>
           

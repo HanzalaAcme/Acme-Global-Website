@@ -93,7 +93,7 @@ export default function ERPPlatforms() {
                 text-[#2E66FF]
               "
             >
-              Leading ERP & Business Platforms We Support
+              Enterprise-Grade Integrations
             </span>
 
           </div>

@@ -120,7 +120,7 @@ export default function RaaSModels() {
             className="
               uppercase
 
-              tracking-[0.18em]
+              tracking-[0.1em]
 
               text-[11px]
               md:text-[12px]
@@ -130,7 +130,7 @@ export default function RaaSModels() {
               text-[#00D1B2]
             "
           >
-            OUR RAAS MODELS
+            FLEXIBLE ENGAGEMENT OPTIONS
           </span>
 
         </div>

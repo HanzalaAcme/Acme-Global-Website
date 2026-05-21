@@ -165,7 +165,7 @@ export default function ContactSection() {
         <div className="relative rounded-[18px] overflow-hidden">
 
           <Image
-            src="/media/Form_Bg.jpeg"
+            src="/media/Form_Bg.jpg"
             alt="contact"
             width={1200}
             height={600}

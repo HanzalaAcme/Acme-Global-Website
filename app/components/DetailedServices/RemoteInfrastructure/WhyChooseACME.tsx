@@ -41,12 +41,12 @@ export default function WhyChooseAcme() {
           {/* LABEL */}
           <div className="flex items-center gap-2 text-[#00D1B2] text-[12px] tracking-[2px] uppercase mb-4">
             <CheckCircle className="w-4 h-4" />
-            <span>Why ACME Global?</span>
+            <span>Why Corporate Clients Choose ACME Global Hub RIM services</span>
           </div>
 
           {/* HEADING */}
           <h2 className="font-playfair text-[42px] font-bold text-white mb-10">
-            Why <span className="text-[#00D1B2]">ACME Global?</span>
+            Why Corporate Clients Choose {""} <span className="text-[#00D1B2]">ACME Global Hub RIM services</span>
           </h2>
 
           {/* POINTS */}

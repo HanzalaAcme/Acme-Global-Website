@@ -256,7 +256,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global offers a flexible, scalable, and outcome-driven Recruitment-as-a-Service (RaaS) model — designed to help organizations across the GCC build high-performing teams with speed, precision, and cost efficiency.
+              ACME Global Hub offers a flexible, scalable, and outcome-driven Recruitment-as-a-Service (RaaS) model — designed to help organizations across the GCC build high-performing teams with speed, precision, and cost efficiency.
             </p>
 
             <p
@@ -276,7 +276,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global enables enterprises to seamlessly hire top-tier IT and technical talent through structured sourcing, screening, and onboarding frameworks tailored to regional market dynamics.
+              ACME Global Hub enables enterprises to seamlessly hire top-tier IT and technical talent through structured sourcing, screening, and onboarding frameworks tailored to regional market dynamics.
             </p>
 
             {/* BUTTONS */}
@@ -372,7 +372,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -395,7 +395,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -408,9 +408,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Recruitment as a Service
               </span>
 
@@ -418,9 +418,7 @@ export default function ApplicationHero() {
 
           </motion.div>
 
-          {/* ===================================
-              RIGHT IMAGE
-          =================================== */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -493,7 +491,7 @@ export default function ApplicationHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
+                src="/media/RaaS_Hero.png"
                 alt="Application Services"
 
                 fill

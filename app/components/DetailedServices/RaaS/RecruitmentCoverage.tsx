@@ -73,7 +73,7 @@ export default function ComprehensiveRecruitmentCoverage() {
             className="
               uppercase
 
-              tracking-[0.18em]
+              tracking-[0.1em]
 
               text-[11px]
               md:text-[12px]
@@ -83,7 +83,7 @@ export default function ComprehensiveRecruitmentCoverage() {
               text-[#3F6BFF]
             "
           >
-            COMPREHENSIVE RECRUITMENT COVERAGE
+            FROM SOURCING TO ONBOARDING
           </span>
 
         </div>

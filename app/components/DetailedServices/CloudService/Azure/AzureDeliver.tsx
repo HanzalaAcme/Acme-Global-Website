@@ -167,11 +167,11 @@ export default function AzureDeliver() {
 
                   transition-all duration-300 ease-out
 
-                  hover:border-[#FF9900]/35
+                  hover:border-[#0078D4]/35
 
                   hover:translate-x-[4px]
 
-                  hover:shadow-[0_18px_45px_rgba(255,153,0,0.08)]
+                  hover:shadow-[0_18px_45px_rgba(0,120,212,0.1)]
                 "
               >
 
@@ -183,7 +183,7 @@ export default function AzureDeliver() {
 
                     rounded-2xl
 
-                    bg-[#FF9900]/10
+                    bg-[#0078D4]/10
 
                     flex items-center justify-center
                   "
@@ -193,7 +193,7 @@ export default function AzureDeliver() {
                     className="
                       w-6 h-6
 
-                      text-[#FF9900]
+                      text-[#0078D4]
                     "
                   />
 

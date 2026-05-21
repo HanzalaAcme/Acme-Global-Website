@@ -111,10 +111,10 @@ export default function BeyondERP() {
                 mb-7
               "
             >
-              Beyond ERP –{" "}
+              Intelligent Digital{" "}
 
               <span className="text-[#3B63FF]">
-                Intelligent Digital Workplace Solutions
+                 Workplace Solutions
               </span>
             </h2>
 
@@ -125,13 +125,13 @@ export default function BeyondERP() {
 
                 text-[15px]
 
-                leading-[34px]
+                leading-[25px]
 
                 mb-10
               "
             >
               To extend ERP value and automate workflows,
-              ACME Global also enables modern business
+              ACME Global Hub also enables modern business
               productivity solutions including:
             </p>
 

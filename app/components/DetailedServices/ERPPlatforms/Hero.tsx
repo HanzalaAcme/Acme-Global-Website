@@ -256,7 +256,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              In today's digital-first economy, enterprise applications are the backbone of operational excellence, financial control, and customer engagement. ACME Global empowers organizations across the GCC to modernize their business processes with intelligent, integrated ERP and business platforms.
+              In today's digital-first economy, enterprise applications are the backbone of operational excellence, financial control, and customer engagement. ACME Global Hub empowers organizations across the GCC to modernize their business processes with intelligent, integrated ERP and business platforms.
             </p>
 
             <p
@@ -276,7 +276,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              Our expertise spans industry-leading solutions including Oracle Fusion, Microsoft Dynamics 365, SAP, and PACT ERP, enabling businesses to streamline operations, improve decision-making, and achieve sustainable growth. ACME Global focuses on delivering integrated CRM and ERP solutions that drive business success and transformation.
+              Our expertise spans industry-leading solutions including Oracle Fusion, Microsoft Dynamics 365, SAP, and PACT ERP, enabling businesses to streamline operations, improve decision-making, and achieve sustainable growth. ACME Global Hub focuses on delivering integrated CRM and ERP solutions that drive business success and transformation.
             </p>
 
             {/* BUTTONS */}
@@ -372,7 +372,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -395,7 +395,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -408,9 +408,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 ERP & Business Platforms
               </span>
 

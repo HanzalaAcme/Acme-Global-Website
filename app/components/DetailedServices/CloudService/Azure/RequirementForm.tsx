@@ -187,7 +187,7 @@ serviceType,
 
                   <ShieldCheck className="w-4 h-4" />
 
-                  AWS Requirement Form
+                  Microsoft Azure Requirement Form
 
                 </div>
 
@@ -608,7 +608,7 @@ serviceType,
                     name="requirements"
                     required
 
-                    placeholder="Brief on AWS Cloud Requirement [Hosting, New workloads or Migration]
+                    placeholder="Brief on Microsoft Azure Cloud Requirement [Hosting, New workloads or Migration]
                     "
 
                     className="

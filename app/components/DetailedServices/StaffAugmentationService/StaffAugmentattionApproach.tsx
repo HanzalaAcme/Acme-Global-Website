@@ -137,7 +137,7 @@ export default function StaffAugmentationApproach() {
               className="
                 uppercase
 
-                tracking-[0.18em]
+                tracking-[0.1em]
 
                 text-[11px]
                 md:text-[12px]
@@ -147,7 +147,7 @@ export default function StaffAugmentationApproach() {
                 text-[#3F6BFF]
               "
             >
-              OUR APPROACH
+              How WE WORK
             </span>
 
           </div>
@@ -176,7 +176,7 @@ export default function StaffAugmentationApproach() {
           </h2>
 
           {/* CARDS */}
-          <div className="mt-10 space-y-5">
+          <div className="mt-10 space-y-3">
 
             {approaches.map((item, index) => {
               const Icon = item.icon;
@@ -263,7 +263,7 @@ export default function StaffAugmentationApproach() {
                         text-[15px]
                         md:text-[14px]
 
-                        leading-[20px]
+                        leading-[21px]
                       "
                     >
                       {item.description}

@@ -217,7 +217,7 @@ export default function ApplicationHero() {
                   italic
                 "
               >
-                ACME Global Multi-Cloud Expertise
+                ACME Global Hub Multi-Cloud Expertise
               </span>
 
             </h1>
@@ -256,7 +256,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global empowers businesses across the GCC
+              ACME Global Hub empowers businesses across the GCC
               to modernize, innovate, and scale with secure,
               high-performance cloud solutions. As a trusted
               multi-cloud partner, ACME Global delivers

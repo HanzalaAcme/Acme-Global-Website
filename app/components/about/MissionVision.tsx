@@ -115,6 +115,11 @@ export default function MissionVision() {
           {/* LEFT SIDE */}
           <div className="flex flex-col gap-5">
 
+            <h4 className="text-[16px] text-[#0B1120]/80 font-semibold leading-[1.4] ">
+              We believe technology should do more than solve today's problems; it should create tomorrow's opportunities.  
+              Our approach combines strategic thinking, proven delivery, and long-term partnership to help organizations across the GCC modernize with confidence and grow without limits.
+            </h4>
+
             
 
             {/* CARD 1 */}
@@ -210,7 +215,7 @@ export default function MissionVision() {
 
             </motion.div>
 
-            {/* CARD 1 */}
+            {/* CARD 2 */}
             <motion.div
               whileHover={{ x: 6 }}
               transition={{ duration: 0.22 }}
@@ -329,7 +334,7 @@ export default function MissionVision() {
           >
 
             <Image
-              src="/media/MissionVision.jpeg"
+              src="/media/Our_Approach.jpg"
               alt="Mission and Vision"
               fill
               priority
@@ -337,8 +342,6 @@ export default function MissionVision() {
               className="
                 object-cover
                 object-center
-
-                hover:scale-[1.03]
 
                 transition-transform
                 duration-700

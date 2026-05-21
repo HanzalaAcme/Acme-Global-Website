@@ -167,11 +167,11 @@ export default function GCPDeliver() {
 
                   transition-all duration-300 ease-out
 
-                  hover:border-[#FF9900]/35
+                  hover:border-[#4285F4]/35
 
                   hover:translate-x-[4px]
 
-                  hover:shadow-[0_18px_45px_rgba(255,153,0,0.08)]
+                  hover:shadow-[0_18px_45px_rgba(66,133,244,0.08)]
                 "
               >
 
@@ -183,7 +183,7 @@ export default function GCPDeliver() {
 
                     rounded-2xl
 
-                    bg-[#FF9900]/10
+                    bg-[#4285F4]/10
 
                     flex items-center justify-center
                   "
@@ -193,7 +193,7 @@ export default function GCPDeliver() {
                     className="
                       w-6 h-6
 
-                      text-[#FF9900]
+                      text-[#4285F4]
                     "
                   />
 

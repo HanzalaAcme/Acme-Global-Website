@@ -88,7 +88,7 @@ export default function GCCStrategicAdvantage() {
           </div>
 
           {/* FLOATING CARD */}
-          <div
+         {/* <div
             className="
               absolute
 
@@ -145,9 +145,9 @@ export default function GCCStrategicAdvantage() {
               Global Capability Centers in India
             </p>
 
-          </div>
+          </div> */}
 
-        </div>
+        </div> 
 
         {/* RIGHT CONTENT */}
         <div
@@ -177,7 +177,7 @@ export default function GCCStrategicAdvantage() {
               className="
                 uppercase
 
-                tracking-[0.18em]
+                tracking-[0.1em]
 
                 text-[11px]
                 md:text-[12px]
@@ -187,7 +187,7 @@ export default function GCCStrategicAdvantage() {
                 text-[#3F6BFF]
               "
             >
-              WHY GCCS ARE A STRATEGIC ADVANTAGE
+              RETHINK YOUR GLOBAL OPERATING MODEL
             </span>
 
           </div>

@@ -255,7 +255,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global delivers comprehensive Remote Infrastructure Management (RIM) Services that help enterprises across the GCC streamline operations, reduce downtime, strengthen security, and improve business continuity.
+              ACME Global Hub delivers comprehensive Remote Infrastructure Management (RIM) Services that help enterprises across the GCC streamline operations, reduce downtime, strengthen security, and improve business continuity.
             </p>
 
            {/*} <p
@@ -375,7 +375,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -398,7 +398,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -411,9 +411,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Remote Infrastructure Management
               </span>
 

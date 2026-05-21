@@ -217,7 +217,7 @@ export default function ApplicationHero() {
                   italic
                 "
               >
-                Accelerate Growth with ACME Global.
+                Accelerate Growth with ACME Global Hub.
               </span>
 
             </h1>
@@ -276,7 +276,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global delivers end-to-end Application Services that help businesses across the GCC implement, optimize, support, and modernize world-class ERP and business application platforms.
+              ACME Global Hub delivers end-to-end Application Services that help businesses across the GCC implement, optimize, support, and modernize world-class ERP and business application platforms.
             </p>
 
             {/* BUTTONS */}
@@ -372,7 +372,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -395,7 +395,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -408,9 +408,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Application Services
               </span>
 

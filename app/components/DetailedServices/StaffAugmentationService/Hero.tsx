@@ -254,7 +254,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              In a rapidly evolving technology landscape, access to skilled talent is critical for business success. ACME Global's Staff Augmentation and Re-badging Services enable organizations to scale their workforce efficiently while maintaining control, flexibility, and cost optimization.
+              In a rapidly evolving technology landscape, access to skilled talent is critical for business success. ACME Global Hub Staff Augmentation and Re-badging Services enable organizations to scale their workforce efficiently while maintaining control, flexibility, and cost optimization.
             </p>
 
             <p
@@ -274,7 +274,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global focuses on skill alignment, seamless onboarding, knowledge retention, and long-term engagement models to deliver measurable business value.
+              ACME Global Hub focuses on skill alignment, seamless onboarding, knowledge retention, and long-term engagement models to deliver measurable business value.
             </p>
 
             {/* BUTTONS */}
@@ -370,7 +370,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -393,7 +393,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -406,9 +406,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Staff Augmentation Services
               </span>
 
@@ -416,9 +416,7 @@ export default function ApplicationHero() {
 
           </motion.div>
 
-          {/* ===================================
-              RIGHT IMAGE
-          =================================== */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}

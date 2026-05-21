@@ -1,7 +1,5 @@
 
 
-
-// sections
  export const metadata = {
   title: "About Us | ACME Global",
 };
@@ -17,8 +15,9 @@ export default function AboutPage() {
       <Hero />
       <WhatWeDo />
       <MissionVision />
-      <FAQs />
       <CTA />
+      <FAQs />
+      
     </main>
   );
 }

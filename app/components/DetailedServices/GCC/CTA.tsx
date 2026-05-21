@@ -13,13 +13,13 @@ export default function ApplicationCTA() {
     >
       <div className="max-w-3xl mx-auto">
         
-        <h2 className="font-playfair text-[32px] text-[#0B1120] font-extrabold mb-4">"Businesses need more than just security — they need 
+        <h2 className="font-playfair text-[32px] text-[#0B1120] font-extrabold mb-4">"GCCs are no longer cost centers — they are
           
           <span 
           className="text-[#2E66FF]"
-          > intelligent, proactive, and integrated {""}
+          > innovation engines.
           </span>
-          protection."
+          "
          </h2>
 
         

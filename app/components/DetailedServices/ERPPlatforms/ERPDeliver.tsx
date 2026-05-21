@@ -102,7 +102,7 @@ export default function ERPWhatWeDeliver() {
               text-[#00D1B2]
             "
           >
-            WHAT WE DELIVER
+            END-TO-END SOLUTIONS
           </span>
 
         </div>
@@ -165,7 +165,7 @@ export default function ERPWhatWeDeliver() {
 
                   p-8 md:p-9
 
-                  min-h-[280px]
+                  min-h-[250px]
 
                   transition-all duration-300 ease-out
 
@@ -231,7 +231,7 @@ export default function ERPWhatWeDeliver() {
                     text-[15px]
                     md:text-[15px]
 
-                    leading-[28px]
+                    leading-[24px]
                   "
                 >
                   {card.description}

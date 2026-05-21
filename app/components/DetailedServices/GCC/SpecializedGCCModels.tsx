@@ -77,7 +77,7 @@ export default function SpecializedGCCModels() {
             className="
               uppercase
 
-              tracking-[0.18em]
+              tracking-[0.1em]
 
               text-[11px]
               md:text-[12px]
@@ -87,7 +87,7 @@ export default function SpecializedGCCModels() {
               text-[#3F6BFF]
             "
           >
-            SPECIALIZED GCC MODELS
+            FIND YOUR MODEL
           </span>
 
         </div>
@@ -130,7 +130,7 @@ export default function SpecializedGCCModels() {
             max-w-[920px]
           "
         >
-          ACME Global also enables organizations to build
+          ACME Global Hub also enables organizations to build
           domain-focused GCCs:
         </p>
 

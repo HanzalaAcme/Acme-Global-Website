@@ -326,9 +326,7 @@ export default function AboutHero() {
 
           </motion.div>
 
-          {/* =========================
-              RIGHT IMAGE
-          ========================= */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -386,7 +384,7 @@ export default function AboutHero() {
             >
 
               <Image
-                src="/media/hero.jpeg"
+                src="/media/Careers_Hero.jpg"
                 alt="Careers at ACME Global"
 
                 fill

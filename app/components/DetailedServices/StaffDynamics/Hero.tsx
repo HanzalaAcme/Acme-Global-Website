@@ -256,7 +256,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              StaffDynamics is ACME Global's comprehensive HR and Payroll platform that helps organizations streamline workforce management, automate payroll, and enhance employee engagement.
+              StaffDynamics is ACME Global Hub comprehensive HR and Payroll platform that helps organizations streamline workforce management, automate payroll, and enhance employee engagement.
             </p>
 
             <p

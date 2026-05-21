@@ -194,9 +194,9 @@ export default function ServicePage() {
        return (
     <>
       <AIHero />
-      <BusinessBenefitsWhyChoose />
-      <LeadingPlatforms />
       <AIServicePortfolio />
+      <LeadingPlatforms />
+      <BusinessBenefitsWhyChoose />
       <PactCTA /> 
     </>
   );

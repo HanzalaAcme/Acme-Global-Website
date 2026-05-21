@@ -259,7 +259,7 @@ export default function AWSHero() {
                 lg:mx-0
               "
             >
-              ACME Global helps organizations across the GCC design, migrate, and manage secure, high-performance AWS environments that support mission-critical workloads and digital transformation initiatives..
+              ACME Global Hub helps organizations across the GCC design, migrate, and manage secure, high-performance AWS environments that support mission-critical workloads and digital transformation initiatives..
             </p>
 
           {/*  <p

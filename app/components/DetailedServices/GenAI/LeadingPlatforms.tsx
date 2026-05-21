@@ -48,16 +48,16 @@ const platforms = [
 
 export default function LeadingPlatforms() {
   return (
-    <section className="bg-[#F4F6FB] py-20 lg:py-28">
+    <section className="bg-[#F4F6FB] py-20 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
         {/* LABEL */}
-        <div className="mb-5 flex items-center justify-center gap-2 text-[13px] font-semibold uppercase tracking-[2px] text-[#4F7CFF]">
+        <div className="mb-5 flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[1px] text-[#4F7CFF]">
           <Layers3 className="h-4 w-4" />
           Leading Platforms We Support
         </div>
 
         {/* HEADING */}
-        <h2 className="text-center font-playfair text-[40px] font-bold leading-tight text-[#0B1120] lg:text-[64px]">
+        <h2 className="text-center font-playfair text-[40px] font-bold leading-tight text-[#0B1120] lg:text-[40px]">
           Leading Platforms{" "}
           <span className="text-[#4F7CFF]">
             We Support
@@ -69,10 +69,10 @@ export default function LeadingPlatforms() {
           {platforms.map((item, index) => (
             <div
               key={index}
-              className="group overflow-hidden rounded-[32px] border border-[#E3E8F5] bg-white transition-all duration-300 hover:translate-x-[4px] hover:border-[#2563EB]/40 hover:shadow-[0_0_35px_rgba(37,99,235,0.10)]"
+              className="group overflow-hidden rounded-[24px] border border-[#E3E8F5] bg-white transition-all duration-300 hover:translate-x-[4px] hover:border-[#2563EB]/40 hover:shadow-[0_0_35px_rgba(37,99,235,0.10)]"
             >
               {/* TOP */}
-              <div className="flex items-center gap-5 border-b border-[#EDF1F7] px-8 py-7">
+              <div className="flex items-center gap-5 border-b border-[#EDF1F7] px-8 py-4">
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[#E8ECF5] bg-[#F8FAFC]">
                   <Image
                     src={item.logo}
@@ -83,13 +83,13 @@ export default function LeadingPlatforms() {
                   />
                 </div>
 
-                <h3 className="font-playfair text-[22px] font-bold text-[#111827] lg:text-[34px]">
+                <h3 className="font-playfair text-[22px] font-bold text-[#111827] lg:text-[24px]">
                   {item.title}
                 </h3>
               </div>
 
               {/* LIST */}
-              <div className="space-y-5 px-8 py-8">
+              <div className="space-y-4 px-8 py-4">
                 {item.points.map((point, i) => (
                   <div
                     key={i}
@@ -99,7 +99,7 @@ export default function LeadingPlatforms() {
                       className={`h-2.5 w-2.5 rounded-full ${item.color}`}
                     />
 
-                    <p className="text-[16px] leading-[30px] text-[#62708F] lg:text-[20px]">
+                    <p className="text-[16px] leading-[15px] text-[#62708F] lg:text-[16px]">
                       {point}
                     </p>
                   </div>

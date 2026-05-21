@@ -25,7 +25,7 @@ export default function Differentiators() {
       className="
         bg-[#FFFFFF]
 
-        py-16 md:py-24 lg:py-28
+        py-16 md:py-24 lg:py-20
 
         px-5 sm:px-6 lg:px-10
 
@@ -104,7 +104,7 @@ export default function Differentiators() {
           </h2>
 
           {/* CARDS */}
-          <div className="mt-10 space-y-5">
+          <div className="mt-8 space-y-4">
 
             {differentiators.map((item, index) => (
 
@@ -123,7 +123,7 @@ export default function Differentiators() {
                   bg-[#F4F6FB]
 
                   px-5 md:px-7
-                  py-5 md:py-4
+                  py-5 md:py-3
 
                   transition-all duration-300 ease-out
 
@@ -142,7 +142,7 @@ export default function Differentiators() {
 
                     rounded-2xl
 
-                    bg-[#EEF3FF]
+                    bg-[#2E5BFF]/10
 
                     flex items-center justify-center
 
@@ -196,7 +196,7 @@ export default function Differentiators() {
               h-[340px]
               sm:h-[420px]
               md:h-[520px]
-              lg:h-[620px]
+              lg:h-[550px]
 
               rounded-[32px]
 

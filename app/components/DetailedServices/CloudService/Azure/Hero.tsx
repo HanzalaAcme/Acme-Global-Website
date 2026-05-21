@@ -131,13 +131,13 @@ export default function AzureHero() {
                 rounded-full
 
                 border
-                border-[#FF9900]/20
+                border-[#0078D4]/20
 
-                bg-[linear-gradient(135deg,rgba(255,153,0,0.16),rgba(255,153,0,0.14))]
+                bg-[linear-gradient(135deg,rgba(0,120,212,0.16),rgba(0,120,212,0.14))]
 
                 backdrop-blur-md
 
-                shadow-[0_0_30px_rgba(255,153,0,0.1)]
+                shadow-[0_0_30px_rgba(0,120,212,0.1)]
 
                 mb-7
               "
@@ -151,7 +151,7 @@ export default function AzureHero() {
 
                   rounded-full
 
-                  bg-[#FF9900]/15
+                  bg-[#0078D4]/15
 
                   flex
                   items-center
@@ -164,7 +164,7 @@ export default function AzureHero() {
                     w-4
                     h-4
 
-                    text-[#FF9900]
+                    text-[#0078D4]
                   "
                 />
 
@@ -178,9 +178,9 @@ export default function AzureHero() {
 
                   tracking-[1px]
 
-                  text-[#FF9900]
+                  text-[#0078D4]
 
-                  font-semibold
+                  font-bold
 
                   uppercase
                 "
@@ -221,7 +221,7 @@ export default function AzureHero() {
               </span>
 
             </h1>
-            <p className="mt-6 text-[#FF9900] text-[14px] font-medium ">
+            <p className="mt-6 text-[#0078D4] text-[14px] font-medium ">
                 Harness the power of Microsoft Azure to modernize applications, strengthen security, and accelerate innovation across your organization.
               </p>
 
@@ -259,7 +259,7 @@ export default function AzureHero() {
                 lg:mx-0
               "
             >
-              ACME Global helps businesses across the GCC design, migrate, and manage secure, scalable, and cost-optimized Azure environments that support mission-critical workloads and enterprise digital transformation.
+              ACME Global Hub helps businesses across the GCC design, migrate, and manage secure, scalable, and cost-optimized Azure environments that support mission-critical workloads and enterprise digital transformation.
             </p>
 
           {/*  <p

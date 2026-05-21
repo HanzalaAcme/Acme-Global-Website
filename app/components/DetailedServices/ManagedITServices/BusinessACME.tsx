@@ -94,7 +94,7 @@ export default function BusinessBenefits() {
               <span
                 className="
                   uppercase
-                  tracking-[0.18em]
+                  tracking-[0.1em]
 
                   text-[11px]
                   md:text-[12px]
@@ -104,7 +104,7 @@ export default function BusinessBenefits() {
                   text-[#00C8B4]
                 "
               >
-                BUSINESS BENEFITS
+                THE IMPACT WE CREATE
               </span>
 
             </div>
@@ -155,7 +155,7 @@ export default function BusinessBenefits() {
                     backdrop-blur-sm
 
                     px-4 md:px-5
-                    py-4
+                    py-3
 
                     transition-all duration-300 ease-out
 
@@ -242,7 +242,7 @@ export default function BusinessBenefits() {
                   text-[#7AAFFF]
                 "
               >
-                WHY ACME GLOBAL
+                WHAT SETS US APART
               </span>
 
             </div>
@@ -267,7 +267,7 @@ export default function BusinessBenefits() {
               Why{" "}
 
               <span className="text-[#7AAFFF]">
-                ACME Global
+                ACME Global Hub
               </span>
             </h2>
 
@@ -293,7 +293,7 @@ export default function BusinessBenefits() {
                 backdrop-blur-sm
 
                 px-4 md:px-5
-                py-4
+                py-3
 
                 transition-all duration-300 ease-out
 

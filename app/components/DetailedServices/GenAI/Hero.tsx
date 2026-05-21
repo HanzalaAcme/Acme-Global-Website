@@ -256,7 +256,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global helps organizations across the GCC harness the power of enterprise AI and Generative AI to automate operations, enhance decision-making, improve customer engagement, and unlock new revenue opportunities. We design and implement secure, scalable AI solutions tailored to your business goals and built on leading cloud and productivity platforms.
+              ACME Global Hub helps organizations across the GCC harness the power of enterprise AI and Generative AI to automate operations, enhance decision-making, improve customer engagement, and unlock new revenue opportunities. We design and implement secure, scalable AI solutions tailored to your business goals and built on leading cloud and productivity platforms.
             </p>
 
             <p
@@ -372,7 +372,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -395,7 +395,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -408,9 +408,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Application Services
               </span>
 

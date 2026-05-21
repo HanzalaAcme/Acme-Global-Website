@@ -95,7 +95,7 @@ export default function StaffAugmentationBenefits() {
               className="
                 uppercase
 
-                tracking-[0.18em]
+                tracking-[0.1em]
 
                 text-[11px]
                 md:text-[12px]
@@ -105,7 +105,7 @@ export default function StaffAugmentationBenefits() {
                 text-[#00D1B2]
               "
             >
-              KEY BENEFITS
+              THE ADVANTAGE
             </span>
 
           </div>
@@ -240,7 +240,7 @@ export default function StaffAugmentationBenefits() {
               className="
                 uppercase
 
-                tracking-[0.18em]
+                tracking-[0.1em]
 
                 text-[11px]
                 md:text-[12px]
@@ -250,7 +250,7 @@ export default function StaffAugmentationBenefits() {
                 text-[#6EA8FF]
               "
             >
-              IDEAL FOR
+              BUILT FOR TEAMS LIKE YOURS
             </span>
 
           </div>

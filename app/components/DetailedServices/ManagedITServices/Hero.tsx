@@ -257,7 +257,7 @@ export default function ApplicationHero() {
               "
             >
               Modern enterprises require IT environments that are always
-              available, secure, and optimized for performance. ACME Global
+              available, secure, and optimized for performance. ACME Global Hub
               delivers comprehensive Managed IT Services that ensure your
               infrastructure, applications, and cloud environments operate
               seamlessly.
@@ -280,7 +280,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global's approach focuses on continuous monitoring, proactive
+              ACME Global Hub approach focuses on continuous monitoring, proactive
               issue resolution, automated updates, and performance optimization
               to maintain business continuity and operational excellence.
             </p>
@@ -378,7 +378,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -401,7 +401,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -414,9 +414,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Managed IT Services
               </span>
 

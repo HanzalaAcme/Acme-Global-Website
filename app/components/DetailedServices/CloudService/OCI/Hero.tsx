@@ -131,13 +131,13 @@ export default function OCIHero() {
                 rounded-full
 
                 border
-                border-[#FF9900]/20
+                border-[#C74634]/20
 
-                bg-[linear-gradient(135deg,rgba(255,153,0,0.16),rgba(255,153,0,0.14))]
+                bg-[linear-gradient(135deg,rgba(199,70,52,0.16),rgba(199,70,52,0.14))]
 
                 backdrop-blur-md
 
-                shadow-[0_0_30px_rgba(255,153,0,0.1)]
+                shadow-[0_0_30px_rgba(199,70,52,0.1)]
 
                 mb-7
               "
@@ -151,7 +151,7 @@ export default function OCIHero() {
 
                   rounded-full
 
-                  bg-[#FF9900]/15
+                  bg-[#C74634]/15
 
                   flex
                   items-center
@@ -164,7 +164,7 @@ export default function OCIHero() {
                     w-4
                     h-4
 
-                    text-[#FF9900]
+                    text-[#C74634]
                   "
                 />
 
@@ -178,7 +178,7 @@ export default function OCIHero() {
 
                   tracking-[1px]
 
-                  text-[#FF9900]
+                  text-[#C74634]
 
                   font-semibold
 
@@ -221,7 +221,7 @@ export default function OCIHero() {
               </span>
 
             </h1>
-            <p className="mt-6 text-[#FF9900] text-[14px] font-medium ">
+            <p className="mt-6 text-[#C74634] text-[14px] font-medium ">
                  Leverage Oracle Cloud to modernize applications, databases, and enterprise systems with high performance, security, and cost efficiency.
               </p>
 
@@ -259,7 +259,7 @@ export default function OCIHero() {
                 lg:mx-0
               "
             >
-               ACME Global enables organizations across the GCC to deploy and manage Oracle Cloud solutions that support ERP modernization, database consolidation, analytics, and business-critical workloads.
+               ACME Global Hub enables organizations across the GCC to deploy and manage Oracle Cloud solutions that support ERP modernization, database consolidation, analytics, and business-critical workloads.
             </p>
 
           {/*  <p

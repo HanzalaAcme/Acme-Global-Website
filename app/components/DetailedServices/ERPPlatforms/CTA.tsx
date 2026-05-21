@@ -13,7 +13,7 @@ export default function ApplicationCTA() {
     >
       <div className="max-w-3xl mx-auto">
         
-        <h2 className="font-playfair text-[30px] text-[#0B1120] font-extrabold mb-4">"ACME Global transforms ERP from a
+        <h2 className="font-playfair text-[30px] text-[#0B1120] font-extrabold mb-4">"ACME Global Hub transforms ERP from a
           
           <span 
           className="text-[#2E66FF]"

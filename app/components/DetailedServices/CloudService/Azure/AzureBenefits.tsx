@@ -290,7 +290,7 @@ export default function AzureBenefits() {
 
                   flex items-center gap-5
 
-                  rounded-[24px]
+                  rounded-[20px]
 
                   border border-white/10
 

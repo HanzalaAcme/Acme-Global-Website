@@ -42,13 +42,13 @@ export default function WhyChooseAcme() {
           {/* LABEL */}
           <div className="flex items-center gap-2 text-[#2E66FF] text-[12px] tracking-[1px] font-bold uppercase mb-4">
             <Star className="w-4 h-4" />
-            <span>Why Corporate Clients Choose ACME Global </span>
+            <span>Trusted by Enterprises Across the GCC </span>
           </div>
 
           {/* HEADING */}
           <h2 className="font-playfair text-[38px] font-extrabold text-[#0B1120] mb-10">
-            Why Corporate Clients Choose {""}
-            <span className="text-[#2E66FF]">ACME Global?</span>
+            Why {""}
+            <span className="text-[#2E66FF]">ACME Global Hub?</span>
           </h2>
 
          {/* POINTS */}

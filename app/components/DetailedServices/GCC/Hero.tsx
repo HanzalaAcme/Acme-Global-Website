@@ -215,7 +215,7 @@ export default function ApplicationHero() {
                   italic
                 "
               >
-                Your Global Innovation Hub in India.
+                Your Global Innovation Hub.
               </span>
 
             </h1>
@@ -274,7 +274,7 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global enables enterprises across the GCC region to build, operate, and scale high-performing Global Capability Centers in India, unlocking access to world-class talent, cost efficiencies, and accelerated digital growth.
+              ACME Global Hub enables enterprises across the GCC region to build, operate, and scale high-performing Global Capability Centers in India, unlocking access to world-class talent, cost efficiencies, and accelerated digital growth.
             </p>
 
             {/* BUTTONS */}
@@ -370,7 +370,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -393,7 +393,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -406,9 +406,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                  Global Capability Center
               </span>
 

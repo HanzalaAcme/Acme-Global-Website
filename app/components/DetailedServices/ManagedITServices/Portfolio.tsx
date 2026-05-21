@@ -72,7 +72,7 @@ export default function ManagedServicesPortfolio() {
             <span
               className="
                 uppercase
-                tracking-[0.18em]
+                tracking-[0.1em]
 
                 text-[12px]
                 font-bold
@@ -80,7 +80,7 @@ export default function ManagedServicesPortfolio() {
                 text-[#2E66FF]
               "
             >
-              OUR MANAGED SERVICES PORTFOLIO
+              Full-Spectrum It Coverage
             </span>
 
           </div>
@@ -182,7 +182,7 @@ export default function ManagedServicesPortfolio() {
 
                   text-[14px]
 
-                  leading-[25px]
+                  leading-[22px]
                 "
               >
                 {item.desc}

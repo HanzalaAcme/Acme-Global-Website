@@ -71,7 +71,7 @@ export default function KeyCapabilitiesStaff() {
         </h2>
 
         {/* GRID */}
-        <div className="mt-10 grid gap-8 md:grid-cols-4 xl:grid-cols-4">
+        <div className="mt-10 grid gap-4 md:grid-cols-4 xl:grid-cols-4">
           {capabilities.map((item, index) => (
             <div
               key={index}
@@ -83,7 +83,7 @@ export default function KeyCapabilitiesStaff() {
               </span>
 
               {/* TITLE */}
-              <h3 className="mt-2 font-playfair text-[30px] font-bold leading-[20px] text-white lg:text-[13px]">
+              <h3 className="mt-2 font-playfair text-[30px] font-bold leading-[20px] text-white lg:text-[14px]">
                 {item.title}
               </h3>
             </div>

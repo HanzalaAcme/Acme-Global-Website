@@ -74,7 +74,7 @@ export default function ApplicationServicesPortfolio() {
               font-bold
             "
           >
-            ACME GLOBAL APPLICATION SERVICES PORTFOLIO
+            ACME GLOBAL Hub APPLICATION SERVICES PORTFOLIO
           </span>
 
         </div>
@@ -98,7 +98,7 @@ export default function ApplicationServicesPortfolio() {
             mb-16
           "
         >
-          ACME Global Application <br />
+          ACME Global Hub Application <br />
 
           <span className="text-[#00D5C0]">
             Services Portfolio

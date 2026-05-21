@@ -47,7 +47,7 @@ export default function BusinessBenefitsWhyStaffDynamics() {
               {benefits.map((item, index) => (
                 <div
                   key={index}
-                  className="group flex items-center gap-5 rounded-[20px] border border-[#E5EAF4] bg-white px-4 py-2 transition-all duration-300 hover:translate-x-[4px] hover:border-[#00C9A7]/40 hover:shadow-[0_0_35px_rgba(0,201,167,0.14)]"
+                  className="group flex items-center gap-5 rounded-[16px] border border-[#E5EAF4] bg-white px-4 py-2 transition-all duration-300 hover:translate-x-[4px] hover:border-[#00C9A7]/40 hover:shadow-[0_0_35px_rgba(0,201,167,0.14)]"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#00C9A7]/12">
                     <Check className="h-4 w-4 text-[#00C9A7]" />

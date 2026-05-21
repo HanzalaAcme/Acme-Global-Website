@@ -116,7 +116,7 @@ export default function ERPPlatformExpertise() {
               text-[#7AAFFF]
             "
           >
-            PLATFORM EXPERTISE
+            DEEP PLATFORM KNOWLEDGE
           </span>
 
         </div>
@@ -244,14 +244,14 @@ export default function ERPPlatformExpertise() {
 
                   <p
                     className="
-                      mt-2
+                      mt-4
 
                       text-white/55
 
                       text-[15px]
                       md:text-[15px]
 
-                      leading-[34px]
+                      leading-[25px]
                     "
                   >
                     {platform.subtitle}
@@ -277,9 +277,9 @@ export default function ERPPlatformExpertise() {
                     text-white/60
 
                     text-[15px]
-                    md:text-[14px]
+                    md:text-[15px]
 
-                    leading-[30px]
+                    leading-[25px]
                   "
                 >
                   {platform.description}

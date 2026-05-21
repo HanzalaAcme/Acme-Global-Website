@@ -234,7 +234,7 @@ export default function CloudPlatforms() {
         <div className="h-[1px] w-full bg-[#E8EDF7] mb-5" />
 
         {/* POINTS */}
-        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-2">
 
           {platform.points.map((point, i) => (
 

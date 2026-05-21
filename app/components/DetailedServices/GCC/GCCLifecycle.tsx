@@ -191,7 +191,7 @@ export default function GCCLifecycleServices() {
               text-[#00D5C0]
             "
           >
-            ACME GLOBAL – YOUR GCC TRANSFORMATION PARTNER
+            ACME GLOBAL Hub – YOUR GCC TRANSFORMATION PARTNER
           </span>
 
         </div>
@@ -236,7 +236,7 @@ export default function GCCLifecycleServices() {
             max-w-[900px]
           "
         >
-          ACME Global is positioned as a GCC Builder,
+          ACME Global Hub is positioned as a GCC Builder,
           not just a staffing provider. We deliver <br />
           end-to-end services 
           across the entire GCC lifecycle.
