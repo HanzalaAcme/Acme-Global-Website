@@ -340,7 +340,7 @@ const faqData: FAQCategory[] = [
 
       {
         question:
-          "What is Re-bading and when it is used?",
+          "What is Re-badging and when it is used?",
 
         answer:
           "Re-badging transitions employees from one employer to another — typically during outsourcing or restructuring. ACME Global manages contracts, benefits transition, compliance, and onboarding to ensure a smooth experience for the organization and employees.",

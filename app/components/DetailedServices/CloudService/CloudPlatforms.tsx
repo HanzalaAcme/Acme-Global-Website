@@ -185,13 +185,13 @@ export default function CloudPlatforms() {
 
               shrink-0
             "
-          >
+           >
 
             <Image
               src={platform.logo}
               alt={platform.name}
-              width={38}
-              height={38}
+              width={52}
+              height={52}
               className="object-contain"
             />
 

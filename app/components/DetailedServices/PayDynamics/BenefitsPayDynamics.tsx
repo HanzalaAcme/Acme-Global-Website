@@ -29,9 +29,9 @@ export default function BusinessBenefitsWhyPayDynamics() {
           {/* LEFT SIDE */}
           <div>
             {/* LABEL */}
-            <div className="mb-5 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[2px] text-[#4F7CFF]">
+            <div className="mb-5 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[1px] text-[#4F7CFF]">
               <Check className="h-4 w-4" />
-              Business Benefits
+              Faster, Cleaner, Fully In Control
             </div>
 
             {/* HEADING */}
@@ -69,9 +69,9 @@ export default function BusinessBenefitsWhyPayDynamics() {
             {/* CONTENT */}
             <div className="relative z-10">
               {/* LABEL */}
-              <div className="mb-6 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[2px] text-[#00D4AA]">
+              <div className="mb-6 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[1px] text-[#00D4AA]">
                 <CircleDot className="h-4 w-4" />
-                Why PayDynamics
+                Precision At Every Cycle
               </div>
 
               {/* TITLE */}

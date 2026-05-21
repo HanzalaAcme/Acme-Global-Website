@@ -57,9 +57,9 @@ export default function KeyCapabilitiesStaff() {
 
       <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10">
         {/* LABEL */}
-        <div className="mb-3 flex items-center justify-center gap-2 text-[13px] font-semibold uppercase tracking-[1.5x] text-[#00D4AA]">
+        <div className="mb-3 flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[1px] text-[#00D4AA]">
           <Layers3 className="h-4 w-4" />
-          Key Capabilities
+          Everything HR Needs, In One Platform
         </div>
 
         {/* HEADING */}

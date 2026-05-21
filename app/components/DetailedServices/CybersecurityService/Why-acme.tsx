@@ -6,7 +6,7 @@ import { CheckCircle } from "lucide-react";
 const points = [
   "Multi-Vendor Expertise across leading cybersecurity platforms",
   "Cloud-Native & Zero Trust Security Approach",
-  "24/7 SOC & Managed Security Services",
+  "SOC & Managed Security Services",
   "Proven Experience across GCC industries (BFSI, Healthcare, Enterprise)",
   "Integrated Security across Cloud, Network, Endpoint & Applications",
 ];

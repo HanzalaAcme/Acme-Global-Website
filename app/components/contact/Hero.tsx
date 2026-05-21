@@ -31,7 +31,6 @@ export default function Contact() {
 
             <h1 className="font-playfair text-[48px] leading-[1.1] font-bold mb-6">
               Get in Touch
-              <span className="text-[#1A4FD6]">.</span>
             </h1>
 
             <p className="text-[18px] text-white/70 leading-[32px] max-w-[520px] mb-8">

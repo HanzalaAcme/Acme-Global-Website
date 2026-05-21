@@ -3,10 +3,12 @@
 import {
   Layers3,
 } from "lucide-react";
+import Image from "next/image";
 
 const platforms = [
   {
-    logo: "ORACLE",
+    logo: "/media/partners/OCI.png",
+    name: "Oracle Cloud Infrastructure",
     title: "Oracle Fusion Cloud Applications",
     desc: "A modern enterprise suite for finance, procurement, HR, supply chain, and performance management.",
     bullets: [
@@ -22,7 +24,8 @@ const platforms = [
   },
 
   {
-    logo: "MS",
+    logo: "/media/partners/MSDynamics 365.png",
+    name: "MS Dynamics 365",
     title: "Microsoft Dynamics 365",
     desc: "Intelligent business applications that unify CRM and ERP with Microsoft ecosystem advantages.",
     bullets: [
@@ -37,7 +40,8 @@ const platforms = [
   },
 
   {
-    logo: "SAP",
+    logo: "/media/partners/SAP.png",
+    name: "SAP",
     title: "SAP ERP Solutions",
     desc: "Trusted enterprise platforms built for complex operations and global scale.",
     bullets: [
@@ -52,7 +56,8 @@ const platforms = [
   },
 
   {
-    logo: "PACT",
+    logo: "/media/partners/Pact.png",
+    name: "PACT Revenu",
     title: "PACT Business Solutions ERP",
     desc: "A cost-effective and feature-rich ERP platform for mid-sized organizations.",
     bullets: [
@@ -85,7 +90,7 @@ export default function ERPPlatforms() {
             <span
               className="
                 uppercase
-                tracking-[0.18em]
+                tracking-[0.1em]
 
                 text-[12px]
                 font-bold
@@ -157,29 +162,34 @@ export default function ERPPlatforms() {
               <div className="flex items-start gap-5">
 
                 {/* LOGO */}
-                <div
-                  className="
-                    w-20 h-20
-
-                    rounded-2xl
-
-                    border border-[#E8EDF6]
-
-                    bg-[#F8FAFD]
-
-                    flex items-center justify-center
-
-                    text-[18px]
-                    font-black
-
-                    shrink-0
-                  "
-                  style={{
-                    color: item.color,
-                  }}
-                >
-                  {item.logo}
-                </div>
+               <div
+                           className="
+                             w-[62px]
+                             h-[62px]
+               
+                             rounded-[14px]
+               
+                             bg-[#F8FAFF]
+               
+                             border border-[#E7ECF6]
+               
+                             flex
+                             items-center
+                             justify-center
+               
+                             shrink-0
+                           "
+                          >
+               
+                           <Image
+                             src={item.logo}
+                             alt={item.name}
+                             width={52}
+                             height={52}
+                             className="object-contain"
+                           />
+               
+                         </div>
 
                 {/* CONTENT */}
                 <div>

@@ -9,7 +9,7 @@ import Blogs from "@/app/components/HomePage/Blogs";
 import CTA from "@/app/components/HomePage/CTA";
 
 export const metadata = {
-  title: "ACME Global",
+  title: "Home - ACME Global Hub",
 };
 
 export default function Home() {

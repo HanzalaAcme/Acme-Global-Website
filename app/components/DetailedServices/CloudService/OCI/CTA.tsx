@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function ApplicationCTA() {
+export default function OCICTA() {
   return (
     <motion.section
       id="contact"
@@ -13,11 +13,10 @@ export default function ApplicationCTA() {
     >
       <div className="max-w-3xl mx-auto">
         
-        <h2 className="font-playfair text-[32px] text-[#0B1120] font-extrabold mb-4">ACME Global Hub ensures your IT runs flawlessly — so your business can focus on 
-          
+        <h2 className="font-playfair text-[30px] text-[#0B1120] font-extrabold mb-4">"Partner with ACME Global Hub to maximize the value of Oracle Cloud and build a
           <span 
           className="text-[#2E66FF]"
-          > growth, innovation, and strategic priorities.
+          > resilient, high-performing digital foundation for your enterprise.{""}
           </span>
           "
          </h2>
@@ -42,8 +41,8 @@ export default function ApplicationCTA() {
               transition-all duration-300
             "
             >
-              Contact Us           
-               </Link>
+              Contact Us
+            </Link>
 
             
 

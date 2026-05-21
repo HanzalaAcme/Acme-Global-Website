@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function CTA() {
   return (
@@ -20,9 +21,11 @@ export default function CTA() {
           Discover how ACME Global Hub can help your organization scale, secure, <br />
           and optimize digital operations through Everything-as-a-Service.
         </p>
-        <button className="px-6 py-3 bg-[#FFFFFF] text-[#1A4FD6] font-medium rounded-lg ">
+        <Link
+        href="/contact"
+         className="px-6 py-3 bg-[#FFFFFF] text-[#1A4FD6] font-medium rounded-lg cursor-pointer ">
           Get Started Today
-        </button>
+        </Link>
       </div>
     </motion.section>
   );

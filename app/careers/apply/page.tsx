@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Careers - ACME Global Hub",
+};
 import { Suspense } from "react";
 
 import ApplyForm from "@/app/components/career/ApplyForm";

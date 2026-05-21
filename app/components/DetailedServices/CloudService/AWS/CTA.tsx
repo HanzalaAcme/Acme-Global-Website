@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function ApplicationCTA() {
+export default function AWSCTA() {
   return (
     <motion.section
       id="contact"
@@ -13,11 +13,10 @@ export default function ApplicationCTA() {
     >
       <div className="max-w-3xl mx-auto">
         
-        <h2 className="font-playfair text-[32px] text-[#0B1120] font-extrabold mb-4">ACME Global Hub ensures your IT runs flawlessly — so your business can focus on 
-          
+        <h2 className="font-playfair text-[29px] text-[#0B1120] font-extrabold mb-4">"Transform your IT landscape with AWS and ACME Global Hub. 
           <span 
           className="text-[#2E66FF]"
-          > growth, innovation, and strategic priorities.
+          > Build a secure, scalable, and future-ready cloud platform that drives measurable business outcomes.{""}
           </span>
           "
          </h2>
@@ -42,8 +41,8 @@ export default function ApplicationCTA() {
               transition-all duration-300
             "
             >
-              Contact Us           
-               </Link>
+              Contact Us
+            </Link>
 
             
 

@@ -491,7 +491,7 @@ export default function ApplicationHero() {
               />
 
               <Image
-                src="/media/Gen_Hero.tsx"
+                src="/media/Gen_Hero.jpg"
                 alt="Generative AI Services"
 
                 fill

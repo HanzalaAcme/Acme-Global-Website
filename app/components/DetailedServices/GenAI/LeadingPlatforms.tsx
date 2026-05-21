@@ -8,7 +8,7 @@ import {
 const platforms = [
   {
     title: "Microsoft AI",
-    logo: "/logos/microsoft.png",
+    logo: "/media/Copilot_AI.png",
     points: [
       "Microsoft Copilot for Microsoft 365",
       "Microsoft Azure AI",
@@ -18,7 +18,7 @@ const platforms = [
   },
   {
     title: "Amazon Web Services AI",
-    logo: "/logos/aws.png",
+    logo: "/media/AmazonQ.webp",
     points: [
       "Amazon Bedrock",
       "Amazon SageMaker",
@@ -28,7 +28,7 @@ const platforms = [
   },
   {
     title: "Google Cloud AI",
-    logo: "/logos/google.png",
+    logo: "/media/Gemini.jpg",
     points: [
       "Vertex AI",
       "Gemini",
@@ -37,7 +37,7 @@ const platforms = [
   },
   {
     title: "Oracle AI",
-    logo: "/logos/oracle.png",
+    logo: "/media/partners/OCI.png",
     points: [
       "Oracle Cloud Infrastructure AI Services",
       "Oracle Fusion Applications",
@@ -53,7 +53,7 @@ export default function LeadingPlatforms() {
         {/* LABEL */}
         <div className="mb-5 flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[1px] text-[#4F7CFF]">
           <Layers3 className="h-4 w-4" />
-          Leading Platforms We Support
+          BUILT ON WORLD-CLASS TECHNOLOGY
         </div>
 
         {/* HEADING */}
@@ -77,8 +77,8 @@ export default function LeadingPlatforms() {
                   <Image
                     src={item.logo}
                     alt={item.title}
-                    width={38}
-                    height={38}
+                    width={50}
+                    height={50}
                     className="object-contain"
                   />
                 </div>

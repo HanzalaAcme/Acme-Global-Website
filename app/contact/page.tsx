@@ -1,4 +1,6 @@
-
+export const metadata = {
+  title: "Contact Us - ACME Global Hub",
+};
 
 import Hero from "@/app/components/contact/Hero";
 import CTA from "@/app/components/contact/CTA";

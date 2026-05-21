@@ -67,11 +67,19 @@ export default function GlobalOffices() {
                 Manama, Bahrain
               </h3>
 
-              <p className="font-playfair text-[18px] font-bold text-[#0B1120] mb-6">
-                Almoayyed Computers Middle East
-              </p>
 
-              <p className="text-[12px] font-bold tracking-[1px] text-[#0B1120] uppercase mb-2">
+              <a
+                  href="https://acme.tech/"
+
+                  target="_blank"
+                  rel="noopener noreferrer"
+
+                  className="font-playfair text-[18px] font-bold text-[#0B1120] mb-10 hover:underline"
+                >
+                  Almoayyed Computers Middle East
+                </a>
+
+              <p className="mt-4 text-[12px] font-bold tracking-[1px] text-[#0B1120] uppercase mb-2">
                 Address
               </p>
 
@@ -122,11 +130,18 @@ export default function GlobalOffices() {
                 Kuwait City, Kuwait
               </h3>
 
-              <p className="font-playfair text-[18px] font-bold text-[#0B1120] mb-6">
-                Alghanim and Almoayyed Computer Solutions
-              </p>
+              <a
+                  href="http://www.alghanimalmoayyed.tech/"
 
-              <p className="text-[12px] font-bold tracking-[1px] text-[#0B1120] uppercase mb-2">
+                  target="_blank"
+                  rel="noopener noreferrer"
+
+                  className="font-playfair text-[18px] font-bold text-[#0B1120] mb-10 hover:underline"
+                >
+                 Alghanim and Almoayyed Computer Solutions
+                </a>
+
+              <p className="mt-4 text-[12px] font-bold tracking-[1px] text-[#0B1120] uppercase mb-2">
                 Address
               </p>
 

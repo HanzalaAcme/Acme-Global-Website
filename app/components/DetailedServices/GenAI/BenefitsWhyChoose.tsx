@@ -35,7 +35,7 @@ export default function BusinessBenefitsWhyChoose() {
           <div>
             <div className="mb-4 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[2px] text-[#00D4AA]">
               <Check className="h-4 w-4" />
-              Business Benefits
+              YOUR ROI, REALIZED
             </div>
 
             <h2 className="font-playfair text-[40px] font-bold leading-tight text-white lg:text-[36px]">
@@ -51,7 +51,7 @@ export default function BusinessBenefitsWhyChoose() {
                   key={index}
                   className="group flex items-center gap-5 rounded-[24px] border border-white/10 bg-white/[0.04] px-6 py-3 transition-all duration-300 hover:translate-x-[4px] hover:border-[#00D4AA]/50 hover:shadow-[0_0_30px_rgba(0,212,170,0.18)]"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#00D4AA]/15">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#00D4AA]/15 shrink-0">
                     <Check className="h-5 w-5 text-[#00D4AA]" />
                   </div>
 
@@ -72,7 +72,7 @@ export default function BusinessBenefitsWhyChoose() {
                 <div className="h-1.5 w-1.5 rounded-full bg-[#5B8CFF]" />
               </div>
 
-              Why Choose ACME Global Hub
+              PROVEN.EXPERT.COMMITTED
             </div>
 
             <h2 className="font-playfair text-[40px] font-bold leading-tight text-white lg:text-[36px]">
@@ -88,7 +88,7 @@ export default function BusinessBenefitsWhyChoose() {
                   key={index}
                   className="group flex items-start gap-5 rounded-[24px] border border-white/10 bg-white/[0.04] px-6 py-4 transition-all duration-300 hover:translate-x-[4px] hover:border-[#2563EB]/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.18)]"
                 >
-                  <div className="mt-1 flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563EB]/15">
+                  <div className="mt-1 flex h-11 w-11 items-center justify-center rounded-xl bg-[#2563EB]/15 shrink-0">
                     <ChevronRight className="h-5 w-5 text-[#5B8CFF]" />
                   </div>
 

@@ -188,7 +188,7 @@ export default function ERPPlatformExpertise() {
               <div
                 className="
                   px-7 md:px-7
-                  py-7
+                  py-4
 
                   flex items-start gap-5
                 "
@@ -202,7 +202,7 @@ export default function ERPPlatformExpertise() {
 
                     rounded-2xl
 
-                    bg-white/5
+                    bg-white/20
 
                     border border-white/10
 
@@ -215,8 +215,8 @@ export default function ERPPlatformExpertise() {
                   <Image
                     src={platform.logo}
                     alt={platform.title}
-                    width={40}
-                    height={40}
+                    width={55}
+                    height={55}
                     className="object-contain"
                   />
 

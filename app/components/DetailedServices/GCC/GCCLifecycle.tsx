@@ -181,7 +181,7 @@ export default function GCCLifecycleServices() {
             className="
               uppercase
 
-              tracking-[0.18em]
+              tracking-[0.1em]
 
               text-[11px]
               md:text-[12px]
@@ -231,15 +231,14 @@ export default function GCCLifecycleServices() {
             text-[16px]
             md:text-[16px]
 
-            leading-[34px]
+            leading-[25px]
 
             max-w-[900px]
           "
         >
           ACME Global Hub is positioned as a GCC Builder,
           not just a staffing provider. We deliver <br />
-          end-to-end services 
-          across the entire GCC lifecycle.
+          end-to-end services across the entire GCC lifecycle.
         </p>
 
         {/* CARDS */}

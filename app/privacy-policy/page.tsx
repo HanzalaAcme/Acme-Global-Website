@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Privacy Policy - ACME Global Hub",
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="w-full min-h-screen bg-gray-100 pt-24 px-4">

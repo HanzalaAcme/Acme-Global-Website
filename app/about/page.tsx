@@ -1,7 +1,7 @@
 
 
  export const metadata = {
-  title: "About Us | ACME Global",
+  title: "About Us - ACME Global Hub",
 };
 import Hero from "@/app/components/about/Hero";
 import WhatWeDo from "@/app/components/about/WhatWeDo";

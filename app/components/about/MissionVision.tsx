@@ -115,10 +115,42 @@ export default function MissionVision() {
           {/* LEFT SIDE */}
           <div className="flex flex-col gap-5">
 
-            <h4 className="text-[16px] text-[#0B1120]/80 font-semibold leading-[1.4] ">
-              We believe technology should do more than solve today's problems; it should create tomorrow's opportunities.  
-              Our approach combines strategic thinking, proven delivery, and long-term partnership to help organizations across the GCC modernize with confidence and grow without limits.
-            </h4>
+            <div
+                className="
+                  relative
+
+                  pl-5
+                  sm:pl-6
+
+                  border-l-[3px]
+                  border-[#2E66FF]
+
+                  max-w-[620px]
+
+                  mb-2
+                "
+              >
+
+                <p
+                  className="
+                    text-[15px]
+                    sm:text-[16px]
+
+                    leading-[32px]
+
+                    text-[#5E6E90]
+
+                    font-medium
+                  "
+                >
+                  We believe technology should do more than solve today's problems;
+                  it should create tomorrow's opportunities. Our approach combines
+                  strategic thinking, proven delivery, and long-term partnership
+                  to help organizations across the GCC modernize with confidence
+                  and grow without limits.
+                </p>
+
+              </div>
 
             
 

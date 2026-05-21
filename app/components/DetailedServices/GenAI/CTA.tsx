@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function ApplicationCTA() {
+export default function AICTA() {
   return (
     <motion.section
       id="contact"

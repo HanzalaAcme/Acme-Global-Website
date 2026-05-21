@@ -17,7 +17,7 @@ export default function ApplicationCTA() {
           
           <span 
           className="text-[#2E66FF]"
-          > Accelerate Growth with ACME Global. {""}
+          > Accelerate Growth with ACME Global Hub. {""}
           </span>
           
          </h2>
@@ -40,6 +40,7 @@ export default function ApplicationCTA() {
               hover:shadow-[0_14px_35px_rgba(46,102,255,0.5)]
 
               transition-all duration-300
+              hover:bg-gray-100
             "
             >
               Contact Us

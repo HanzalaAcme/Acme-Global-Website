@@ -88,7 +88,6 @@ export default function Footer() {
                 <Phone className="w-[17px] h-[17px] text-[#7AADFF] shrink-0" />
 
                 <a
-                  href="tel:+914040117942"
                   className="
                     text-[13px]
                     hover:text-white
@@ -133,7 +132,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/service"
+                  href="/services"
                   className="hover:text-white transition-colors duration-300"
                 >
                   Services

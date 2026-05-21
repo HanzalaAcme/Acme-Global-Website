@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function BlogHero() {
   return (
@@ -123,6 +125,28 @@ export default function BlogHero() {
               Blogs
             </h1>
 
+            {/* DESCRIPTION */}
+            <p
+              className="
+                text-white/70
+
+                text-[16px]
+                sm:text-[18px]
+
+                leading-[30px]
+
+                max-w-[560px]
+
+                mx-auto
+                lg:mx-0
+
+                mb-8
+              "
+            >
+              Expert insights, technology trends, and practical thinking from the ACME Global Hub 
+              team helping enterprises across the GCC stay ahead in cloud, security, AI, and beyond.
+            </p>
+
             {/* BREADCRUMB */}
             <div
               className="
@@ -133,7 +157,7 @@ export default function BlogHero() {
                 text-[14px]
                 sm:text-[14px]
 
-                text-white/60
+                text-white/40
               "
             >
 
@@ -151,7 +175,7 @@ export default function BlogHero() {
 
               <span className="text-white/30">/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Blogs
               </span>
 
@@ -168,50 +192,78 @@ export default function BlogHero() {
             "
           >
 
-            {/* VERTICAL DIVIDER */}
+           
+
+            {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+            }}
+
+            className="
+              relative
+
+              flex
+              justify-center
+              lg:justify-end
+            "
+          >
+
+            {/* IMAGE WRAPPER */}
             <div
               className="
-                hidden
-                lg:block
+                relative
 
-                absolute
-                left-0
-                top-1/2
-                -translate-y-1/2
+                w-full
+                max-w-[560px]
 
-                h-[180px]
-                w-px
+                h-[240px]
+                sm:h-[320px]
+                lg:h-[340px]
 
-                bg-white/20
-              "
-            />
+                rounded-[24px]
 
-            {/* TEXT */}
-            <div
-              className="
-                max-w-[580px]
+                overflow-hidden
+
+                border
+                border-white/10
+
+                shadow-[0_20px_60px_rgba(0,0,0,0.3)]
               "
             >
 
-              <p
+              <Image
+                src="/media/Blog_Hero.jpg"
+                alt="About ACME Global"
+
+                fill
+
+                priority
+
                 className="
-                  text-[#FFFFFF]/65
-
-                  text-[14px]
-                  sm:text-[15px]
-                  lg:text-[18px]
-
-                  leading-[1.5]
-                  lg:leading-[1.45]
-
-                  font-light
+                  object-cover
                 "
-              >
-                Expert insights, technology trends, and practical thinking from the ACME Global Hub team helping enterprises across the GCC stay ahead in cloud, security, AI, and beyond.
-                
-              </p>
+              />
+
+              {/* OVERLAY */}
+              <div
+                className="
+                  absolute
+                  inset-0
+
+                  bg-gradient-to-t
+                  from-[#07142A]/30
+                  to-transparent
+                "
+              />
 
             </div>
+
+          </motion.div>
 
           </div>
 

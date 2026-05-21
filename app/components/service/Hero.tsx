@@ -319,7 +319,7 @@ export default function Hero() {
 
                 text-sm
 
-                text-white/50
+                text-white/40
               "
             >
 
@@ -336,7 +336,7 @@ export default function Hero() {
 
               <span>/</span>
 
-              <span className="text-white/35">
+              <span className="text-white/60">
                 Services
               </span>
 
@@ -344,9 +344,7 @@ export default function Hero() {
 
           </motion.div>
 
-          {/* =========================
-              RIGHT IMAGE
-          ========================= */}
+          {/*  RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}

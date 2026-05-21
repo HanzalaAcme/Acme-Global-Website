@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Blogs - ACME Global Hub",
+};
 
 import Image from "next/image";
 import Link from "next/link";

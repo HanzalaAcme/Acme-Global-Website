@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Careers - ACME Global Hub",
+};
 import JobHero from "@/app/components/career/JobHero";
 import JobContent from "@/app/components/career/JobContent";
 import JobSidebar from "@/app/components/career/JobSidebar";

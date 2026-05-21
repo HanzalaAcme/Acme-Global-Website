@@ -1,5 +1,4 @@
-"use client";
-import { useParams } from "next/navigation";
+import type { Metadata } from "next";
 
 import CloudHero from "@/app/components/DetailedServices/CloudService/Hero";
 import WhyChooseACME from "@/app/components/DetailedServices/CloudService/Why-acme";
@@ -65,7 +64,7 @@ import AIHero from "@/app/components/DetailedServices/GenAI/Hero";
 import BusinessBenefitsWhyChoose from "@/app/components/DetailedServices/GenAI/BenefitsWhyChoose";
 import LeadingPlatforms from "@/app/components/DetailedServices/GenAI/LeadingPlatforms";
 import AIServicePortfolio from "@/app/components/DetailedServices/GenAI/ServicePortfolio"; 
-import PactCTA from "@/app/components/DetailedServices/GenAI/CTA";
+import AICTA from "@/app/components/DetailedServices/GenAI/CTA";
 
 import StaffDynamicsHero from "@/app/components/DetailedServices/StaffDynamics/Hero";
 import BusinessBenefitsWhyStaffDynamics from "@/app/components/DetailedServices/StaffDynamics/BenefitsStaffDynamics";
@@ -78,10 +77,143 @@ import BusinessBenefitsWhyPayDynamics from "@/app/components/DetailedServices/Pa
 import KeyCapabilities from "@/app/components/DetailedServices/PayDynamics/KeyCapabilities";
 import PayDynamicsCTA from "@/app/components/DetailedServices/PayDynamics/CTA";
 
+const serviceMetadata: Record<
+  string,
+  {
+    title: string;
+    description: string;
+  }
+> = {
 
+  "cloud-services": {
+    title:
+      "Cloud Services | ACME Global Hub",
 
-export default function ServicePage() {
-  const { slug } = useParams();
+    description:
+      "Scalable cloud transformation, migration, and managed cloud services for modern enterprises.",
+  },
+
+  "application-services": {
+    title:
+      "Application Services | ACME Global Hub",
+
+    description:
+      "Enterprise application modernization, ERP solutions, and digital business applications.",
+  },
+
+  "cyber-security": {
+    title:
+      "Cyber Security Services | ACME Global Hub",
+
+    description:
+      "Advanced cybersecurity, risk management, compliance, and threat protection solutions.",
+  },
+
+  "remote-infrastructure": {
+    title:
+      "Remote Infrastructure Management | ACME Global Hub",
+
+    description:
+      "24x7 remote infrastructure management and enterprise IT operations support.",
+  },
+
+  "global-capability-center": {
+    title:
+      "Global Capability Center | ACME Global Hub",
+
+    description:
+      "Build scalable GCC models with strategic offshore and global delivery capabilities.",
+  },
+
+  "staff-augmentation-services": {
+    title:
+      "Staff Augmentation Services | ACME Global Hub",
+
+    description:
+      "Flexible IT staffing and talent augmentation solutions for enterprise teams.",
+  },
+
+  "erp-business-platforms": {
+    title:
+      "ERP Business Platforms | ACME Global Hub",
+
+    description:
+      "Enterprise ERP implementation, consulting, and business platform solutions.",
+  },
+
+  "managed-it-services": {
+    title:
+      "Managed IT Services | ACME Global Hub",
+
+    description:
+      "Comprehensive managed IT services for infrastructure, cloud, and enterprise systems.",
+  },
+
+  "recruitment-as-a-service": {
+    title:
+      "Recruitment as a Service | ACME Global Hub",
+
+    description:
+      "Scalable recruitment and hiring solutions powered by RaaS delivery models.",
+  },
+
+  "ai-and-generative-ai-services": {
+    title:
+      "AI & Generative AI Services | ACME Global Hub",
+
+    description:
+      "Enterprise AI, automation, GenAI, and intelligent transformation solutions.",
+  },
+
+  "staffdynamics": {
+    title:
+      "StaffDynamics | ACME Global Hub",
+
+    description:
+      "Modern workforce and staffing management platform solutions.",
+  },
+
+  "paydynamics": {
+    title:
+      "PayDynamics | ACME Global Hub",
+
+    description:
+      "Enterprise payroll and workforce compensation management solutions.",
+  },
+
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    slug: string;
+  }>;
+}): Promise<Metadata> {
+
+  const { slug } = await params;
+
+  return (
+    serviceMetadata[slug] || {
+
+      title:
+        "Services | ACME Global Hub",
+
+      description:
+        "Enterprise technology and digital transformation services.",
+    }
+  );
+}
+
+export default async function ServicePage({
+  params,
+}: {
+  params: Promise<{
+    slug: string;
+  }>;
+}) {
+
+  const { slug } = await params;
 
   switch (slug) {
     case "cloud-services":
@@ -197,7 +329,7 @@ export default function ServicePage() {
       <AIServicePortfolio />
       <LeadingPlatforms />
       <BusinessBenefitsWhyChoose />
-      <PactCTA /> 
+      <AICTA /> 
     </>
   );
 

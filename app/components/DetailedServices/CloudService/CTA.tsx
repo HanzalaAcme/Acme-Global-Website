@@ -12,8 +12,8 @@ export default function CloudCTA() {
       transition={{ duration: 1 }}
     >
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-playfair text-[32px] text-[#0B1120] font-extrabold mb-4">Partner with ACME Global</h2>
-        <p className="text-[16px] text-[#5E6E90] mb-8">Whether you need AWS, Azure, OCI, GCP, or a strategic multi-cloud model, ACME Global delivers the expertise,
+        <h2 className="font-playfair text-[32px] text-[#0B1120] font-extrabold mb-4">Partner with ACME Global Hub</h2>
+        <p className="text-[16px] text-[#5E6E90] mb-8">Whether you need AWS, Azure, OCI, GCP, or a strategic multi-cloud model, ACME Global Hub delivers the expertise,
                                 governance, and managed services to help your business succeed in the cloud. <br />
             </p>
             <h2 className="font-playfair text-[24px] text-[#2E66FF] font-bold italic mb-10">Transform. Optimize. Scale. Secure.</h2>

@@ -17,7 +17,7 @@ export default function ApplicationCTA() {
           
           <span 
           className="text-[#2E66FF]"
-          > intelligent, proactive, and integrated {""}
+          > intelligent, proactive, and integrated{""}
           </span>
           protection."
          </h2>

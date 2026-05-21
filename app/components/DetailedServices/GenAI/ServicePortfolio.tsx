@@ -101,7 +101,7 @@ export default function AIServicePortfolio() {
         {/* LABEL */}
         <div className="mb-5 flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[1px] text-[#00D4AA]">
           <div className="h-4 w-4 rounded-[4px] border border-[#00D4AA]" />
-          Our AI Service Portfolio
+          WHAT WE DELIVER
         </div>
 
         {/* HEADING */}

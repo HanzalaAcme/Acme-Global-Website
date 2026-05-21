@@ -29,6 +29,7 @@ export default function ImageText() {
             rounded-xl
             font-semibold
             cursor-pointer
+            hover:bg-gray-100
           "
         >
           View Open Position

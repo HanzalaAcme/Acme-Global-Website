@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Careers - ACME Global Hub",
+};
+
 import Hero from "@/app/components/career/Hero";
 import WhyChooseUs from "@/app/components/career/WhyChooseUs";
 import JobList from "@/app/components/career/JobList";

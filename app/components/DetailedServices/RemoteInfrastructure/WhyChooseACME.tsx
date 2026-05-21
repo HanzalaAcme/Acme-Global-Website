@@ -45,12 +45,30 @@ export default function WhyChooseAcme() {
           </div>
 
           {/* HEADING */}
-          <h2 className="font-playfair text-[42px] font-bold text-white mb-10">
-            Why Corporate Clients Choose {""} <span className="text-[#00D1B2]">ACME Global Hub RIM services</span>
+          <h2
+            className="
+              font-playfair
+
+              text-[40px]
+
+              leading-[1.15]
+
+              font-bold
+
+              text-white
+
+              mb-6
+            "
+          >
+            Why Corporate Clients Choose{" "}
+
+            <span className="text-[#00D1B2]">
+              ACME Global Hub RIM Services
+            </span>
           </h2>
 
           {/* POINTS */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-3">
 
             {points.map((item, i) => (
               <div

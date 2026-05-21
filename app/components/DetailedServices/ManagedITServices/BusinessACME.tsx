@@ -232,7 +232,7 @@ export default function BusinessBenefits() {
               <span
                 className="
                   uppercase
-                  tracking-[0.18em]
+                  tracking-[0.1em]
 
                   text-[11px]
                   md:text-[12px]

@@ -1,4 +1,6 @@
-
+export const metadata = {
+  title: "Partners - ACME Global Hub",
+};
 import Hero from "@/app/components/partner/Hero";
 import FAQs from "@/app/components/partner/FAQs";
 import WhyPartnership from "../components/partner/WhyPartnership";

@@ -19,7 +19,7 @@ export default function StaffDynCTA() {
           className="text-[#2E66FF]"
           > improve business continuity {""}
           </span>
-           — with ACME Global RIM Services."
+           — with ACME Global Hub RIM Services."
          </h2>
 
         

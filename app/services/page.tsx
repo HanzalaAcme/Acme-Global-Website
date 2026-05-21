@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 
+
+export const metadata: Metadata = {
+
+  title:
+    "Services | ACME Global Hub",
+};
 
 import Hero from "@/app/components/service/Hero";
 import Service from "@/app/components/HomePage/Services";

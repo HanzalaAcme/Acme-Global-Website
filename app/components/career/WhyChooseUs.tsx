@@ -189,7 +189,7 @@ export default function WhatWeDo() {
             <Layers3 className="w-4 h-4" />
 
             <span>
-              What We Do
+              WHY JOIN ACME GLOBAL HUB
             </span>
 
           </div>
@@ -210,7 +210,7 @@ export default function WhatWeDo() {
               lg:text-[40px]
             "
           >
-            Enabling Agile, Secure, and
+            Build Your Career where
           </h2>
 
           <h2
@@ -230,7 +230,7 @@ export default function WhatWeDo() {
               lg:text-[40px]
             "
           >
-            Future-Ready Enterprises
+            Technology Meets Impact
           </h2>
 
           {/* DESCRIPTION */}
@@ -322,7 +322,7 @@ export default function WhatWeDo() {
                   sm:p-8
                   lg:p-9
 
-                  min-h-[260px]
+                  min-h-[200px]
 
                   transition-all
                   duration-300
@@ -377,7 +377,7 @@ export default function WhatWeDo() {
                 </div>
 
                 {/* CONTENT */}
-                <div className="mt-5">
+                <div className="mt-4">
 
                   <h3
                     className="
@@ -387,7 +387,7 @@ export default function WhatWeDo() {
 
                       font-bold
 
-                      leading-[1.2]
+                      leading-[1.1]
 
                       text-[24px]
                       sm:text-[22px]
