@@ -98,7 +98,7 @@ export default function StaffAugmentationApproach() {
               h-[320px]
               sm:h-[420px]
               md:h-[520px]
-              lg:h-[650px]
+              lg:h-[530px]
 
               rounded-[32px]
 
@@ -109,7 +109,7 @@ export default function StaffAugmentationApproach() {
           >
 
             <Image
-              src="/media/staff-augmentation-approach.jpg"
+              src="/media/StaffAug_App.png"
               alt="Our Approach"
               fill
               className="object-cover"

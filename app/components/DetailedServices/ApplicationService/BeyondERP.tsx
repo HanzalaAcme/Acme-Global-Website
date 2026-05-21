@@ -58,8 +58,8 @@ export default function BeyondERP() {
             >
 
               <Image
-                src="/media/application-team.jpg"
-                alt="team"
+                src="/media/Application_ERP.png"
+                alt="ERP"
                 fill
                 className="object-cover"
               />

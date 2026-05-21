@@ -497,8 +497,8 @@ export default function ApplicationHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
-                alt="Application Services"
+                src="/media/ManIT_Hero.png"
+                alt="Managed IT Services"
 
                 fill
 

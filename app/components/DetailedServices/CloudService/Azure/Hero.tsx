@@ -498,8 +498,8 @@ export default function AzureHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
-                alt="Application Services"
+                src="/media/Azure_Hero.jpg"
+                alt="Azure Cloud Services"
 
                 fill
 

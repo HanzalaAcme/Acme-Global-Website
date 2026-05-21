@@ -25,7 +25,7 @@ export default function WhyAcme() {
         {/* LEFT IMAGE */}
         <div className="w-full h-[420px] rounded-[24px] overflow-hidden">
           <Image
-            src="/media/Partner.jpeg"   
+            src="/media/Cyber_Choose.jpg"   
             alt="why acme"
             width={600}
             height={420}

@@ -425,9 +425,7 @@ export default function AWSHero() {
 
           </motion.div>
 
-          {/* ===================================
-              RIGHT IMAGE
-          =================================== */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -500,8 +498,8 @@ export default function AWSHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
-                alt="Application Services"
+                src="/media/AWS_Hero.jpg"
+                alt="AWS Cloud Services"
 
                 fill
 

@@ -106,9 +106,7 @@ export default function Hero() {
           "
         >
 
-          {/* =========================
-              LEFT CONTENT
-          ========================= */}
+          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -402,7 +400,7 @@ export default function Hero() {
             >
 
               <Image
-                src="/media/Image 1 (720x720px).png"
+                src="/media/Services_Hero.jpg"
                 alt="Enterprise Technology Services"
 
                 width={720}

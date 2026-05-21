@@ -428,9 +428,7 @@ export default function ApplicationHero() {
 
           </motion.div>
 
-          {/* ===================================
-              RIGHT IMAGE
-          =================================== */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -503,8 +501,8 @@ export default function ApplicationHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
-                alt="Application Services"
+                src="/media/Cloud_Hero.jpg"
+                alt="Cloud Services"
 
                 fill
 

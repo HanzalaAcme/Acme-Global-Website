@@ -67,7 +67,7 @@ export default function GCCStrategicAdvantage() {
               h-[340px]
               sm:h-[420px]
               md:h-[520px]
-              lg:h-[620px]
+              lg:h-[530px]
 
               rounded-[30px]
 
@@ -78,7 +78,7 @@ export default function GCCStrategicAdvantage() {
           >
 
             <Image
-              src="/media/gcc-team.jpg"
+              src="/media/GCC_Adv.png"
               alt="GCC Strategic Advantage"
               fill
               priority

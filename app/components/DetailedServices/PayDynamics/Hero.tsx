@@ -491,8 +491,8 @@ export default function ApplicationHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
-                alt="Application Services"
+                src="/media/Paydynamics.jpg"
+                alt="Paydynamics Services"
 
                 fill
 

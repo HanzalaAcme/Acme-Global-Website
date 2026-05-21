@@ -498,8 +498,8 @@ export default function GCPHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
-                alt="Application Services"
+                src="/media/Google_Hero.jpg"
+                alt="Google Cloud Services"
 
                 fill
 

@@ -207,7 +207,7 @@ export default function Differentiators() {
           >
 
             <Image
-              src="/media/gcc-differentiators.jpg"
+              src="/media/GCC_Diff.png"
               alt="Differentiators"
               fill
               className="object-cover"

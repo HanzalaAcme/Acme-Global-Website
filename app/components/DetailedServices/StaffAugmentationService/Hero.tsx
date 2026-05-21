@@ -460,7 +460,7 @@ export default function ApplicationHero() {
 
                 h-[260px]
                 sm:h-[360px]
-                lg:h-[440px]
+                lg:h-[420px]
 
                 rounded-[30px]
 
@@ -489,8 +489,8 @@ export default function ApplicationHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
-                alt="Application Services"
+                src="/media/StaffAug_Hero.png"
+                alt="Staff Augmentation Services"
 
                 fill
 

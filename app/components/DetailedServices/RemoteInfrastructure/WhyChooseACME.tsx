@@ -25,12 +25,12 @@ export default function WhyChooseAcme() {
       <div className="max-w-[1300px] mx-auto grid lg:grid-cols-2 gap-[60px] items-center relative z-10">
 
         {/* LEFT IMAGE */}
-        <div className="w-full h-[420px] rounded-[24px] overflow-hidden">
+        <div className="w-full h-[400px] rounded-[24px] overflow-hidden">
           <Image
-            src="/media/Partner.jpeg"   
+            src="/media/RIM_Diff.jpg"   
             alt="why acme"
             width={600}
-            height={420}
+            height={450}
             className="w-full h-full object-cover"
           />
         </div>

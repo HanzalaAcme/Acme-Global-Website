@@ -491,7 +491,7 @@ export default function ApplicationHero() {
               />
 
               <Image
-                src="/media/Service_Hero.jpg"
+                src="/media/Application_Hero.png"
                 alt="Application Services"
 
                 fill
