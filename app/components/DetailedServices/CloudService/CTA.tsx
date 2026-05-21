@@ -36,10 +36,10 @@ export default function CloudCTA() {
               transition-all duration-300
             "
             >
-              Request a Demo
+              Contact Us
             </Link>
 
-            {/* SECONDARY */}
+            {/* SECONDARY 
             <Link
               href="/contact"
               className="
@@ -52,7 +52,7 @@ export default function CloudCTA() {
             "
             >
               Get in Touch
-            </Link>
+            </Link> */}
 
           </div>
         

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import ApplyForm from "@/app/components/career/ApplyForm";
+
 import ApplicationForm from "@/app/components/career/ApplicationForm";
 
 export default function ApplyPage() {
@@ -19,19 +19,18 @@ export default function ApplyPage() {
           </p>
 
           <h1 className="font-playfair text-4xl md:text-5xl font-bold text-[#0B1120] mb-6">
-            Submit Your Application
+            Submit Your Profile
           </h1>
 
           <p className="text-[#5E6E90] leading-[30px] max-w-[700px] mx-auto">
-            Complete the application form below and upload your resume.
-            Our recruitment team will review your profile and contact you if shortlisted.
+            Share your profile and resume. Our recruitment team will connect with you for relevant opportunities.
           </p>
 
         </div>
 
         {/* FORM */}
         <Suspense fallback={<div />}>
-          <ApplyForm />
+          <ApplicationForm />
           
         </Suspense>
 

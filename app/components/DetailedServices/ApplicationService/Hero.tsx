@@ -296,7 +296,7 @@ export default function ApplicationHero() {
               "
             >
 
-              {/* PRIMARY */}
+              {/* PRIMARY 
               <Link
                 href="/consultation"
 
@@ -327,7 +327,7 @@ export default function ApplicationHero() {
                 "
               >
                 Request Consultation
-              </Link>
+              </Link> */}
 
               {/* SECONDARY */}
               <Link
@@ -418,9 +418,7 @@ export default function ApplicationHero() {
 
           </motion.div>
 
-          {/* ===================================
-              RIGHT IMAGE
-          =================================== */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}

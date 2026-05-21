@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import ApplicationModal from "./ApplicationModal";
+import Link from "next/link";
+
 
 export default function TalentCTA() {
-  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -30,18 +30,39 @@ export default function TalentCTA() {
               with us, and we'll reach out when the right opportunity comes along.
             </p>
 
-            <button
-              onClick={() => setOpen(true)}
-              className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-xl text-white font-medium shadow-lg"
-            >
-              Apply Here →
-            </button>
+            <Link
+  href="/careers/genapply"
+
+  className="
+    inline-flex
+    items-center
+    justify-center
+
+    px-7
+    py-3.5
+
+    rounded-xl
+
+    bg-[#1A4FD6]
+
+    text-white
+    font-semibold
+
+    hover:bg-[#2E66FF]
+
+    transition-all
+    duration-300
+
+    shadow-lg
+    hover:shadow-xl
+  "
+>
+  Submit Your Profile
+</Link>
           </div>
         </div>
       </section>
 
-      {/* FORM MODAL */}
-      {open && <ApplicationModal onClose={() => setOpen(false)} />}
     </>
   );
 }

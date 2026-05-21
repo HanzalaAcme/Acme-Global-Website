@@ -306,7 +306,7 @@ export default function ApplicationHero() {
               "
             >
 
-              {/* PRIMARY */}
+              {/* PRIMARY 
               <Link
                 href="#req-form"
 
@@ -337,7 +337,7 @@ export default function ApplicationHero() {
                 "
               >
                 Request Consultation
-              </Link>
+              </Link> */}
 
               {/* SECONDARY */}
               <Link
@@ -382,7 +382,7 @@ export default function ApplicationHero() {
 
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -405,7 +405,7 @@ export default function ApplicationHero() {
                 Home
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
               <Link
                 href="/services"
@@ -418,9 +418,9 @@ export default function ApplicationHero() {
                 Services
               </Link>
 
-              <span>›</span>
+              <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Cloud Services
               </span>
 

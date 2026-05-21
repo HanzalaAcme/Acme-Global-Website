@@ -123,65 +123,7 @@ export default function BlogEnhancements() {
         />
        </div>
 
-       {/* TOC */}
-             <div
-                className="
-                  sticky
-                  top-28
-                  self-start
-
-                  max-h-[calc(100vh-140px)]
-                  overflow-y-auto
-
-                  bg-[#F4F6FB]
-                  rounded-xl
-                  p-6
-                  border
-                  shadow-sm
-                "
-               >
-                    <h3 className="text-xs font-semibold tracking-wide text-gray-400 mb-4">
-                      TABLE OF CONTENTS
-                    </h3>
-
-                    <ul className="space-y-2">
-                      {headings.map((h) => {
-                        const isActive = activeId === h.id;
-
-                        return (
-                          <li key={h.id}>
-                            <a
-                              href={`#${h.id}`}
-                              className={`group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
-                                transition-all duration-200
-
-                                ${
-                                  isActive
-                                    ? "bg-blue-50 text-blue-600 font-semibold"
-                                    : "text-gray-500 hover:bg-white hover:text-blue-600"
-                                }
-                              `}
-                            >
-                              {/* Arrow */}
-                              <span
-                                className={`text-xs transition-all duration-200
-                                  ${
-                                    isActive
-                                      ? "text-blue-600"
-                                      : "text-blue-300 group-hover:text-blue-600"
-                                  }
-                                `}
-                              >
-                                →
-                              </span>
-
-                              <span>{h.text}</span>
-                            </a>
-                          </li>
-                        );
-                      })}
-                    </ul>
-      </div>
+       
     </>
   );
 }

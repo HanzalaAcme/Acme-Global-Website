@@ -294,7 +294,7 @@ export default function ApplicationHero() {
               "
             >
 
-              {/* PRIMARY */}
+              {/* PRIMARY 
               <Link
                 href="/consultation"
 
@@ -325,7 +325,7 @@ export default function ApplicationHero() {
                 "
               >
                 Request Consultation
-              </Link>
+              </Link> */}
 
               {/* SECONDARY */}
               <Link

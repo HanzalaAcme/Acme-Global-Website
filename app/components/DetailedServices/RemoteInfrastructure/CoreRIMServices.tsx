@@ -181,9 +181,9 @@ export default function CoreRIMServices() {
     <section className="bg-[#F4F6FB] py-20 lg:py-28">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-16">
         {/* LABEL */}
-        <div className="mb-5 flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[2px] text-[#4F7CFF] lg:text-[13px]">
+        <div className="mb-5 flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[1px] text-[#4F7CFF] lg:text-[13px]">
           <Server className="h-4 w-4" />
-          Core Remote Infrastructure Management Services
+          Your Infrastructure. Expertly Managed.
         </div>
 
         {/* HEADING */}

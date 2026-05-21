@@ -39,9 +39,9 @@ export default function WhyChooseAcme() {
         <div>
 
           {/* LABEL */}
-          <div className="flex items-center gap-2 text-[#00D1B2] text-[12px] tracking-[2px] uppercase mb-4">
+          <div className="flex items-center gap-2 text-[#00D1B2] text-[12px] tracking-[1x] uppercase mb-4">
             <CheckCircle className="w-4 h-4" />
-            <span>Why Corporate Clients Choose ACME Global Hub RIM services</span>
+            <span>The Difference Is In The Details</span>
           </div>
 
           {/* HEADING */}

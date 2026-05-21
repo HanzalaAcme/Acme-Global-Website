@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { CheckCircle, Star, Check } from "lucide-react";
+import { Star, Check } from "lucide-react";
 
 const points = [
   "Strategic cloud advisory aligned to business goals",
@@ -16,128 +15,193 @@ const points = [
 
 export default function WhyChooseAcme() {
   return (
-    <section className="bg-[#F4F6FB] py-[100px] px-6 lg:px-20 relative overflow-hidden">
+    <section
+      className="
+        bg-[#F4F6FB]
 
-      {/* RIGHT SIDE GRADIENT */}
-      <div className="absolute right-0 top-0 w-[600px] h-[600px] 
-        bg-[radial-gradient(circle_at_100%_20%,rgba(0,180,255,0.25),transparent_60%)]">
-      </div>
+        py-[100px]
+        px-6
+        lg:px-20
 
-      <div className="max-w-[1300px] mx-auto grid lg:grid-cols-2 gap-[60px] items-center relative z-10">
+        relative
+        overflow-hidden
+      "
+    >
 
-        {/* LEFT IMAGE */}
-        <div className="w-full h-[520px] rounded-[24px] overflow-hidden">
-          <Image
-            src="/media/Partner.jpeg"   
-            alt="why acme"
-            width={600}
-            height={420}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      {/* RIGHT GRADIENT */}
+      <div
+        className="
+          absolute
+          right-0
+          top-0
 
-        {/* RIGHT CONTENT */}
-        <div>
+          w-[600px]
+          h-[600px]
+
+          bg-[radial-gradient(circle_at_100%_20%,rgba(0,180,255,0.18),transparent_60%)]
+        "
+      />
+
+      <div className="max-w-[1300px] mx-auto relative z-10">
+
+        {/* TOP HEADER */}
+        <div className="text-center mb-16">
 
           {/* LABEL */}
-          <div className="flex items-center gap-2 text-[#2E66FF] text-[12px] tracking-[1px] font-bold uppercase mb-4">
+          <div
+            className="
+              inline-flex
+              items-center
+              gap-2
+
+              text-[#2E66FF]
+
+              text-[12px]
+              tracking-[1px]
+
+              font-bold
+              uppercase
+
+              mb-5
+            "
+          >
             <Star className="w-4 h-4" />
-            <span>Trusted by Enterprises Across the GCC </span>
+
+            <span>
+              Trusted by Enterprises Across the GCC
+            </span>
+
           </div>
 
           {/* HEADING */}
-          <h2 className="font-playfair text-[38px] font-extrabold text-[#0B1120] mb-10">
-            Why {""}
-            <span className="text-[#2E66FF]">ACME Global Hub?</span>
-          </h2>
-
-         {/* POINTS */}
-      <div className="flex flex-col gap-3">
-
-        {points.map((item, i) => (
-          <div
-            key={i}
+          <h2
             className="
-              group
+              font-playfair
 
-              flex
-              items-start
-              gap-4
+              text-[36px]
+              md:text-[42px]
 
-              bg-white
-              border border-[#E8EEF9]
+              leading-[1.2]
 
-              rounded-[16px]
+              font-extrabold
 
-              px-5
-              py-4
-
-              transition-all
-              duration-300
-
-              hover:border-[#1A4FD6]
-              hover:bg-[#F8FBFF]
-              hover:shadow-[0_10px_30px_rgba(26,79,214,0.10)]
+              text-[#0B1120]
             "
           >
+            Why{" "}
 
-            {/* ICON BOX */}
+            <span className="text-[#2E66FF]">
+              ACME Global Hub?
+            </span>
+
+          </h2>
+
+        </div>
+
+        {/* GRID */}
+        <div
+          className="
+            grid
+
+            md:grid-cols-2
+            xl:grid-cols-4
+
+            gap-3
+          "
+        >
+
+          {points.map((item, i) => (
+
             <div
+              key={i}
+
               className="
-                w-9
-                h-9
+                group
 
-                rounded-[10px]
-
-                bg-[#1A4FD6]/10
 
                 flex
-                items-center
-                justify-center
+                items-start
+                gap-4
 
-                shrink-0
+                bg-white
+
+                border
+                border-[#E8EEF9]
+
+                rounded-[20px]
+
+                p-4
 
                 transition-all
                 duration-300
 
-                group-hover:bg-[#1A4FD6]/15
+                hover:border-[#1A4FD6]
+                hover:bg-[#F8FBFF]
+
+                hover:shadow-[0_12px_35px_rgba(26,79,214,0.10)]
               "
             >
 
-              <Check
-                className="
-                  w-4
-                  h-4
+              {/* ICON */}
+              <div
+                    className="
+                      w-11
+                      h-11
 
-                  text-[#1A4FD6]
-                  stroke-[3]
-                "
-              />
+                      rounded-[12px]
+
+                      bg-[#1A4FD6]/10
+
+                      flex
+                      items-center
+                      justify-center
+
+                      shrink-0
+
+                      transition-all
+                      duration-300
+
+                      group-hover:bg-[#1A4FD6]/15
+                    "
+                  >
+
+                <Check
+                  className="
+                    w-5
+                    h-5
+
+                    text-[#1A4FD6]
+
+                    stroke-[3]
+                  "
+                />
+
+              </div>
+
+              {/* TEXT */}
+              <p
+                  className="
+                    text-[#2C3550]
+
+                    text-[15px]
+                    leading-[28px]
+
+                    font-medium
+
+                    pt-[2px]
+                  "
+                >
+                {item}
+              </p>
 
             </div>
 
-            {/* TEXT */}
-            <p
-              className="
-                text-[#2C3550]
-
-                text-[14px]
-                leading-[24px]
-
-                pt-[6px]
-              "
-            >
-              {item}
-            </p>
-
-          </div>
-        ))}
-
-      </div>
+          ))}
 
         </div>
 
       </div>
+
     </section>
   );
 }

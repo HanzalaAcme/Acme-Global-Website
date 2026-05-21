@@ -162,7 +162,7 @@ export default async function BlogDetail({
         <div
           id="featured-image"
           className="rounded-2xl overflow-hidden mb-10 justify-center flex"
-        >
+         >
           <Image
             src={post.featured_image}
             alt="blog"
@@ -182,66 +182,104 @@ export default async function BlogDetail({
           />
         </div>
 
-        {/* GRID */}
-        <div className="grid grid-cols-12 gap-12 pb-20">
 
-          {/* TOC */}
-          <aside className="hidden lg:block col-span-3 min-w-0">
-            <BlogEnhancements />
-          </aside>
+            {/* Progress Bar */}
+<BlogEnhancements />
 
-          {/* CONTENT */}
-          <article className="col-span-12 lg:col-span-9 min-w-0 overflow-hidden">
+{/* CONTENT */}
+<div className="pb-20 flex justify-center">
 
-            <div
-              className="
-                prose
-                prose-base
-                sm:prose-lg
+  <article
+    className="
+      w-full
+      max-w-4xl
 
-                max-w-none
+      overflow-hidden
 
-                text-gray-700
-                leading-relaxed
+      px-4
+      sm:px-6
+    "
+  >
 
-                break-words
+    <div
+      className="
+        prose
+        prose-lg
+        lg:prose-xl
 
-                [&_img]:mx-auto
-                [&_img]:rounded-xl
-                [&_img]:max-w-full
-                [&_img]:h-auto
+        max-w-none
 
-                [&_iframe]:max-w-full
+        mx-auto
 
-                [&_table]:block
-                [&_table]:overflow-x-auto
+        text-gray-700
 
-                [&_pre]:overflow-x-auto
+        leading-8
 
-                [&_h2]:text-3xl
-                [&_h2]:font-playfair
-                [&_h2]:font-bold
-                [&_h2]:text-[#0B1120]
-                [&_h2]:mt-10
+        [&>*]:max-w-full
 
-                [&_h3]:text-xl
-                [&_h3]:font-semibold
-                [&_h3]:font-playfair
-                [&_h3]:text-gray-800
-                [&_h3]:mt-6
+        [&_img]:mx-auto
+        [&_img]:rounded-2xl
+        [&_img]:w-full
+        [&_img]:h-auto
+        [&_img]:object-cover
 
-                [&_p]:mt-4
-              "
-              dangerouslySetInnerHTML={{
-                __html: post.content,
-              }}
-            />
+        [&_iframe]:max-w-full
 
-          </article>
+        [&_table]:block
+        [&_table]:overflow-x-auto
 
-        </div>
+        [&_pre]:overflow-x-auto
+
+        [&_h2]:text-3xl
+        [&_h2]:md:text-4xl
+        [&_h2]:font-playfair
+        [&_h2]:font-bold
+        [&_h2]:text-[#0B1120]
+        [&_h2]:mt-14
+        [&_h2]:mb-6
+        [&_h2]:leading-tight
+
+        [&_h3]:text-2xl
+        [&_h3]:font-semibold
+        [&_h3]:font-playfair
+        [&_h3]:text-gray-800
+        [&_h3]:mt-10
+        [&_h3]:mb-4
+
+        [&_p]:mt-6
+        [&_p]:leading-8
+        [&_p]:text-gray-700
+
+        [&_ul]:mt-6
+        [&_ul]:space-y-3
+
+        [&_li]:leading-8
+
+        [&_blockquote]:border-l-4
+        [&_blockquote]:border-[#2563EB]
+        [&_blockquote]:pl-6
+        [&_blockquote]:italic
+        [&_blockquote]:text-gray-600
+
+        [&_a]:text-[#2563EB]
+        [&_a]:font-medium
+        [&_a]:no-underline
+        hover:[&_a]:underline
+      "
+
+      dangerouslySetInnerHTML={{
+        __html: post.content,
+      }}
+    />
+
+  </article>
+
+</div>
+        
 
       </div>
+
+  
 
       {/* LINE */}
       <div className="flex justify-center">

@@ -303,7 +303,7 @@ export default function AzureHero() {
               "
             >
 
-              {/* PRIMARY */}
+              {/* PRIMARY 
               <Link
                 href="#req-form"
 
@@ -334,7 +334,7 @@ export default function AzureHero() {
                 "
               >
                 Requirement Form
-              </Link>
+              </Link> */}
 
               {/* SECONDARY */}
               <Link

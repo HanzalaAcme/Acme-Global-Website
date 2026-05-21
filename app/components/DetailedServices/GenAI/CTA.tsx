@@ -40,7 +40,7 @@ export default function ApplicationCTA() {
 
             {/* PRIMARY */}
             <Link
-              href="/consultation"
+              href="/contact"
               className="
               px-7 py-3 rounded-xl text-white 
               bg-[#2E66FF]
@@ -53,7 +53,7 @@ export default function ApplicationCTA() {
               transition-all duration-300
             "
             >
-              Request Consultation
+              Contact Us
             </Link>
 
             
