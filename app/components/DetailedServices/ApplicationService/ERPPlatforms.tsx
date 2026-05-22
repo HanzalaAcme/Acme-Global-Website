@@ -24,7 +24,7 @@ const platforms = [
   },
 
   {
-    logo: "/media/partners/MSDynamics 365.png",
+    logo: "/media/partners/MSDynamics_365.png",
     name: "MS Dynamics 365",
     title: "Microsoft Dynamics 365",
     desc: "Intelligent business applications that unify CRM and ERP with Microsoft ecosystem advantages.",
@@ -40,7 +40,7 @@ const platforms = [
   },
 
   {
-    logo: "/media/partners/SAP.png",
+    logo: "/media/partners/sap.png",
     name: "SAP",
     title: "SAP ERP Solutions",
     desc: "Trusted enterprise platforms built for complex operations and global scale.",
@@ -56,7 +56,7 @@ const platforms = [
   },
 
   {
-    logo: "/media/partners/Pact.png",
+    logo: "/media/partners/Pact_Rev.png",
     name: "PACT Revenu",
     title: "PACT Business Solutions ERP",
     desc: "A cost-effective and feature-rich ERP platform for mid-sized organizations.",

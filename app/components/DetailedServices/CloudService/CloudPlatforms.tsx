@@ -9,7 +9,7 @@ const platforms = [
   {
     name: "Amazon Web Services AWS – Innovation at Scale",
     desc: "Leverage the world's most comprehensive cloud platform with:",
-    logo: "/media/partners/AWS.png",
+    logo: "/media/partners/aws.png",
     color: "#F59E0B",
     href: "/services/cloud-services/aws",
     points: [
@@ -26,7 +26,7 @@ const platforms = [
   {
     name: "Microsoft Azure – Enterprise Cloud Transformation",
     desc: "Accelerate Microsoft-centric environments with:",
-    logo: "/media/partners/Azure.png",
+    logo: "/media/partners/azure.png",
     color: "#2563EB",
     href: "/services/cloud-services/azure",
     points: [

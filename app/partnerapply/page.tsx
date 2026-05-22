@@ -17,7 +17,7 @@ export default function PartnerApplyPage() {
 
         bg-[#F5F7FB]
 
-        pt-[140px]
+        pt-[100px]
         pb-[100px]
 
         px-6
@@ -64,7 +64,7 @@ export default function PartnerApplyPage() {
 
               uppercase
 
-              tracking-[2px]
+              tracking-[1px]
 
               text-sm
 

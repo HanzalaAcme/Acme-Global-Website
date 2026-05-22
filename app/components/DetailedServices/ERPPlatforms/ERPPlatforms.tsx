@@ -28,7 +28,7 @@ const platforms = [
     description:
       "Microsoft Dynamics 365 unifies ERP and CRM capabilities into a single platform, seamlessly integrated with Microsoft 365, Power Platform, Azure, and Teams — enabling intelligent business processes at every level.",
 
-    logo: "/media/partners/MSDynamics 365.png",
+    logo: "/media/partners/MSDynamics_365.png",
   },
 
   {
@@ -40,7 +40,7 @@ const platforms = [
     description:
       "SAP provides robust enterprise resource planning for organizations with complex, multi-entity, or multinational operations. ACME Global delivers SAP implementation, migration, integration, and managed services across the GCC.",
 
-    logo: "/media/partners/SAP.png",
+    logo: "/media/partners/sap.png",
   },
 
   {
@@ -52,7 +52,7 @@ const platforms = [
     description:
       "PACT ERP is a flexible, cost-effective solution purpose-built for mid-market organizations. It covers finance, HR, payroll, procurement, and operations — with rapid deployment and strong GCC regional alignment.",
 
-    logo: "/media/partners/Pact.png",
+    logo: "/media/partners/Pact_Rev.png",
   },
 ];
 
