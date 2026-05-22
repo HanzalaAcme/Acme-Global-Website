@@ -9,37 +9,37 @@ import { Sparkles } from "lucide-react";
 const partners = [
   {
     name: "AWS",
-    logo: "/media/partners/AWS.png",
+    logo: "/media/partners/AWS.webp",
     url: "https://aws.amazon.com",
   },
   {
     name: "Microsoft",
-    logo: "/media/partners/Microsoft1.png",
+    logo: "/media/partners/Microsoft.jpg",
     url: "https://www.microsoft.com",
   },
   {
     name: "Google Cloud",
-    logo: "/media/partners/GCP.png",
+    logo: "/media/partners/Google.jpg",
     url: "https://cloud.google.com",
   },
   {
     name: "Oracle",
-    logo: "/media/partners/OCI.png",
+    logo: "/media/partners/Oracle.webp",
     url: "https://www.oracle.com",
   },
   {
-    name: "Adobe",
-    logo: "/media/partners/Adobe.png",
-    url: "https://www.adobe.com",
+    name: "SAP",
+    logo: "/media/partners/SAP.webp",
+    url: "https://www.sap.com/india/index.html",
   },
   {
     name: "Cisco",
-    logo: "/media/partners/cisco-cloud.jpg",
+    logo: "/media/partners/Cisco_Cloud.jpg",
     url: "https://www.cisco.com",
   },
   {
     name: "Red Hat",
-    logo: "/media/partners/Red Hat.png",
+    logo: "/media/partners/Red_Hat.webp",
     url: "https://www.redhat.com",
   },
   {
@@ -54,19 +54,10 @@ const partners = [
   },
   {
     name: "Palo Alto",
-    logo: "/media/partners/Palo Alto.png",
+    logo: "/media/partners/Palo_Alto.png",
     url: "https://www.paloaltonetworks.com",
   },
-  {
-    name: "Nutanix",
-    logo: "/media/partners/Nutanix.png",
-    url: "https://www.nutanix.com",
-  },
-  {
-    name: "Citrix",
-    logo: "/media/partners/Citrix.png",
-    url: "https://www.citrix.com",
-  },
+ 
 ];
 
 export default function PartnersSection() {
@@ -245,30 +236,30 @@ export default function PartnersSection() {
 
               {/* LOGO */}
               <div
-                className="
-                  relative
+  className="
+    relative
 
-                  w-[120px]
-                  h-[46px]
+    w-[150px]
+    h-[58px]
 
-                  sm:w-[140px]
-                  sm:h-[52px]
+    sm:w-[180px]
+    sm:h-[70px]
 
-                  transition-all
-                  duration-500
+    lg:w-[200px]
+    lg:h-[76px]
 
-                 
-                  
-                  group-hover:opacity-100
-                  group-hover:scale-[1.08]
-                "
-              >
+    transition-all
+    duration-500
+
+    group-hover:scale-[1.08]
+  "
+>
 
                 <Image
                   src={partner.logo}
                   alt={partner.name}
-                  fill
-                  sizes="160px"
+                  width={150}
+                  height={60}
                   className="
                     object-contain
                     object-center

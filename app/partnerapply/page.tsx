@@ -21,7 +21,7 @@ export default function PartnerApplyPage() {
         pb-[100px]
 
         px-6
-        mt-[72px]
+        
 
         relative
         overflow-hidden

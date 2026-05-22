@@ -32,6 +32,9 @@ export default function PartnerApply() {
 
   const [error, setError] =
     useState("");
+ 
+    const [brochure, setBrochure] =
+  useState<File | null>(null);
 
   const handleSubmit = async (
     e: any
@@ -590,7 +593,7 @@ export default function PartnerApply() {
                     <textarea
                         name="company_overview"
 
-                        rows={4}
+                        rows={3}
 
                         placeholder="
                         Briefly describe your company,
@@ -628,105 +631,262 @@ export default function PartnerApply() {
                     </div>
 
                     {/* COMPANY BROCHURE */}
-                    <div>
+<div>
 
-                    <label
-                        className="
-                        flex
-                        items-center
-                        gap-2
+  <label
+    className="
+      flex
+      items-center
+      gap-2
 
-                        font-semibold
+      font-semibold
 
-                        mb-3
+      mb-3
 
-                        text-[#0B1120]
-                        "
-                    >
+      text-[#0B1120]
+    "
+  >
 
-                        <Upload className="w-4 h-4 text-[#1A4FD6]" />
+    <Upload className="w-4 h-4 text-[#1A4FD6]" />
 
-                        Company Brochure
+    Company Brochure
 
-                    </label>
+  </label>
 
-                    <div
-                        className="
-                        border-2
-                        border-dashed
-                        border-[#D7E3FF]
+  {!brochure ? (
 
-                        rounded-2xl
+    <label
+      className="
+        w-full
+        h-[100px]
 
-                        p-6
+        border
+        border-[#E6EAF2]
 
-                        bg-[#F8FBFF]
+        rounded-xl
 
-                        transition-all
-                        duration-300
+        px-4
 
-                        hover:border-[#1A4FD6]
-                        "
-                    >
+        bg-white
 
-                        <input
-                        type="file"
+        flex
+        items-center
+        justify-between
 
-                        name="brochure"
+        cursor-pointer
 
-                        accept="
-                            .pdf,
-                            .ppt,
-                            .pptx,
-                            .doc,
-                            .docx
-                        "
+        transition-all
+        duration-300
 
-                        className="
-                            w-full
+        hover:border-[#1A4FD6]
 
-                            text-sm
+        group
+      "
+    >
 
-                            text-[#0B1120]
+      {/* LEFT */}
+      <div
+        className="
+          flex
+          items-center
+          gap-3
+        "
+      >
 
-                            file:mr-4
-                            file:py-3
-                            file:px-5
+        <div
+          className="
+            w-9
+            h-9
 
-                            file:rounded-xl
+            rounded-lg
 
-                            file:border-0
+            bg-[#1A4FD6]/10
 
-                            file:bg-[#1A4FD6]
-                            file:text-white
+            flex
+            items-center
+            justify-center
+          "
+        >
 
-                            file:font-medium
+          <Upload
+            className="
+              w-4
+              h-4
 
-                            hover:file:bg-[#2E66FF]
+              text-[#1A4FD6]
+            "
+          />
 
-                            file:cursor-pointer
+        </div>
 
-                            cursor-pointer
-                        "
-                        />
+        <span
+          className="
+            text-sm
 
-                        <p
-                        className="
-                            text-xs
+            text-gray-400
+          "
+        >
+          Upload company brochure
+        </span>
 
-                            text-[#7C8AA5]
+      </div>
 
-                            mt-3
-                        "
-                        >
-                        Upload your company profile,
-                        brochure, or capability deck.
-                        PDF, PPT, DOC formats supported.
-                        </p>
+      {/* BUTTON */}
+      <span
+        className="
+          text-sm
 
-                    </div>
+          font-medium
 
-                    </div>
+          text-[#1A4FD6]
+
+          group-hover:text-[#2E66FF]
+
+          transition-all
+        "
+      >
+        Browse
+      </span>
+
+      <input
+        type="file"
+
+        name="brochure"
+
+        accept="
+          .pdf,
+          .ppt,
+          .pptx,
+          .doc,
+          .docx
+        "
+
+        className="hidden"
+
+        onChange={(e: any) => {
+
+          const selected =
+            e.target.files[0];
+
+          if (selected) {
+
+            setBrochure(selected);
+          }
+        }}
+      />
+
+    </label>
+
+  ) : (
+
+    <div
+      className="
+        h-[100px]
+
+        border
+        border-[#DCE6FA]
+
+        rounded-xl
+
+        px-4
+
+        bg-[#F8FBFF]
+
+        flex
+        items-center
+        justify-between
+      "
+    >
+
+      {/* FILE INFO */}
+      <div
+        className="
+          flex
+          items-center
+          gap-3
+
+          min-w-0
+        "
+      >
+
+        <div
+          className="
+            w-9
+            h-9
+
+            rounded-lg
+
+            bg-[#1A4FD6]/10
+
+            flex
+            items-center
+            justify-center
+
+            shrink-0
+          "
+        >
+
+          <Upload
+            className="
+              w-4
+              h-4
+
+              text-[#1A4FD6]
+            "
+          />
+
+        </div>
+
+        <div className="min-w-0">
+
+          <p
+            className="
+              text-sm
+
+              font-medium
+
+              text-[#0B1120]
+
+              truncate
+            "
+          >
+            {brochure.name}
+          </p>
+
+          
+
+        </div>
+
+      </div>
+
+      {/* REMOVE */}
+      <button
+        type="button"
+
+        onClick={() =>
+          setBrochure(null)
+        }
+
+        className="
+          text-sm
+
+          text-red-500
+
+          hover:text-red-600
+
+          transition-all
+
+          cursor-pointer
+        "
+      >
+        Remove
+      </button>
+
+    </div>
+
+  )}
+
+</div>
 
           {/* ERROR */}
           {error && (
