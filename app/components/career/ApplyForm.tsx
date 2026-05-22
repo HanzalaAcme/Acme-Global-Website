@@ -25,6 +25,9 @@ export default function ApplyForm() {
   const role =
     params.get("role") || "";
 
+    const jobSlug =
+  params.get("job_slug") || "";
+
   const [loading, setLoading] =
     useState(false);
 
@@ -169,6 +172,17 @@ export default function ApplyForm() {
         md:p-10
       "
     >
+      <input
+  type="hidden"
+  name="application_type"
+  value="job"
+/>
+
+<input
+  type="hidden"
+  name="job_slug"
+  value={jobSlug}
+/>
 
       {/* ROLE */}
       <div className="mb-6">
@@ -250,7 +264,7 @@ export default function ApplyForm() {
 
           <input
             type="text"
-            name="name"
+            name="full_name"
             required
 
             placeholder="Enter your full name"
@@ -401,7 +415,7 @@ export default function ApplyForm() {
 
         </div>
 
-        {/* CITY */}
+        {/* CITY 
         <div>
 
           <label
@@ -456,14 +470,70 @@ export default function ApplyForm() {
             "
           />
 
-        </div>
+        </div> */}
+        {/* LOCATION */}
+<div className="mb-5">
+
+  <label
+    className="
+      flex
+      items-center
+      gap-2
+
+      font-semibold
+
+      mb-3
+
+      text-[#0B1120]
+    "
+  >
+
+    <MapPin className="w-4 h-4 text-[#1A4FD6]" />
+
+    Current Location *
+
+  </label>
+
+  <input
+    type="text"
+    name="location"
+    required
+
+    placeholder="Kolkata, India"
+
+    className="
+      w-full
+
+      h-[52px]
+
+      placeholder:text-[#9BA8C0]
+      text-[#0B1120]
+
+      border
+      border-[#E6EAF2]
+
+      rounded-xl
+
+      px-4
+
+      outline-none
+
+      focus:border-[#1A4FD6]
+      focus:ring-4
+      focus:ring-blue-100
+
+      transition-all
+    "
+  />
+
+</div>
 
       </div>
 
-      {/* STATE + COUNTRY */}
+      {/* STATE + COUNTRY 
       <div className="grid md:grid-cols-2 gap-5 mb-5">
 
-        {/* STATE */}
+        {/* STATE 
         <div>
 
           <label
@@ -520,7 +590,7 @@ export default function ApplyForm() {
 
         </div>
 
-        {/* COUNTRY */}
+        {/* COUNTRY 
         <div>
 
           <label
@@ -577,10 +647,12 @@ export default function ApplyForm() {
 
         </div>
 
-      </div>
+      </div> */}
 
       {/* LINKEDIN */}
-      <div className="mb-5">
+      <div className="grid md:grid-cols-2 gap-5 mb-5">
+
+        <div>
 
         <label
           className="
@@ -636,6 +708,65 @@ export default function ApplyForm() {
 
       </div>
 
+      <div className="mb-5">
+
+  <label
+    className="
+      flex
+      items-center
+      gap-2
+
+      font-semibold
+
+      mb-3
+
+      text-[#0B1120]
+    "
+  >
+
+    <FileText className="w-4 h-4 text-[#1A4FD6]" />
+
+    Total Experience *
+
+  </label>
+
+  <input
+    type="text"
+    name="experience"
+    required
+
+    placeholder="2 Years"
+
+    className="
+      w-full
+
+      h-[52px]
+
+      placeholder:text-[#9BA8C0]
+      text-[#0B1120]
+
+      border
+      border-[#E6EAF2]
+
+      rounded-xl
+
+      px-4
+
+      outline-none
+
+      focus:border-[#1A4FD6]
+      focus:ring-4
+      focus:ring-blue-100
+
+      transition-all
+    "
+  />
+
+</div>
+
+      </div>
+      
+
       {/* COVER LETTER */}
       <div className="mb-8">
 
@@ -661,8 +792,8 @@ export default function ApplyForm() {
         </label>
 
         <textarea
-          rows={4}
-          name="message"
+          rows={3}
+          name="comments"
 
           placeholder="Tell us about your experience, skills, or anything you'd like us to know..."
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/router";
 
 import {
   Briefcase,
@@ -194,9 +193,15 @@ export default function ApplicationForm()  {
       ) : (
 
         <form
+        
           onSubmit={handleSubmit}
           className="space-y-6"
         >
+          <input
+  type="hidden"
+  name="application_type"
+  value="generic"
+/>
 
           {/* GRID */}
           <div className="grid md:grid-cols-2 gap-5">
@@ -329,7 +334,7 @@ export default function ApplicationForm()  {
               </label>
 
               <input
-                name="preferred_role"
+                name="role"
                 placeholder="Frontend Developer / React.js"
                 required
                 className={inputStyles}
@@ -525,6 +530,7 @@ export default function ApplicationForm()  {
 
                     <input
                       type="file"
+                      name="resume"
                       accept=".pdf,.doc,.docx"
                       className="hidden"
                       onChange={handleFileChange}

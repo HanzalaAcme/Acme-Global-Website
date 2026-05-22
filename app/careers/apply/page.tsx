@@ -4,7 +4,6 @@ export const metadata = {
 import { Suspense } from "react";
 
 import ApplyForm from "@/app/components/career/ApplyForm";
-import ApplicationForm from "@/app/components/career/ApplicationForm";
 
 export default function ApplyPage() {
 

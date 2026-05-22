@@ -86,9 +86,7 @@ export default function Hero() {
           "
         >
 
-          {/* =========================
-              LEFT CONTENT
-          ========================= */}
+          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -248,6 +246,92 @@ export default function Hero() {
               across cloud, infrastructure, and software.
             </p>
 
+            {/* BUTTONS */}
+            <div
+              className="
+                flex
+                flex-wrap
+
+                items-center
+
+                gap-4
+
+                justify-center
+                lg:justify-start
+
+                mb-4
+              "
+            >
+
+              {/* PRIMARY 
+              <Link
+                href="#req-form"
+
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+
+                  px-7
+                  py-4
+
+                  rounded-xl
+
+                  text-white
+                  font-semibold
+
+                  bg-[#2E66FF]
+
+                  shadow-[0_6px_20px_rgba(46,102,255,0.35)]
+
+                  hover:bg-[#4F8CFF]
+                  hover:-translate-y-[2px]
+
+                  hover:shadow-[0_14px_35px_rgba(46,102,255,0.5)]
+
+                  transition-all
+                  duration-300
+                "
+              >
+                Request Consultation
+              </Link> */}
+
+              {/* SECONDARY */}
+              <Link
+                href="/partnerapply"
+
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+
+                  px-7
+                  py-4
+
+                  rounded-xl
+
+                  text-white
+                  font-semibold
+
+                  border
+                  border-white/20
+
+                  bg-white/5
+
+                  backdrop-blur-sm
+
+                  hover:border-white/40
+                  hover:bg-white/10
+
+                  transition-all
+                  duration-300
+                "
+              >
+                Become Our Partner
+              </Link>
+
+            </div>
+
             {/* BREADCRUMB */}
             <div
               className="
@@ -286,9 +370,7 @@ export default function Hero() {
 
           </motion.div>
 
-          {/* =========================
-              RIGHT IMAGE
-          ========================= */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -346,7 +428,7 @@ export default function Hero() {
             >
 
               <Image
-                src="/media/hero.jpeg"
+                src="/media/Partner_Hero.jpg"
                 alt="Strategic Partners"
 
                 fill

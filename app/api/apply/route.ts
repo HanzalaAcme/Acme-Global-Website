@@ -1,49 +1,84 @@
-import { db } from "@/lib/db";
 import cloudinary from "@/lib/cloudinary";
+
 import { transporter } from "@/lib/mail";
+
 import { NextResponse } from "next/server";
+
 import { Readable } from "stream";
 
-export async function POST(req: Request) {
+import { createClient }
+from "@supabase/supabase-js";
+
+const supabase =
+  createClient(
+
+    process.env
+      .NEXT_PUBLIC_SUPABASE_URL!,
+
+    process.env
+      .SUPABASE_SERVICE_ROLE_KEY!
+  );
+
+export async function POST(
+  req: Request
+) {
 
   try {
 
-    const data = await req.formData();
+    const data =
+      await req.formData();
 
     /* FORM DATA */
 
-    // BASIC FORM
-    const basicName =
-      (data.get("name") as string) || "";
+    const application_type =
+      (data.get(
+        "application_type"
+      ) as string) || "generic";
 
-    // DETAILED FORM
-    const firstName =
-      (data.get("firstName") as string) || "";
-
-    const lastName =
-      (data.get("lastName") as string) || "";
-
-    // MERGED NAME
-    const fullName =
-      `${firstName} ${lastName}`.trim();
-
-    const name =
-      fullName || basicName;
-
-    const email =
-      (data.get("email") as string) || "";
-
-    const phone =
-      (data.get("phone") as string) || "";
+    const job_slug =
+      (data.get(
+        "job_slug"
+      ) as string) || "";
 
     const role =
-      (data.get("role") as string) || "";
+      (data.get(
+        "role"
+      ) as string) || "";
+
+    const full_name =
+      (data.get(
+        "full_name"
+      ) as string) || "";
+
+    const email =
+      (data.get(
+        "email"
+      ) as string) || "";
+
+    const phone =
+      (data.get(
+        "phone"
+      ) as string) || "";
+
+    const location =
+      (data.get(
+        "location"
+      ) as string) || "";
 
     const experience =
-      (data.get("experience") as string) || "";
+      (data.get(
+        "experience"
+      ) as string) || "";
 
-    const message =
-      (data.get("message") as string) || "";
+    const linkedin =
+      (data.get(
+        "linkedin"
+      ) as string) || "";
+
+    const comments =
+      (data.get(
+        "comments"
+      ) as string) || "";
 
     const file =
       data.get("resume") as File;
@@ -51,19 +86,22 @@ export async function POST(req: Request) {
     /* REQUIRED VALIDATION */
 
     if (
-      !name ||
+      !full_name ||
       !email ||
       !phone ||
       !role ||
+      !location ||
       !file
     ) {
 
       return NextResponse.json(
         {
           success: false,
+
           message:
             "Please fill all required fields.",
         },
+
         { status: 400 }
       );
     }
@@ -71,6 +109,7 @@ export async function POST(req: Request) {
     /* FILE VALIDATION */
 
     const allowedTypes = [
+
       "application/pdf",
 
       "application/msword",
@@ -78,28 +117,39 @@ export async function POST(req: Request) {
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     ];
 
-    if (!allowedTypes.includes(file.type)) {
+    if (
+      !allowedTypes.includes(
+        file.type
+      )
+    ) {
 
       return NextResponse.json(
         {
           success: false,
+
           message:
             "Only PDF, DOC, DOCX files are allowed.",
         },
+
         { status: 400 }
       );
     }
 
-    /* FILE SIZE VALIDATION 5MB MAX */
+    /* FILE SIZE */
 
-    if (file.size > 5 * 1024 * 1024) {
+    if (
+      file.size >
+      5 * 1024 * 1024
+    ) {
 
       return NextResponse.json(
         {
           success: false,
+
           message:
-            "File size too large. Max size is 5MB.",
+            "File size too large. Max 5MB allowed.",
         },
+
         { status: 400 }
       );
     }
@@ -112,7 +162,7 @@ export async function POST(req: Request) {
     const buffer =
       Buffer.from(bytes);
 
-    /* CLOUDINARY BACKUP */
+    /* CLOUDINARY UPLOAD */
 
     let resumeUrl = "";
 
@@ -120,23 +170,34 @@ export async function POST(req: Request) {
 
       const upload: any =
         await new Promise(
-          (resolve, reject) => {
+          (
+            resolve,
+            reject
+          ) => {
 
             const stream =
               cloudinary.uploader.upload_stream(
+
                 {
                   resource_type: "raw",
 
-                  folder: "resumes",
+                  folder:
+                    "applications/resumes",
 
                   public_id:
                     `${Date.now()}-${file.name}`,
                 },
 
-                (err, result) => {
+                (
+                  err,
+                  result
+                ) => {
 
-                  if (err) reject(err);
-                  else resolve(result);
+                  if (err)
+                    reject(err);
+
+                  else
+                    resolve(result);
                 }
               );
 
@@ -146,59 +207,84 @@ export async function POST(req: Request) {
           }
         );
 
-      resumeUrl = upload.secure_url;
+      resumeUrl =
+        upload.secure_url;
 
-    } catch (cloudinaryError) {
+    } catch (
+      cloudinaryError
+    ) {
 
       console.error(
         "Cloudinary Upload Error:",
         cloudinaryError
       );
 
-      // continue even if cloudinary fails
+      return NextResponse.json(
+        {
+          success: false,
+
+          message:
+            "Resume upload failed.",
+        },
+
+        { status: 500 }
+      );
     }
 
-    /* MYSQL SAVE OPTIONAL */
+    /* SAVE TO SUPABASE */
 
-    try {
+    const {
+      error: dbError,
+    } = await supabase
 
-      // Uncomment if DB is connected
+      .from("applications")
 
-      /*
-      await db.query(
-        `
-          INSERT INTO applications
-          (
-            name,
-            email,
-            phone,
-            role,
-            experience,
-            message,
-            resume_url
-          )
-          VALUES (?, ?, ?, ?, ?, ?, ?)
-        `,
-        [
-          name,
-          email,
-          phone,
+      .insert([
+        {
+          application_type,
+
+          job_slug,
+
           role,
-          experience,
-          message,
-          resumeUrl,
-        ]
-      );
-      */
 
-    } catch (dbError) {
+          full_name,
+
+          email,
+
+          phone,
+
+          location,
+
+          experience,
+
+          linkedin,
+
+          comments,
+
+          resume_url:
+            resumeUrl,
+
+          status: "new",
+        },
+      ]);
+
+    if (dbError) {
 
       console.error(
-        "Database Error:",
+        "SUPABASE ERROR:",
         dbError
       );
 
-      // continue even if DB fails
+      return NextResponse.json(
+        {
+          success: false,
+
+          message:
+            "Database error.",
+        },
+
+        { status: 500 }
+      );
     }
 
     /* SEND EMAIL */
@@ -214,7 +300,7 @@ export async function POST(req: Request) {
       replyTo: email,
 
       subject:
-        `New Job Application — ${role}`,
+        `New Application — ${role}`,
 
       html: `
         <div
@@ -231,7 +317,7 @@ export async function POST(req: Request) {
               margin-bottom: 20px;
             "
           >
-            New Job Application
+            New Candidate Application
           </h2>
 
           <table
@@ -250,6 +336,27 @@ export async function POST(req: Request) {
                   width: 180px;
                 "
               >
+                Application Type
+              </td>
+
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                "
+              >
+                ${application_type}
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                  font-weight: bold;
+                "
+              >
                 Name
               </td>
 
@@ -259,7 +366,7 @@ export async function POST(req: Request) {
                   border: 1px solid #E5E7EB;
                 "
               >
-                ${name}
+                ${full_name}
               </td>
             </tr>
 
@@ -326,6 +433,27 @@ export async function POST(req: Request) {
               </td>
             </tr>
 
+            <tr>
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                  font-weight: bold;
+                "
+              >
+                Location
+              </td>
+
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                "
+              >
+                ${location}
+              </td>
+            </tr>
+
             ${
               experience
                 ? `
@@ -353,10 +481,37 @@ export async function POST(req: Request) {
                 : ""
             }
 
+            ${
+              linkedin
+                ? `
+              <tr>
+                <td
+                  style="
+                    padding: 12px;
+                    border: 1px solid #E5E7EB;
+                    font-weight: bold;
+                  "
+                >
+                  LinkedIn
+                </td>
+
+                <td
+                  style="
+                    padding: 12px;
+                    border: 1px solid #E5E7EB;
+                  "
+                >
+                  ${linkedin}
+                </td>
+              </tr>
+            `
+                : ""
+            }
+
           </table>
 
           ${
-            message
+            comments
               ? `
             <div style="margin-top: 28px;">
 
@@ -365,7 +520,7 @@ export async function POST(req: Request) {
                   margin-bottom: 12px;
                 "
               >
-                Cover Letter / Message
+                Comments
               </h3>
 
               <p
@@ -374,7 +529,7 @@ export async function POST(req: Request) {
                   color: #4B5563;
                 "
               >
-                ${message}
+                ${comments}
               </p>
 
             </div>
@@ -382,7 +537,6 @@ export async function POST(req: Request) {
               : ""
           }
 
-          
           <p
             style="
               margin-top: 28px;
@@ -397,19 +551,24 @@ export async function POST(req: Request) {
 
       attachments: [
         {
-          filename: file.name,
+          filename:
+            file.name,
 
-          content: buffer,
+          content:
+            buffer,
 
-          contentType: file.type,
+          contentType:
+            file.type,
         },
       ],
     });
 
-    /* SUCCESS RESPONSE */
+    /* SUCCESS */
 
     return NextResponse.json({
+
       success: true,
+
       message:
         "Application submitted successfully.",
     });
@@ -424,9 +583,11 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         success: false,
+
         message:
           "Something went wrong. Please try again.",
       },
+
       { status: 500 }
     );
   }

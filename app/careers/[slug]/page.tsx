@@ -50,13 +50,35 @@ export default async function Page({
             <div className="mt-12">
 
             <a
-              href={`/careers/apply?role=${encodeURIComponent(job.title.replace(/<[^>]+>/g, ""))}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#1A4FD6] hover:bg-[#2E66FF] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Apply Now
-            </a>
+  href={`/careers/apply?role=${encodeURIComponent(
+    job.title.replace(/<[^>]+>/g, "")
+  )}&job_slug=${slug}`}
+  
+  className="
+    inline-flex
+    items-center
+    justify-center
+
+    px-8
+    py-4
+
+    bg-[#1A4FD6]
+    hover:bg-[#2E66FF]
+
+    text-white
+    font-semibold
+
+    rounded-xl
+
+    transition-all
+    duration-300
+
+    shadow-lg
+    hover:shadow-xl
+  "
+>
+  Apply Now
+</a>
 
           </div>
           </div>
