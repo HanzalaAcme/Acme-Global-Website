@@ -3,23 +3,13 @@
 import { useState } from "react";
 
 import {
-
   Building2,
-
   User,
-
-  Mail,
-
-  Phone,
-
-  Globe,
-
+  MapPin,
+  ShieldCheck,
   Briefcase,
-
-  MessageSquare,
-
   Upload,
-
+  FileText,
 } from "lucide-react";
 
 export default function PartnerApply() {
@@ -32,9 +22,6 @@ export default function PartnerApply() {
 
   const [error, setError] =
     useState("");
- 
-    const [brochure, setBrochure] =
-  useState<File | null>(null);
 
   const handleSubmit = async (
     e: any
@@ -66,7 +53,8 @@ export default function PartnerApply() {
       if (!res.ok) {
 
         throw new Error(
-          data.message
+          data.error ||
+          "Submission failed"
         );
       }
 
@@ -85,49 +73,136 @@ export default function PartnerApply() {
     setLoading(false);
   };
 
+  const inputClass =
+    `
+      w-full
+      h-[56px]
+
+      border
+      border-[#E6EAF2]
+
+      rounded-2xl
+
+      px-5
+
+      outline-none
+
+      bg-white
+
+      text-[#0B1120]
+
+      placeholder:text-[#9BA8C0]
+
+      transition-all
+      duration-300
+
+      focus:border-[#1A4FD6]
+      focus:ring-4
+      focus:ring-[#1A4FD6]/10
+    `;
+
+  const textareaClass =
+    `
+      w-full
+
+      border
+      border-[#E6EAF2]
+
+      rounded-2xl
+
+      px-5
+      py-4
+      mt-3
+      outline-none
+
+      bg-white
+
+      text-[#0B1120]
+
+      placeholder:text-[#9BA8C0]
+
+      resize-none
+
+      transition-all
+      duration-300
+
+      focus:border-[#1A4FD6]
+      focus:ring-4
+      focus:ring-[#1A4FD6]/10
+    `;
+
+  const sectionTitle =
+    `
+      text-2xl
+
+      font-bold
+
+      text-[#0B1120]
+    `;
+
+  const uploadCard =
+    `
+      relative
+
+      border
+      border-[#E6EAF2]
+
+      rounded-3xl
+
+      p-6
+
+      bg-[#FAFBFD]
+
+      hover:border-[#1A4FD6]
+
+      transition-all
+      duration-300
+    `;
+
   return (
 
     <div
       className="
         bg-white
 
-        rounded-[28px]
-
-        p-8
-        md:p-10
-
-        shadow-sm
+        rounded-[32px]
 
         border
         border-[#E8EEF9]
+
+        shadow-sm
+
+        p-6
+        md:p-10
+        lg:p-12
       "
     >
 
       {success ? (
 
-        <div className="text-center py-16">
+        <div className="text-center py-20">
 
-          <div className="text-5xl mb-5">
+          <div className="text-6xl mb-6">
             ✅
           </div>
 
           <h3
             className="
-              text-2xl
+              text-4xl
 
               font-bold
 
               text-[#0B1120]
 
-              mb-3
+              mb-4
             "
           >
-            Partnership Request Submitted
+            Registration Submitted
           </h3>
 
-          <p className="text-gray-500">
-            Our team will review your request
-            and contact you shortly.
+          <p className="text-gray-500 text-lg">
+            Our alliances team will review
+            your profile and contact you soon.
           </p>
 
         </div>
@@ -137,767 +212,1087 @@ export default function PartnerApply() {
         <form
           onSubmit={handleSubmit}
 
-          className="space-y-6"
+          className="space-y-16"
         >
 
-          {/* COMPANY */}
-          <div>
+          {/* ================================================= */}
+          {/* COMPANY INFORMATION */}
+          {/* ================================================= */}
 
-            <label
+          <section className="space-y-8">
+
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-12
+                  h-12
+
+                  rounded-2xl
+
+                  bg-[#1A4FD6]/10
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+
+                <Building2
+                  className="
+                    w-5
+                    h-5
+
+                    text-[#1A4FD6]
+                  "
+                />
+
+              </div>
+
+              <div>
+
+                <h2 className={sectionTitle}>
+                  Company Information
+                </h2>
+
+                <p className="text-gray-500 text-sm mt-1">
+                  Provide your organization details
+                </p>
+
+              </div>
+
+            </div>
+
+            <div
               className="
-                flex
-                items-center
-                gap-2
+                grid
 
-                font-semibold
+                md:grid-cols-2
 
-                mb-3
-
-                text-[#0B1120]
+                gap-3
+                mt-3
               "
             >
 
-              <Building2 className="w-4 h-4 text-[#1A4FD6]" />
+              <input
+                type="text"
+                name="legal_company_name"
+                required
+                placeholder="Legal Company Name *"
+                className={inputClass}
+              />
 
-              Company Name *
+              <input
+                type="text"
+                name="trade_name"
+                required
+                placeholder="Trade Name *"
+                className={inputClass}
+              />
 
-            </label>
+              <input
+                type="url"
+                name="website_url"
+                required
+                placeholder="Website URL *"
+                className={inputClass}
+              />
 
-            <input
-              type="text"
-              name="company_name"
-              required
+              <input
+                type="text"
+                name="year_established"
+                required
+                placeholder="Year Established *"
+                className={inputClass}
+              />
 
-              placeholder="ABC Technologies"
+              <input
+                type="text"
+                name="headquarters_location"
+                required
+                placeholder="Headquarters Location *"
+                className={inputClass}
+              />
 
-              className="
-                w-full
-                h-[54px]
+              <input
+                type="text"
+                name="number_of_employees"
+                required
+                placeholder="Number of Employees *"
+                className={inputClass}
+              />
 
-                border
-                border-[#E6EAF2]
+              <input
+                type="text"
+                name="annual_revenue"
+                placeholder="Annual Revenue"
+                className={inputClass}
+              />
 
-                rounded-xl
+            </div>
 
-                px-4
-
-                outline-none
-
-                text-[#0B1120]
-
-                placeholder:text-[#9BA8C0]
-
-                focus:border-[#1A4FD6]
-                focus:ring-4
-                focus:ring-blue-100
-
-                transition-all
-              "
+            <textarea
+              name="company_overview"
+              rows={3}
+              placeholder="Company Overview"
+              className={textareaClass}
             />
 
-          </div>
+          </section>
 
-          {/* CONTACT */}
-          <div>
+          {/* ================================================= */}
+          {/* PRIMARY CONTACT */}
+          {/* ================================================= */}
 
-            <label
+          <section className="space-y-8 mt-5">
+
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-12
+                  h-12
+
+                  rounded-2xl
+
+                  bg-[#1A4FD6]/10
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+
+                <User
+                  className="
+                    w-5
+                    h-5
+
+                    text-[#1A4FD6]
+                  "
+                />
+
+              </div>
+
+              <div>
+
+                <h2 className={sectionTitle}>
+                  Primary Contact
+                </h2>
+
+              </div>
+
+            </div>
+
+            <div
               className="
-                flex
-                items-center
-                gap-2
+                grid
 
-                font-semibold
+                md:grid-cols-2
 
-                mb-3
-
-                text-[#0B1120]
+                gap-3
+                mt-3
+                mb-7
               "
             >
 
-              <User className="w-4 h-4 text-[#1A4FD6]" />
+              <input
+                type="text"
+                name="contact_person_name"
+                required
+                placeholder="Contact Person Name *"
+                className={inputClass}
+              />
 
-              Contact Person *
+              <input
+                type="text"
+                name="designation"
+                required
+                placeholder="Designation *"
+                className={inputClass}
+              />
 
-            </label>
+              <input
+                type="email"
+                name="email_address"
+                required
+                placeholder="Email Address *"
+                className={inputClass}
+              />
 
-            <input
-              type="text"
-              name="contact_person"
-              required
+              <input
+                type="text"
+                name="mobile_number"
+                required
+                placeholder="Mobile Number *"
+                className={inputClass}
+              />
 
-              placeholder="John Doe"
+              <input
+                type="url"
+                name="linkedin_profile"
+                required
+                placeholder="LinkedIn Profile *"
+                className={inputClass}
+              />
 
+            </div>
+
+          </section>
+
+          {/* ================================================= */}
+          {/* REGISTERED ADDRESS */}
+          {/* ================================================= */}
+
+          <section className="space-y-8 ">
+
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-12
+                  h-12
+
+                  rounded-2xl
+
+                  bg-[#1A4FD6]/10
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+
+                <MapPin
+                  className="
+                    w-5
+                    h-5
+
+                    text-[#1A4FD6]
+                  "
+                />
+
+              </div>
+
+              <div>
+
+                <h2 className={sectionTitle}>
+                  Registered Address
+                </h2>
+
+              </div>
+
+            </div>
+
+            <div
               className="
-                w-full
-                h-[54px]
+                grid
 
-                border
-                border-[#E6EAF2]
+                md:grid-cols-2
 
-                rounded-xl
-
-                px-4
-
-                outline-none
-
-                text-[#0B1120]
-
-                placeholder:text-[#9BA8C0]
-
-                focus:border-[#1A4FD6]
-                focus:ring-4
-                focus:ring-blue-100
-
-                transition-all
+                gap-3
+                mt-3
               "
+            >
+
+              <input
+                type="text"
+                name="street_address"
+                required
+                placeholder="Street Address *"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="city"
+                required
+                placeholder="City *"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="state_province"
+                required
+                placeholder="State / Province *"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="country"
+                required
+                placeholder="Country *"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="postal_code"
+                required
+                placeholder="Postal Code *"
+                className={inputClass}
+              />
+
+            </div>
+
+          </section>
+
+          {/* ================================================= */}
+          {/* CORPORATE INFORMATION */}
+          {/* ================================================= */}
+
+          <section className="space-y-8 mt-5">
+
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-12
+                  h-12
+
+                  rounded-2xl
+
+                  bg-[#1A4FD6]/10
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+
+                <ShieldCheck
+                  className="
+                    w-5
+                    h-5
+
+                    text-[#1A4FD6]
+                  "
+                />
+
+              </div>
+
+              <div>
+
+                <h2 className={sectionTitle}>
+                  Corporate Information
+                </h2>
+
+              </div>
+
+            </div>
+
+            <div
+              className="
+                grid
+
+                md:grid-cols-2
+
+                gap-3
+                mt-3
+              "
+            >
+
+              <input
+                type="text"
+                name="company_registration_number"
+                required
+                placeholder="Company Registration Number *"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="tax_vat_gst_number"
+                required
+                placeholder="Tax / VAT / GST Number *"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="duns_number"
+                placeholder="DUNS Number"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="certifications"
+                placeholder="Certifications"
+                className={inputClass}
+              />
+
+            </div>
+
+          </section>
+
+          {/* ================================================= */}
+          {/* PARTNERSHIP */}
+          {/* ================================================= */}
+
+          <section className="space-y-8 mt-5">
+
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-12
+                  h-12
+
+                  rounded-2xl
+
+                  bg-[#1A4FD6]/10
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+
+                <Briefcase
+                  className="
+                    w-5
+                    h-5
+
+                    text-[#1A4FD6]
+                  "
+                />
+
+              </div>
+
+              <div>
+
+                <h2 className={sectionTitle}>
+                  Partnership Interest
+                </h2>
+
+              </div>
+
+            </div>
+
+            <div
+              className="
+                grid
+
+                md:grid-cols-2
+
+                gap-3
+                mt-3
+              "
+            >
+
+              <select
+                name="partnership_type"
+                required
+                className={inputClass}
+              >
+
+                <option value="">
+                  Select Partnership Type
+                </option>
+
+                <option>
+                  Technology
+                </option>
+
+                <option>
+                  Channel
+                </option>
+
+                <option>
+                  Referral
+                </option>
+
+                <option>
+                  Staffing
+                </option>
+
+                <option>
+                  Delivery
+                </option>
+
+                <option>
+                  Strategic Alliance
+                </option>
+
+              </select>
+
+              <input
+                type="text"
+                name="target_industries"
+                required
+                placeholder="Target Industries *"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="geographic_markets"
+                required
+                placeholder="Geographic Markets Served *"
+                className={inputClass}
+              />
+
+              <input
+                type="text"
+                name="key_technology_partnerships"
+                required
+                placeholder="Key Technology Partnerships *"
+                className={inputClass}
+              />
+
+            </div>
+
+            <textarea
+              name="products_services"
+              rows={3}
+              required
+              placeholder="Products and Services Offered *"
+              className={textareaClass}
             />
 
-          </div>
+          </section>
 
-          {/* EMAIL */}
-          <div>
+          {/* ================================================= */}
+          {/* DOCUMENTS */}
+          {/* ================================================= */}
 
-            <label
+          <section className="space-y-8 mt-5">
+
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-12
+                  h-12
+
+                  rounded-2xl
+
+                  bg-[#1A4FD6]/10
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+
+                <Upload
+                  className="
+                    w-5
+                    h-5
+
+                    text-[#1A4FD6]
+                  "
+                />
+
+              </div>
+
+              <div>
+
+                <h2 className={sectionTitle}>
+                  Supporting Documents
+                </h2>
+
+                <p className="text-gray-500 text-sm mt-1">
+                  Upload company and compliance documents
+                </p>
+
+              </div>
+
+            </div>
+
+            <div
               className="
-                flex
-                items-center
-                gap-2
+                grid
 
-                font-semibold
+                lg:grid-cols-3
 
-                mb-3
-
-                text-[#0B1120]
+                gap-3
+                mt-3
               "
             >
 
-              <Mail className="w-4 h-4 text-[#1A4FD6]" />
+              {[
+                {
+                  title:
+                    "Company Profile",
 
-              Business Email *
+                  subtitle:
+                    "PDF, DOC, PPT",
 
-            </label>
+                  name:
+                    "company_profile",
+                },
 
-            <input
-              type="email"
-              name="email"
-              required
+                {
+                  title:
+                    "Capability Deck",
 
-              placeholder="company@email.com"
+                  subtitle:
+                    "Presentation or brochure",
 
-              className="
-                w-full
-                h-[54px]
+                  name:
+                    "capability_presentation",
+                },
 
-                border
-                border-[#E6EAF2]
+                {
+                  title:
+                    "Certifications",
 
-                rounded-xl
+                  subtitle:
+                    "ISO, CMMI, others",
 
-                px-4
+                  name:
+                    "certifications_document",
+                },
+              ].map((item, i) => (
 
-                outline-none
+                <div
+                  key={i}
 
-                text-[#0B1120]
+                  className={uploadCard}
+                >
 
-                placeholder:text-[#9BA8C0]
+                  <div
+                    className="
+                      w-14
+                      h-14
 
-                focus:border-[#1A4FD6]
-                focus:ring-4
-                focus:ring-blue-100
+                      rounded-2xl
 
-                transition-all
-              "
-            />
+                      bg-[#1A4FD6]/10
 
-          </div>
+                      flex
+                      items-center
+                      justify-center
 
-          {/* PHONE */}
-          <div>
+                      mb-5
+                    "
+                  >
 
-            <label
-              className="
-                flex
-                items-center
-                gap-2
+                    <Upload
+                      className="
+                        w-6
+                        h-6
 
-                font-semibold
-
-                mb-3
-
-                text-[#0B1120]
-              "
-            >
-
-              <Phone className="w-4 h-4 text-[#1A4FD6]" />
-
-              Phone Number *
-
-            </label>
-
-            <input
-              type="text"
-              name="phone"
-              required
-
-              placeholder="+91 9876543210"
-
-              className="
-                w-full
-                h-[54px]
-
-                border
-                border-[#E6EAF2]
-
-                rounded-xl
-
-                px-4
-
-                outline-none
-
-                text-[#0B1120]
-
-                placeholder:text-[#9BA8C0]
-
-                focus:border-[#1A4FD6]
-                focus:ring-4
-                focus:ring-blue-100
-
-                transition-all
-              "
-            />
-
-          </div>
-
-          {/* COUNTRY */}
-          <div>
-
-            <label
-              className="
-                flex
-                items-center
-                gap-2
-
-                font-semibold
-
-                mb-3
-
-                text-[#0B1120]
-              "
-            >
-
-              <Globe className="w-4 h-4 text-[#1A4FD6]" />
-
-              Headquarter Location *
-
-            </label>
-
-            <input
-              type="text"
-              name="country"
-              required
-
-              placeholder="Hyderabad, India"
-
-              className="
-                w-full
-                h-[54px]
-
-                border
-                border-[#E6EAF2]
-
-                rounded-xl
-
-                px-4
-
-                outline-none
-
-                text-[#0B1120]
-
-                placeholder:text-[#9BA8C0]
-
-                focus:border-[#1A4FD6]
-                focus:ring-4
-                focus:ring-blue-100
-
-                transition-all
-              "
-            />
-
-          </div>
-
-          {/* WEBSITE */}
-          <div>
-
-            <label
-              className="
-                flex
-                items-center
-                gap-2
-
-                font-semibold
-
-                mb-3
-
-                text-[#0B1120]
-              "
-            >
-
-              <Globe className="w-4 h-4 text-[#1A4FD6]" />
-
-              Website
-
-            </label>
-
-            <input
-              type="url"
-              name="website"
-
-              placeholder="https://company.com"
-
-              className="
-                w-full
-                h-[54px]
-
-                border
-                border-[#E6EAF2]
-
-                rounded-xl
-
-                px-4
-
-                outline-none
-
-                text-[#0B1120]
-
-                placeholder:text-[#9BA8C0]
-
-                focus:border-[#1A4FD6]
-                focus:ring-4
-                focus:ring-blue-100
-
-                transition-all
-              "
-            />
-
-          </div>
-
-          {/* TYPE */}
-          <div>
-
-            <label
-              className="
-                flex
-                items-center
-                gap-2
-
-                font-semibold
-
-                mb-3
-
-                text-[#0B1120]
-              "
-            >
-
-              <Briefcase className="w-4 h-4 text-[#1A4FD6]" />
-
-              Partnership Interest *
-
-            </label>
-
-            <select
-              name="partnership_type"
-              required
-
-              className="
-                w-full
-                h-[54px]
-
-                border
-                border-[#E6EAF2]
-
-                rounded-xl
-
-                px-4
-
-                outline-none
-
-                bg-white
-
-                text-[#0B1120]
-
-                focus:border-[#1A4FD6]
-                focus:ring-4
-                focus:ring-blue-100
-
-                transition-all
-              "
-            >
-
-              <option value="">
-                Select Partnership Type
-              </option>
-
-              <option value="Technology Partner">
-                Technology Partner
-              </option>
-
-              <option value="Channel Partner">
-                Channel Partner
-              </option>
-
-              <option value="Referral Partner">
-                Referral Partner
-              </option>
-
-              <option value="Staffing Partner">
-                Staffing Partner
-              </option>
-
-              <option value="Delivery Partner">
-                Delivery Partner
-              </option>
-
-              <option value="Strategic Alliance">
-                Strategic Alliance
-              </option>
-
-            </select>
-
-          </div>
-
-
-
-          {/* COMPANY OVERVIEW */}
-                    <div>
-
-                    <label
-                        className="
-                        flex
-                        items-center
-                        gap-2
-
-                        font-semibold
-
-                        mb-3
-
-                        text-[#0B1120]
-                        "
-                    >
-
-                        <MessageSquare className="w-4 h-4 text-[#1A4FD6]" />
-
-                        Company Overview
-
-                    </label>
-
-                    <textarea
-                        name="company_overview"
-
-                        rows={3}
-
-                        placeholder="
-                        Briefly describe your company,
-                        services, expertise, markets,
-                        and partnership interests.
-                        "
-
-                        className="
-                        w-full
-
-                        border
-                        border-[#E6EAF2]
-
-                        rounded-xl
-
-                        px-4
-                        py-4
-
-                        outline-none
-
-                        text-[#0B1120]
-
-                        placeholder:text-[#9BA8C0]
-
-                        resize-none
-
-                        focus:border-[#1A4FD6]
-                        focus:ring-4
-                        focus:ring-blue-100
-
-                        transition-all
-                        "
+                        text-[#1A4FD6]
+                      "
                     />
 
-                    </div>
+                  </div>
 
-                    {/* COMPANY BROCHURE */}
-<div>
+                  <h3
+                    className="
+                      text-lg
 
-  <label
-    className="
-      flex
-      items-center
-      gap-2
+                      font-semibold
 
-      font-semibold
+                      text-[#0B1120]
 
-      mb-3
+                      mb-2
+                    "
+                  >
+                    {item.title}
+                  </h3>
 
-      text-[#0B1120]
-    "
-  >
+                  <p
+                    className="
+                      text-sm
 
-    <Upload className="w-4 h-4 text-[#1A4FD6]" />
+                      text-gray-500
 
-    Company Brochure
+                      mb-5
+                    "
+                  >
+                    {item.subtitle}
+                  </p>
 
-  </label>
+                  <input
+                    type="file"
 
-  {!brochure ? (
+                    required
 
-    <label
-      className="
-        w-full
-        h-[100px]
+                    name={item.name}
 
-        border
-        border-[#E6EAF2]
+                    accept="
+                      .pdf,
+                      .doc,
+                      .docx,
+                      .ppt,
+                      .pptx
+                    "
 
-        rounded-xl
+                    className="
+                      w-full
 
-        px-4
+                      text-sm
 
-        bg-white
+                      text-gray-500
 
-        flex
-        items-center
-        justify-between
+                      file:mr-4
+                      file:py-3
+                      file:px-4
 
-        cursor-pointer
+                      file:rounded-xl
 
-        transition-all
-        duration-300
+                      file:border-0
 
-        hover:border-[#1A4FD6]
+                      file:bg-[#1A4FD6]
 
-        group
-      "
-    >
+                      file:text-white
 
-      {/* LEFT */}
-      <div
-        className="
-          flex
-          items-center
-          gap-3
-        "
-      >
+                      file:font-medium
 
-        <div
-          className="
-            w-9
-            h-9
+                      hover:file:bg-[#2E66FF]
 
-            rounded-lg
+                      file:cursor-pointer
 
-            bg-[#1A4FD6]/10
+                      cursor-pointer
+                    "
+                  />
 
-            flex
-            items-center
-            justify-center
-          "
-        >
+                </div>
 
-          <Upload
-            className="
-              w-4
-              h-4
+              ))}
 
-              text-[#1A4FD6]
-            "
-          />
+            </div>
 
-        </div>
+            <textarea
+              name="reference_clients"
 
-        <span
-          className="
-            text-sm
+              rows={2}
 
-            text-gray-400
-          "
-        >
-          Upload company brochure
-        </span>
+              placeholder="
+                Reference Clients (Optional)
+              "
 
-      </div>
+              className={textareaClass}
+            />
 
-      {/* BUTTON */}
-      <span
-        className="
-          text-sm
+          </section>
 
-          font-medium
+          {/* ================================================= */}
+          {/* DECLARATION */}
+          {/* ================================================= */}
 
-          text-[#1A4FD6]
+          <section className="space-y-8 mt-5">
 
-          group-hover:text-[#2E66FF]
+            <div className="flex items-center gap-4">
 
-          transition-all
-        "
-      >
-        Browse
-      </span>
+              <div
+                className="
+                  w-12
+                  h-12
 
-      <input
-        type="file"
+                  rounded-2xl
 
-        name="brochure"
+                  bg-[#1A4FD6]/10
 
-        accept="
-          .pdf,
-          .ppt,
-          .pptx,
-          .doc,
-          .docx
-        "
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
 
-        className="hidden"
+                <FileText
+                  className="
+                    w-5
+                    h-5
 
-        onChange={(e: any) => {
+                    text-[#1A4FD6]
+                  "
+                />
 
-          const selected =
-            e.target.files[0];
+              </div>
 
-          if (selected) {
+              <div>
 
-            setBrochure(selected);
-          }
-        }}
-      />
+                <h2 className={sectionTitle}>
+                  Declaration
+                </h2>
 
-    </label>
+              </div>
 
-  ) : (
+            </div>
 
-    <div
-      className="
-        h-[100px]
+            <div
+              className="
+                grid
 
-        border
-        border-[#DCE6FA]
+                md:grid-cols-2
 
-        rounded-xl
+                gap-3
+                mt-3
+              "
+            >
 
-        px-4
+              <input
+                type="text"
+                name="authorized_signatory_name"
+                required
+                placeholder="Authorized Signatory Name *"
+                className={inputClass}
+              />
 
-        bg-[#F8FBFF]
+              <input
+                type="text"
+                name="authorized_designation"
+                required
+                placeholder="Authorized Designation *"
+                className={inputClass}
+              />
 
-        flex
-        items-center
-        justify-between
-      "
-    >
+            </div>
 
-      {/* FILE INFO */}
-      <div
-        className="
-          flex
-          items-center
-          gap-3
+            {/* SIGNATURE + SEAL */}
 
-          min-w-0
-        "
-      >
+            <div
+              className="
+                grid
 
-        <div
-          className="
-            w-9
-            h-9
+                md:grid-cols-2
 
-            rounded-lg
+                gap-6
+                mt-3
+              "
+            >
 
-            bg-[#1A4FD6]/10
+              {/* SIGNATURE */}
 
-            flex
-            items-center
-            justify-center
+              <div className={uploadCard}>
 
-            shrink-0
-          "
-        >
+                <div
+                  className="
+                    w-14
+                    h-14
 
-          <Upload
-            className="
-              w-4
-              h-4
+                    rounded-2xl
 
-              text-[#1A4FD6]
-            "
-          />
+                    bg-[#1A4FD6]/10
 
-        </div>
+                    flex
+                    items-center
+                    justify-center
 
-        <div className="min-w-0">
+                    mb-5
+                  "
+                >
 
-          <p
-            className="
-              text-sm
+                  <Upload
+                    className="
+                      w-6
+                      h-6
 
-              font-medium
+                      text-[#1A4FD6]
+                    "
+                  />
 
-              text-[#0B1120]
+                </div>
 
-              truncate
-            "
-          >
-            {brochure.name}
-          </p>
+                <h3
+                  className="
+                    text-lg
 
-          
+                    font-semibold
 
-        </div>
+                    text-[#0B1120]
 
-      </div>
+                    mb-2
+                  "
+                >
+                  Signature Upload
+                </h3>
 
-      {/* REMOVE */}
-      <button
-        type="button"
+                <p
+                  className="
+                    text-sm
 
-        onClick={() =>
-          setBrochure(null)
-        }
+                    text-gray-500
 
-        className="
-          text-sm
+                    mb-5
+                  "
+                >
+                  PNG, JPG, JPEG or PDF
+                </p>
 
-          text-red-500
+                <input
+                  type="file"
 
-          hover:text-red-600
+                  required
 
-          transition-all
+                  name="signature_url"
 
-          cursor-pointer
-        "
-      >
-        Remove
-      </button>
+                  accept="
+                    .png,
+                    .jpg,
+                    .jpeg,
+                    .pdf
+                  "
 
-    </div>
+                  className="
+                    w-full
 
-  )}
+                    text-sm
 
-</div>
+                    text-gray-500
+
+                    file:mr-4
+                    file:py-3
+                    file:px-4
+
+                    file:rounded-xl
+
+                    file:border-0
+
+                    file:bg-[#1A4FD6]
+
+                    file:text-white
+
+                    file:font-medium
+
+                    hover:file:bg-[#2E66FF]
+
+                    file:cursor-pointer
+
+                    cursor-pointer
+                  "
+                />
+
+              </div>
+
+              {/* COMPANY SEAL */}
+
+              <div className={uploadCard}>
+
+                <div
+                  className="
+                    w-14
+                    h-14
+
+                    rounded-2xl
+
+                    bg-[#1A4FD6]/10
+
+                    flex
+                    items-center
+                    justify-center
+
+                    mb-5
+                  "
+                >
+
+                  <Upload
+                    className="
+                      w-6
+                      h-6
+
+                      text-[#1A4FD6]
+                    "
+                  />
+
+                </div>
+
+                <h3
+                  className="
+                    text-lg
+
+                    font-semibold
+
+                    text-[#0B1120]
+
+                    mb-2
+                  "
+                >
+                  Company Seal
+                </h3>
+
+                <p
+                  className="
+                    text-sm
+
+                    text-gray-500
+
+                    mb-5
+                  "
+                >
+                  Official seal or stamp
+                </p>
+
+                <input
+                  type="file"
+
+                  name="company_seal_url"
+
+                  accept="
+                    .png,
+                    .jpg,
+                    .jpeg,
+                    .pdf
+                  "
+
+                  className="
+                    w-full
+
+                    text-sm
+
+                    text-gray-500
+
+                    file:mr-4
+                    file:py-3
+                    file:px-4
+
+                    file:rounded-xl
+
+                    file:border-0
+
+                    file:bg-[#1A4FD6]
+
+                    file:text-white
+
+                    file:font-medium
+
+                    hover:file:bg-[#2E66FF]
+
+                    file:cursor-pointer
+
+                    cursor-pointer
+                  "
+                />
+
+              </div>
+
+            </div>
+
+          </section>
 
           {/* ERROR */}
+
           {error && (
 
-            <p className="text-red-500 text-sm">
+            <div
+              className="
+                rounded-2xl
+
+                bg-red-50
+
+                border
+                border-red-200
+
+                px-5
+                py-4
+
+                text-red-600
+              "
+            >
               {error}
-            </p>
+            </div>
 
           )}
 
           {/* BUTTON */}
+
           <button
             type="submit"
 
@@ -906,16 +1301,19 @@ export default function PartnerApply() {
             className="
               w-full
 
-              h-[56px]
+              h-[50px]
+
+              rounded-2xl
 
               bg-[#1A4FD6]
               hover:bg-[#2E66FF]
 
               text-white
+              mt-10
+
+              text-lg
 
               font-semibold
-
-              rounded-xl
 
               transition-all
               duration-300
@@ -928,7 +1326,7 @@ export default function PartnerApply() {
 
             {loading
               ? "Submitting..."
-              : "Partner With Us"}
+              : "Submit Partnership Request"}
 
           </button>
 

@@ -1,15 +1,6 @@
-import { NextResponse }
-from "next/server";
+import { NextResponse } from "next/server";
 
-import { createClient }
-from "@supabase/supabase-js";
-
-import { transporter }
-from "@/lib/mail";
-
-import cloudinary from "@/lib/cloudinary";
-
-import { Readable } from "stream";
+import { createClient } from "@supabase/supabase-js";
 
 const supabase =
   createClient(
@@ -21,502 +12,512 @@ const supabase =
       .SUPABASE_SERVICE_ROLE_KEY!
   );
 
+// ========================================
+// CLOUDINARY UPLOAD FUNCTION
+// ========================================
+
+async function uploadToCloudinary(
+  file: File,
+  folder: string
+) {
+
+  const bytes =
+    await file.arrayBuffer();
+
+  const buffer =
+    Buffer.from(bytes);
+
+  const formData =
+    new FormData();
+
+  formData.append(
+    "file",
+
+    new Blob([buffer]),
+
+    file.name
+  );
+
+  formData.append(
+    "upload_preset",
+
+    process.env
+      .CLOUDINARY_UPLOAD_PRESET!
+  );
+
+  formData.append(
+    "folder",
+
+    folder
+  );
+
+  const res =
+    await fetch(
+
+      `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/auto/upload`,
+
+      {
+        method: "POST",
+
+        body: formData,
+      }
+    );
+
+  const data =
+    await res.json();
+
+  if (!res.ok) {
+
+    console.log(
+      "CLOUDINARY ERROR:",
+      data
+    );
+
+    throw new Error(
+      "File upload failed"
+    );
+  }
+
+  return data.secure_url;
+}
+
+// ========================================
+// POST API
+// ========================================
+
 export async function POST(
   req: Request
 ) {
 
   try {
 
-    const data =
+    const formData =
       await req.formData();
 
-    const company_name =
-      data.get(
-        "company_name"
+    // ========================================
+    // TEXT FIELDS
+    // ========================================
+
+    const legal_company_name =
+      formData.get(
+        "legal_company_name"
       ) as string;
 
-    const contact_person =
-      data.get(
-        "contact_person"
+    const trade_name =
+      formData.get(
+        "trade_name"
       ) as string;
 
-    const email =
-      data.get(
-        "email"
+    const website_url =
+      formData.get(
+        "website_url"
       ) as string;
 
-    const phone =
-      data.get(
-        "phone"
+    const year_established =
+      formData.get(
+        "year_established"
+      ) as string;
+
+    const headquarters_location =
+      formData.get(
+        "headquarters_location"
+      ) as string;
+
+    const number_of_employees =
+      formData.get(
+        "number_of_employees"
+      ) as string;
+
+    const annual_revenue =
+      formData.get(
+        "annual_revenue"
+      ) as string;
+
+    const company_overview =
+      formData.get(
+        "company_overview"
+      ) as string;
+
+    // ========================================
+    // PRIMARY CONTACT
+    // ========================================
+
+    const contact_person_name =
+      formData.get(
+        "contact_person_name"
+      ) as string;
+
+    const designation =
+      formData.get(
+        "designation"
+      ) as string;
+
+    const email_address =
+      formData.get(
+        "email_address"
+      ) as string;
+
+    const mobile_number =
+      formData.get(
+        "mobile_number"
+      ) as string;
+
+    const linkedin_profile =
+      formData.get(
+        "linkedin_profile"
+      ) as string;
+
+    // ========================================
+    // ADDRESS
+    // ========================================
+
+    const street_address =
+      formData.get(
+        "street_address"
+      ) as string;
+
+    const city =
+      formData.get(
+        "city"
+      ) as string;
+
+    const state_province =
+      formData.get(
+        "state_province"
       ) as string;
 
     const country =
-      data.get(
+      formData.get(
         "country"
       ) as string;
 
-    const website =
-      data.get(
-        "website"
+    const postal_code =
+      formData.get(
+        "postal_code"
       ) as string;
 
+    // ========================================
+    // CORPORATE
+    // ========================================
+
+    const company_registration_number =
+      formData.get(
+        "company_registration_number"
+      ) as string;
+
+    const tax_vat_gst_number =
+      formData.get(
+        "tax_vat_gst_number"
+      ) as string;
+
+    const duns_number =
+      formData.get(
+        "duns_number"
+      ) as string;
+
+    const certifications =
+      formData.get(
+        "certifications"
+      ) as string;
+
+    // ========================================
+    // PARTNERSHIP
+    // ========================================
+
     const partnership_type =
-      data.get(
+      formData.get(
         "partnership_type"
       ) as string;
 
-    const message =
-      data.get(
-        "message"
+    const products_services =
+      formData.get(
+        "products_services"
       ) as string;
 
-      const company_overview =
-  data.get(
-    "company_overview"
-  ) as string;
+    const target_industries =
+      formData.get(
+        "target_industries"
+      ) as string;
 
-const brochure =
-  data.get(
-    "brochure"
-  ) as File;
+    const geographic_markets =
+      formData.get(
+        "geographic_markets"
+      ) as string;
 
+    const key_technology_partnerships =
+      formData.get(
+        "key_technology_partnerships"
+      ) as string;
+
+    // ========================================
+    // DECLARATION
+    // ========================================
+
+    const authorized_signatory_name =
+      formData.get(
+        "authorized_signatory_name"
+      ) as string;
+
+    const authorized_designation =
+      formData.get(
+        "authorized_designation"
+      ) as string;
+
+    const reference_clients =
+      formData.get(
+        "reference_clients"
+      ) as string;
+
+    // ========================================
+    // FILES
+    // ========================================
+
+    const companyProfile =
+      formData.get(
+        "company_profile"
+      ) as File;
+
+    const capabilityPresentation =
+      formData.get(
+        "capability_presentation"
+      ) as File;
+
+    const certificationsDocument =
+      formData.get(
+        "certifications_document"
+      ) as File;
+
+    const signature =
+      formData.get(
+        "signature_url"
+      ) as File;
+
+    const companySeal =
+      formData.get(
+        "company_seal_url"
+      ) as File;
+
+    // ========================================
     // VALIDATION
+    // ========================================
+
     if (
-      !company_name ||
-      !contact_person ||
-      !email ||
-      !phone ||
+      !legal_company_name ||
+      !trade_name ||
+      !website_url ||
+      !year_established ||
+      !headquarters_location ||
+      !number_of_employees ||
+      !contact_person_name ||
+      !designation ||
+      !email_address ||
+      !mobile_number ||
+      !linkedin_profile ||
+      !street_address ||
+      !city ||
+      !state_province ||
       !country ||
+      !postal_code ||
+      !company_registration_number ||
+      !tax_vat_gst_number ||
       !partnership_type ||
-      !company_overview ||
-      !brochure
+      !products_services ||
+      !target_industries ||
+      !geographic_markets ||
+      !key_technology_partnerships ||
+      !authorized_signatory_name ||
+      !authorized_designation ||
+      !companyProfile ||
+      !capabilityPresentation ||
+      !certificationsDocument ||
+      !signature
     ) {
 
       return NextResponse.json(
         {
-          success: false,
-
-          message:
-            "Please fill all required fields.",
+          error:
+            "Please fill all required fields",
         },
 
-        { status: 400 }
+        {
+          status: 400,
+        }
       );
     }
 
+    // ========================================
+    // CLOUDINARY UPLOADS
+    // ========================================
 
-//cloudinary upload
-            let brochure_url = "";
+    const company_profile_url =
+      await uploadToCloudinary(
+        companyProfile,
+        "partners/company-profile"
+      );
 
-if (
-  brochure &&
-  brochure.size > 0
-) {
+    const capability_presentation_url =
+      await uploadToCloudinary(
+        capabilityPresentation,
+        "partners/capability"
+      );
 
-  const bytes =
-    await brochure.arrayBuffer();
+    const certifications_document_url =
+      await uploadToCloudinary(
+        certificationsDocument,
+        "partners/certifications"
+      );
 
-  const buffer =
-    Buffer.from(bytes);
+    const signature_url =
+      await uploadToCloudinary(
+        signature,
+        "partners/signatures"
+      );
 
-  const upload: any =
-    await new Promise(
-      (
-        resolve,
-        reject
-      ) => {
+    let company_seal_url =
+      "";
 
-        const stream =
-          cloudinary.uploader.upload_stream(
+    if (
+      companySeal &&
+      companySeal.size > 0
+    ) {
 
-            {
-              resource_type: "raw",
+      company_seal_url =
+        await uploadToCloudinary(
+          companySeal,
+          "partners/seals"
+        );
+    }
 
-              folder:
-                "partners/brochures",
+    // ========================================
+    // INSERT INTO SUPABASE
+    // ========================================
 
-              public_id:
-                `${Date.now()}-${brochure.name}`,
-            },
+    const { error } =
+      await supabase
+        .from(
+          "partner_applications"
+        )
+        .insert([
+          {
 
-            (
-              err,
-              result
-            ) => {
+            legal_company_name,
 
-              if (err)
-                reject(err);
+            trade_name,
 
-              else
-                resolve(result);
-            }
-          );
+            website_url,
 
-        Readable
-          .from(buffer)
-          .pipe(stream);
-      }
-    );
+            year_established,
 
-  brochure_url =
-    upload.secure_url;
-}
-    
+            headquarters_location,
 
-    // SAVE TO SUPABASE
-    const {
-      error,
-    } = await supabase
+            number_of_employees,
 
-      .from(
-        "partner_applications"
-      )
+            annual_revenue,
 
-      .insert([
-        {
-          company_name,
+            company_overview,
 
-          contact_person,
+            contact_person_name,
 
-          email,
+            designation,
 
-          phone,
+            email_address,
 
-          country,
+            mobile_number,
 
-          website,
+            linkedin_profile,
 
-          partnership_type,
+            street_address,
 
-          company_overview,
+            city,
 
-          brochure_url,
+            state_province,
 
-          status: "new",
-        },
-      ]);
+            country,
+
+            postal_code,
+
+            company_registration_number,
+
+            tax_vat_gst_number,
+
+            duns_number,
+
+            certifications,
+
+            partnership_type,
+
+            products_services,
+
+            target_industries,
+
+            geographic_markets,
+
+            key_technology_partnerships,
+
+            company_profile_url,
+
+            capability_presentation_url,
+
+            certifications_document_url,
+
+            reference_clients,
+
+            authorized_signatory_name,
+
+            authorized_designation,
+
+            signature_url,
+
+            company_seal_url,
+          },
+        ]);
 
     if (error) {
 
-      console.error(error);
+      console.log(
+        "SUPABASE ERROR:",
+        error
+      );
 
       return NextResponse.json(
         {
-          success: false,
-
-          message:
-            error.message,
+          error:
+            "Database insert failed",
         },
 
-        { status: 500 }
+        {
+          status: 500,
+        }
       );
     }
 
-    // SEND EMAIL
-    await transporter.sendMail({
-
-      from:
-        `"ACME Global Partners" <${process.env.EMAIL_USER}>`,
-
-      to:
-        process.env.HR_EMAIL,
-
-      replyTo: email,
-
-      subject:
-        `New Partner Request — ${company_name}`,
-
-            html: `
-  <div
-    style="
-      font-family: Arial, sans-serif;
-      color: #111827;
-      padding: 24px;
-    "
-  >
-
-    <h2
-      style="
-        color: #1A4FD6;
-        margin-bottom: 24px;
-      "
-    >
-      New Partnership Inquiry
-    </h2>
-
-    <table
-      style="
-        border-collapse: collapse;
-        width: 100%;
-      "
-    >
-
-      <tr>
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-            font-weight:bold;
-            width:220px;
-          "
-        >
-          Company Name
-        </td>
-
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-          "
-        >
-          ${company_name}
-        </td>
-      </tr>
-
-      <tr>
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-            font-weight:bold;
-          "
-        >
-          Contact Person
-        </td>
-
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-          "
-        >
-          ${contact_person}
-        </td>
-      </tr>
-
-      <tr>
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-            font-weight:bold;
-          "
-        >
-          Business Email
-        </td>
-
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-          "
-        >
-          ${email}
-        </td>
-      </tr>
-
-      <tr>
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-            font-weight:bold;
-          "
-        >
-          Phone Number
-        </td>
-
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-          "
-        >
-          ${phone}
-        </td>
-      </tr>
-
-      <tr>
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-            font-weight:bold;
-          "
-        >
-          Headquarters Location
-        </td>
-
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-          "
-        >
-          ${country}
-        </td>
-      </tr>
-
-      ${
-        website
-          ? `
-        <tr>
-          <td
-            style="
-              border:1px solid #E5E7EB;
-              padding:12px;
-              font-weight:bold;
-            "
-          >
-            Website
-          </td>
-
-          <td
-            style="
-              border:1px solid #E5E7EB;
-              padding:12px;
-            "
-          >
-            ${website}
-          </td>
-        </tr>
-      `
-          : ""
-      }
-
-      <tr>
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-            font-weight:bold;
-          "
-        >
-          Partnership Interest
-        </td>
-
-        <td
-          style="
-            border:1px solid #E5E7EB;
-            padding:12px;
-          "
-        >
-          ${partnership_type}
-        </td>
-      </tr>
-
-    </table>
-
-    ${
-      company_overview
-        ? `
-      <div style="margin-top:32px;">
-
-        <h3
-          style="
-            margin-bottom:14px;
-            color:#0B1120;
-          "
-        >
-          Company Overview
-        </h3>
-
-        <div
-          style="
-            background:#F8FAFC;
-            border:1px solid #E5E7EB;
-            border-radius:12px;
-            padding:18px;
-            line-height:28px;
-            color:#4B5563;
-          "
-        >
-          ${company_overview}
-        </div>
-
-      </div>
-    `
-        : ""
-    }
-
-    ${
-      brochure_url
-        ? `
-      <div style="margin-top:30px;">
-
-        <h3
-          style="
-            margin-bottom:12px;
-            color:#0B1120;
-          "
-        >
-          Company Brochure
-        </h3>
-
-        <a
-          href="${brochure_url}"
-
-          style="
-            display:inline-block;
-            padding:12px 18px;
-            background:#1A4FD6;
-            color:white;
-            text-decoration:none;
-            border-radius:10px;
-            font-weight:600;
-          "
-        >
-          View Uploaded Brochure
-        </a>
-
-      </div>
-    `
-        : ""
-    }
-
-  </div>
-`,
-              attachments:
-  brochure &&
-  brochure.size > 0
-    ? [
-        {
-          filename:
-            brochure.name,
-
-          content:
-            Buffer.from(
-              await brochure.arrayBuffer()
-            ),
-
-          contentType:
-            brochure.type,
-        },
-      ]
-    : [],
-        
-
-        
-    });
-
-    return NextResponse.json({
-
-      success: true,
-    });
-
-  } catch (err) {
-
-    console.error(err);
+    // ========================================
+    // SUCCESS
+    // ========================================
 
     return NextResponse.json(
       {
-        success: false,
+        success: true,
+      }
+    );
 
-        message:
-          "Something went wrong.",
+  } catch (err: any) {
+
+    console.log(
+      "PARTNER API ERROR:",
+      err
+    );
+
+    return NextResponse.json(
+      {
+        error:
+          err.message ||
+          "Something went wrong",
       },
 
-      { status: 500 }
+      {
+        status: 500,
+      }
     );
   }
 }

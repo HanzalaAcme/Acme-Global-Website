@@ -337,7 +337,7 @@ export default function Hero() {
               className="
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -362,7 +362,7 @@ export default function Hero() {
 
               <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Partners
               </span>
 

@@ -567,7 +567,116 @@ export default function ApplicationsPage() {
                           }
                         `}
                       >
-                        {item.status}
+                        <select
+  value={item.status || "new"}
+
+  onChange={async (e) => {
+
+    const newStatus =
+      e.target.value;
+
+    const res =
+      await fetch(
+        "/api/admin/update-status",
+        {
+
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+
+          body: JSON.stringify({
+
+            table:
+              "applications",
+
+            id: item.id,
+
+            status:
+              newStatus,
+          }),
+        }
+      );
+
+    if (res.ok) {
+
+      setApplications((prev) =>
+
+        prev.map((app) =>
+
+          app.id === item.id
+
+            ? {
+                ...app,
+                status:
+                  newStatus,
+              }
+
+            : app
+        )
+      );
+    }
+  }}
+
+  className={`
+    px-3
+    py-2
+
+    rounded-xl
+
+    text-xs
+    font-semibold
+
+    border-0
+
+    outline-none
+
+    cursor-pointer
+
+    ${
+      statusColors[
+        item.status
+      ] ||
+      "bg-gray-100 text-gray-700"
+    }
+  `}
+>
+
+  <option value="new">
+    New
+  </option>
+
+  <option value="reviewing">
+    Reviewing
+  </option>
+
+  <option value="shortlisted">
+    Shortlisted
+  </option>
+
+  <option value="interview scheduled">
+    Interview Scheduled
+  </option>
+
+  <option value="interviewed">
+    Interviewed
+  </option>
+
+  <option value="selected">
+    Selected
+  </option>
+
+  <option value="rejected">
+    Rejected
+  </option>
+
+  <option value="hired">
+    Hired
+  </option>
+
+</select>
                       </span>
 
                     </td>
@@ -575,10 +684,10 @@ export default function ApplicationsPage() {
                     {/* RESUME */}
                     <td className="p-5">
 
-                      {item.resume ? (
+                      {item.resume_url ? (
 
                         <a
-                          href={item.resume}
+                          href={item.resume_url}
 
                           target="_blank"
 
