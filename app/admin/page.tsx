@@ -15,6 +15,10 @@ import {
   CalendarDays,
   ArrowRight,
   Clock3,
+  Building2,
+  Handshake,
+  PauseCircle,
+  CheckCircle2,
 } from "lucide-react";
 
 import { supabase }
@@ -25,7 +29,13 @@ export default function AdminPage() {
   const [stats, setStats] =
     useState<any>(null);
 
+  const [partnerStats, setPartnerStats] =
+    useState<any>(null);
+
   const [recentApplications, setRecentApplications] =
+    useState<any[]>([]);
+
+  const [recentPartners, setRecentPartners] =
     useState<any[]>([]);
 
   const [upcomingInterviews, setUpcomingInterviews] =
@@ -66,7 +76,29 @@ export default function AdminPage() {
             );
 
         // ========================================
-        // STATS
+        // PARTNERS
+        // ========================================
+
+        const {
+          data: partners,
+        } =
+          await supabase
+
+            .from(
+              "partner_applications"
+            )
+
+            .select("*")
+
+            .order(
+              "created_at",
+              {
+                ascending: false,
+              }
+            );
+
+        // ========================================
+        // APPLICATION ATS STATS
         // ========================================
 
         const total =
@@ -105,11 +137,58 @@ export default function AdminPage() {
         });
 
         // ========================================
+        // PARTNER ATS STATS
+        // ========================================
+
+        const totalPartners =
+          partners?.length || 0;
+
+        const approvedPartners =
+          partners?.filter(
+            (item) =>
+              item.status ===
+              "approved"
+          ).length || 0;
+
+        const rejectedPartners =
+          partners?.filter(
+            (item) =>
+              item.status ===
+              "rejected"
+          ).length || 0;
+
+        const onHoldPartners =
+          partners?.filter(
+            (item) =>
+              item.status ===
+              "on-hold"
+          ).length || 0;
+
+        setPartnerStats({
+
+          totalPartners,
+
+          approvedPartners,
+
+          rejectedPartners,
+
+          onHoldPartners,
+        });
+
+        // ========================================
         // RECENT APPLICATIONS
         // ========================================
 
         setRecentApplications(
           applications?.slice(0, 5) || []
+        );
+
+        // ========================================
+        // RECENT PARTNERS
+        // ========================================
+
+        setRecentPartners(
+          partners?.slice(0, 5) || []
         );
 
         // ========================================
@@ -217,115 +296,216 @@ export default function AdminPage() {
               text-[#0B1120]
             "
           >
-            HR Dashboard
+            Admin Dashboard
           </h1>
 
         </div>
 
-        <Link
-          href="/admin/applications"
+      </div>
 
+      {/* APPLICATION ATS */}
+      <div className="mb-14">
+
+        <div
           className="
-            h-[56px]
-
-            px-6
-
-            rounded-2xl
-
-            bg-[#1A4FD6]
-
-            text-white
-
-            font-semibold
-
             flex
             items-center
-            gap-3
+            justify-between
 
-            hover:bg-[#2E66FF]
-
-            transition-all
+            mb-6
           "
         >
 
-          Open ATS
-
-          <ArrowRight
+          <h2
             className="
-              w-5
-              h-5
+              text-2xl
+
+              font-bold
+
+              text-[#0B1120]
             "
+          >
+            Recruitment ATS
+          </h2>
+
+          <Link
+            href="/admin/applications"
+
+            className="
+              text-[#1A4FD6]
+
+              font-semibold
+            "
+          >
+            Open ATS
+          </Link>
+
+        </div>
+
+        <div
+          className="
+            grid
+
+            sm:grid-cols-2
+            xl:grid-cols-4
+
+            gap-6
+          "
+        >
+
+          <StatCard
+            title="Applications"
+            value={stats?.total || 0}
+            icon={
+              <BriefcaseBusiness
+                className="w-6 h-6"
+              />
+            }
           />
 
-        </Link>
+          <StatCard
+            title="Shortlisted"
+            value={
+              stats?.shortlisted || 0
+            }
+            icon={
+              <Users
+                className="w-6 h-6"
+              />
+            }
+          />
+
+          <StatCard
+            title="Rejected"
+            value={
+              stats?.rejected || 0
+            }
+            icon={
+              <XCircle
+                className="w-6 h-6"
+              />
+            }
+          />
+
+          <StatCard
+            title="Interviews"
+            value={
+              stats?.interviews || 0
+            }
+            icon={
+              <CalendarDays
+                className="w-6 h-6"
+              />
+            }
+          />
+
+        </div>
 
       </div>
 
-      {/* STATS */}
-      <div
-        className="
-          grid
+      {/* PARTNER ATS */}
+      <div className="mb-14">
 
-          sm:grid-cols-2
-          xl:grid-cols-4
+        <div
+          className="
+            flex
+            items-center
+            justify-between
 
-          gap-6
+            mb-6
+          "
+        >
 
-          mb-10
-        "
-      >
+          <h2
+            className="
+              text-2xl
 
-        <StatCard
-          title="Applications"
-          value={stats?.total || 0}
-          icon={
-            <BriefcaseBusiness
-              className="
-                w-6
-                h-6
-              "
-            />
-          }
-        />
+              font-bold
 
-        <StatCard
-          title="Shortlisted"
-          value={stats?.shortlisted || 0}
-          icon={
-            <Users
-              className="
-                w-6
-                h-6
-              "
-            />
-          }
-        />
+              text-[#0B1120]
+            "
+          >
+            Partner ATS
+          </h2>
 
-        <StatCard
-          title="Rejected"
-          value={stats?.rejected || 0}
-          icon={
-            <XCircle
-              className="
-                w-6
-                h-6
-              "
-            />
-          }
-        />
+          <Link
+            href="/admin/partners"
 
-        <StatCard
-          title="Interviews"
-          value={stats?.interviews || 0}
-          icon={
-            <CalendarDays
-              className="
-                w-6
-                h-6
-              "
-            />
-          }
-        />
+            className="
+              text-[#1A4FD6]
+
+              font-semibold
+            "
+          >
+            Open Partner ATS
+          </Link>
+
+        </div>
+
+        <div
+          className="
+            grid
+
+            sm:grid-cols-2
+            xl:grid-cols-4
+
+            gap-6
+          "
+        >
+
+          <StatCard
+            title="Partners"
+            value={
+              partnerStats
+                ?.totalPartners || 0
+            }
+            icon={
+              <Building2
+                className="w-6 h-6"
+              />
+            }
+          />
+
+          <StatCard
+            title="Approved"
+            value={
+              partnerStats
+                ?.approvedPartners || 0
+            }
+            icon={
+              <CheckCircle2
+                className="w-6 h-6"
+              />
+            }
+          />
+
+          <StatCard
+            title="Rejected"
+            value={
+              partnerStats
+                ?.rejectedPartners || 0
+            }
+            icon={
+              <XCircle
+                className="w-6 h-6"
+              />
+            }
+          />
+
+          <StatCard
+            title="On Hold"
+            value={
+              partnerStats
+                ?.onHoldPartners || 0
+            }
+            icon={
+              <PauseCircle
+                className="w-6 h-6"
+              />
+            }
+          />
+
+        </div>
 
       </div>
 
@@ -349,102 +529,7 @@ export default function AdminPage() {
           "
         >
 
-          {/* ATS CARD */}
-          <Link
-            href="/admin/applications"
-
-            className="
-              block
-
-              bg-white
-
-              rounded-3xl
-
-              p-8
-
-              border
-              border-[#E8EEF9]
-
-              hover:border-[#1A4FD6]
-
-              transition-all
-              duration-300
-            "
-          >
-
-            <div
-              className="
-                flex
-                items-start
-                justify-between
-              "
-            >
-
-              <div>
-
-                <h2
-                  className="
-                    text-2xl
-
-                    font-bold
-
-                    mb-3
-
-                    text-[#0B1120]
-                  "
-                >
-                  Applications ATS
-                </h2>
-
-                <p
-                  className="
-                    text-gray-500
-
-                    leading-[28px]
-
-                    max-w-[500px]
-                  "
-                >
-                  Manage candidate applications,
-                  interview pipelines,
-                  recruiter notes,
-                  hiring status,
-                  resumes and interview scheduling.
-                </p>
-
-              </div>
-
-              <div
-                className="
-                  w-16
-                  h-16
-
-                  rounded-2xl
-
-                  bg-[#EEF4FF]
-
-                  flex
-                  items-center
-                  justify-center
-
-                  text-[#1A4FD6]
-                "
-              >
-
-                <BriefcaseBusiness
-                  className="
-                    w-8
-                    h-8
-                  "
-                />
-
-              </div>
-
-            </div>
-
-          </Link>
-
-          {/* RECENT APPLICATIONS */}
+          {/* APPLICATIONS */}
           <div
             className="
               bg-white
@@ -473,8 +558,6 @@ export default function AdminPage() {
                   text-2xl
 
                   font-bold
-
-                  text-[#0B1120]
                 "
               >
                 Recent Applications
@@ -487,8 +570,6 @@ export default function AdminPage() {
                   text-[#1A4FD6]
 
                   font-medium
-
-                  hover:underline
                 "
               >
                 View All
@@ -528,8 +609,6 @@ export default function AdminPage() {
                       <h3
                         className="
                           font-semibold
-
-                          text-[#0B1120]
                         "
                       >
                         {item.full_name}
@@ -544,8 +623,7 @@ export default function AdminPage() {
                           mt-1
                         "
                       >
-                        {item.role ||
-                          "General Application"}
+                        {item.role}
                       </p>
 
                     </div>
@@ -563,12 +641,7 @@ export default function AdminPage() {
 
           </div>
 
-        </div>
-
-        {/* RIGHT */}
-        <div className="space-y-6">
-
-          {/* UPCOMING INTERVIEWS */}
+          {/* PARTNERS */}
           <div
             className="
               bg-white
@@ -586,6 +659,128 @@ export default function AdminPage() {
               className="
                 flex
                 items-center
+                justify-between
+
+                mb-8
+              "
+            >
+
+              <h2
+                className="
+                  text-2xl
+
+                  font-bold
+                "
+              >
+                Recent Partner Requests
+              </h2>
+
+              <Link
+                href="/admin/partners"
+
+                className="
+                  text-[#1A4FD6]
+
+                  font-medium
+                "
+              >
+                View All
+              </Link>
+
+            </div>
+
+            <div className="space-y-4">
+
+              {recentPartners.map(
+                (item) => (
+
+                  <Link
+                    key={item.id}
+
+                    href={`/admin/partners/${item.id}`}
+
+                    className="
+                      flex
+                      items-center
+                      justify-between
+
+                      p-5
+
+                      rounded-2xl
+
+                      bg-[#FAFBFD]
+
+                      hover:bg-[#F4F8FF]
+
+                      transition-all
+                    "
+                  >
+
+                    <div>
+
+                      <h3
+                        className="
+                          font-semibold
+                        "
+                      >
+                        {
+                          item.legal_company_name
+                        }
+                      </h3>
+
+                      <p
+                        className="
+                          text-sm
+
+                          text-gray-500
+
+                          mt-1
+                        "
+                      >
+                        {
+                          item.partnership_type
+                        }
+                      </p>
+
+                    </div>
+
+                    <PartnerStatusBadge
+                      status={item.status}
+                    />
+
+                  </Link>
+
+                )
+              )}
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* RIGHT */}
+        <div className="space-y-6">
+
+          {/* INTERVIEWS */}
+          <div
+            className="
+              bg-white
+
+              rounded-3xl
+
+              border
+              border-[#E8EEF9]
+
+              p-8
+            "
+          >
+
+            <div
+              className="
+                flex
+                items-center
+
                 gap-3
 
                 mb-8
@@ -606,8 +801,6 @@ export default function AdminPage() {
                   text-2xl
 
                   font-bold
-
-                  text-[#0B1120]
                 "
               >
                 Upcoming Interviews
@@ -617,7 +810,7 @@ export default function AdminPage() {
 
             {upcomingInterviews.length > 0 ? (
 
-              <div className="space-y-5">
+              <div className="space-y-4">
 
                 {upcomingInterviews.map(
                   (item) => (
@@ -637,16 +830,12 @@ export default function AdminPage() {
                         bg-[#FAFBFD]
 
                         hover:bg-[#F4F8FF]
-
-                        transition-all
                       "
                     >
 
                       <h3
                         className="
                           font-semibold
-
-                          text-[#0B1120]
                         "
                       >
                         {item.full_name}
@@ -664,33 +853,6 @@ export default function AdminPage() {
                         {item.role}
                       </p>
 
-                      <p
-                        className="
-                          text-sm
-
-                          text-[#1A4FD6]
-
-                          font-medium
-
-                          mt-3
-                        "
-                      >
-                        {item.interview_date
-                          ? new Date(
-                              item.interview_date
-                            ).toLocaleString(
-                              "en-IN",
-                              {
-
-                                dateStyle: "medium",
-
-                                timeStyle: "short",
-                              }
-                            )
-
-                          : "Interview Pending"}
-                      </p>
-
                     </Link>
 
                   )
@@ -702,21 +864,21 @@ export default function AdminPage() {
 
               <div
                 className="
-                  text-center
+                  py-10
 
-                  py-12
+                  text-center
 
                   text-gray-500
                 "
               >
-                No interviews scheduled yet.
+                No interviews scheduled.
               </div>
 
             )}
 
           </div>
 
-          {/* PIPELINE */}
+          {/* PARTNER PIPELINE */}
           <div
             className="
               bg-white
@@ -730,65 +892,75 @@ export default function AdminPage() {
             "
           >
 
-            <h2
+            <div
               className="
-                text-2xl
+                flex
+                items-center
 
-                font-bold
-
-                text-[#0B1120]
+                gap-3
 
                 mb-8
               "
             >
-              Hiring Pipeline
-            </h2>
+
+              <Handshake
+                className="
+                  w-6
+                  h-6
+
+                  text-[#1A4FD6]
+                "
+              />
+
+              <h2
+                className="
+                  text-2xl
+
+                  font-bold
+                "
+              >
+                Partner Pipeline
+              </h2>
+
+            </div>
 
             <div className="space-y-4">
 
               <PipelineItem
-                label="New Applications"
+                label="New"
                 value={
-                  stats?.total || 0
+                  partnerStats
+                    ?.totalPartners || 0
                 }
               />
 
               <PipelineItem
-                label="Shortlisted"
+                label="Approved"
                 value={
-                  stats?.shortlisted || 0
+                  partnerStats
+                    ?.approvedPartners || 0
                 }
               />
 
               <PipelineItem
-                label="Interview Scheduled"
+                label="On Hold"
                 value={
-                  stats?.interviews || 0
+                  partnerStats
+                    ?.onHoldPartners || 0
                 }
               />
 
               <PipelineItem
                 label="Rejected"
                 value={
-                  stats?.rejected || 0
+                  partnerStats
+                    ?.rejectedPartners || 0
                 }
               />
 
             </div>
 
           </div>
-
-          {/*
-          =======================================
-          PARTNERS MODULE (COMING LATER)
-          =======================================
-
-          <Link
-            href="/admin/partners"
-          >
-            Partners Card
-          </Link>
-          */}
 
         </div>
 
@@ -821,33 +993,23 @@ function StatCard({
 
       <div
         className="
+          w-14
+          h-14
+
+          rounded-2xl
+
+          bg-[#EEF4FF]
+
           flex
           items-center
-          justify-between
+          justify-center
+
+          text-[#1A4FD6]
 
           mb-6
         "
       >
-
-        <div
-          className="
-            w-14
-            h-14
-
-            rounded-2xl
-
-            bg-[#EEF4FF]
-
-            flex
-            items-center
-            justify-center
-
-            text-[#1A4FD6]
-          "
-        >
-          {icon}
-        </div>
-
+        {icon}
       </div>
 
       <p className="text-gray-500">
@@ -893,9 +1055,7 @@ function PipelineItem({
       "
     >
 
-      <p className="text-[#0B1120]">
-        {label}
-      </p>
+      <p>{label}</p>
 
       <span
         className="
@@ -942,14 +1102,44 @@ function StatusBadge({
     "interview scheduled":
       "bg-orange-100 text-orange-700",
 
-    interviewed:
-      "bg-purple-100 text-purple-700",
+    rejected:
+      "bg-red-100 text-red-700",
+  };
 
-    selected:
-      "bg-indigo-100 text-indigo-700",
+  return (
 
-    hired:
-      "bg-emerald-100 text-emerald-700",
+    <div
+      className={`
+        px-4
+        py-2
+
+        rounded-full
+
+        text-xs
+        font-semibold
+
+        ${colors[status]}
+      `}
+    >
+      {status}
+    </div>
+  );
+}
+
+function PartnerStatusBadge({
+  status,
+}: any) {
+
+  const colors: any = {
+
+    new:
+      "bg-blue-100 text-blue-700",
+
+    approved:
+      "bg-green-100 text-green-700",
+
+    "on-hold":
+      "bg-yellow-100 text-yellow-700",
 
     rejected:
       "bg-red-100 text-red-700",

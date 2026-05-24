@@ -20,7 +20,7 @@ const statusColors: any = {
   new:
     "bg-blue-100 text-blue-700",
 
-  reviewing:
+  "on-hold":
     "bg-yellow-100 text-yellow-700",
 
   approved:
@@ -47,10 +47,14 @@ export default function PartnersPage() {
   const [statusFilter, setStatusFilter] =
     useState("all");
 
-  // AUTH
   useEffect(() => {
 
-    const checkUser = async () => {
+    checkUser();
+
+  }, []);
+
+  const checkUser =
+    async () => {
 
       const {
         data: { session },
@@ -70,11 +74,6 @@ export default function PartnersPage() {
       fetchPartners();
     };
 
-    checkUser();
-
-  }, []);
-
-  // FETCH
   const fetchPartners =
     async () => {
 
@@ -84,10 +83,13 @@ export default function PartnersPage() {
         data,
       } =
         await supabase
+
           .from(
             "partner_applications"
           )
+
           .select("*")
+
           .order(
             "created_at",
             {
@@ -103,7 +105,6 @@ export default function PartnersPage() {
       setLoading(false);
     };
 
-  // FILTER
   const filteredPartners =
     useMemo(() => {
 
@@ -112,19 +113,19 @@ export default function PartnersPage() {
 
           const matchesSearch =
 
-            item.company_name
+            item.legal_company_name
               ?.toLowerCase()
               .includes(
                 search.toLowerCase()
               ) ||
 
-            item.email
+            item.email_address
               ?.toLowerCase()
               .includes(
                 search.toLowerCase()
               ) ||
 
-            item.contact_person
+            item.contact_person_name
               ?.toLowerCase()
               .includes(
                 search.toLowerCase()
@@ -133,7 +134,9 @@ export default function PartnersPage() {
           const matchesStatus =
 
             statusFilter === "all"
+
               ? true
+
               : item.status ===
                 statusFilter;
 
@@ -150,7 +153,6 @@ export default function PartnersPage() {
       statusFilter,
     ]);
 
-  // LOADING
   if (loading) {
 
     return (
@@ -166,7 +168,7 @@ export default function PartnersPage() {
           bg-[#F5F7FB]
         "
       >
-        Loading partners...
+        Loading Partners...
       </div>
     );
   }
@@ -181,6 +183,7 @@ export default function PartnersPage() {
 
         p-6
         md:p-10
+
         mt-[72px]
       "
     >
@@ -190,10 +193,10 @@ export default function PartnersPage() {
         className="
           flex
           flex-col
-          md:flex-row
+          lg:flex-row
 
-          md:items-center
-          md:justify-between
+          lg:items-center
+          lg:justify-between
 
           gap-5
 
@@ -203,6 +206,24 @@ export default function PartnersPage() {
 
         <div>
 
+          <p
+            className="
+              text-sm
+
+              uppercase
+
+              tracking-[2px]
+
+              text-[#1A4FD6]
+
+              font-semibold
+
+              mb-3
+            "
+          >
+            ACME Global ATS
+          </p>
+
           <h1
             className="
               text-4xl
@@ -210,87 +231,38 @@ export default function PartnersPage() {
               font-bold
 
               text-[#0B1120]
-
-              mb-2
             "
           >
-            Partner Requests
+            Partner Applications
           </h1>
 
-          <p className="text-gray-500">
-            Review partnership inquiries
-            and brochures.
-          </p>
-
         </div>
 
-        <div
+        <Link
+          href="/admin"
+
           className="
+            h-[52px]
+
+            px-6
+
+            rounded-2xl
+
+            border
+            border-[#E6EAF2]
+
+            bg-white
+
             flex
             items-center
-            gap-3
+
+            hover:border-[#1A4FD6]
+
+            transition-all
           "
         >
-
-          <Link
-            href="/admin"
-
-            className="
-              px-5
-              py-3
-
-              rounded-xl
-
-              border
-              border-[#E6EAF2]
-
-              bg-white
-
-              text-sm
-              font-medium
-
-              hover:border-[#1A4FD6]
-
-              transition-all
-            "
-          >
-            Dashboard
-          </Link>
-
-          <button
-            onClick={async () => {
-
-              await supabase.auth
-                .signOut();
-
-              router.push(
-                "/admin/login"
-              );
-            }}
-
-            className="
-              px-5
-              py-3
-
-              rounded-xl
-
-              bg-red-500
-              hover:bg-red-600
-
-              text-white
-
-              text-sm
-              font-medium
-
-              transition-all
-
-              cursor-pointer
-            "
-          >
-            Logout
-          </button>
-
-        </div>
+          Dashboard
+        </Link>
 
       </div>
 
@@ -299,7 +271,7 @@ export default function PartnersPage() {
         className="
           flex
           flex-col
-          md:flex-row
+          lg:flex-row
 
           gap-4
 
@@ -324,18 +296,18 @@ export default function PartnersPage() {
           }
 
           className="
-            h-[54px]
-
             flex-1
+
+            h-[54px]
 
             border
             border-[#E6EAF2]
 
-            rounded-xl
+            rounded-2xl
 
             bg-white
 
-            px-4
+            px-5
 
             outline-none
 
@@ -358,11 +330,11 @@ export default function PartnersPage() {
             border
             border-[#E6EAF2]
 
-            rounded-xl
+            rounded-2xl
 
             bg-white
 
-            px-4
+            px-5
 
             outline-none
 
@@ -378,8 +350,8 @@ export default function PartnersPage() {
             New
           </option>
 
-          <option value="reviewing">
-            Reviewing
+          <option value="on-hold">
+            On Hold
           </option>
 
           <option value="approved">
@@ -394,232 +366,199 @@ export default function PartnersPage() {
 
       </div>
 
-      {/* TABLE */}
+      {/* CARDS */}
       <div
         className="
-          bg-white
+          grid
 
-          rounded-3xl
+          md:grid-cols-2
+          xl:grid-cols-3
 
-          border
-          border-[#E8EEF9]
-
-          overflow-x-auto
+          gap-6
         "
       >
 
-        <table className="w-full">
+        {filteredPartners.map(
+          (item) => (
 
-          <thead
-            className="
-              bg-[#F8FAFC]
+            <div
+              key={item.id}
 
-              border-b
-              border-[#E8EEF9]
-            "
-          >
+              onClick={() =>
+                router.push(
+                  `/admin/partners/${item.id}`
+                )
+              }
 
-            <tr>
+              className="
+                bg-white
 
-              <th className="text-left p-5 text-sm font-semibold text-[#0B1120]">
-                Company
-              </th>
+                rounded-3xl
 
-              <th className="text-left p-5 text-sm font-semibold text-[#0B1120]">
-                Contact
-              </th>
+                border
+                border-[#E8EEF9]
 
-              <th className="text-left p-5 text-sm font-semibold text-[#0B1120]">
-                Partnership
-              </th>
+                p-7
 
-              <th className="text-left p-5 text-sm font-semibold text-[#0B1120]">
-                Status
-              </th>
+                cursor-pointer
 
-              <th className="text-left p-5 text-sm font-semibold text-[#0B1120]">
-                Brochure
-              </th>
+                hover:border-[#1A4FD6]
 
-            </tr>
+                hover:-translate-y-1
 
-          </thead>
+                transition-all
+                duration-300
+              "
+            >
 
-          <tbody>
+              {/* TOP */}
+              <div
+                className="
+                  flex
+                  items-start
+                  justify-between
 
-            {filteredPartners
-              .length === 0 ? (
+                  gap-5
 
-              <tr>
+                  mb-6
+                "
+              >
 
-                <td
-                  colSpan={5}
+                <div>
 
-                  className="
-                    p-10
-
-                    text-center
-
-                    text-gray-500
-                  "
-                >
-                  No partner requests found.
-                </td>
-
-              </tr>
-
-            ) : (
-
-              filteredPartners.map(
-                (item) => (
-
-                  <tr
-                    key={item.id}
-
+                  <h2
                     className="
-                      border-b
-                      border-[#F1F5F9]
+                      text-xl
 
-                      hover:bg-[#FAFBFD]
+                      font-bold
 
-                      transition-all
+                      text-[#0B1120]
+
+                      leading-[32px]
                     "
                   >
+                    {item.legal_company_name}
+                  </h2>
 
-                    {/* COMPANY */}
-                    <td className="p-5">
+                  <p
+                    className="
+                      text-gray-500
 
-                      <div>
+                      mt-2
+                    "
+                  >
+                    {item.headquarters_location}
+                  </p>
 
-                        <p
-                          className="
-                            font-semibold
+                </div>
 
-                            text-[#0B1120]
-                          "
-                        >
-                          {item.company_name}
-                        </p>
+                <span
+                  className={`
+                    px-3
+                    py-1
 
-                        <p
-                          className="
-                            text-sm
+                    rounded-full
 
-                            text-gray-500
+                    text-xs
+                    font-semibold
 
-                            mt-1
-                          "
-                        >
-                          {item.headquarters_location}
-                        </p>
+                    ${
+                      statusColors[
+                        item.status
+                      ]
+                    }
+                  `}
+                >
+                  {item.status}
+                </span>
 
-                      </div>
+              </div>
 
-                    </td>
+              {/* INFO */}
+              <div className="space-y-4">
 
-                    {/* CONTACT */}
-                    <td className="p-5">
+                <InfoRow
+                  label="Contact"
+                  value={
+                    item.contact_person_name
+                  }
+                />
 
-                      <div>
+                <InfoRow
+                  label="Email"
+                  value={
+                    item.email_address
+                  }
+                />
 
-                        <p className="text-[#0B1120]">
-                          {item.contact_person}
-                        </p>
+                <InfoRow
+                  label="Partnership"
+                  value={
+                    item.partnership_type
+                  }
+                />
 
-                        <p
-                          className="
-                            text-sm
+                <InfoRow
+                  label="Employees"
+                  value={
+                    item.number_of_employees
+                  }
+                />
 
-                            text-gray-500
+              </div>
 
-                            mt-1
-                          "
-                        >
-                          {item.email}
-                        </p>
+            </div>
 
-                      </div>
-
-                    </td>
-
-                    {/* TYPE */}
-                    <td className="p-5">
-
-                      <p className="text-[#0B1120]">
-                        {item.partnership_type}
-                      </p>
-
-                    </td>
-
-                    {/* STATUS */}
-                    <td className="p-5">
-
-                      <span
-                        className={`
-                          px-3
-                          py-1
-
-                          rounded-full
-
-                          text-xs
-                          font-semibold
-
-                          ${
-                            statusColors[
-                              item.status
-                            ] ||
-                            "bg-gray-100 text-gray-700"
-                          }
-                        `}
-                      >
-                        {item.status}
-                      </span>
-
-                    </td>
-
-                    {/* BROCHURE */}
-                    <td className="p-5">
-
-                      {item.brochure_url ? (
-
-                        <a
-                          href={
-                            item.brochure_url
-                          }
-
-                          target="_blank"
-
-                          className="
-                            text-[#1A4FD6]
-
-                            font-medium
-
-                            hover:underline
-                          "
-                        >
-                          View Brochure
-                        </a>
-
-                      ) : (
-
-                        <span className="text-gray-400">
-                          No Brochure
-                        </span>
-                      )}
-
-                    </td>
-
-                  </tr>
-                )
-              )
-            )}
-
-          </tbody>
-
-        </table>
+          )
+        )}
 
       </div>
 
     </main>
+  );
+}
+
+function InfoRow({
+  label,
+  value,
+}: any) {
+
+  return (
+
+    <div
+      className="
+        flex
+        items-center
+        justify-between
+
+        gap-4
+      "
+    >
+
+      <span
+        className="
+          text-gray-500
+
+          text-sm
+        "
+      >
+        {label}
+      </span>
+
+      <span
+        className="
+          text-[#0B1120]
+
+          text-sm
+
+          font-medium
+
+          text-right
+        "
+      >
+        {value || "-"}
+      </span>
+
+    </div>
   );
 }

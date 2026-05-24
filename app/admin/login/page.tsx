@@ -122,6 +122,7 @@ export default function LoginPage() {
             border-[#E6EAF2]
 
             rounded-xl
+            text-gray-500
 
             px-4
 
@@ -150,6 +151,7 @@ export default function LoginPage() {
             border-[#E6EAF2]
 
             rounded-xl
+            text-gray-500
 
             px-4
 
