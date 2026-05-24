@@ -124,7 +124,7 @@ export default function CloudPortfolioSection() {
           <Layers3 className="w-4 h-4" />
 
           <span>
-            ACME Global Cloud Services Portfolio
+            Multi-Cloud Transformation Services
           </span>
         </motion.div>
 
@@ -147,13 +147,13 @@ export default function CloudPortfolioSection() {
 
             font-extrabold
 
-            max-w-[620px]
+            max-w-[650px]
 
             mb-12
             md:mb-14
           "
         >
-          ACME Global Cloud
+          ACME Global Hub Cloud
           <br />
 
           <span className="text-[#00D1B2]">

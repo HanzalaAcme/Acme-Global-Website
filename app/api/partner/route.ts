@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { createClient } from "@supabase/supabase-js";
+import { transporter } from "@/lib/mail";
 
 const supabase =
   createClient(
@@ -490,6 +491,282 @@ export async function POST(
         }
       );
     }
+
+    // ========================================
+// SEND EMAIL NOTIFICATION
+// ========================================
+
+await transporter.sendMail({
+
+  from:
+    process.env.EMAIL_USER,
+
+  to:
+    process.env.EMAIL_USER,
+
+  subject:
+    `New Partner Application - ${legal_company_name}`,
+
+  html: `
+
+    <div style="
+      font-family: Arial;
+      padding: 20px;
+      color: #111827;
+    ">
+
+      <h2 style="
+        color: #1A4FD6;
+        margin-bottom: 20px;
+      ">
+        New Partner Registration Submitted
+      </h2>
+
+      <table
+        cellpadding="10"
+        cellspacing="0"
+        border="1"
+        style="
+          border-collapse: collapse;
+          width: 100%;
+        "
+      >
+
+        <tr>
+          <td><strong>Legal Company Name</strong></td>
+          <td>${legal_company_name}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Trade Name</strong></td>
+          <td>${trade_name}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Website</strong></td>
+          <td>${website_url}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Year Established</strong></td>
+          <td>${year_established}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Headquarters</strong></td>
+          <td>${headquarters_location}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Employees</strong></td>
+          <td>${number_of_employees}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Annual Revenue</strong></td>
+          <td>${annual_revenue}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Contact Person</strong></td>
+          <td>${contact_person_name}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Designation</strong></td>
+          <td>${designation}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Email</strong></td>
+          <td>${email_address}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Phone</strong></td>
+          <td>${mobile_number}</td>
+        </tr>
+
+        <tr>
+          <td><strong>LinkedIn</strong></td>
+          <td>${linkedin_profile}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Address</strong></td>
+          <td>
+            ${street_address},
+            ${city},
+            ${state_province},
+            ${country},
+            ${postal_code}
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Company Registration</strong></td>
+          <td>${company_registration_number}</td>
+        </tr>
+
+        <tr>
+          <td><strong>GST / VAT</strong></td>
+          <td>${tax_vat_gst_number}</td>
+        </tr>
+
+        <tr>
+          <td><strong>DUNS Number</strong></td>
+          <td>${duns_number}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Certifications</strong></td>
+          <td>${certifications}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Partnership Type</strong></td>
+          <td>${partnership_type}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Products / Services</strong></td>
+          <td>${products_services}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Target Industries</strong></td>
+          <td>${target_industries}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Geographic Markets</strong></td>
+          <td>${geographic_markets}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Technology Partnerships</strong></td>
+          <td>${key_technology_partnerships}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Authorized Signatory</strong></td>
+          <td>${authorized_signatory_name}</td>
+        </tr>
+
+        <tr>
+          <td><strong>Designation</strong></td>
+          <td>${authorized_designation}</td>
+        </tr>
+
+      </table>
+
+      <h3 style="
+        margin-top: 30px;
+      ">
+        Uploaded Documents
+      </h3>
+
+      <ul>
+
+        <li>
+          <a href="${company_profile_url}">
+            Company Profile
+          </a>
+        </li>
+
+        <li>
+          <a href="${capability_presentation_url}">
+            Capability Presentation
+          </a>
+        </li>
+
+        <li>
+          <a href="${certifications_document_url}">
+            Certifications
+          </a>
+        </li>
+
+        <li>
+          <a href="${signature_url}">
+            Signature
+          </a>
+        </li>
+
+        ${
+          company_seal_url
+          ? `
+            <li>
+              <a href="${company_seal_url}">
+                Company Seal
+              </a>
+            </li>
+          `
+          : ""
+        }
+
+      </ul>
+
+    </div>
+  `,
+
+  attachments: [
+
+  {
+    filename:
+      companyProfile.name,
+
+    content:
+      Buffer.from(
+        await companyProfile.arrayBuffer()
+      ),
+  },
+
+  {
+    filename:
+      capabilityPresentation.name,
+
+    content:
+      Buffer.from(
+        await capabilityPresentation.arrayBuffer()
+      ),
+  },
+
+  {
+    filename:
+      certificationsDocument.name,
+
+    content:
+      Buffer.from(
+        await certificationsDocument.arrayBuffer()
+      ),
+  },
+
+  {
+    filename:
+      signature.name,
+
+    content:
+      Buffer.from(
+        await signature.arrayBuffer()
+      ),
+  },
+
+  ...(companySeal &&
+  companySeal.size > 0
+    ? [
+        {
+          filename:
+            companySeal.name,
+
+          content:
+            Buffer.from(
+              await companySeal.arrayBuffer()
+            ),
+        },
+      ]
+    : []),
+],
+});
 
     // ========================================
     // SUCCESS

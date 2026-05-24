@@ -245,7 +245,8 @@ export default function ApplicationsPage() {
               rounded-xl
 
               border
-              border-[#E6EAF2]
+              border-gray-400
+              text-[#000000]
 
               bg-white
 
@@ -483,17 +484,24 @@ export default function ApplicationsPage() {
                 (item) => (
 
                   <tr
-                    key={item.id}
+                   key={item.id}
+                      onClick={() =>
+                        router.push(
+                          `/admin/applications/${item.id}`
+                        )
+                      }
 
-                    className="
-                      border-b
-                      border-[#F1F5F9]
+                      className="
+                        border-b
+                        border-[#F1F5F9]
 
-                      hover:bg-[#FAFBFD]
+                        hover:bg-[#FAFBFD]
 
-                      transition-all
-                    "
-                  >
+                        transition-all
+
+                        cursor-pointer
+                      "
+                    >
 
                     {/* CANDIDATE */}
                     <td className="p-5">
@@ -568,37 +576,37 @@ export default function ApplicationsPage() {
                         `}
                       >
                         <select
-  value={item.status || "new"}
+              value={item.status || "new"}
 
-  onChange={async (e) => {
+              onChange={async (e) => {
 
-    const newStatus =
-      e.target.value;
+                const newStatus =
+                  e.target.value;
 
-    const res =
-      await fetch(
-        "/api/admin/update-status",
-        {
+                const res =
+                  await fetch(
+                    "/api/admin/update-status",
+                    {
 
-          method: "POST",
+                      method: "POST",
 
-          headers: {
-            "Content-Type":
-              "application/json",
-          },
+                      headers: {
+                        "Content-Type":
+                          "application/json",
+                      },
 
-          body: JSON.stringify({
+                      body: JSON.stringify({
 
-            table:
-              "applications",
+                        table:
+                          "applications",
 
-            id: item.id,
+                        id: item.id,
 
-            status:
-              newStatus,
-          }),
-        }
-      );
+                        status:
+                          newStatus,
+                      }),
+                    }
+                  );
 
     if (res.ok) {
 
@@ -681,35 +689,64 @@ export default function ApplicationsPage() {
 
                     </td>
 
-                    {/* RESUME */}
                     <td className="p-5">
 
-                      {item.resume_url ? (
+  <div
+    className="
+      flex
+      items-center
+      gap-2
+    "
+  >
 
-                        <a
-                          href={item.resume_url}
+    <div
+      className="
+        w-10
+        h-10
 
-                          target="_blank"
+        rounded-xl
 
-                          className="
-                            text-[#1A4FD6]
+        bg-[#EEF4FF]
 
-                            font-medium
+        flex
+        items-center
+        justify-center
 
-                            hover:underline
-                          "
-                        >
-                          View Resume
-                        </a>
+        text-[#1A4FD6]
+      "
+    >
+      📄
+    </div>
 
-                      ) : (
+    <div>
 
-                        <span className="text-gray-400">
-                          No Resume
-                        </span>
-                      )}
+      <p
+        className="
+          text-sm
 
-                    </td>
+          font-medium
+
+          text-[#0B1120]
+        "
+      >
+        View Details
+      </p>
+
+      <p
+        className="
+          text-xs
+
+          text-gray-500
+        "
+      >
+        Open ATS Profile
+      </p>
+
+    </div>
+
+  </div>
+
+</td>
 
                   </tr>
                 )

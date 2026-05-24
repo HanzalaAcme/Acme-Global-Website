@@ -55,7 +55,7 @@ export default function CyberSecurityCapabilities() {
         {/* LABEL */}
         <div className="flex justify-center font-bold items-center gap-2 text-[#2E66FF] text-[12px] tracking-[1px] uppercase mb-4">
           <Shield className="w-4 h-4" />
-          <span>Our Core Cybersecurity Capabilities</span>
+          <span>Enterprise Risk & Security Management</span>
         </div>
 
         {/* HEADING */}

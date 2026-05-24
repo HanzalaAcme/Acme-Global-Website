@@ -68,13 +68,13 @@ export default function ApplicationServicesPortfolio() {
               text-[#00C8B4]
 
               uppercase
-              tracking-[0.18em]
+              tracking-[0.1em]
 
               text-[12px]
               font-bold
             "
           >
-            ACME GLOBAL Hub APPLICATION SERVICES PORTFOLIO
+            Enterprise Application Services
           </span>
 
         </div>

@@ -95,7 +95,7 @@ export default function CloudPlatforms() {
               font-bold
             "
           >
-            Leading Cloud Platforms We Deliver
+            Strategic Cloud Technology Partners
           </span>
 
         </div>
