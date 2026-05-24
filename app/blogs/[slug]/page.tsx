@@ -131,7 +131,7 @@ export default async function BlogDetail({
             items-center
 
             gap-10
-            sm:gap-100
+            sm:gap-50
 
             text-sm
 
