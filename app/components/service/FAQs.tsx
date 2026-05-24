@@ -6,8 +6,8 @@ import { Plus } from "lucide-react";
 
 const faqs = [
   {
-    q: "What does ACME Global offer?",
-    a: "ACME Global is a Cloud Service Provider, Managed Service Provider, and Resource Outsourcing Partner. We deliver end-to-end enterprise IT services — from cloud infrastructure and cybersecurity to ERP platforms, staff augmentation, and proprietary SaaS products — through a scalable XaaS delivery model.",
+    q: "What does ACME Global Hub offer?",
+    a: "ACME Global Hub is a Cloud Service Provider, Managed Service Provider, and Resource Outsourcing Partner. We deliver end-to-end enterprise IT services — from cloud infrastructure and cybersecurity to ERP platforms, staff augmentation, and proprietary SaaS products — through a scalable XaaS delivery model.",
   },
   {
     q: "How do you tailor solutions to our business needs?",

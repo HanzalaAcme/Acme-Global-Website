@@ -251,7 +251,7 @@ export default function WhatWeDo() {
               mx-auto
             "
           >
-            ACME Global is a prominent Cloud Service Provider,
+            ACME Global Hub is a prominent Cloud Service Provider,
             Managed Service Provider and Resource Outsourcing
             Partner, offering transformational solutions across
             different market verticals. Our primary lines of

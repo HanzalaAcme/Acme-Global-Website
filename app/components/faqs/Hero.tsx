@@ -186,7 +186,7 @@ export default function FAQHero({
             lg:text-[16px]
           "
         >
-          Everything you need to know about ACME Global&apos;s
+          Everything you need to know about ACME Global Hub
           services, platforms, and how we work with enterprises
           across the GCC.
         </p>

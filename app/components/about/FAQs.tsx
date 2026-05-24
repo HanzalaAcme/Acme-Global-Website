@@ -6,19 +6,19 @@ import { Plus } from "lucide-react";
 
 const faqs = [
   {
-    q: "What does ACME Global do?",
+    q: "What does ACME Global Hub do?",
     a: "ACME Global is a Cloud Service Provider, Managed Service Provider, and Resource Outsourcing Partner. We deliver transformational technology solutions across cloud, application services, cybersecurity, managed IT, and staffing — covering the full enterprise technology lifecycle.",
   },
   {
-    q: "What industries does ACME Global serve?",
+    q: "What industries does ACME Global Hub serve?",
     a: "We serve enterprises across a wide range of verticals including finance, healthcare, retail, government, and technology. Our flexible XaaS delivery model is designed to adapt to the regulatory and operational requirements of each sector.",
   },
   {
-    q: "How is ACME Global different from other service providers?",
+    q: "How is ACME Global Hub different from other service providers?",
     a: "We offer a true one-stop XaaS portfolio — from cloud and security to ERP and talent — with regional delivery expertise across India, Bahrain, and Kuwait. Our end-to-end ownership model means we stay accountable from strategy through to ongoing operations.",
   },
   {
-    q: "How does ACME Global support long-term business growth?",
+    q: "How does ACME Global Hub support long-term business growth?",
     a: "Through subscription-based, scalable service models that grow with your business. We provide continuous optimization, proactive managed services, and strategic advisory — ensuring your technology investments deliver value over the long term.",
   },
 ];

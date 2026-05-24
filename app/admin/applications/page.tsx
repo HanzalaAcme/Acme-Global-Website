@@ -314,11 +314,8 @@ export default function ApplicationsPage() {
         {/* SEARCH */}
         <input
           type="text"
-
-          placeholder="
-            Search candidate,
-            email or role
-          "
+          
+          placeholder="Search candidate,email or role"
 
           value={search}
 
@@ -332,6 +329,7 @@ export default function ApplicationsPage() {
             h-[54px]
 
             flex-1
+            text-gray-500
 
             border
             border-[#E6EAF2]
@@ -365,6 +363,7 @@ export default function ApplicationsPage() {
             border-[#E6EAF2]
 
             rounded-xl
+            text-gray-500
 
             bg-white
 

@@ -204,7 +204,7 @@ export default function AdminPage() {
               mb-3
             "
           >
-            ACME Global ATS
+            ACME Global Hub ATS
           </p>
 
           <h1

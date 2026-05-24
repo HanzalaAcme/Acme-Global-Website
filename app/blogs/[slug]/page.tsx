@@ -7,6 +7,7 @@ import Link from "next/link";
 import {
   Calendar,
   Clock,
+  User,
 } from "lucide-react";
 import BlogEnhancements from "../../components/blog/BlogEnhancements"; 
 import BlogShare from "@/app/components/blog/BlogShare";
@@ -45,6 +46,7 @@ export default async function BlogDetail({
 
   // DATE
   const date = new Date(post.date).toLocaleDateString("en-GB");
+  const author =post.author?.name || "ACME Global Hub";
 
   //  READ TIME
   const words = post.content.replace(/<[^>]+>/g, "").split(" ").length;
@@ -128,8 +130,8 @@ export default async function BlogDetail({
             justify-center
             items-center
 
-            gap-4
-            sm:gap-110
+            gap-10
+            sm:gap-100
 
             text-sm
 
@@ -139,7 +141,7 @@ export default async function BlogDetail({
 
             pb-10
           "
-        >
+         >
 
           {/* DATE */}
           <div className="flex items-center gap-2">
@@ -159,6 +161,16 @@ export default async function BlogDetail({
             </span>
           </div>
 
+          <div className="flex items-center gap-2">
+            <User className="text-[#1a46fd] w-4 h-4" />
+
+            <span className="text-gray-500">
+              {author}
+            </span>
+          </div>
+          
+            
+            
         </div>
 
         {/* IMAGE */}
@@ -187,22 +199,22 @@ export default async function BlogDetail({
 
 
             {/* Progress Bar */}
-<BlogEnhancements />
+            <BlogEnhancements />
 
-{/* CONTENT */}
-<div className="pb-20 flex justify-center">
+        {/* CONTENT */}
+        <div className="pb-20 flex justify-center">
 
-  <article
-    className="
-      w-full
-      max-w-4xl
+          <article
+            className="
+              w-full
+              max-w-4xl
 
-      overflow-hidden
+              overflow-hidden
 
-      px-4
-      sm:px-6
-    "
-  >
+              px-4
+              sm:px-6
+            "
+          >
 
     <div
       className="

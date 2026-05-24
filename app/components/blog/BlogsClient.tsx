@@ -1,16 +1,29 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 
-import Blog from "@/app/components/blog/Hero";
+import Link
+from "next/link";
+
+import Image
+from "next/image";
+
+import Blog
+from "@/app/components/blog/Hero";
 
 export default function BlogsClient() {
 
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] =
+    useState<any[]>([]);
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] =
+    useState(1);
+
+  const [loading, setLoading] =
+    useState(true);
 
   const [totalPages, setTotalPages] =
     useState(1);
@@ -19,25 +32,52 @@ export default function BlogsClient() {
 
   useEffect(() => {
 
-    fetch(
-      `https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/?category=blogs`
-    )
-      .then((res) => res.json())
-
-      .then((data) => {
-
-        setPosts(data.posts);
-
-        const total =
-          Math.ceil(data.found / POSTS_PER_PAGE);
-
-        setTotalPages(total);
-      });
+    fetchBlogs();
 
   }, [page]);
 
+  const fetchBlogs =
+    async () => {
+
+      try {
+
+        setLoading(true);
+
+        const res =
+          await fetch(
+
+            `https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/?category=blogs&number=${POSTS_PER_PAGE}&page=${page}`
+          );
+
+        const data =
+          await res.json();
+
+        setPosts(
+          data.posts || []
+        );
+
+        const total =
+          Math.ceil(
+            data.found /
+            POSTS_PER_PAGE
+          );
+
+        setTotalPages(total);
+
+      } catch (err) {
+
+        console.log(err);
+
+      } finally {
+
+        setLoading(false);
+      }
+    };
+
   return (
+
     <>
+
       {/* HERO */}
       <Blog />
 
@@ -46,226 +86,404 @@ export default function BlogsClient() {
 
         className="
           py-20
-          px-6
+          px-10
 
           bg-[#F8FAFC]
+
+          min-h-screen
         "
       >
 
         <div className="max-w-7xl mx-auto">
 
-          {/* GRID */}
-          <div
-            className="
-              grid
+          {/* LOADING */}
+          {loading ? (
 
-              md:grid-cols-2
-              lg:grid-cols-3
+            <div
+              className="
+                flex
+                justify-center
 
-              gap-6
-            "
-          >
+                py-20
+              "
+            >
 
-            {posts.map((post: any) => (
+              <div
+                className="
+                  text-[#1A4FD6]
 
-              <Link
-                key={post.ID}
+                  text-lg
 
-                href={`/blogs/${post.slug}`}
+                  font-medium
+                "
               >
+                Loading Blogs...
+              </div>
+
+            </div>
+
+          ) : (
+
+            <>
+
+              {/* GRID */}
+              <div
+                className="
+                  grid
+
+                  md:grid-cols-2
+                  lg:grid-cols-3
+
+                  gap-6
+                "
+              >
+
+                {posts.map(
+                  (post: any) => (
+
+                    <Link
+                      key={post.ID}
+
+                      href={`/blogs/${post.slug}`}
+                    >
+
+                      <article
+                        className="
+                          group
+
+                          bg-white
+
+                          rounded-2xl
+
+                          overflow-hidden
+
+                          border
+                          border-[#E8EEF9]
+
+                          hover:shadow-xl
+
+                          hover:-translate-y-1
+
+                          transition-all
+                          duration-300
+
+                          cursor-pointer
+
+                          h-full
+                        "
+                      >
+
+                        {/* IMAGE */}
+                        <div
+                          className="
+                            relative
+
+                            w-full
+
+                            h-[220px]
+
+                            overflow-hidden
+                          "
+                        >
+
+                          <Image
+                            src={
+                              post.featured_image ||
+                              "/fallback.jpg"
+                            }
+
+                            alt={post.title}
+
+                            fill
+
+                            sizes="
+                              (max-width:768px)
+                              100vw,
+
+                              (max-width:1200px)
+                              50vw,
+
+                              33vw
+                            "
+
+                            className="
+                              object-cover
+
+                              group-hover:scale-105
+
+                              transition-transform
+                              duration-500
+                            "
+                          />
+
+                        </div>
+
+                        {/* CONTENT */}
+                        <div
+                          className="
+                            p-6
+
+                            flex
+                            flex-col
+
+                            gap-4
+                          "
+                        >
+
+                          {/* TITLE */}
+                          <h3
+                            className="
+                              font-bold
+
+                              text-[16px]
+
+                              leading-[30px]
+
+                              text-[#0B1120]
+
+                              line-clamp-2
+
+                              min-h-[60px]
+                            "
+
+                            dangerouslySetInnerHTML={{
+                              __html:
+                                post.title,
+                            }}
+                          />
+
+                          
+
+                          {/* READ MORE */}
+                          <div
+                            className="
+                              flex
+                              items-center
+
+                              gap-2
+
+                              text-[#2E66FF]
+
+                              text-[14px]
+
+                              font-bold
+
+                              mt-auto
+                            "
+                          >
+
+                            <span>
+                              Read More
+                            </span>
+
+                            <span
+                              className="
+                                transition-transform
+
+                                group-hover:translate-x-1
+                              "
+                            >
+                              →
+                            </span>
+
+                          </div>
+
+                        </div>
+
+                      </article>
+
+                    </Link>
+
+                  )
+                )}
+
+              </div>
+
+              {/* PAGINATION */}
+              {totalPages > 1 && (
 
                 <div
                   className="
-                    group
+                    flex
+                    flex-wrap
 
-                    bg-white
+                    justify-center
 
-                    rounded-xl
+                    gap-3
 
-                    overflow-hidden
-
-                    border
-
-                    hover:shadow-xl
-
-                    transition-all
-                    duration-300
-
-                    cursor-pointer
+                    mt-14
                   "
                 >
 
-                  {/* IMAGE */}
-                  <div
+                  {/* PREV */}
+                  <button
+                    disabled={page === 1}
+
+                    onClick={() => {
+
+                      setPage(
+                        (prev) =>
+                          prev - 1
+                      );
+
+                      window.scrollTo({
+                        top: 0,
+                        behavior:
+                          "smooth",
+                      });
+                    }}
+
                     className="
-                      relative
+                      h-[45px]
 
-                      w-full
-                      h-[200px]
+                      px-5
 
-                      overflow-hidden
+                      rounded-xl
+
+                      border
+                      border-[#E8EEF9]
+
+                      bg-white
+
+                      text-sm
+                      text-gray-600
+
+                      font-medium
+
+                      disabled:opacity-40
+
+                      hover:border-[#1A4FD6]
+
+                      transition-all
+                      cursor-pointer
                     "
                   >
+                    Prev
+                  </button>
 
-                    <Image
-                      src={
-                        post.featured_image ||
-                        "/fallback.jpg"
-                      }
+                  {/* NUMBERS */}
+                  {Array.from(
+                    {
+                      length:
+                        totalPages,
+                    },
 
-                      alt="blog"
+                    (_, i) => (
 
-                      fill
+                      <button
+                        key={i}
 
-                      sizes="
-                        (max-width: 768px)
-                        100vw,
-                        33vw
-                      "
+                        onClick={() => {
 
-                      className="
-                        object-cover
+                          setPage(
+                            i + 1
+                          );
 
-                        group-hover:scale-105
+                          window.scrollTo({
+                            top: 0,
 
-                        transition
-                        duration-500
-                      "
-                    />
+                            behavior:
+                              "smooth",
+                          });
+                        }}
 
-                  </div>
+                        className={`
+                          h-[45px]
+                          min-w-[44px]
 
-                  {/* CONTENT */}
-                  <div
-                    className="
-                      p-5
+                          px-4
 
-                      flex
-                      flex-col
+                          rounded-xl
 
-                      gap-3
-                    "
-                  >
+                          text-sm
+                          font-semibold
 
-                    {/* TITLE */}
-                    <h3
-                      className="
-                        font-bold
+                          transition-all
 
-                        text-[16px]
+                          ${
+                            page ===
+                            i + 1
 
-                        leading-[24px]
+                              ? "bg-[#1A4FD6] text-white"
 
-                        text-[#0B1120]
-                      "
+                              : `
+                                bg-white
+                                text-[#0B1120]
 
-                      dangerouslySetInnerHTML={{
-                        __html: post.title,
-                      }}
-                    />
+                                border
+                                border-[#E8EEF9]
 
-                    {/* READ MORE */}
-                    <div
-                      className="
-                        flex
-                        items-center
-
-                        gap-2
-
-                        text-[#2E66FF]
-
-                        text-[14px]
-                        font-bold
-                      "
-                    >
-
-                      <span>
-                        Read more
-                      </span>
-
-                      <span
-                        className="
-                          transition
-
-                          group-hover:translate-x-1
-                        "
+                                hover:border-[#1A4FD6]
+                              `
+                          }
+                        `}
                       >
-                        →
-                      </span>
+                        {i + 1}
+                      </button>
 
-                    </div>
+                    )
+                  )}
 
-                  </div>
+                  {/* NEXT */}
+                  <button
+                    disabled={
+                      page ===
+                      totalPages
+                    }
+
+                    onClick={() => {
+
+                      setPage(
+                        (prev) =>
+                          prev + 1
+                      );
+
+                      window.scrollTo({
+                        top: 0,
+                        behavior:
+                          "smooth",
+                      });
+                    }}
+
+                    className="
+                      h-[45px]
+
+                      px-5
+
+                      rounded-xl
+
+                      border
+                      border-[#E8EEF9]
+
+                      bg-white
+
+                      text-sm
+                      text-gray-600
+
+                      font-medium
+
+                      disabled:opacity-40
+
+                      hover:border-[#1A4FD6]
+
+                      transition-all
+                    "
+                  >
+                    Next
+                  </button>
 
                 </div>
 
-              </Link>
+              )}
 
-            ))}
+            </>
 
-          </div>
-
-          {/* PAGINATION */}
-          <div
-            className="
-              flex
-              justify-center
-
-              gap-3
-
-              mt-12
-            "
-          >
-
-            {Array.from(
-              { length: totalPages },
-
-              (_, i) => (
-
-                <button
-                  key={i}
-
-                  onClick={() => {
-
-                    setPage(i + 1);
-
-                    window.scrollTo({
-                      top: 0,
-                      behavior: "smooth",
-                    });
-                  }}
-
-                  className={`
-                    px-4
-                    py-2
-
-                    rounded-md
-
-                    border
-
-                    text-sm
-                    font-medium
-
-                    transition
-
-                    ${
-                      page === i + 1
-                        ? "bg-[#2E66FF] text-white border-[#2E66FF]"
-                        : "bg-white text-gray-700 hover:bg-gray-100"
-                    }
-                  `}
-                >
-                  {i + 1}
-                </button>
-
-              )
-            )}
-
-          </div>
+          )}
 
         </div>
 
       </section>
+
     </>
   );
 }

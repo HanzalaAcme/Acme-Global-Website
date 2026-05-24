@@ -451,9 +451,9 @@ export default function ApplicationDetailPage() {
 
                   rounded-2xl
 
-                  p-5
+                  
 
-                  text-gray-600
+                  text-gray-700
 
                   leading-[28px]
                 "
@@ -466,172 +466,276 @@ export default function ApplicationDetailPage() {
 
           </div>
 
-          {/* RESUME */}
-          <div
-            className="
-              bg-white
+         {/* RESUME */}
+<div
+  className="
+    bg-white
 
-              rounded-3xl
+    rounded-3xl
 
-              border
-              border-[#E8EEF9]
+    border
+    border-[#E8EEF9]
 
-              p-8
-            "
-          >
+    p-8
+  "
+>
 
-            <h2
-              className="
-                text-2xl
+  <div
+    className="
+      flex
+      flex-col
+      md:flex-row
 
-                font-bold
+      md:items-center
+      md:justify-between
 
-                mb-6
+      gap-5
 
-                text-[#0B1120]
-              "
-            >
-              Resume
-            </h2>
+      mb-8
+    "
+  >
 
-            {candidate.resume_url ? (
+    <div>
 
-              <>
+      <h2
+        className="
+          text-2xl
 
-                {/* PDF PREVIEW */}
-                {candidate.resume_url
-                  ?.toLowerCase()
-                  .includes(".pdf") && (
+          font-bold
 
-                  <iframe
-                    src={candidate.resume_url}
+          text-[#0B1120]
+        "
+      >
+        Resume
+      </h2>
 
-                    className="
-                      w-full
+      <p
+        className="
+          text-gray-500
 
-                      h-[700px]
+          mt-2
+        "
+      >
+        View or download candidate
+        resume and attachments.
+      </p>
 
-                      rounded-2xl
+    </div>
 
-                      border
-                      border-[#E8EEF9]
-                    "
-                  />
-                )}
+    {/* ACTIONS */}
+    <div
+      className="
+        flex
+        flex-wrap
 
-                {/* DOC/DOCX MESSAGE */}
-                {(candidate.resume_url
-                  ?.toLowerCase()
-                  .includes(".doc") ||
+        gap-3
+      "
+    >
 
-                  candidate.resume_url
-                    ?.toLowerCase()
-                    .includes(".docx")) && (
+      {/* OPEN */}
+      <a
+        href={candidate.resume_url}
 
-                  <div
-                    className="
-                      bg-[#FFF8E7]
+        target="_blank"
 
-                      border
-                      border-[#F5D67B]
+        className="
+          h-[48px]
 
-                      rounded-2xl
+          px-5
 
-                      p-5
+          rounded-xl
 
-                      text-[#8A6A00]
+          bg-[#1A4FD6]
 
-                      mb-5
-                    "
-                  >
-                    DOC/DOCX files
-                    cannot be previewed
-                    inline.
-                    Please open or
-                    download the file.
-                  </div>
-                )}
+          text-white
 
-                {/* ACTIONS */}
-                <div
-                  className="
-                    flex
-                    flex-wrap
+          font-medium
 
-                    gap-4
-                  "
-                >
+          flex
+          items-center
+          justify-center
 
-                  <a
-                    href={
-                      candidate.resume_url
-                    }
+          hover:bg-[#2E66FF]
 
-                    target="_blank"
+          transition-all
+        "
+      >
+        Open Resume
+      </a>
 
-                    className="
-                      px-5
-                      py-3
+      {/* DOWNLOAD */}
+      <a
+        href={candidate.resume_url}
 
-                      rounded-xl
+        download={`${candidate.full_name}-Resume`}
 
-                      bg-[#1A4FD6]
+        target="_blank"
 
-                      text-white
+        rel="noopener noreferrer"
 
-                      font-medium
+        className="
+          h-[48px]
 
-                      hover:bg-[#2E66FF]
+          px-5
 
-                      transition-all
-                    "
-                  >
-                    Open Resume
-                  </a>
+          rounded-xl
 
-                  <a
-                    href={
-                      candidate.resume_url
-                    }
+          border
+          border-[#E6EAF2]
 
-                    download
+          bg-white
 
-                    className="
-                      px-5
-                      py-3
+          text-[#0B1120]
 
-                      rounded-xl
+          font-medium
 
-                      border
-                      border-[#E6EAF2]
+          flex
+          items-center
+          justify-center
 
-                      bg-white
+          hover:border-[#1A4FD6]
 
-                      font-medium
+          transition-all
+        "
+      >
+        Download Resume
+      </a>
 
-                      hover:border-[#1A4FD6]
+    </div>
 
-                      transition-all
-                    "
-                  >
-                    Download Resume
-                  </a>
+  </div>
 
-                </div>
+  {/* PDF PREVIEW */}
+  {candidate.resume_url
+    ?.toLowerCase()
+    .includes(".pdf") && (
 
-              </>
+    <iframe
+      src={candidate.resume_url}
 
-            ) : (
+      className="
+        w-full
 
-              <p className="text-gray-500">
-                Resume not uploaded.
-              </p>
+        h-[700px]
 
-            )}
+        rounded-2xl
 
-          </div>
+        border
+        border-[#E8EEF9]
+      "
+    />
+  )}
+
+  {/* DOC/DOCX UI */}
+  {(candidate.resume_url
+    ?.toLowerCase()
+    .includes(".doc") ||
+
+    candidate.resume_url
+      ?.toLowerCase()
+      .includes(".docx")) && (
+
+    <div
+      className="
+        bg-[#F8FAFC]
+
+        rounded-2xl
+
+        border
+        border-[#E8EEF9]
+
+        p-8
+
+        text-center
+      "
+    >
+
+      <div
+        className="
+          w-16
+          h-16
+
+          rounded-2xl
+
+          bg-[#EEF4FF]
+
+          flex
+          items-center
+          justify-center
+
+          text-3xl
+
+          mx-auto
+
+          mb-5
+        "
+      >
+        📄
+      </div>
+
+      <h3
+        className="
+          text-xl
+
+          font-semibold
+
+          text-[#0B1120]
+
+          mb-3
+        "
+      >
+        Document Resume
+      </h3>
+
+      <p
+        className="
+          text-gray-500
+
+          leading-[28px]
+
+          max-w-[500px]
+
+          mx-auto
+        "
+      >
+        DOC and DOCX files cannot
+        be previewed directly
+        inside browser.
+        Use open or download.
+      </p>
+
+    </div>
+  )}
+
+  {/* NO RESUME */}
+  {!candidate.resume_url && (
+
+    <div
+      className="
+        bg-[#F8FAFC]
+
+        rounded-2xl
+
+        border
+        border-[#E8EEF9]
+
+        p-8
+
+        text-center
+
+        text-gray-500
+      "
+    >
+      Resume not uploaded.
+    </div>
+  )}
+
+</div>
+
+        
 
         </div>
+        
 
         {/* RIGHT SIDEBAR */}
         <div className="space-y-6">
@@ -687,6 +791,7 @@ export default function ApplicationDetailPage() {
                   w-full
 
                   h-[52px]
+                  text-gray-400
 
                   rounded-xl
 
@@ -704,9 +809,7 @@ export default function ApplicationDetailPage() {
               <input
                 type="text"
 
-                placeholder="
-                  Google Meet / Zoom Link
-                "
+                placeholder="Google Meet / Zoom Link"
 
                 value={
                   candidate.interview_link || ""
@@ -725,6 +828,7 @@ export default function ApplicationDetailPage() {
                   w-full
 
                   h-[52px]
+                  text-gray-500
 
                   rounded-xl
 
@@ -772,9 +876,7 @@ export default function ApplicationDetailPage() {
             </h2>
 
             <textarea
-              placeholder="
-                Add recruiter notes...
-              "
+              placeholder="Add recruiter notes..."
 
               value={
                 candidate.notes || ""
@@ -795,6 +897,7 @@ export default function ApplicationDetailPage() {
                 h-[180px]
 
                 rounded-2xl
+                text-gray-500
 
                 border
                 border-[#E6EAF2]

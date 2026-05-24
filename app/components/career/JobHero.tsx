@@ -63,7 +63,7 @@ export default function JobHero({ title, date, type, mode }: Props) {
               href={`/careers/apply?role=${encodeURIComponent(
                 title.replace(/<[^>]+>/g, "")
               )}`}
-              target="_blank"
+              
               rel="noopener noreferrer"
               className="
                 inline-flex

@@ -156,7 +156,7 @@ export default function RelatedBlogs({
                   {blog.title}
                 </h3>
 
-                <div
+               {/* <div
                   className="
                     text-sm
                     text-gray-500
@@ -169,7 +169,7 @@ export default function RelatedBlogs({
                     __html:
                       blog.excerpt,
                   }}
-                />
+                /> */}
 
               </div>
 
