@@ -101,7 +101,7 @@ export default function GlobalOffices() {
             {/* IMAGE */}
             <div className="w-full h-[240px] lg:h-[320px] rounded-[20px] overflow-hidden">
               <Image
-                src="/media/Acme.jpg"
+                src="/media/ACME_Bahrain.jpg"
                 alt="Bahrain Office"
                 width={700}
                 height={300}
