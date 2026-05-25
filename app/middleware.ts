@@ -11,6 +11,24 @@ export async function middleware(
   request: NextRequest
 ) {
 
+  // ========================================
+  // ALWAYS REDIRECT /admin
+  // ========================================
+
+  if (
+    request.nextUrl.pathname ===
+    "/admin"
+  ) {
+
+    return NextResponse.redirect(
+
+      new URL(
+        "/admin/login",
+        request.url
+      )
+    );
+  }
+
   let response =
     NextResponse.next({
 
@@ -21,7 +39,7 @@ export async function middleware(
     });
 
   // ========================================
-  // SUPABASE SSR CLIENT
+  // SUPABASE
   // ========================================
 
   const supabase =
@@ -50,7 +68,6 @@ export async function middleware(
               ({
                 name,
                 value,
-                options,
               }) =>
 
                 request.cookies.set(
@@ -101,23 +118,30 @@ export async function middleware(
   // PROTECTED ROUTES
   // ========================================
 
-  const isAdminRoute =
+  const protectedRoutes = [
 
-    request.nextUrl.pathname
-      .startsWith("/admin");
+    "/admin/dashboard",
 
-  const isLoginPage =
+    "/admin/applications",
 
-    request.nextUrl.pathname ===
-    "/admin/login";
+    "/admin/partners",
+  ];
+
+  const isProtectedRoute =
+
+    protectedRoutes.some(
+      (route) =>
+
+        request.nextUrl.pathname
+          .startsWith(route)
+    );
 
   // ========================================
   // NOT LOGGED IN
   // ========================================
 
   if (
-    isAdminRoute &&
-    !isLoginPage &&
+    isProtectedRoute &&
     !session
   ) {
 
@@ -125,24 +149,6 @@ export async function middleware(
 
       new URL(
         "/admin/login",
-        request.url
-      )
-    );
-  }
-
-  // ========================================
-  // ALREADY LOGGED IN
-  // ========================================
-
-  if (
-    isLoginPage &&
-    session
-  ) {
-
-    return NextResponse.redirect(
-
-      new URL(
-        "/admin",
         request.url
       )
     );

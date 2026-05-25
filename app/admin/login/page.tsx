@@ -1,7 +1,9 @@
 "use client";
 
-import { useState }
-from "react";
+import {
+  useEffect,
+  useState,
+} from "react";
 
 import { useRouter }
 from "next/navigation";
@@ -23,35 +25,57 @@ export default function LoginPage() {
   const [loading, setLoading] =
     useState(false);
 
-  const handleLogin = async (
-    e: any
-  ) => {
+  useEffect(() => {
 
-    e.preventDefault();
+    // CLEAR SESSION
+    supabase.auth.signOut();
 
-    setLoading(true);
+  }, []);
 
-    const {
-      error,
-    } =
-      await supabase.auth
-        .signInWithPassword({
+  const handleLogin =
+    async (
+      e: React.FormEvent
+    ) => {
 
-          email,
-          password,
-        });
+      e.preventDefault();
 
-    setLoading(false);
+      try {
 
-    if (error) {
+        setLoading(true);
 
-      alert(error.message);
+        const {
+          error,
+        } =
+          await supabase.auth
+            .signInWithPassword({
 
-      return;
-    }
+              email,
 
-    router.push("/admin");
-  };
+              password,
+            });
+
+        if (error) {
+
+          alert(
+            error.message
+          );
+
+          return;
+        }
+
+        router.push(
+          "/admin/dashboard"
+        );
+
+      } catch (err) {
+
+        console.log(err);
+
+      } finally {
+
+        setLoading(false);
+      }
+    };
 
   return (
 
@@ -59,139 +83,210 @@ export default function LoginPage() {
       className="
         min-h-screen
 
+        bg-[#F5F7FB]
+
         flex
         items-center
         justify-center
 
-        bg-[#F5F7FB]
+        px-6
       "
     >
 
-      <form
-        onSubmit={handleLogin}
-
+      <div
         className="
+          w-full
+          max-w-md
+
           bg-white
 
-          p-10
-
           rounded-3xl
-
-          shadow-sm
 
           border
           border-[#E8EEF9]
 
-          w-full
-          max-w-md
-
-          space-y-5
+          p-10
         "
       >
 
-        <h1
-          className="
-            text-3xl
+        <div className="mb-10">
 
-            font-bold
+          <p
+            className="
+              text-sm
 
-            text-center
+              uppercase
 
-            text-[#0B1120]
-          "
-        >
-          Admin Login
-        </h1>
+              tracking-[2px]
 
-        <input
-          type="email"
+              text-[#1A4FD6]
 
-          placeholder="Email"
+              font-semibold
 
-          value={email}
+              mb-3
+            "
+          >
+            ACME Global Hub
+          </p>
 
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
+          <h1
+            className="
+              text-4xl
 
-          className="
-            w-full
-            h-[54px]
+              font-bold
 
-            border
-            border-[#E6EAF2]
+              text-[#0B1120]
+            "
+          >
+            Admin Login
+          </h1>
 
-            rounded-xl
-            text-gray-500
+        </div>
 
-            px-4
+        <form
+          onSubmit={handleLogin}
 
-            outline-none
-
-            focus:border-[#1A4FD6]
-          "
-        />
-
-        <input
-          type="password"
-
-          placeholder="Password"
-
-          value={password}
-
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
-
-          className="
-            w-full
-            h-[54px]
-
-            border
-            border-[#E6EAF2]
-
-            rounded-xl
-            text-gray-500
-
-            px-4
-
-            outline-none
-
-            focus:border-[#1A4FD6]
-          "
-        />
-
-        <button
-          type="submit"
-
-          disabled={loading}
-
-          className="
-            w-full
-            h-[54px]
-
-            bg-[#1A4FD6]
-            hover:bg-[#2E66FF]
-
-            rounded-xl
-
-            text-white
-
-            font-semibold
-
-            transition-all
-
-            cursor-pointer
-          "
+          className="space-y-6"
         >
 
-          {loading
-            ? "Signing In..."
-            : "Login"}
+          {/* EMAIL */}
+          <div>
 
-        </button>
+            <label
+              className="
+                block
 
-      </form>
+                text-sm
+
+                font-semibold
+
+                mb-3
+              "
+            >
+              Email
+            </label>
+
+            <input
+              type="email"
+
+              required
+
+              value={email}
+
+              onChange={(e) =>
+                setEmail(
+                  e.target.value
+                )
+              }
+
+              className="
+                w-full
+
+                h-[54px]
+
+                rounded-2xl
+
+                border
+                border-[#E6EAF2]
+
+                px-5
+
+                outline-none
+
+                focus:border-[#1A4FD6]
+              "
+            />
+
+          </div>
+
+          {/* PASSWORD */}
+          <div>
+
+            <label
+              className="
+                block
+
+                text-sm
+
+                font-semibold
+
+                mb-3
+              "
+            >
+              Password
+            </label>
+
+            <input
+              type="password"
+
+              required
+
+              value={password}
+
+              onChange={(e) =>
+                setPassword(
+                  e.target.value
+                )
+              }
+
+              className="
+                w-full
+
+                h-[54px]
+
+                rounded-2xl
+
+                border
+                border-[#E6EAF2]
+
+                px-5
+
+                outline-none
+
+                focus:border-[#1A4FD6]
+              "
+            />
+
+          </div>
+
+          {/* BUTTON */}
+          <button
+            type="submit"
+
+            disabled={loading}
+
+            className="
+              w-full
+
+              h-[56px]
+
+              rounded-2xl
+
+              bg-[#1A4FD6]
+
+              hover:bg-[#2E66FF]
+
+              text-white
+
+              font-semibold
+
+              transition-all
+
+              disabled:opacity-50
+            "
+          >
+            {
+              loading
+
+                ? "Signing In..."
+
+                : "Login"
+            }
+          </button>
+
+        </form>
+
+      </div>
 
     </main>
   );

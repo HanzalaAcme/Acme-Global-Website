@@ -221,7 +221,7 @@ export default function Contact() {
 
                 h-[220px]
                 sm:h-[260px]
-                lg:h-[200px]
+                lg:h-[230px]
 
                 rounded-md
 
