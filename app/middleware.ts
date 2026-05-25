@@ -11,24 +11,6 @@ export async function middleware(
   request: NextRequest
 ) {
 
-  // ========================================
-  // ALWAYS REDIRECT /admin
-  // ========================================
-
-  if (
-    request.nextUrl.pathname ===
-    "/admin"
-  ) {
-
-    return NextResponse.redirect(
-
-      new URL(
-        "/admin/login",
-        request.url
-      )
-    );
-  }
-
   let response =
     NextResponse.next({
 
@@ -105,7 +87,7 @@ export async function middleware(
     );
 
   // ========================================
-  // GET SESSION
+  // SESSION
   // ========================================
 
   const {
@@ -115,19 +97,37 @@ export async function middleware(
       .getSession();
 
   // ========================================
+  // ALWAYS FORCE LOGIN PAGE
+  // ========================================
+
+  if (
+    request.nextUrl.pathname ===
+    "/admin"
+  ) {
+
+    return NextResponse.redirect(
+
+      new URL(
+        "/admin/login",
+        request.url
+      )
+    );
+  }
+
+  // ========================================
   // PROTECTED ROUTES
   // ========================================
 
   const protectedRoutes = [
 
-    "/admin/dashboard",
+    "/admin/dashboard_acme",
 
     "/admin/applications",
 
     "/admin/partners",
   ];
 
-  const isProtectedRoute =
+  const isProtected =
 
     protectedRoutes.some(
       (route) =>
@@ -137,11 +137,11 @@ export async function middleware(
     );
 
   // ========================================
-  // NOT LOGGED IN
+  // BLOCK ACCESS
   // ========================================
 
   if (
-    isProtectedRoute &&
+    isProtected &&
     !session
   ) {
 

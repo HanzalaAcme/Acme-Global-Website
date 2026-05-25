@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  useEffect,
   useState,
 } from "react";
 
@@ -25,13 +24,6 @@ export default function LoginPage() {
   const [loading, setLoading] =
     useState(false);
 
-  useEffect(() => {
-
-    // CLEAR SESSION
-    supabase.auth.signOut();
-
-  }, []);
-
   const handleLogin =
     async (
       e: React.FormEvent
@@ -42,6 +34,16 @@ export default function LoginPage() {
       try {
 
         setLoading(true);
+
+        // ========================================
+        // CLEAR OLD SESSION
+        // ========================================
+
+        await supabase.auth.signOut();
+
+        // ========================================
+        // LOGIN
+        // ========================================
 
         const {
           error,
@@ -63,13 +65,26 @@ export default function LoginPage() {
           return;
         }
 
+        // ========================================
+        // REDIRECT
+        // ========================================
+
+        router.refresh();
+
         router.push(
-          "/admin/dashboard"
+          "/admin/dashboard_acme"
         );
 
       } catch (err) {
 
-        console.log(err);
+        console.log(
+          "LOGIN ERROR:",
+          err
+        );
+
+        alert(
+          "Something went wrong"
+        );
 
       } finally {
 
@@ -106,9 +121,12 @@ export default function LoginPage() {
           border-[#E8EEF9]
 
           p-10
+
+          shadow-sm
         "
       >
 
+        {/* TOP */}
         <div className="mb-10">
 
           <p
@@ -141,8 +159,11 @@ export default function LoginPage() {
             Admin Login
           </h1>
 
+          
+
         </div>
 
+        {/* FORM */}
         <form
           onSubmit={handleLogin}
 
@@ -161,9 +182,11 @@ export default function LoginPage() {
                 font-semibold
 
                 mb-3
+
+                text-[#0B1120]
               "
             >
-              Email
+              Email Address
             </label>
 
             <input
@@ -179,10 +202,12 @@ export default function LoginPage() {
                 )
               }
 
+              placeholder="admin@acmeglobal.tech"
+
               className="
                 w-full
 
-                h-[54px]
+                h-[56px]
 
                 rounded-2xl
 
@@ -192,6 +217,8 @@ export default function LoginPage() {
                 px-5
 
                 outline-none
+
+                transition-all
 
                 focus:border-[#1A4FD6]
               "
@@ -211,6 +238,8 @@ export default function LoginPage() {
                 font-semibold
 
                 mb-3
+
+                text-[#0B1120]
               "
             >
               Password
@@ -229,10 +258,12 @@ export default function LoginPage() {
                 )
               }
 
+              placeholder="••••••••"
+
               className="
                 w-full
 
-                h-[54px]
+                h-[56px]
 
                 rounded-2xl
 
@@ -242,6 +273,8 @@ export default function LoginPage() {
                 px-5
 
                 outline-none
+
+                transition-all
 
                 focus:border-[#1A4FD6]
               "
@@ -258,7 +291,7 @@ export default function LoginPage() {
             className="
               w-full
 
-              h-[56px]
+              h-[58px]
 
               rounded-2xl
 
