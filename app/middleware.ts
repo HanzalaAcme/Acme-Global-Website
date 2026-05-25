@@ -120,7 +120,7 @@ export async function middleware(
 
   const protectedRoutes = [
 
-    "/admin/dashboard_acme",
+    "/admin/dashboard",
 
     "/admin/applications",
 

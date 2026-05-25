@@ -72,7 +72,7 @@ export default function LoginPage() {
         router.refresh();
 
         router.push(
-          "/admin/dashboard_acme"
+          "/admin/dashboard"
         );
 
       } catch (err) {
@@ -159,7 +159,9 @@ export default function LoginPage() {
             Admin Login
           </h1>
 
-          
+          <p className="text-[#5E6E90]">
+            Sign in to your admin account
+          </p>
 
         </div>
 
