@@ -467,7 +467,7 @@ export default function ApplicationDetailPage() {
           </div>
 
          {/* RESUME */}
-<div
+{/*<div
   className="
     bg-white
 
@@ -522,7 +522,7 @@ export default function ApplicationDetailPage() {
 
     </div>
 
-    {/* ACTIONS */}
+    {/* ACTIONS 
     <div
       className="
         flex
@@ -532,7 +532,7 @@ export default function ApplicationDetailPage() {
       "
     >
 
-      {/* OPEN */}
+      {/* OPEN 
       <a
         href={candidate.resume_url}
 
@@ -563,7 +563,7 @@ export default function ApplicationDetailPage() {
         Open Resume
       </a>
 
-      {/* DOWNLOAD */}
+      {/* DOWNLOAD 
       <a
         href={candidate.resume_url}
 
@@ -605,7 +605,7 @@ export default function ApplicationDetailPage() {
 
   </div>
 
-  {/* PDF PREVIEW */}
+  {/* PDF PREVIEW 
   {candidate.resume_url
     ?.toLowerCase()
     .includes(".pdf") && (
@@ -626,7 +626,7 @@ export default function ApplicationDetailPage() {
     />
   )}
 
-  {/* DOC/DOCX UI */}
+  {/* DOC/DOCX UI 
   {(candidate.resume_url
     ?.toLowerCase()
     .includes(".doc") ||
@@ -707,7 +707,7 @@ export default function ApplicationDetailPage() {
     </div>
   )}
 
-  {/* NO RESUME */}
+  {/* NO RESUME 
   {!candidate.resume_url && (
 
     <div
@@ -730,7 +730,7 @@ export default function ApplicationDetailPage() {
     </div>
   )}
 
-</div>
+</div> */}
 
         
 

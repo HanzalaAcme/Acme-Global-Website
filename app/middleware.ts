@@ -8,11 +8,21 @@ import { createServerClient }
 from "@supabase/ssr";
 
 export async function middleware(
-  req: NextRequest
+  request: NextRequest
 ) {
 
   let response =
-    NextResponse.next();
+    NextResponse.next({
+
+      request: {
+        headers:
+          request.headers,
+      },
+    });
+
+  // ========================================
+  // SUPABASE SSR CLIENT
+  // ========================================
 
   const supabase =
     createServerClient(
@@ -24,20 +34,62 @@ export async function middleware(
         .NEXT_PUBLIC_SUPABASE_ANON_KEY!,
 
       {
+
         cookies: {
 
-          get(name: string) {
+          getAll() {
 
-            return req.cookies.get(name)
-              ?.value;
+            return request.cookies
+              .getAll();
           },
 
-          set() {},
+          setAll(cookiesToSet) {
 
-          remove() {},
+            cookiesToSet.forEach(
+
+              ({
+                name,
+                value,
+                options,
+              }) =>
+
+                request.cookies.set(
+                  name,
+                  value
+                )
+            );
+
+            response =
+              NextResponse.next({
+
+                request,
+              });
+
+            cookiesToSet.forEach(
+
+              ({
+                name,
+                value,
+                options,
+              }) =>
+
+                response.cookies.set(
+
+                  name,
+
+                  value,
+
+                  options
+                )
+            );
+          },
         },
       }
     );
+
+  // ========================================
+  // GET SESSION
+  // ========================================
 
   const {
     data: { session },
@@ -45,23 +97,53 @@ export async function middleware(
     await supabase.auth
       .getSession();
 
+  // ========================================
+  // PROTECTED ROUTES
+  // ========================================
+
+  const isAdminRoute =
+
+    request.nextUrl.pathname
+      .startsWith("/admin");
+
+  const isLoginPage =
+
+    request.nextUrl.pathname ===
+    "/admin/login";
+
+  // ========================================
   // NOT LOGGED IN
+  // ========================================
+
   if (
-
-    !session &&
-
-    req.nextUrl.pathname
-      .startsWith("/admin") &&
-
-    req.nextUrl.pathname !==
-      "/admin/login"
+    isAdminRoute &&
+    !isLoginPage &&
+    !session
   ) {
 
     return NextResponse.redirect(
 
       new URL(
         "/admin/login",
-        req.url
+        request.url
+      )
+    );
+  }
+
+  // ========================================
+  // ALREADY LOGGED IN
+  // ========================================
+
+  if (
+    isLoginPage &&
+    session
+  ) {
+
+    return NextResponse.redirect(
+
+      new URL(
+        "/admin",
+        request.url
       )
     );
   }
@@ -71,5 +153,8 @@ export async function middleware(
 
 export const config = {
 
-  matcher: ["/admin/:path*"],
+  matcher: [
+
+    "/admin/:path*",
+  ],
 };
