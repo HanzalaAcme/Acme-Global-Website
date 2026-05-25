@@ -281,6 +281,8 @@ export async function POST(
         from:
           `"ACME Global Partnerships" <${process.env.EMAIL_USER}>`,
 
+        replyTo:   process.env.SALES_EMAIL,
+
         to:
           partner.email_address,
 

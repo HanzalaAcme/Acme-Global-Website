@@ -399,6 +399,7 @@ export default function BlogsClient() {
                           font-semibold
 
                           transition-all
+                          cursor-pointer
 
                           ${
                             page ===
@@ -467,6 +468,7 @@ export default function BlogsClient() {
                       hover:border-[#1A4FD6]
 
                       transition-all
+                      cursor-pointer
                     "
                   >
                     Next

@@ -556,6 +556,7 @@ export default function AdminPage() {
               <h2
                 className="
                   text-2xl
+                  text-[#0B1120]
 
                   font-bold
                 "
@@ -609,6 +610,7 @@ export default function AdminPage() {
                       <h3
                         className="
                           font-semibold
+                          text-gray-800
                         "
                       >
                         {item.full_name}
@@ -668,6 +670,7 @@ export default function AdminPage() {
               <h2
                 className="
                   text-2xl
+                  text-[#0B1120]
 
                   font-bold
                 "
@@ -721,6 +724,7 @@ export default function AdminPage() {
                       <h3
                         className="
                           font-semibold
+                          text-gray-800
                         "
                       >
                         {
@@ -799,6 +803,7 @@ export default function AdminPage() {
               <h2
                 className="
                   text-2xl
+                  text-[#0B1120]
 
                   font-bold
                 "
@@ -836,6 +841,7 @@ export default function AdminPage() {
                       <h3
                         className="
                           font-semibold
+                          text-gray-800
                         "
                       >
                         {item.full_name}
@@ -915,6 +921,7 @@ export default function AdminPage() {
               <h2
                 className="
                   text-2xl
+                  text-[#0B1120]
 
                   font-bold
                 "
@@ -924,7 +931,7 @@ export default function AdminPage() {
 
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 text-gray-600">
 
               <PipelineItem
                 label="New"
