@@ -152,7 +152,11 @@ export default function ERPPlatforms() {
 
                 p-7 md:p-8
 
-                hover:border-[#2E66FF]/20
+                hover:border-[#7AAFFF]/35
+
+                hover:translate-x-[4px]
+
+                hover:shadow-[0_18px_45px_rgba(122,175,255,0.12)]
 
                 transition-all duration-300
               "
@@ -163,29 +167,13 @@ export default function ERPPlatforms() {
 
                 {/* LOGO */}
                <div
-                           className="
-                             w-[62px]
-                             h-[62px]
-               
-                             rounded-[14px]
-               
-                             bg-[#F8FAFF]
-               
-                             border border-[#E7ECF6]
-               
-                             flex
-                             items-center
-                             justify-center
-               
-                             shrink-0
-                           "
-                          >
+                className="mt-1">
                
                            <Image
                              src={item.logo}
                              alt={item.name}
-                             width={52}
-                             height={52}
+                             width={120}
+                             height={120}
                              className="object-contain"
                            />
                
@@ -202,7 +190,7 @@ export default function ERPPlatforms() {
 
                       text-[20px]
 
-                      leading-[1.2]
+                      leading-[1]
 
                       font-bold
 

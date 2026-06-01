@@ -62,7 +62,7 @@ export default function ERPPlatformExpertise() {
       className="
         relative
 
-        bg-[#030B1F]
+        bg-[#F8FAFD]
 
         py-16 md:py-24 lg:py-20
 
@@ -98,7 +98,7 @@ export default function ERPPlatformExpertise() {
             className="
               w-4 h-4
 
-              text-[#7AAFFF]
+              text-[#3B63FF]
             "
           />
 
@@ -113,7 +113,7 @@ export default function ERPPlatformExpertise() {
 
               font-bold
 
-              text-[#7AAFFF]
+              text-[#3B63FF]
             "
           >
             DEEP PLATFORM KNOWLEDGE
@@ -128,7 +128,7 @@ export default function ERPPlatformExpertise() {
 
             font-playfair
 
-            text-white
+            text-[#0B1120]
 
             text-[36px]
             sm:text-[52px]
@@ -141,7 +141,7 @@ export default function ERPPlatformExpertise() {
         >
           Platform{" "}
 
-          <span className="text-[#7AAFFF]">
+          <span className="text-[#3B63FF]">
             Expertise
           </span>
         </h2>
@@ -165,10 +165,11 @@ export default function ERPPlatformExpertise() {
 
               className="
                 group
+                bg-white
 
                 rounded-[24px]
 
-                border border-white/10
+                border border-[#E5EAF4]
 
                 bg-[rgba(20,28,50,0.88)]
 
@@ -196,27 +197,15 @@ export default function ERPPlatformExpertise() {
 
                 {/* LOGO */}
                 <div
-                  className="
-                    w-[64px]
-                    h-[64px]
-
-                    rounded-2xl
-
-                    bg-white/20
-
-                    border border-white/10
-
-                    flex items-center justify-center
-
-                    shrink-0
-                  "
+                className="mt-2"
+                 
                 >
 
                   <Image
                     src={platform.logo}
                     alt={platform.title}
-                    width={55}
-                    height={55}
+                    width={90}
+                    height={90}
                     className="object-contain"
                   />
 
@@ -229,7 +218,7 @@ export default function ERPPlatformExpertise() {
                     className="
                       font-playfair
 
-                      text-white
+                      text-[#0B1120]
 
                       text-[26px]
                       md:text-[24px]
@@ -246,12 +235,12 @@ export default function ERPPlatformExpertise() {
                     className="
                       mt-4
 
-                      text-white/55
+                      text-[#64748B]
 
                       text-[15px]
                       md:text-[15px]
 
-                      leading-[25px]
+                      leading-[24px]
                     "
                   >
                     {platform.subtitle}
@@ -262,7 +251,7 @@ export default function ERPPlatformExpertise() {
               </div>
 
               {/* DIVIDER */}
-              <div className="w-full h-[1px] bg-white/10" />
+              <div className="w-full h-[1px] bg-[#E8EDF6]" />
 
               {/* BOTTOM */}
               <div
@@ -274,12 +263,12 @@ export default function ERPPlatformExpertise() {
 
                 <p
                   className="
-                    text-white/60
+                    text-[#64748B]
 
                     text-[15px]
                     md:text-[15px]
 
-                    leading-[25px]
+                    leading-[24px]
                   "
                 >
                   {platform.description}

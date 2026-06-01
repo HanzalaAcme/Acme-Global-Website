@@ -100,19 +100,12 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
 
             whileHover={{
-              y: -6,
+              y: -3,
               scale: 1.015,
             }}
 
-            animate={{
-              y: [0, -8, 0],
-            }}
 
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+      
 
             viewport={{ once: true }}
 
@@ -171,7 +164,7 @@ export default function AboutSection() {
                 transition-transform
                 duration-300
 
-                group-hover:scale-[1.05]
+                group-hover:scale-[1.03]
               "
             />
 
@@ -179,22 +172,12 @@ export default function AboutSection() {
 
           {/* SMALL IMAGE */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
 
             whileHover={{
-              y: -6,
+              y: -3,
               scale: 1.02,
-            }}
-
-            animate={{
-              y: [0, 10, 0],
-            }}
-
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
             }}
 
             viewport={{ once: true }}
@@ -255,7 +238,7 @@ export default function AboutSection() {
                 transition-transform
                 duration-300
 
-                group-hover:scale-[1.06]
+                group-hover:scale-[1.03]
               "
             />
 

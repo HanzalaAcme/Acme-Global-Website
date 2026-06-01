@@ -21,7 +21,7 @@ export default function GlobalOffices() {
             {/* IMAGE */}
             <div className="w-full h-[240px] lg:h-[320px] rounded-[20px] overflow-hidden">
               <Image
-                src="/media/ACME_Global1.jpeg"
+                src="/media/India.jpg"
                 alt="India Office"
                 width={700}
                 height={300}
@@ -101,7 +101,7 @@ export default function GlobalOffices() {
             {/* IMAGE */}
             <div className="w-full h-[240px] lg:h-[320px] rounded-[20px] overflow-hidden">
               <Image
-                src="/media/ACME_Bahrain.jpg"
+                src="/media/Bahrain.jpg"
                 alt="Bahrain Office"
                 width={700}
                 height={300}
@@ -114,44 +114,34 @@ export default function GlobalOffices() {
           <div className="grid lg:grid-cols-2 gap-[40px] items-center">
 
             {/* IMAGE */}
-<div
-  className="
-    relative
+          <div
+            className="
+              relative
 
-    w-full
+              w-full
 
-    h-[240px]
-    lg:h-[320px]
+              h-[240px]
+              lg:h-[320px]
 
-    rounded-[20px]
+              rounded-[20px]
 
-    overflow-hidden
+              overflow-hidden
 
-    bg-[#F7F6F2]
-  "
->
+              bg-[#F7F6F2]
+            "
+          >
 
-  <Image
-    src="/media/AACS.jpg"
+            <div className="w-full h-[240px] lg:h-[320px] rounded-[20px] overflow-hidden">
+              <Image
+                src="/media/Kuwait.jpg"
+                alt="Kuwait Office"
+                width={700}
+                height={300}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-    alt="Kuwait Office"
-
-    fill
-
-    sizes="
-      (max-width: 768px) 100vw,
-      (max-width: 1200px) 50vw,
-      700px
-    "
-
-    className="
-      object-contain
-
-      object-center
-    "
-  />
-
-</div>
+          </div>
 
             {/* CONTENT */}
             <div className="max-w-[390px]">
