@@ -1,48 +1,79 @@
-import { NextResponse } from "next/server";
+import { NextResponse }
+from "next/server";
 
-import { createClient } from "@supabase/supabase-js";
+import { prisma }
+from "@/lib/prisma";
 
-import { transporter } from "@/lib/mail";
+import { transporter }
+from "@/lib/mail";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
-export async function POST(req: Request) {
+export async function POST(
+  req: Request
+) {
 
   try {
 
-    const body = await req.json();
+    const body =
+      await req.json();
 
     const {
+
       id,
+
       status,
+
       notes,
+
       interview_date,
+
       interview_link,
+
     } = body;
 
     // ========================================
-    // GET CANDIDATE
+    // VALIDATION
     // ========================================
 
-    const {
-      data: candidate,
-      error: fetchError,
-    } = await supabase
-      .from("applications")
-      .select("*")
-      .eq("id", id)
-      .single();
-
-    if (fetchError || !candidate) {
+    if (!id) {
 
       return NextResponse.json(
+
         {
           success: false,
-          message: "Candidate not found",
+
+          message:
+            "Application ID missing",
         },
+
+        {
+          status: 400,
+        }
+      );
+    }
+
+    // ========================================
+    // GET APPLICATION
+    // ========================================
+
+    const candidate =
+      await prisma.application.findUnique({
+
+        where: {
+          id,
+        },
+      });
+
+    if (!candidate) {
+
+      return NextResponse.json(
+
+        {
+          success: false,
+
+          message:
+            "Candidate not found",
+        },
+
         {
           status: 404,
         }
@@ -53,258 +84,144 @@ export async function POST(req: Request) {
     // UPDATE APPLICATION
     // ========================================
 
-    const { error } = await supabase
-      .from("applications")
-      .update({
-        status,
-        notes,
-        interview_date,
-        interview_link,
-        status_updated_at: new Date(),
-      })
-      .eq("id", id);
+    const updatedCandidate =
+      await prisma.application.update({
 
-    if (error) {
-
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Failed to update application",
+        where: {
+          id,
         },
-        {
-          status: 500,
-        }
+
+        data: {
+
+          status,
+
+          notes:
+            notes || null,
+
+          interview_date:
+            interview_date
+              ? new Date(
+                  interview_date
+                )
+              : null,
+
+          interview_link:
+            interview_link || null,
+        },
+      });
+
+    // ========================================
+    // SEND INTERVIEW EMAIL
+    // ========================================
+
+    const shouldSendInterviewMail =
+
+      interview_date &&
+      interview_link &&
+      (
+        status ===
+          "interview scheduled" ||
+
+        status ===
+          "interviewed"
       );
-    }
 
-    // ========================================
-    // EMAIL TEMPLATE VARIABLES
-    // ========================================
+    if (
+      shouldSendInterviewMail
+    ) {
 
-    let subject = "";
-    let html = "";
+      const formattedDate =
+        new Date(
+          interview_date
+        ).toLocaleString(
+          "en-IN",
 
-    const candidateName =
-      candidate.full_name || "Candidate";
+          {
+            dateStyle: "full",
 
-    const role =
-      candidate.role || "Application";
+            timeStyle: "short",
 
-    // ========================================
-    // FORMAT DATE
-    // ========================================
-let formattedDate = "";
+            timeZone:
+              "Asia/Kolkata",
+          }
+        );
 
-if (interview_date) {
+      await transporter.sendMail({
 
-  const date =
-    new Date(interview_date);
+        from:
+          `"ACME Global HR" <${process.env.EMAIL_USER}>`,
 
-  const day =
-    date.toLocaleDateString(
-      "en-IN",
-      {
-        weekday: "long",
-      }
-    );
+        to:
+          candidate.email,
 
-  const fullDate =
-    date.toLocaleDateString(
-      "en-IN",
-      {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }
-    );
+        subject:
+          `Interview Scheduled – ${candidate.role || "Application"} | ACME Global Hub`,
 
-  const time =
-    date.toLocaleTimeString(
-      "en-IN",
-      {
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-      }
-    );
+        html: `
 
-  formattedDate =
-    `${day}, ${fullDate} at ${time}`;
-}
-
-    // ========================================
-    // STATUS BASED EMAILS
-    // ========================================
-
-    switch (status) {
-
-      // ========================================
-      // REVIEWING
-      // ========================================
-
-      case "reviewing":
-
-        subject =
-          `Application Under Review | ${role}`;
-
-        html = `
           <div style="
             font-family: Arial;
             padding: 30px;
             color: #111827;
           ">
 
-            <h2 style="color:#1A4FD6;">
-              Application Under Review
-            </h2>
-
-            <p>
-              Dear <strong>${candidateName}</strong>,
-            </p>
-
-            <p style="line-height:28px;">
-              Thank you for applying for the
-              <strong>${role}</strong> position
-              at ACME Global Hub.
-
-              Your profile is currently under
-              review by our recruitment team.
-            </p>
-
-            <p style="line-height:28px;">
-              We appreciate your interest and
-              will update you regarding the
-              next steps soon.
-            </p>
-
-            <br />
-
-            <p>
-              Regards,<br />
-              HR Team<br />
-              ACME Global Hub
-            </p>
-
-          </div>
-        `;
-
-        break;
-
-      // ========================================
-      // SHORTLISTED
-      // ========================================
-
-      case "shortlisted":
-
-        subject =
-          `You Have Been Shortlisted | ${role}`;
-
-        html = `
-          <div style="
-            font-family: Arial;
-            padding: 30px;
-            color: #111827;
-          ">
-
-            <h2 style="color:#1A4FD6;">
-              Congratulations!
-            </h2>
-
-            <p>
-              Dear <strong>${candidateName}</strong>,
-            </p>
-
-            <p style="line-height:28px;">
-              We are pleased to inform you that
-              you have been shortlisted for the
-              <strong>${role}</strong> position
-              at ACME Global Hub.
-            </p>
-
-            <p style="line-height:28px;">
-              Our HR team will contact you soon
-              regarding the next stages of the
-              recruitment process.
-            </p>
-
-            <br />
-
-            <p>
-              Regards,<br />
-              HR Team<br />
-              ACME Global Hub
-            </p>
-
-          </div>
-        `;
-
-        break;
-
-      // ========================================
-      // INTERVIEW SCHEDULED
-      // ========================================
-
-      case "interview scheduled":
-
-        if (!interview_date || !interview_link) {
-
-          return NextResponse.json(
-            {
-              success: false,
-              message:
-                "Interview date and link are required",
-            },
-            {
-              status: 400,
-            }
-          );
-        }
-
-        subject =
-          `Interview Scheduled | ${role}`;
-
-        html = `
-          <div style="
-            font-family: Arial;
-            padding: 30px;
-            color: #111827;
-          ">
-
-            <h2 style="color:#1A4FD6;">
+            <h2 style="
+              color: #1A4FD6;
+              margin-bottom: 20px;
+            ">
               Interview Scheduled
             </h2>
 
             <p>
-              Dear <strong>${candidateName}</strong>,
+              Dear
+              <strong>
+                ${candidate.full_name}
+              </strong>,
             </p>
 
-            <p style="line-height:28px;">
-              Your interview for the
-              <strong>${role}</strong> position
+            <p style="
+              line-height: 28px;
+            ">
+              Thank you for applying at
+              ACME Global.
+
+              We are pleased to inform
+              you that your interview
               has been scheduled.
             </p>
 
             <div style="
-              background:#F8FAFC;
-              padding:20px;
-              border-radius:16px;
-              margin-top:20px;
+              background: #F8FAFC;
+              border-radius: 16px;
+              padding: 20px;
+              margin-top: 25px;
             ">
 
               <p>
-                <strong>Date & Time:</strong>
+                <strong>
+                  Position:
+                </strong>
+                ${candidate.role}
+              </p>
+
+              <p>
+                <strong>
+                  Interview Date:
+                </strong>
                 ${formattedDate}
               </p>
 
               <p>
-                <strong>Meeting Link:</strong>
+                <strong>
+                  Meeting Link:
+                </strong>
               </p>
 
               <a
                 href="${interview_link}"
                 style="
-                  color:#1A4FD6;
-                  word-break:break-all;
+                  color: #1A4FD6;
+                  word-break: break-all;
                 "
               >
                 ${interview_link}
@@ -312,319 +229,56 @@ if (interview_date) {
 
             </div>
 
-            <p style="margin-top:25px;">
+            <p style="
+              margin-top: 30px;
+              line-height: 28px;
+            ">
               Please join the meeting
               5–10 minutes before the
               scheduled time.
             </p>
 
-            <br />
-
-            <p>
+            <p style="
+              margin-top: 30px;
+            ">
               Regards,<br />
               HR Team<br />
               ACME Global Hub
             </p>
 
           </div>
-        `;
-
-        break;
-
-      // ========================================
-      // INTERVIEW CANCELLED
-      // ========================================
-
-      case "interview cancelled":
-
-        subject =
-          `Interview Update | ${role}`;
-
-        html = `
-          <div style="
-            font-family: Arial;
-            padding: 30px;
-            color: #111827;
-          ">
-
-            <h2 style="color:#DC2626;">
-              Interview Cancelled
-            </h2>
-
-            <p>
-              Dear <strong>${candidateName}</strong>,
-            </p>
-
-            <p style="line-height:28px;">
-              We would like to inform you that
-              the scheduled interview for the
-              <strong>${role}</strong> position
-              has been cancelled/rescheduled.
-            </p>
-
-            <p style="line-height:28px;">
-              Our HR team will reach out to you
-              shortly with further updates.
-            </p>
-
-            <br />
-
-            <p>
-              Regards,<br />
-              HR Team<br />
-              ACME Global Hub
-            </p>
-
-          </div>
-        `;
-
-        break;
-
-      // ========================================
-      // INTERVIEWED
-      // ========================================
-
-      case "interviewed":
-
-        subject =
-          `Interview Completed | ${role}`;
-
-        html = `
-          <div style="
-            font-family: Arial;
-            padding: 30px;
-            color: #111827;
-          ">
-
-            <h2 style="color:#1A4FD6;">
-              Interview Completed
-            </h2>
-
-            <p>
-              Dear <strong>${candidateName}</strong>,
-            </p>
-
-            <p style="line-height:28px;">
-              Thank you for attending the
-              interview for the
-              <strong>${role}</strong> position.
-            </p>
-
-            <p style="line-height:28px;">
-              Our team is currently reviewing
-              your interview feedback and will
-              update you shortly.
-            </p>
-
-            <br />
-
-            <p>
-              Regards,<br />
-              HR Team<br />
-              ACME Global Hub
-            </p>
-
-          </div>
-        `;
-
-        break;
-
-      // ========================================
-      // SELECTED
-      // ========================================
-
-      case "selected":
-
-        subject =
-          `Congratulations! You Have Been Selected`;
-
-        html = `
-          <div style="
-            font-family: Arial;
-            padding: 30px;
-            color: #111827;
-          ">
-
-            <h2 style="color:#16A34A;">
-              Congratulations!
-            </h2>
-
-            <p>
-              Dear <strong>${candidateName}</strong>,
-            </p>
-
-            <p style="line-height:28px;">
-              We are delighted to inform you
-              that you have been selected for
-              the <strong>${role}</strong>
-              position at ACME Global Hub.
-            </p>
-
-            <p style="line-height:28px;">
-              Our HR team will contact you soon
-              regarding the onboarding process
-              and further formalities.
-            </p>
-
-            <br />
-
-            <p>
-              Regards,<br />
-              HR Team<br />
-              ACME Global Hub
-            </p>
-
-          </div>
-        `;
-
-        break;
-
-      // ========================================
-      // HIRED
-      // ========================================
-
-      case "hired":
-
-        subject =
-          `Welcome to ACME Global Hub`;
-
-        html = `
-          <div style="
-            font-family: Arial;
-            padding: 30px;
-            color: #111827;
-          ">
-
-            <h2 style="color:#16A34A;">
-              Welcome Aboard!
-            </h2>
-
-            <p>
-              Dear <strong>${candidateName}</strong>,
-            </p>
-
-            <p style="line-height:28px;">
-              Congratulations on being hired
-              for the
-              <strong>${role}</strong> position
-              at ACME Global Hub.
-            </p>
-
-            <p style="line-height:28px;">
-              We are excited to have you join
-              our organization and wish you a
-              successful journey ahead.
-            </p>
-
-            <br />
-
-            <p>
-              Regards,<br />
-              HR Team<br />
-              ACME Global Hub
-            </p>
-
-          </div>
-        `;
-
-        break;
-
-      // ========================================
-      // REJECTED
-      // ========================================
-
-      case "rejected":
-
-        subject =
-          `Application Update | ${role}`;
-
-        html = `
-          <div style="
-            font-family: Arial;
-            padding: 30px;
-            color: #111827;
-          ">
-
-            <h2 style="color:#DC2626;">
-              Application Update
-            </h2>
-
-            <p>
-              Dear <strong>${candidateName}</strong>,
-            </p>
-
-            <p style="line-height:28px;">
-              Thank you for your interest in
-              the <strong>${role}</strong>
-              position at ACME Global Hub.
-            </p>
-
-            <p style="line-height:28px;">
-              After careful consideration,
-              we regret to inform you that
-              your application has not been
-              selected for the next stage.
-            </p>
-
-            <p style="line-height:28px;">
-              We truly appreciate your time
-              and effort and wish you success
-              in your future endeavors.
-            </p>
-
-            <br />
-
-            <p>
-              Regards,<br />
-              HR Team<br />
-              ACME Global Hub
-            </p>
-
-          </div>
-        `;
-
-        break;
-
-      default:
-        break;
-    }
-
-    // ========================================
-    // SEND EMAIL
-    // ========================================
-
-    if (subject && html) {
-
-      await transporter.sendMail({
-
-        from:
-          `"ACME Global Hub HR" <${process.env.EMAIL_USER}>`,
-
-        replyTo:
-          process.env.HR_EMAIL,
-
-        to:
-          candidate.email,
-
-        subject,
-
-        html,
+        `,
       });
     }
 
+    // ========================================
+    // SUCCESS
+    // ========================================
+
     return NextResponse.json({
+
       success: true,
+
+      data:
+        updatedCandidate,
     });
 
   } catch (err) {
 
-    console.log(err);
+    console.log(
+      "UPDATE APPLICATION ERROR:",
+      err
+    );
 
     return NextResponse.json(
+
       {
         success: false,
-        message: "Something went wrong",
+
+        message:
+          "Something went wrong",
       },
+
       {
         status: 500,
       }

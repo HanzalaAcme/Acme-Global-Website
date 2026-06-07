@@ -236,24 +236,24 @@ export default function PartnersSection() {
 
               {/* LOGO */}
               <div
-  className="
-    relative
+                  className="
+                    relative
 
-    w-[150px]
-    h-[58px]
+                    w-[150px]
+                    h-[58px]
 
-    sm:w-[180px]
-    sm:h-[70px]
+                    sm:w-[160px]
+                    sm:h-[63px]
 
-    lg:w-[200px]
-    lg:h-[76px]
+                    lg:w-[170px]
+                    lg:h-[68px]
 
-    transition-all
-    duration-500
+                    transition-all
+                    duration-500
 
-    group-hover:scale-[1.08]
-  "
->
+                    group-hover:scale-[1.08]
+                  "
+                >
 
                 <Image
                   src={partner.logo}

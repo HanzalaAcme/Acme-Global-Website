@@ -73,12 +73,12 @@ export default function LeadingPlatforms() {
             >
               {/* TOP */}
               <div className="flex items-center gap-5 border-b border-[#EDF1F7] px-8 py-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[#E8ECF5] bg-[#F8FAFC]">
+                <div className="flex h-16 w-16 items-center justify-center ">
                   <Image
                     src={item.logo}
                     alt={item.title}
-                    width={50}
-                    height={50}
+                    width={70}
+                    height={70}
                     className="object-contain"
                   />
                 </div>

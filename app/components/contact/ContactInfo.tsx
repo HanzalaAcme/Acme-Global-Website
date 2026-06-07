@@ -663,9 +663,7 @@ export default function ContactSection() {
 
                 rows={4}
 
-                placeholder="
-                  Write Message *
-                "
+                placeholder="Write Message *"
 
                 className="
                   w-full

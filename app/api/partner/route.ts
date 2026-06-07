@@ -1,90 +1,15 @@
 import { NextResponse } from "next/server";
 
-import { createClient } from "@supabase/supabase-js";
-import { transporter } from "@/lib/mail";
+import { prisma } from "@/lib/prisma";
 
-const supabase =
-  createClient(
+import { sendEmail } from "@/lib/send-email";
 
-    process.env
-      .NEXT_PUBLIC_SUPABASE_URL!,
+import { getS3FileUrl } from "@/lib/get-s3-url";
 
-    process.env
-      .SUPABASE_SERVICE_ROLE_KEY!
-  );
+import { uploadToS3 } from "@/lib/upload-to-s3";
 
-// ========================================
-// CLOUDINARY UPLOAD FUNCTION
-// ========================================
 
-async function uploadToCloudinary(
-  file: File,
-  folder: string
-) {
-
-  const bytes =
-    await file.arrayBuffer();
-
-  const buffer =
-    Buffer.from(bytes);
-
-  const formData =
-    new FormData();
-
-  formData.append(
-    "file",
-
-    new Blob([buffer]),
-
-    file.name
-  );
-
-  formData.append(
-    "upload_preset",
-
-    process.env
-      .CLOUDINARY_UPLOAD_PRESET!
-  );
-
-  formData.append(
-    "folder",
-
-    folder
-  );
-
-  const res =
-    await fetch(
-
-      `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/auto/upload`,
-
-      {
-        method: "POST",
-
-        body: formData,
-      }
-    );
-
-  const data =
-    await res.json();
-
-  if (!res.ok) {
-
-    console.log(
-      "CLOUDINARY ERROR:",
-      data
-    );
-
-    throw new Error(
-      "File upload failed"
-    );
-  }
-
-  return data.secure_url;
-}
-
-// ========================================
 // POST API
-// ========================================
 
 export async function POST(
   req: Request
@@ -298,9 +223,8 @@ export async function POST(
         "company_seal_url"
       ) as File;
 
-    // ========================================
+    
     // VALIDATION
-    // ========================================
 
     if (
       !legal_company_name ||
@@ -346,60 +270,90 @@ export async function POST(
       );
     }
 
+        // AWS S3 UPLOADS
+
+        const company_profile_url =
+          await uploadToS3(
+
+            companyProfile,
+
+            "partners/company-profile"
+          );
+
+        const capability_presentation_url =
+          await uploadToS3(
+
+            capabilityPresentation,
+
+            "partners/capability"
+          );
+
+        const certifications_document_url =
+          await uploadToS3(
+
+            certificationsDocument,
+
+            "partners/certifications"
+          );
+
+        const signature_url =
+          await uploadToS3(
+
+            signature,
+
+            "partners/signatures"
+          );
+
+        let company_seal_url =
+          "";
+
+        if (
+          companySeal &&
+          companySeal.size > 0
+        ) {
+
+          company_seal_url =
+            await uploadToS3(
+
+              companySeal,
+
+              "partners/seals"
+            );
+        }
     // ========================================
-    // CLOUDINARY UPLOADS
+    // INSERT INTO AWS RDS
     // ========================================
 
-    const company_profile_url =
-      await uploadToCloudinary(
-        companyProfile,
-        "partners/company-profile"
+    const companyProfileUrl =
+      await getS3FileUrl(
+        company_profile_url
       );
 
-    const capability_presentation_url =
-      await uploadToCloudinary(
-        capabilityPresentation,
-        "partners/capability"
+    const capabilityPresentationUrl =
+      await getS3FileUrl(
+        capability_presentation_url
       );
 
-    const certifications_document_url =
-      await uploadToCloudinary(
-        certificationsDocument,
-        "partners/certifications"
+    const certificationsDocumentUrl =
+      await getS3FileUrl(
+        certifications_document_url
       );
 
-    const signature_url =
-      await uploadToCloudinary(
-        signature,
-        "partners/signatures"
+    const signatureUrl =
+      await getS3FileUrl(
+        signature_url
       );
 
-    let company_seal_url =
-      "";
+    const companySealUrl =
+  company_seal_url
+    ? await getS3FileUrl(
+        company_seal_url
+      )
+    : "";
 
-    if (
-      companySeal &&
-      companySeal.size > 0
-    ) {
+    await prisma.partnerApplication.create({
 
-      company_seal_url =
-        await uploadToCloudinary(
-          companySeal,
-          "partners/seals"
-        );
-    }
-
-    // ========================================
-    // INSERT INTO SUPABASE
-    // ========================================
-
-    const { error } =
-      await supabase
-        .from(
-          "partner_applications"
-        )
-        .insert([
-          {
+      data: {
 
             legal_company_name,
 
@@ -470,39 +424,25 @@ export async function POST(
             signature_url,
 
             company_seal_url,
-          },
-        ]);
 
-    if (error) {
-
-      console.log(
-        "SUPABASE ERROR:",
-        error
-      );
-
-      return NextResponse.json(
-        {
-          error:
-            "Database insert failed",
+            status: "new",
         },
-
-        {
-          status: 500,
-        }
-      );
-    }
+      });
 
     // ========================================
-// SEND EMAIL NOTIFICATION
-// ========================================
+    // SEND EMAIL NOTIFICATION
+    // ========================================
 
-await transporter.sendMail({
+    await sendEmail({
 
   from:
-    process.env.EMAIL_USER,
+    process.env.SALES_EMAIL!,
 
   to:
-    process.env.EMAIL_USER,
+    process.env.EMAIL_USER!,
+
+    replyTo:
+      email_address,
 
   subject:
     `New Partner Application - ${legal_company_name}`,
@@ -660,123 +600,124 @@ await transporter.sendMail({
 
       </table>
 
-      <h3 style="
-        margin-top: 30px;
-      ">
-        Uploaded Documents
-      </h3>
 
-      <ul>
+      <p>
 
-        <li>
-          <a href="${company_profile_url}">
-            Company Profile
-          </a>
-        </li>
+        <a
+         href="${companyProfileUrl}"
+         target="_blank"
+        style="
+          background:#1A4FD6;
+          color:white;
+          padding:12px 20px;
+          text-decoration:none;
+          border-radius:8px;
+          pb-10px;
+        "
+      >
 
-        <li>
-          <a href="${capability_presentation_url}">
-            Capability Presentation
-          </a>
-        </li>
+        Company Profile
 
-        <li>
-          <a href="${certifications_document_url}">
-            Certifications
-          </a>
-        </li>
+       </a>
 
-        <li>
-          <a href="${signature_url}">
-            Signature
-          </a>
-        </li>
+    </p>
 
-        ${
-          company_seal_url
-          ? `
-            <li>
-              <a href="${company_seal_url}">
-                Company Seal
-              </a>
-            </li>
-          `
-          : ""
-        }
+    <p>
+        <a
+         href="${capabilityPresentationUrl}"
+         target="_blank"
+        style="
+          background:#1A4FD6;
+          color:white;
+          padding:12px 20px;
+          text-decoration:none;
+          border-radius:8px;
+          pb-10px;
+        "
+      >
 
-      </ul>
+        Capability Presentation
+
+       </a>
+
+    </p>
+
+    <p>
+        <a
+         href="${certificationsDocumentUrl}"
+         target="_blank"
+        style="
+          background:#1A4FD6;
+          color:white;
+          padding:12px 20px;
+          text-decoration:none;
+          border-radius:8px;
+          pb-10px;
+        "
+      >
+
+        Certifications
+
+       </a>
+
+    </p>
+
+    <p>
+        <a
+         href="${signatureUrl}"
+         target="_blank"
+        style="
+          background:#1A4FD6;
+          color:white;
+          padding:12px 20px;
+          text-decoration:none;
+          border-radius:8px;
+          pb-10px;
+        "
+      >
+
+        Signature
+
+       </a>
+
+    </p>
+
+    <p>
+        <a
+         href="${companySealUrl}"
+         target="_blank"
+        style="
+          background:#1A4FD6;
+          color:white;
+          padding:12px 20px;
+          text-decoration:none;
+          border-radius:8px;
+          pb-10px;
+        "
+      >
+
+        Company Seal
+
+       </a>
+
+    </p>
 
     </div>
   `,
-
-  attachments: [
-
-  {
-    filename:
-      companyProfile.name,
-
-    content:
-      Buffer.from(
-        await companyProfile.arrayBuffer()
-      ),
-  },
-
-  {
-    filename:
-      capabilityPresentation.name,
-
-    content:
-      Buffer.from(
-        await capabilityPresentation.arrayBuffer()
-      ),
-  },
-
-  {
-    filename:
-      certificationsDocument.name,
-
-    content:
-      Buffer.from(
-        await certificationsDocument.arrayBuffer()
-      ),
-  },
-
-  {
-    filename:
-      signature.name,
-
-    content:
-      Buffer.from(
-        await signature.arrayBuffer()
-      ),
-  },
-
-  ...(companySeal &&
-  companySeal.size > 0
-    ? [
-        {
-          filename:
-            companySeal.name,
-
-          content:
-            Buffer.from(
-              await companySeal.arrayBuffer()
-            ),
-        },
-      ]
-    : []),
-],
+        
+        
+  
 });
 
-    // ========================================
     // SUCCESS
-    // ========================================
 
-    return NextResponse.json(
-      {
-        success: true,
-      }
-    );
+    return NextResponse.json({
+
+      success: true,
+
+      message:
+        "Partner application submitted successfully.",
+    });
 
   } catch (err: any) {
 

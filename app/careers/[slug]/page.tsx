@@ -50,37 +50,37 @@ export default async function Page({
             <div className="mt-12">
 
             <a
-  href={`/careers/apply?role=${encodeURIComponent(
-    job.title.replace(/<[^>]+>/g, "")
-  )}&job_slug=${slug}`}
-  
-  className="
-    inline-flex
-    items-center
-    justify-center
+              href={`/careers/apply?role=${encodeURIComponent(
+                job.title.replace(/<[^>]+>/g, "")
+              )}&job_slug=${slug}`}
+              
+              className="
+                inline-flex
+                items-center
+                justify-center
 
-    px-8
-    py-4
+                px-8
+                py-4
 
-    bg-[#1A4FD6]
-    hover:bg-[#2E66FF]
+                bg-[#1A4FD6]
+                hover:bg-[#2E66FF]
 
-    text-white
-    font-semibold
+                text-white
+                font-semibold
 
-    rounded-xl
+                rounded-xl
 
-    transition-all
-    duration-300
+                transition-all
+                duration-300
 
-    shadow-lg
-    hover:shadow-xl
-  "
->
-  Apply Now
-</a>
+                shadow-lg
+                hover:shadow-xl
+              "
+            >
+              Apply Now
+            </a>
 
-          </div>
+           </div>
           </div>
           
           
@@ -90,7 +90,7 @@ export default async function Page({
             <JobSidebar
               meta={meta}
               date={date}
-              url={`https://yourdomain.com/careers/${slug}`}
+              url={`${process.env.NEXT_PUBLIC_SITE_URL}/careers/${slug}`}
             />
           </div>
 

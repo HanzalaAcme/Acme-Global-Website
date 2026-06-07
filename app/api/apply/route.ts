@@ -1,23 +1,16 @@
-import cloudinary from "@/lib/cloudinary";
+import { sendEmail } from "@/lib/send-email";
 
-import { transporter } from "@/lib/mail";
+import { prisma } from "@/lib/prisma";
 
 import { NextResponse } from "next/server";
 
-import { Readable } from "stream";
+import { uploadToS3 }
+from "@/lib/upload-to-s3";
 
-import { createClient }
-from "@supabase/supabase-js";
+import { getS3FileUrl }
+from "@/lib/get-s3-url";
 
-const supabase =
-  createClient(
 
-    process.env
-      .NEXT_PUBLIC_SUPABASE_URL!,
-
-    process.env
-      .SUPABASE_SERVICE_ROLE_KEY!
-  );
 
 export async function POST(
   req: Request
@@ -83,6 +76,7 @@ export async function POST(
     const file =
       data.get("resume") as File;
 
+      
     /* REQUIRED VALIDATION */
 
     if (
@@ -100,6 +94,27 @@ export async function POST(
 
           message:
             "Please fill all required fields.",
+        },
+
+        { status: 400 }
+      );
+    }
+
+    /* EMAIL VALIDATION */
+
+    const emailRegex =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (
+      !emailRegex.test(email)
+    ) {
+
+      return NextResponse.json(
+        {
+          success: false,
+
+          message:
+            "Invalid email address.",
         },
 
         { status: 400 }
@@ -135,7 +150,7 @@ export async function POST(
       );
     }
 
-    /* FILE SIZE */
+    /* FILE SIZE VALIDATION */
 
     if (
       file.size >
@@ -162,90 +177,54 @@ export async function POST(
     const buffer =
       Buffer.from(bytes);
 
-    /* CLOUDINARY UPLOAD */
+    /* AWS S3 UPLOAD */
 
-    let resumeUrl = "";
+        let resumeUrl = "";
 
-    try {
+        try {
 
-      const upload: any =
-        await new Promise(
-          (
-            resolve,
-            reject
-          ) => {
+          resumeUrl =
+            await uploadToS3(
 
-            const stream =
-              cloudinary.uploader.upload_stream(
+              file,
 
-                {
-                  resource_type: "raw",
+              "applications/resumes"
+            );
 
-                  folder:
-                    "applications/resumes",
+        } catch (s3Error) {
 
-                  public_id:
-                    `${Date.now()}-${file.name}`,
-                },
+          console.error(
+            "S3 Upload Error:",
+            s3Error
+          );
 
-                (
-                  err,
-                  result
-                ) => {
+          return NextResponse.json(
 
-                  if (err)
-                    reject(err);
+            {
+              success: false,
 
-                  else
-                    resolve(result);
-                }
-              );
+              message:
+                "Resume upload failed.",
+            },
 
-            Readable
-              .from(buffer)
-              .pipe(stream);
-          }
-        );
+            {
+              status: 500,
+            }
+          );
+        }
 
-      resumeUrl =
-        upload.secure_url;
+    /* SAVE TO AWS RDS VIA PRISMA */
 
-    } catch (
-      cloudinaryError
-    ) {
+    const resumePreviewUrl =
+       await getS3FileUrl(
+    resumeUrl
+  );
 
-      console.error(
-        "Cloudinary Upload Error:",
-        cloudinaryError
-      );
 
-      return NextResponse.json(
-        {
-          success: false,
+    const application =
+      await prisma.application.create({
 
-          message:
-            "Resume upload failed.",
-        },
-
-        { status: 500 }
-      );
-    }
-
-    /* SAVE TO SUPABASE */
-
-    const {
-      error: dbError,
-    } = await supabase
-
-      .from("applications")
-
-      .insert([
-        {
-          application_type,
-
-          job_slug,
-
-          role,
+        data: {
 
           full_name,
 
@@ -253,49 +232,34 @@ export async function POST(
 
           phone,
 
+          role,
+
           location,
 
           experience,
 
-          linkedin,
+          linkedin_url:
+            linkedin,
 
-          comments,
+          cover_letter:
+            comments,
 
           resume_url:
             resumeUrl,
 
           status: "new",
         },
-      ]);
-
-    if (dbError) {
-
-      console.error(
-        "SUPABASE ERROR:",
-        dbError
-      );
-
-      return NextResponse.json(
-        {
-          success: false,
-
-          message:
-            "Database error.",
-        },
-
-        { status: 500 }
-      );
-    }
+      });
 
     /* SEND EMAIL */
 
-    await transporter.sendMail({
+    await sendEmail({
 
       from:
-        `"ACME Global Careers" <${process.env.EMAIL_USER}>`,
+        `"ACME Global Hub Careers" <${process.env.HR_EMAIL}>`,
 
       to:
-        process.env.HR_EMAIL,
+        process.env.HR_EMAIL!,
 
       replyTo: email,
 
@@ -346,6 +310,27 @@ export async function POST(
                 "
               >
                 ${application_type}
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                  font-weight: bold;
+                "
+              >
+                Role
+              </td>
+
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                "
+              >
+                ${role}
               </td>
             </tr>
 
@@ -420,7 +405,7 @@ export async function POST(
                   font-weight: bold;
                 "
               >
-                Role
+                Experience
               </td>
 
               <td
@@ -429,7 +414,7 @@ export async function POST(
                   border: 1px solid #E5E7EB;
                 "
               >
-                ${role}
+                ${experience}
               </td>
             </tr>
 
@@ -454,113 +439,81 @@ export async function POST(
               </td>
             </tr>
 
-            ${
-              experience
-                ? `
-              <tr>
-                <td
-                  style="
-                    padding: 12px;
-                    border: 1px solid #E5E7EB;
-                    font-weight: bold;
-                  "
-                >
-                  Experience
-                </td>
+            <tr>
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                  font-weight: bold;
+                "
+              >
+                Linkedin
+              </td>
 
-                <td
-                  style="
-                    padding: 12px;
-                    border: 1px solid #E5E7EB;
-                  "
-                >
-                  ${experience}
-                </td>
-              </tr>
-            `
-                : ""
-            }
-
-            ${
-              linkedin
-                ? `
-              <tr>
-                <td
-                  style="
-                    padding: 12px;
-                    border: 1px solid #E5E7EB;
-                    font-weight: bold;
-                  "
-                >
-                  LinkedIn
-                </td>
-
-                <td
-                  style="
-                    padding: 12px;
-                    border: 1px solid #E5E7EB;
-                  "
-                >
-                  ${linkedin}
-                </td>
-              </tr>
-            `
-                : ""
-            }
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                "
+              >
+                ${linkedin}
+              </td>
+            </tr>
 
           </table>
 
           ${
             comments
               ? `
-            <div style="margin-top: 28px;">
+              <div style="margin-top:28px;">
+                <h3>Comments</h3>
 
-              <h3
-                style="
-                  margin-bottom: 12px;
-                "
-              >
-                Comments
-              </h3>
-
-              <p
-                style="
-                  line-height: 28px;
-                  color: #4B5563;
-                "
-              >
-                ${comments}
-              </p>
-
-            </div>
-          `
+                <p
+                  style="
+                    line-height:28px;
+                    color:#4B5563;
+                  "
+                >
+                  ${comments}
+                </p>
+              </div>
+            `
               : ""
           }
 
           <p
             style="
-              margin-top: 28px;
-              color: #6B7280;
+              margin-top:28px;
+              color:#6B7280;
             "
           >
             📎 Resume attached with this email.
           </p>
 
+           <p>
+
+      <a
+        href="${resumePreviewUrl}"
+        target="_blank"
+        style="
+          background:#1A4FD6;
+          color:white;
+          padding:12px 20px;
+          text-decoration:none;
+          border-radius:8px;
+        "
+      >
+
+        View Resume
+
+      </a>
+
+    </p>
+
         </div>
       `,
 
-      attachments: [
-        {
-          filename:
-            file.name,
-
-          content:
-            buffer,
-
-          contentType:
-            file.type,
-        },
-      ],
+      
     });
 
     /* SUCCESS */
@@ -569,15 +522,17 @@ export async function POST(
 
       success: true,
 
+      application,
+
       message:
         "Application submitted successfully.",
     });
 
-  } catch (err) {
+  } catch (error) {
 
     console.error(
       "APPLY ERROR:",
-      err
+      error
     );
 
     return NextResponse.json(

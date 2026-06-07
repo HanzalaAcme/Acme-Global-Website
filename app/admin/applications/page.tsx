@@ -12,9 +12,6 @@ from "next/link";
 import { useRouter }
 from "next/navigation";
 
-import { supabase }
-from "@/lib/supabase/client";
-
 const statusColors: any = {
 
   new:
@@ -37,6 +34,20 @@ export default function ApplicationsPage() {
 
   const router =
     useRouter();
+   
+    const handleLogout =
+  async () => {
+
+    await fetch(
+      "/api/auth/logout",
+      {
+        method: "POST",
+      }
+    );
+
+    window.location.href =
+      "/admin/login";
+  };
 
   const [loading, setLoading] =
     useState(true);
@@ -53,57 +64,44 @@ export default function ApplicationsPage() {
   // CHECK AUTH
   useEffect(() => {
 
-    const checkUser = async () => {
+  fetchApplications();
 
-      const {
-        data: { session },
-      } =
-        await supabase.auth
-          .getSession();
-
-      if (!session) {
-
-        router.push(
-          "/admin/login"
-        );
-
-        return;
-      }
-
-      fetchApplications();
-    };
-
-    checkUser();
-
-  }, []);
+}, []);
 
   // FETCH APPLICATIONS
   const fetchApplications =
-    async () => {
+  async () => {
+
+    try {
 
       setLoading(true);
 
-      const {
-        data,
-        error,
-      } =
-        await supabase
-          .from("applications")
-          .select("*")
-          .order(
-            "created_at",
-            {
-              ascending: false,
-            }
-          );
+      const res =
+        await fetch(
+          "/api/admin/applications"
+        );
 
-      if (!error && data) {
+      const result =
+        await res.json();
 
-        setApplications(data);
+      if (
+        result.success
+      ) {
+
+        setApplications(
+          result.data
+        );
       }
 
+    } catch (err) {
+
+      console.log(err);
+
+    } finally {
+
       setLoading(false);
-    };
+    }
+  };
 
   // FILTERED DATA
   const filteredApplications =
@@ -236,7 +234,7 @@ export default function ApplicationsPage() {
         >
 
           <Link
-            href="/admin"
+            href="/admin/dashboard"
 
             className="
               px-5
@@ -262,15 +260,7 @@ export default function ApplicationsPage() {
           </Link>
 
           <button
-            onClick={async () => {
-
-              await supabase.auth
-                .signOut();
-
-              router.push(
-                "/admin/login"
-              );
-            }}
+            onClick={handleLogout}
 
             className="
               px-5
@@ -574,116 +564,7 @@ export default function ApplicationsPage() {
                           }
                         `}
                       >
-                        <select
-              value={item.status || "new"}
-
-              onChange={async (e) => {
-
-                const newStatus =
-                  e.target.value;
-
-                const res =
-                  await fetch(
-                    "/api/admin/update-status",
-                    {
-
-                      method: "POST",
-
-                      headers: {
-                        "Content-Type":
-                          "application/json",
-                      },
-
-                      body: JSON.stringify({
-
-                        table:
-                          "applications",
-
-                        id: item.id,
-
-                        status:
-                          newStatus,
-                      }),
-                    }
-                  );
-
-    if (res.ok) {
-
-      setApplications((prev) =>
-
-        prev.map((app) =>
-
-          app.id === item.id
-
-            ? {
-                ...app,
-                status:
-                  newStatus,
-              }
-
-            : app
-        )
-      );
-    }
-  }}
-
-  className={`
-    px-3
-    py-2
-
-    rounded-xl
-
-    text-xs
-    font-semibold
-
-    border-0
-
-    outline-none
-
-    cursor-pointer
-
-    ${
-      statusColors[
-        item.status
-      ] ||
-      "bg-gray-100 text-gray-700"
-    }
-  `}
->
-
-  <option value="new">
-    New
-  </option>
-
-  <option value="reviewing">
-    Reviewing
-  </option>
-
-  <option value="shortlisted">
-    Shortlisted
-  </option>
-
-  <option value="interview scheduled">
-    Interview Scheduled
-  </option>
-
-  <option value="interviewed">
-    Interviewed
-  </option>
-
-  <option value="selected">
-    Selected
-  </option>
-
-  <option value="rejected">
-    Rejected
-  </option>
-
-  <option value="hired">
-    Hired
-  </option>
-
-</select>
+                        {item.status}
                       </span>
 
                     </td>

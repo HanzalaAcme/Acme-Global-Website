@@ -7,8 +7,6 @@ import {
 import { useRouter }
 from "next/navigation";
 
-import { supabase }
-from "@/lib/supabase/client";
 
 export default function LoginPage() {
 
@@ -34,46 +32,59 @@ export default function LoginPage() {
       try {
 
         setLoading(true);
-
-        // ========================================
-        // CLEAR OLD SESSION
-        // ========================================
-
-        await supabase.auth.signOut();
+      
 
         // ========================================
         // LOGIN
         // ========================================
 
-        const {
-          error,
-        } =
-          await supabase.auth
-            .signInWithPassword({
+        const res =
+  await fetch(
 
-              email,
+    "/api/auth/login",
 
-              password,
-            });
+    {
 
-        if (error) {
+      method: "POST",
 
-          alert(
-            error.message
-          );
+      headers: {
 
-          return;
-        }
+        "Content-Type":
+          "application/json",
+      },
 
-        // ========================================
-        // REDIRECT
-        // ========================================
+      body:
+        JSON.stringify({
 
-        router.refresh();
+          email,
 
-        router.push(
-          "/admin/dashboard"
-        );
+          password,
+        }),
+    }
+  );
+
+const data =
+  await res.json();
+
+        if (!data.success) {
+
+  alert(
+    data.message
+  );
+
+  return;
+}
+
+router.refresh();
+
+setTimeout(() => {
+
+  window.location.href =
+    "/admin/dashboard";
+
+}, 300);
+
+return;
 
       } catch (err) {
 
@@ -144,7 +155,7 @@ export default function LoginPage() {
               mb-3
             "
           >
-            ACME Global Hub
+            ACME Global Hub 
           </p>
 
           <h1

@@ -1,18 +1,8 @@
 import { NextResponse } from "next/server";
 
-import { transporter } from "@/lib/mail";
+import { prisma } from "@/lib/prisma";
 
-import { createClient } from "@supabase/supabase-js";
-
-const supabase =
-  createClient(
-
-    process.env
-      .NEXT_PUBLIC_SUPABASE_URL!,
-
-    process.env
-      .SUPABASE_SERVICE_ROLE_KEY!
-  );
+import { sendEmail } from "@/lib/send-email";
 
 export async function POST(
   req: Request
@@ -65,11 +55,12 @@ export async function POST(
     ) {
 
       return NextResponse.json(
+
         {
           success: false,
 
           message:
-            "Invalid email address",
+            "Invalid email address.",
         },
 
         {
@@ -78,65 +69,41 @@ export async function POST(
       );
     }
 
-    // INSERT INTO SUPABASE
-    
-    const { error } =
-      await supabase
+    // INSERT INTO DATABASE
 
-        .from("contact_queries")
+    const contact =
+      await prisma.contact.create({
 
-        .insert([
-          {
+        data: {
 
-            first_name:
-              firstName,
+          first_name:
+            firstName,
 
-            last_name:
-              lastName,
+          last_name:
+            lastName,
 
-            phone,
+          phone,
 
-            email,
+          email,
 
-            message,
-          },
-        ]);
-
-    if (error) {
-
-      console.log(
-        "SUPABASE ERROR:",
-        error
-      );
-
-      return NextResponse.json(
-        {
-          success: false,
-
-          message:
-            "Database insert failed",
+          message,
         },
-
-        {
-          status: 500,
-        }
-      );
-    }
+      });
 
     // ========================================
-    // SEND EMAIL
+    // SEND EMAIL VIA AWS SES
     // ========================================
 
-    await transporter.sendMail({
+    await sendEmail({
 
       from:
-        `"ACME Global Website" <${process.env.EMAIL_USER}>`,
+     `"ACME Global Hub Contact" <${process.env.HR_EMAIL}>`,
 
       to:
-        process.env.EMAIL_USER,
+        process.env
+          .HR_EMAIL!,
 
-      replyTo:
-        email,
+        replyTo: email,
 
       subject:
         `New Contact Form Submission from ${firstName} ${lastName}`,
@@ -248,11 +215,16 @@ export async function POST(
       `,
     });
 
-  
     // SUCCESS
 
     return NextResponse.json({
+
       success: true,
+
+      contact,
+
+      message:
+        "Thank you for reaching out! We have received your message and will get back to you shortly.",
     });
 
   } catch (error) {
@@ -263,6 +235,7 @@ export async function POST(
     );
 
     return NextResponse.json(
+
       {
         success: false,
 

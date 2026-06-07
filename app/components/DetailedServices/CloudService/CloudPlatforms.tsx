@@ -131,67 +131,53 @@ export default function CloudPlatforms() {
         {/* GRID */}
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
 
-  {platforms.map((platform, index) => (
+          {platforms.map((platform, index) => (
 
-    <Link
-      key={index}
-      href={platform.href}
-    >
+            <Link
+              key={index}
+              href={platform.href}
+            >
 
-      <motion.div
-        whileHover={{ y: -4 }}
-        transition={{ duration: 0.25 }}
+              <motion.div
+                whileHover={{ x: 4}}
+                transition={{ duration: 0.25 }}
 
-        className="
-          group
+                className="
+                  group
 
-          bg-white
+                  bg-white
 
-          border border-[#DFE7F5]
+                  border border-[#DFE7F5]
 
-          rounded-[24px]
+                  rounded-[24px]
 
-          p-6
-          sm:p-7
+                  p-6
+                  sm:p-7
 
-          cursor-pointer
+                  cursor-pointer
 
-          transition-all
-          duration-300
+                  transition-all
+                  duration-300
 
-          hover:border-[#2E66FF]
-          hover:shadow-[0_18px_45px_rgba(46,102,255,0.12)]
-        "
-      >
+                  hover:border-[#2E66FF]
+                  hover:shadow-[0_18px_45px_rgba(46,102,255,0.12)]
+                "
+              >
 
         {/* TOP */}
         <div className="flex items-start gap-4 mb-5">
 
           {/* LOGO */}
           <div
-            className="
-              w-[62px]
-              h-[62px]
-
-              rounded-[14px]
-
-              bg-[#F8FAFF]
-
-              border border-[#E7ECF6]
-
-              flex
-              items-center
-              justify-center
-
-              shrink-0
+            className="mt-1
             "
            >
 
             <Image
               src={platform.logo}
               alt={platform.name}
-              width={52}
-              height={52}
+              width={90}
+              height={90}
               className="object-contain"
             />
 

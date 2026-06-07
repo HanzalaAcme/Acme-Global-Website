@@ -1,21 +1,11 @@
 import { NextResponse }
 from "next/server";
 
-import { createClient }
-from "@supabase/supabase-js";
+import { prisma }
+from "@/lib/prisma";
 
 import { transporter }
 from "@/lib/mail";
-
-const supabase =
-  createClient(
-
-    process.env
-      .NEXT_PUBLIC_SUPABASE_URL!,
-
-    process.env
-      .SUPABASE_SERVICE_ROLE_KEY!
-  );
 
 export async function POST(
   req: Request
@@ -57,26 +47,15 @@ export async function POST(
     // GET PARTNER
     // ========================================
 
-    const {
-      data: partner,
-      error: fetchError,
-    } =
-      await supabase
+    const partner =
+      await prisma.partnerApplication.findUnique({
 
-        .from(
-          "partner_applications"
-        )
+        where: {
+          id,
+        },
+      });
 
-        .select("*")
-
-        .eq("id", id)
-
-        .single();
-
-    if (
-      fetchError ||
-      !partner
-    ) {
+    if (!partner) {
 
       return NextResponse.json(
         {
@@ -96,46 +75,23 @@ export async function POST(
     // UPDATE DATABASE
     // ========================================
 
-    const { error } =
-      await supabase
+    await prisma.partnerApplication.update({
 
-        .from(
-          "partner_applications"
-        )
+      where: {
+        id,
+      },
 
-        .update({
+      data: {
 
-          status,
+        status,
 
-          reviewed_by:
-            reviewed_by || null,
+        reviewed_by:
+          reviewed_by || null,
 
-          comments:
-            comments || null,
-        })
-
-        .eq("id", id);
-
-    if (error) {
-
-      console.log(
-        "PARTNER ATS ERROR:",
-        error
-      );
-
-      return NextResponse.json(
-        {
-          success: false,
-
-          message:
-            error.message,
-        },
-
-        {
-          status: 500,
-        }
-      );
-    }
+        comments:
+          comments || null,
+      },
+    });
 
     // ========================================
     // APPROVAL EMAIL
@@ -281,7 +237,8 @@ export async function POST(
         from:
           `"ACME Global Partnerships" <${process.env.EMAIL_USER}>`,
 
-        replyTo:   process.env.SALES_EMAIL,
+        replyTo:
+          process.env.SALES_EMAIL,
 
         to:
           partner.email_address,

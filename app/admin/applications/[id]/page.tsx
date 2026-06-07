@@ -11,8 +11,6 @@ import {
 
 import Link from "next/link";
 
-import { supabase }
-from "@/lib/supabase/client";
 
 const statusColors: any = {
 
@@ -81,28 +79,77 @@ export default function ApplicationDetailPage() {
   }, []);
 
   const fetchCandidate =
-    async () => {
+  async () => {
 
-      const {
-        data,
-      } =
-        await supabase
+    try {
 
-          .from("applications")
+      const res =
+        await fetch(
 
-          .select("*")
+          `/api/admin/applications/${params.id}`
+        );
 
-          .eq(
-            "id",
-            params.id
-          )
+      const result =
+        await res.json();
 
-          .single();
+      if (
+        result.success
+      ) {
 
-      setCandidate(data);
+        setCandidate(
+          result.data
+        );
+      }
+
+    } catch (err) {
+
+      console.log(err);
+
+    } finally {
 
       setLoading(false);
-    };
+    }
+  };
+
+  const handleResumePreview =
+  async () => {
+
+    try {
+
+      const res =
+        await fetch(
+
+          `/api/admin/resume/${candidate.id}`
+        );
+
+      const result =
+        await res.json();
+
+      if (
+        result.success
+      ) {
+
+        window.open(
+          result.url,
+          "_blank"
+        );
+
+      } else {
+
+        alert(
+          "Resume not found"
+        );
+      }
+
+    } catch (err) {
+
+      console.log(err);
+
+      alert(
+        "Something went wrong"
+      );
+    }
+  };
 
   // SAVE ALL ATS DATA
   const saveCandidate =
@@ -425,7 +472,7 @@ export default function ApplicationDetailPage() {
 
               <Info
                 label="LinkedIn"
-                value={candidate.linkedin}
+                value={candidate.linkedin_url}
               />
 
             </div>
@@ -458,13 +505,38 @@ export default function ApplicationDetailPage() {
                   leading-[28px]
                 "
               >
-                {candidate.comments ||
+                {candidate.cover_letter ||
                   "No comments provided"}
               </div>
 
             </div>
 
           </div>
+
+          <button
+
+              onClick={
+                handleResumePreview
+              }
+
+              className="
+                bg-[#1A4FD6]
+
+                text-white
+
+                px-5
+                py-3
+
+                rounded-xl
+
+                font-medium
+                cursor-pointer
+              "
+            >
+
+              View Resume
+
+            </button>
 
          {/* RESUME */}
 {/*<div

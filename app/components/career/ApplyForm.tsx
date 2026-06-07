@@ -14,6 +14,7 @@ import {
   Phone,
   Mail,
   User,
+  Briefcase,
   Globe,
 } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa6";
@@ -184,8 +185,10 @@ export default function ApplyForm() {
   value={jobSlug}
 />
 
-      {/* ROLE */}
-      <div className="mb-6">
+      {/* ROLE + JOB ID */}
+
+      <div className="grid md:grid-cols-2 gap-5 mb-5">  
+       <div>
 
         <label
           className="
@@ -233,6 +236,59 @@ export default function ApplyForm() {
             outline-none
           "
         />
+
+      </div>
+
+      {/* JOB ID */}
+      <div>
+
+        <label 
+          className="
+            flex
+            items-center
+            gap-2
+
+            text-[#0B1120]
+            font-semibold
+
+            mb-3
+          "
+        >
+
+          <Briefcase className="w-4 h-4 text-[#1A4FD6]" />
+
+          Job ID *
+
+        </label>
+
+        <input
+          type="text"
+          name="job_id"
+          defaultValue={jobSlug}
+          required
+          readOnly
+
+          className="
+            w-full
+
+            h-[52px]
+
+            placeholder:text-[#9BA8C0]
+            text-[#0B1120]
+
+            bg-[#F5F7FB]
+
+            border
+            border-[#E6EAF2]
+
+            rounded-xl
+
+            px-4
+
+            outline-none
+          "
+        />
+          </div>
 
       </div>
 

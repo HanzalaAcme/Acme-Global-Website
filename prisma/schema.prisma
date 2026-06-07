@@ -1,0 +1,173 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Application {
+
+  id                 String   @id @default(uuid())
+
+  created_at         DateTime @default(now())
+
+  full_name          String
+  email              String
+  phone              String
+
+  role               String?
+
+  experience         String?
+  location           String?
+
+  linkedin_url       String?
+
+  cover_letter       String?
+
+  resume_url         String?
+
+  status             String   @default("new")
+
+  notes              String?
+
+  interview_date     DateTime?
+
+  interview_link     String?
+
+  recruiter_name     String?
+
+  recruiter_email    String?
+
+}
+
+model PartnerApplication {
+
+  id                                 String   @id @default(uuid())
+
+  created_at                         DateTime @default(now())
+
+  status                             String   @default("new")
+
+  reviewed_by                        String?
+
+  comments                           String?
+
+  // COMPANY INFO
+
+  legal_company_name                 String
+  trade_name                         String
+
+  website_url                        String
+
+  year_established                   String
+
+  headquarters_location              String
+
+  number_of_employees                String
+
+  annual_revenue                     String?
+
+  company_overview                   String?
+
+  // PRIMARY CONTACT
+
+  contact_person_name                String
+
+  designation                        String
+
+  email_address                      String
+
+  mobile_number                      String
+
+  linkedin_profile                   String
+
+  // REGISTERED ADDRESS
+
+  street_address                     String
+
+  city                               String
+
+  state_province                     String
+
+  country                            String
+
+  postal_code                        String
+
+  // CORPORATE INFO
+
+  company_registration_number        String
+
+  tax_vat_gst_number                 String
+
+  duns_number                        String?
+
+  certifications                     String?
+
+  // PARTNERSHIP
+
+  partnership_type                   String
+
+  products_services                  String
+
+  target_industries                  String
+
+  geographic_markets                 String
+
+  key_technology_partnerships        String
+
+  // DOCUMENTS
+
+  company_profile_url                String
+
+  capability_presentation_url        String
+
+  certifications_document_url        String
+
+  reference_clients                  String?
+
+  // DECLARATION
+
+  authorized_signatory_name          String
+
+  authorized_designation             String
+
+  signature_url                      String
+
+  company_seal_url                   String?
+
+}
+
+model Contact {
+
+  id            String   @id @default(uuid())
+
+  created_at    DateTime @default(now())
+
+  first_name    String
+
+  last_name     String
+
+  phone         String
+
+  email         String
+
+  message       String
+}
+
+model Admin {
+
+  id         String   @id @default(uuid())
+
+  email      String   @unique
+
+  password   String
+
+  name       String?
+
+  role       String   @default("admin")
+
+  created_at DateTime @default(now())
+}

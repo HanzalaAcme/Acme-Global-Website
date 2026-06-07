@@ -11,9 +11,6 @@ from "next/link";
 import { useParams }
 from "next/navigation";
 
-import { supabase }
-from "@/lib/supabase/client";
-
 const statuses = [
   "new",
   "on-hold",
@@ -42,30 +39,80 @@ export default function PartnerDetailPage() {
   }, []);
 
   const fetchPartner =
-    async () => {
+  async () => {
 
-      const {
-        data,
-      } =
-        await supabase
+    try {
 
-          .from(
-            "partner_applications"
-          )
+      const res =
+        await fetch(
 
-          .select("*")
+          `/api/admin/partners/${id}`
+        );
 
-          .eq("id", id)
+      const result =
+        await res.json();
 
-          .single();
+      if (
+        result.success
+      ) {
 
-      if (data) {
-
-        setPartner(data);
+        setPartner(
+          result.data
+        );
       }
 
+    } catch (err) {
+
+      console.log(err);
+
+    } finally {
+
       setLoading(false);
-    };
+    }
+  };
+
+  const handleDocumentPreview =
+  async (
+    type: string
+  ) => {
+
+    try {
+
+      const res =
+        await fetch(
+
+          `/api/admin/partner-document/${partner.id}?type=${type}`
+        );
+
+      const result =
+        await res.json();
+
+      if (
+        result.success
+      ) {
+
+        window.open(
+          result.url,
+          "_blank"
+        );
+
+      } else {
+
+        alert(
+          result.message ||
+          "Document not found"
+        );
+      }
+
+    } catch (err) {
+
+      console.log(err);
+
+      alert(
+        "Something went wrong"
+      );
+    }
+  };
 
   const saveATS =
     async () => {
@@ -691,6 +738,145 @@ export default function PartnerDetailPage() {
             </button>
 
           </div>
+
+          <button
+
+            onClick={() =>
+              handleDocumentPreview(
+                "company-profile"
+              )
+            }
+
+            className="
+              bg-[#1A4FD6]
+
+              text-white
+
+              px-5
+              py-3
+
+              rounded-xl
+
+              font-medium
+              cursor-pointer
+            "
+          >
+
+            View Company Profile
+
+          </button>
+
+          <button
+
+            onClick={() =>
+              handleDocumentPreview(
+                "capability"
+              )
+            }
+
+            className="
+              bg-[#1A4FD6]
+
+              text-white
+
+              px-5
+              py-3
+
+              rounded-xl
+
+              font-medium
+              cursor-pointer
+            "
+          >
+
+            View Capability Presentation
+
+          </button>
+
+          <button
+
+            onClick={() =>
+              handleDocumentPreview(
+                "certifications"
+              )
+            }
+
+            className="
+              bg-[#1A4FD6]
+
+              text-white
+
+              px-5
+              py-3
+
+              rounded-xl
+
+              font-medium
+              cursor-pointer
+            "
+          >
+
+            View Certifications
+
+          </button>
+
+
+          <button
+
+            onClick={() =>
+              handleDocumentPreview(
+                "signature"
+              )
+            }
+
+            className="
+              bg-[#1A4FD6]
+
+              text-white
+
+              px-5
+              py-3
+
+              rounded-xl
+
+              font-medium
+              cursor-pointer
+            "
+          >
+
+            View Signature
+
+          </button>
+
+          {partner.company_seal_url && (
+
+            <button
+
+              onClick={() =>
+                handleDocumentPreview(
+                  "seal"
+                )
+              }
+
+              className="
+                bg-[#1A4FD6]
+
+                text-white
+
+                px-5
+                py-3
+
+                rounded-xl
+
+                font-medium
+                cursor-pointer
+              "
+            >
+
+              View Company Seal
+
+            </button>
+          )}
 
         </div>
 

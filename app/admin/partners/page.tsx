@@ -12,8 +12,6 @@ from "next/link";
 import { useRouter }
 from "next/navigation";
 
-import { supabase }
-from "@/lib/supabase/client";
 
 const statusColors: any = {
 
@@ -35,6 +33,20 @@ export default function PartnersPage() {
   const router =
     useRouter();
 
+     const handleLogout =
+  async () => {
+
+    await fetch(
+      "/api/auth/logout",
+      {
+        method: "POST",
+      }
+    );
+
+    window.location.href =
+      "/admin/login";
+  };
+
   const [loading, setLoading] =
     useState(true);
 
@@ -49,61 +61,45 @@ export default function PartnersPage() {
 
   useEffect(() => {
 
-    checkUser();
+    fetchPartners();
 
   }, []);
 
-  const checkUser =
-    async () => {
-
-      const {
-        data: { session },
-      } =
-        await supabase.auth
-          .getSession();
-
-      if (!session) {
-
-        router.push(
-          "/admin/login"
-        );
-
-        return;
-      }
-
-      fetchPartners();
-    };
+  
 
   const fetchPartners =
-    async () => {
+  async () => {
+
+    try {
 
       setLoading(true);
 
-      const {
-        data,
-      } =
-        await supabase
+      const res =
+        await fetch(
+          "/api/admin/partners"
+        );
 
-          .from(
-            "partner_applications"
-          )
+      const result =
+        await res.json();
 
-          .select("*")
+      if (
+        result.success
+      ) {
 
-          .order(
-            "created_at",
-            {
-              ascending: false,
-            }
-          );
-
-      if (data) {
-
-        setPartners(data);
+        setPartners(
+          result.data
+        );
       }
 
+    } catch (err) {
+
+      console.log(err);
+
+    } finally {
+
       setLoading(false);
-    };
+    }
+  };
 
   const filteredPartners =
     useMemo(() => {
@@ -238,31 +234,67 @@ export default function PartnersPage() {
 
         </div>
 
-        <Link
-          href="/admin"
-
+        {/* ACTIONS */}
+        <div
           className="
-            h-[52px]
-
-            px-6
-
-            rounded-2xl
-
-            border
-            border-[#E6EAF2]
-
-            bg-white
-
             flex
             items-center
-
-            hover:border-[#1A4FD6]
-
-            transition-all
+            gap-3
           "
         >
-          Dashboard
-        </Link>
+
+          <Link
+            href="/admin/dashboard"
+
+            className="
+              px-5
+              py-3
+
+              rounded-xl
+
+              border
+              border-gray-400
+              text-[#000000]
+
+              bg-white
+
+              text-sm
+              font-medium
+
+              hover:border-[#1A4FD6]
+
+              transition-all
+            "
+          >
+            Dashboard
+          </Link>
+
+          <button
+            onClick={handleLogout}
+
+            className="
+              px-5
+              py-3
+
+              rounded-xl
+
+              bg-red-500
+              hover:bg-red-600
+
+              text-white
+
+              text-sm
+              font-medium
+
+              transition-all
+
+              cursor-pointer
+            "
+          >
+            Logout
+          </button>
+
+        </div>
 
       </div>
 

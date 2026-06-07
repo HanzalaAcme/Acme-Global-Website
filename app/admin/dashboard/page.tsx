@@ -21,10 +21,21 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-import { supabase }
-from "@/lib/supabase/client";
-
 export default function AdminPage() {
+
+   const handleLogout =
+  async () => {
+
+    await fetch(
+      "/api/auth/logout",
+      {
+        method: "POST",
+      }
+    );
+
+    window.location.href =
+      "/admin/login";
+  };
 
   const [stats, setStats] =
     useState<any>(null);
@@ -59,68 +70,56 @@ export default function AdminPage() {
         // APPLICATIONS
         // ========================================
 
-        const {
-          data: applications,
-        } =
-          await supabase
+        const appRes =
+          await fetch(
+            "/api/admin/applications"
+          );
 
-            .from("applications")
+        const appResult =
+          await appRes.json();
 
-            .select("*")
-
-            .order(
-              "created_at",
-              {
-                ascending: false,
-              }
-            );
+        const applications =
+          appResult.data || [];
 
         // ========================================
         // PARTNERS
         // ========================================
 
-        const {
-          data: partners,
-        } =
-          await supabase
+        const partnerRes =
+          await fetch(
+            "/api/admin/partners"
+          );
 
-            .from(
-              "partner_applications"
-            )
+        const partnerResult =
+          await partnerRes.json();
 
-            .select("*")
-
-            .order(
-              "created_at",
-              {
-                ascending: false,
-              }
-            );
+        const partners =
+          partnerResult.data || [];
 
         // ========================================
         // APPLICATION ATS STATS
         // ========================================
 
         const total =
-          applications?.length || 0;
+          applications.length || 0;
 
         const shortlisted =
-          applications?.filter(
-            (item) =>
+          applications.filter(
+            (item: any) =>
               item.status ===
               "shortlisted"
           ).length || 0;
 
         const rejected =
-          applications?.filter(
-            (item) =>
+          applications.filter(
+            (item: any) =>
               item.status ===
               "rejected"
           ).length || 0;
 
         const interviews =
-          applications?.filter(
-            (item) =>
+          applications.filter(
+            (item: any) =>
               item.status ===
               "interview scheduled"
           ).length || 0;
@@ -141,25 +140,25 @@ export default function AdminPage() {
         // ========================================
 
         const totalPartners =
-          partners?.length || 0;
+          partners.length || 0;
 
         const approvedPartners =
-          partners?.filter(
-            (item) =>
+          partners.filter(
+            (item: any) =>
               item.status ===
               "approved"
           ).length || 0;
 
         const rejectedPartners =
-          partners?.filter(
-            (item) =>
+          partners.filter(
+            (item: any) =>
               item.status ===
               "rejected"
           ).length || 0;
 
         const onHoldPartners =
-          partners?.filter(
-            (item) =>
+          partners.filter(
+            (item: any) =>
               item.status ===
               "on-hold"
           ).length || 0;
@@ -180,7 +179,7 @@ export default function AdminPage() {
         // ========================================
 
         setRecentApplications(
-          applications?.slice(0, 5) || []
+          applications.slice(0, 5) || []
         );
 
         // ========================================
@@ -188,7 +187,7 @@ export default function AdminPage() {
         // ========================================
 
         setRecentPartners(
-          partners?.slice(0, 5) || []
+          partners.slice(0, 5) || []
         );
 
         // ========================================
@@ -196,8 +195,8 @@ export default function AdminPage() {
         // ========================================
 
         const upcoming =
-          applications?.filter(
-            (item) =>
+          applications.filter(
+            (item: any) =>
               item.interview_date
           ) || [];
 
@@ -298,6 +297,43 @@ export default function AdminPage() {
           >
             Admin Dashboard
           </h1>
+
+        </div>
+
+        {/* ACTIONS */}
+        <div
+          className="
+            flex
+            items-center
+            gap-3
+          "
+        >
+
+
+          <button
+            onClick={handleLogout}
+
+            className="
+              px-5
+              py-3
+
+              rounded-xl
+
+              bg-red-500
+              hover:bg-red-600
+
+              text-white
+
+              text-sm
+              font-medium
+
+              transition-all
+
+              cursor-pointer
+            "
+          >
+            Logout
+          </button>
 
         </div>
 
