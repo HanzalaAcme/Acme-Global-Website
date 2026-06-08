@@ -24,7 +24,7 @@ export default function ApplicationHero() {
         lg:px-20
 
         pt-[120px]
-        pb-[80px]
+        pb-[60px]
       "
     >
 
@@ -126,7 +126,7 @@ export default function ApplicationHero() {
                 gap-3
 
                 px-5
-                py-2.5
+                py-2
 
                 rounded-full
 
@@ -139,7 +139,7 @@ export default function ApplicationHero() {
 
                 shadow-[0_0_30px_rgba(14,165,233,0.08)]
 
-                mb-7
+                mb-5
               "
             >
 
@@ -203,7 +203,7 @@ export default function ApplicationHero() {
 
                 text-[38px]
                 sm:text-[52px]
-                lg:text-[48px]
+                lg:text-[46px]
               "
             >
               Protect. Detect.
@@ -225,15 +225,10 @@ export default function ApplicationHero() {
             {/* SMALL LINE */}
             <div
               className="
-                w-14
-                h-[3px]
-
-                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
-
-                rounded-full
+                
 
                 mt-7
-                mb-7
+                mb-5
 
                 mx-auto
                 lg:mx-0
@@ -241,7 +236,7 @@ export default function ApplicationHero() {
             />
 
             {/* DESCRIPTION */}
-            <p
+           {/*} <p
               className="
                 text-white/70
 
@@ -257,7 +252,7 @@ export default function ApplicationHero() {
               "
             >
               In an era of sophisticated cyber threats, businesses need more than just security — they need intelligent, proactive, and integrated protection.
-            </p>
+            </p> */}
 
             <p
               className="
@@ -292,7 +287,7 @@ export default function ApplicationHero() {
                 justify-center
                 lg:justify-start
 
-                mt-9
+                mt-7
               "
             >
 

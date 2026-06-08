@@ -24,7 +24,7 @@ export default function ApplicationHero() {
         lg:px-20
 
         pt-[120px]
-        pb-[80px]
+        pb-[60px]
       "
     >
 
@@ -126,7 +126,7 @@ export default function ApplicationHero() {
                 gap-3
 
                 px-5
-                py-2.5
+                py-2
 
                 rounded-full
 
@@ -139,7 +139,7 @@ export default function ApplicationHero() {
 
                 shadow-[0_0_30px_rgba(14,165,233,0.08)]
 
-                mb-7
+                mb-5
               "
             >
 
@@ -223,15 +223,10 @@ export default function ApplicationHero() {
             {/* SMALL LINE */}
             <div
               className="
-                w-14
-                h-[3px]
-
-                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
-
-                rounded-full
+               
 
                 mt-7
-                mb-7
+                mb-5
 
                 mx-auto
                 lg:mx-0
@@ -254,10 +249,15 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              In a rapidly evolving technology landscape, access to skilled talent is critical for business success. ACME Global Hub Staff Augmentation and Re-badging Services enable organizations to scale their workforce efficiently while maintaining control, flexibility, and cost optimization.
+              ACME Global Hub empowers organizations to rapidly scale their 
+              workforce with flexible Staff Augmentation and Re-badging services. 
+              By providing access to highly skilled technology and business 
+              professionals, we help enterprises bridge talent gaps, accelerate 
+              project delivery, optimize costs, and retain critical knowledge—ensuring the right 
+              expertise is available at the right time to drive business success.
             </p>
 
-            <p
+            {/*<p
               className="
                 text-white/70
 
@@ -275,7 +275,7 @@ export default function ApplicationHero() {
               "
             >
               ACME Global Hub focuses on skill alignment, seamless onboarding, knowledge retention, and long-term engagement models to deliver measurable business value.
-            </p>
+            </p> */}
 
             {/* BUTTONS */}
             <div

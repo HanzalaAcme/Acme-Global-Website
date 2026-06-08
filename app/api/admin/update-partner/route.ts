@@ -102,7 +102,7 @@ export async function POST(
       await transporter.sendMail({
 
         from:
-          `"ACME Global Partnerships" <${process.env.EMAIL_USER}>`,
+          `"ACME Global Partnerships" <${process.env.SALES_EMAIL}>`,
 
         to:
           partner.email_address,
@@ -235,10 +235,7 @@ export async function POST(
       await transporter.sendMail({
 
         from:
-          `"ACME Global Partnerships" <${process.env.EMAIL_USER}>`,
-
-        replyTo:
-          process.env.SALES_EMAIL,
+          `"ACME Global Partnerships" <${process.env.SALES_EMAIL}>`,
 
         to:
           partner.email_address,

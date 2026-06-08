@@ -131,7 +131,8 @@ export default function ApplicationServicesPortfolio() {
 
                 transition-all duration-300
 
-                hover:-translate-y-1
+                hover:translate-x-[4px]
+                hover:shadow-[0_18px_50px_rgba(0,209,178,0.10)]
               "
             >
 

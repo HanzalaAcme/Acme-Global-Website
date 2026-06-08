@@ -7,6 +7,7 @@ import {
   BarChart3,
   MessageSquare,
   ShieldCheck,
+  Briefcase,
 } from "lucide-react";
 
 const services = [
@@ -100,7 +101,7 @@ export default function AIServicePortfolio() {
       <div className="relative mx-auto max-w-[1450px] px-6 lg:px-16">
         {/* LABEL */}
         <div className="mb-5 flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[1px] text-[#00D4AA]">
-          <div className="h-4 w-4 rounded-[4px] border border-[#00D4AA]" />
+          <Briefcase className="h-4 w-4" />
           WHAT WE DELIVER
         </div>
 

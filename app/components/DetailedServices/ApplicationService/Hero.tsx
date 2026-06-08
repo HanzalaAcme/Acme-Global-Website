@@ -24,7 +24,7 @@ export default function ApplicationHero() {
         lg:px-20
 
         pt-[120px]
-        pb-[80px]
+        pb-[60px]
       "
     >
 
@@ -126,7 +126,7 @@ export default function ApplicationHero() {
                 gap-3
 
                 px-5
-                py-2.5
+                py-2
 
                 rounded-full
 
@@ -225,12 +225,7 @@ export default function ApplicationHero() {
             {/* SMALL LINE */}
             <div
               className="
-                w-14
-                h-[3px]
-
-                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
-
-                rounded-full
+                
 
                 mt-7
                 mb-7
@@ -241,7 +236,7 @@ export default function ApplicationHero() {
             />
 
             {/* DESCRIPTION */}
-            <p
+           {/* <p
               className="
                 text-white/70
 
@@ -257,7 +252,7 @@ export default function ApplicationHero() {
               "
             >
               In today's competitive business landscape, enterprise applications are the backbone of operational efficiency, financial control, workforce productivity, and customer engagement. Organizations need intelligent, scalable, and integrated business platforms that can adapt quickly to change.
-            </p>
+            </p> */}
 
             <p
               className="

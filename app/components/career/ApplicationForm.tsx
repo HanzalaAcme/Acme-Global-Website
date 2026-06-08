@@ -602,7 +602,7 @@ export default function ApplicationForm()  {
                           text-gray-400
                         "
                       >
-                        {(file.size / 1024 / 1024).toFixed(2)} MB
+                        
                       </p>
 
                     </div>
@@ -617,6 +617,7 @@ export default function ApplicationForm()  {
                       hover:text-red-600
                       text-sm
                       font-medium
+                      cursor-pointer
                     "
                   >
                     Remove

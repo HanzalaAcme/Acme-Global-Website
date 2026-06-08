@@ -77,7 +77,7 @@ export default function Footer() {
                     transition-colors duration-300
                   "
                 >
-                  support@acmeglobal.tech
+                  sales@acmeglobal.tech
                 </a>
 
               </div>

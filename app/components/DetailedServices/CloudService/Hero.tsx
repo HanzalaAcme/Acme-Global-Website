@@ -24,7 +24,7 @@ export default function ApplicationHero() {
         lg:px-20
 
         pt-[120px]
-        pb-[80px]
+        pb-[60px]
       "
     >
 
@@ -126,7 +126,7 @@ export default function ApplicationHero() {
                 gap-3
 
                 px-5
-                py-2.5
+                py-2
 
                 rounded-full
 
@@ -139,7 +139,7 @@ export default function ApplicationHero() {
 
                 shadow-[0_0_30px_rgba(14,165,233,0.08)]
 
-                mb-7
+                mb-5
               "
             >
 
@@ -199,17 +199,18 @@ export default function ApplicationHero() {
 
                 font-bold
 
-                leading-[1.08]
+                leading-[1.1]
 
                 text-[38px]
                 sm:text-[52px]
-                lg:text-[48px]
+                lg:text-[46px]
               "
             >
               Accelerate Your
               <br />
 
-              Digital Future with{" "}
+              Digital Future with{" "} 
+              <br />
 
               <span
                 className="
@@ -217,7 +218,8 @@ export default function ApplicationHero() {
                   italic
                 "
               >
-                ACME Global Hub Multi-Cloud Expertise
+                ACME Global Hub <br />
+                Multi-Cloud Expertise
               </span>
 
             </h1>
@@ -225,15 +227,10 @@ export default function ApplicationHero() {
             {/* SMALL LINE */}
             <div
               className="
-                w-14
-                h-[3px]
-
-                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
-
-                rounded-full
+               
 
                 mt-7
-                mb-7
+                mb-5
 
                 mx-auto
                 lg:mx-0
@@ -265,7 +262,7 @@ export default function ApplicationHero() {
               Cloud Platform (GCP).
             </p>
 
-            <p
+          {/*  <p
               className="
                 text-white/70
 
@@ -287,7 +284,7 @@ export default function ApplicationHero() {
               help enterprises unlock agility, optimize costs,
               strengthen security, and achieve measurable
               business outcomes.
-            </p>
+            </p> */}
 
             {/* BUTTONS */}
             <div

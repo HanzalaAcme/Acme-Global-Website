@@ -24,7 +24,7 @@ export default function ApplicationHero() {
         lg:px-20
 
         pt-[120px]
-        pb-[80px]
+        pb-[60px]
       "
     >
 
@@ -126,7 +126,7 @@ export default function ApplicationHero() {
                 gap-3
 
                 px-5
-                py-2.5
+                py-2
 
                 rounded-full
 
@@ -139,7 +139,7 @@ export default function ApplicationHero() {
 
                 shadow-[0_0_30px_rgba(14,165,233,0.08)]
 
-                mb-7
+                mb-5
               "
             >
 
@@ -203,7 +203,7 @@ export default function ApplicationHero() {
 
                 text-[38px]
                 sm:text-[52px]
-                lg:text-[48px]
+                lg:text-[46px]
               "
             >
               Proactive IT Operations.
@@ -225,15 +225,10 @@ export default function ApplicationHero() {
             {/* SMALL LINE */}
             <div
               className="
-                w-14
-                h-[3px]
-
-                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
-
-                rounded-full
+                
 
                 mt-7
-                mb-7
+                mb-5
 
                 mx-auto
                 lg:mx-0
@@ -256,14 +251,15 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              Modern enterprises require IT environments that are always
-              available, secure, and optimized for performance. ACME Global Hub
-              delivers comprehensive Managed IT Services that ensure your
-              infrastructure, applications, and cloud environments operate
-              seamlessly.
+              ACME Global delivers comprehensive Managed IT Services that keep 
+              your infrastructure, applications, cloud platforms, and end-user 
+              environments secure, available, and high-performing. Through proactive 
+              monitoring, proactive support, automation, and continuous optimization, 
+              we help organizations reduce operational risks, improve efficiency, 
+              and ensure uninterrupted business operations.
             </p>
 
-            <p
+            {/*<p
               className="
                 text-white/70
 
@@ -283,7 +279,7 @@ export default function ApplicationHero() {
               ACME Global Hub approach focuses on continuous monitoring, proactive
               issue resolution, automated updates, and performance optimization
               to maintain business continuity and operational excellence.
-            </p>
+            </p> */}
 
             {/* BUTTONS */}
             <div

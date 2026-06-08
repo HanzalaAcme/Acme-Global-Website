@@ -24,7 +24,7 @@ export default function ApplicationHero() {
         lg:px-20
 
         pt-[120px]
-        pb-[80px]
+        pb-[60px]
       "
     >
 
@@ -126,7 +126,7 @@ export default function ApplicationHero() {
                 gap-3
 
                 px-5
-                py-2.5
+                py-2
 
                 rounded-full
 
@@ -139,7 +139,7 @@ export default function ApplicationHero() {
 
                 shadow-[0_0_30px_rgba(14,165,233,0.08)]
 
-                mb-7
+                mb-5
               "
             >
 
@@ -225,15 +225,10 @@ export default function ApplicationHero() {
             {/* SMALL LINE */}
             <div
               className="
-                w-14
-                h-[3px]
-
-                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
-
-                rounded-full
+                
 
                 mt-7
-                mb-7
+                mb-5
 
                 mx-auto
                 lg:mx-0
@@ -256,10 +251,14 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global Hub helps organizations across the GCC harness the power of enterprise AI and Generative AI to automate operations, enhance decision-making, improve customer engagement, and unlock new revenue opportunities. We design and implement secure, scalable AI solutions tailored to your business goals and built on leading cloud and productivity platforms.
+              ACME Global Hub empowers organizations to accelerate digital transformation 
+              through Enterprise AI and Generative AI. We deliver secure, scalable AI 
+              solutions that automate processes, enhance decision making, improve 
+              customer experiences, and drive business growth helping enterprises move 
+              confidently from AI vision to real-world results.
             </p>
 
-            <p
+           {/* <p
               className="
                 text-white/70
 
@@ -277,7 +276,7 @@ export default function ApplicationHero() {
               "
             >
               Whether you are exploring AI assistants, intelligent automation, predictive analytics, or industry-specific use cases, ACME Global provides the strategy, implementation, and managed services needed to move from experimentation to production with confidence.
-            </p>
+            </p> */}
 
             {/* BUTTONS */}
             <div
@@ -411,7 +410,7 @@ export default function ApplicationHero() {
               <span>/</span>
 
               <span className="text-white/60">
-                Application Services
+                AI & Generative AI Services
               </span>
 
             </div>

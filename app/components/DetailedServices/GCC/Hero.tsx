@@ -24,7 +24,7 @@ export default function ApplicationHero() {
         lg:px-20
 
         pt-[120px]
-        pb-[80px]
+        pb-[60px]
       "
     >
 
@@ -126,7 +126,7 @@ export default function ApplicationHero() {
                 gap-3
 
                 px-5
-                py-2.5
+                py-2
 
                 rounded-full
 
@@ -139,7 +139,7 @@ export default function ApplicationHero() {
 
                 shadow-[0_0_30px_rgba(14,165,233,0.08)]
 
-                mb-7
+                mb-5
               "
             >
 
@@ -203,7 +203,7 @@ export default function ApplicationHero() {
 
                 text-[38px]
                 sm:text-[52px]
-                lg:text-[48px]
+                lg:text-[46px]
               "
             >
               Build. Operate. Scale.
@@ -223,15 +223,10 @@ export default function ApplicationHero() {
             {/* SMALL LINE */}
             <div
               className="
-                w-14
-                h-[3px]
-
-                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
-
-                rounded-full
+                
 
                 mt-7
-                mb-7
+                mb-5
 
                 mx-auto
                 lg:mx-0
@@ -254,10 +249,16 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              In today's digital-first economy, Global Capability Centers (GCCs) have become the backbone of innovation, engineering, and business transformation for multinational organizations.
+              In today’s digital-first economy, Global Capability Centers (GCCs) 
+              have emerged as strategic engines of innovation, technology excellence, 
+              and business transformation. ACME Global Hub partners with enterprises 
+              globally to establish, operate, and scale high-performing Global Capability 
+              Centers in India, providing access to exceptional talent, operational 
+              efficiencies, and the capabilities needed to accelerate digital transformation
+              and sustainable business growth.
             </p>
 
-            <p
+           {/* <p
               className="
                 text-white/70
 
@@ -275,7 +276,7 @@ export default function ApplicationHero() {
               "
             >
               ACME Global Hub enables enterprises across the GCC region to build, operate, and scale high-performing Global Capability Centers in India, unlocking access to world-class talent, cost efficiencies, and accelerated digital growth.
-            </p>
+            </p> */}
 
             {/* BUTTONS */}
             <div

@@ -156,6 +156,8 @@ export default function BeyondERP() {
                     flex items-start gap-4
 
                     hover:border-[#2E66FF]/30
+                    hover:translate-x-[4px]
+                    hover:shadow-[0_18px_45px_rgba(122,175,255,0.12)]
 
                     transition-all duration-300
                     "

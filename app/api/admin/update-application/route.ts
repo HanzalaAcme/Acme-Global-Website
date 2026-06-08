@@ -149,7 +149,7 @@ export async function POST(
       await transporter.sendMail({
 
         from:
-          `"ACME Global HR" <${process.env.EMAIL_USER}>`,
+          `"ACME Global Hub HR" <${process.env.HR_EMAIL}>`,
 
         to:
           candidate.email,
@@ -183,7 +183,7 @@ export async function POST(
               line-height: 28px;
             ">
               Thank you for applying at
-              ACME Global.
+              ACME Global Hub.
 
               We are pleased to inform
               you that your interview

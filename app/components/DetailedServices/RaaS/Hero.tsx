@@ -24,7 +24,7 @@ export default function ApplicationHero() {
         lg:px-20
 
         pt-[120px]
-        pb-[80px]
+        pb-[60px]
       "
     >
 
@@ -126,7 +126,7 @@ export default function ApplicationHero() {
                 gap-3
 
                 px-5
-                py-2.5
+                py-2
 
                 rounded-full
 
@@ -139,7 +139,7 @@ export default function ApplicationHero() {
 
                 shadow-[0_0_30px_rgba(14,165,233,0.08)]
 
-                mb-7
+                mb-5
               "
             >
 
@@ -225,15 +225,10 @@ export default function ApplicationHero() {
             {/* SMALL LINE */}
             <div
               className="
-                w-14
-                h-[3px]
-
-                bg-[linear-gradient(90deg,#00D1B2,#0EA5E9)]
-
-                rounded-full
+                
 
                 mt-7
-                mb-7
+                mb-5
 
                 mx-auto
                 lg:mx-0
@@ -256,10 +251,16 @@ export default function ApplicationHero() {
                 lg:mx-0
               "
             >
-              ACME Global Hub offers a flexible, scalable, and outcome-driven Recruitment-as-a-Service (RaaS) model — designed to help organizations across the GCC build high-performing teams with speed, precision, and cost efficiency.
+              ACME Global's Recruitment-as-a-Service (RaaS) empowers organizations 
+              across the GCC to attract, assess, and onboard top-tier technology 
+              and business talent with speed and precision. Through a scalable, 
+              outcome-driven recruitment model, we combine deep market expertise, 
+              structured hiring processes, and extensive talent networks to help 
+              enterprises build high-performing teams while optimizing hiring costs 
+              and accelerating business growth.
             </p>
 
-            <p
+           {/* <p
               className="
                 text-white/70
 
@@ -277,7 +278,7 @@ export default function ApplicationHero() {
               "
             >
               ACME Global Hub enables enterprises to seamlessly hire top-tier IT and technical talent through structured sourcing, screening, and onboarding frameworks tailored to regional market dynamics.
-            </p>
+            </p> */}
 
             {/* BUTTONS */}
             <div
