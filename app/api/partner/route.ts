@@ -436,10 +436,10 @@ export async function POST(
     await sendEmail({
 
   from:
-    process.env.SALES_EMAIL!,
+    `"ACME Global Hub Partnerships" <${process.env.SALES_EMAIL}>`,
 
   to:
-    process.env.EMAIL_USER!,
+    process.env.SALES_EMAIL!,
 
     replyTo:
       email_address,
