@@ -360,6 +360,7 @@ export async function POST(
               margin-top: 30px;
             ">
               Our HR team will reach out to you soon with the next steps.
+              </p>
 
               Regards,<br />
               HR Team<br />

@@ -104,6 +104,7 @@ export default function ContactSection() {
   return (
 
     <section
+    id="contact_form"
       className="
         bg-[#FFFFFF]
 
@@ -506,7 +507,7 @@ export default function ContactSection() {
           <Image
             src="/media/Form_Bg.jpg"
 
-            alt="contact"
+            alt="contact form"
 
             width={1200}
             height={600}
@@ -519,7 +520,7 @@ export default function ContactSection() {
             className="
               w-full
 
-              h-[760px]
+              h-[950px]
               md:h-[520px]
 
               object-cover
