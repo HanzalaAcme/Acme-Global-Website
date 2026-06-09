@@ -14,6 +14,7 @@ export default function JobContent({
         overflow-hidden
 
         [&_*]:max-w-full
+        [&_*]:box-border
 
         [&_h2]:mt-12
         [&_h2]:mb-4
@@ -39,17 +40,19 @@ export default function JobContent({
 
         [&_li]:break-words
 
+        [&_a]:break-all
+
         [&_img]:max-w-full
         [&_img]:h-auto
 
         [&_table]:block
-        [&_table]:overflow-x-auto
         [&_table]:max-w-full
+        [&_table]:overflow-x-auto
 
+        [&_pre]:max-w-full
         [&_pre]:overflow-x-auto
-        [&_code]:break-words
 
-        [&_a]:break-all
+        [&_iframe]:max-w-full
       "
       dangerouslySetInnerHTML={{
         __html: content,
