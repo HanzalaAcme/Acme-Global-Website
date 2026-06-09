@@ -310,10 +310,10 @@ export async function POST(
     }
 
     // ========================================
-    // SEND APPROVAL EMAIL
+    // SEND HIRED EMAIL
     // ========================================
 
-    if (status === "approved") {
+    if (status === "hired") {
       await sendEmail({
 
         from:
@@ -323,7 +323,86 @@ export async function POST(
           candidate.email,
 
         subject:
-          `Application Approved – ${candidate.role || "Application"} | ACME Global Hub`,
+          `Application Update – ${candidate.role || "Application"} | ACME Global Hub`,
+
+        html: `
+
+          <div style="
+
+            font-family: Arial;
+            padding: 30px;
+            color: #111827;
+          ">
+
+            <h2 style="
+              color: #1A4FD6;
+              margin-bottom: 20px;
+            ">
+              Congratulations! You're Hired
+            </h2>
+
+            <p style="
+              line-height: 28px;
+            ">
+              Dear
+              <strong>
+                ${candidate.full_name}
+              </strong>,
+            </p>
+
+            <p style="
+              line-height: 28px;
+            ">
+              We are excited to inform you that you have been hired for the ${candidate.role || "Application"} position at ACME Global Hub.
+            </p>
+
+            <p style="
+              margin-top: 30px;
+            ">
+              Our HR team will reach out to you soon with the next steps.
+
+              Regards,<br />
+              HR Team<br />
+              ACME Global Hub
+            </p>
+
+          </div>
+        `,
+      });
+    }
+
+    // ========================================
+    // INTERVIEW RESCHEDULE EMAIL
+    // ========================================
+
+    const shouldSendRescheduleMail =
+
+      interview_date &&
+      interview_link &&
+      status === "interview rescheduled";
+
+    if (shouldSendRescheduleMail) {
+
+      const formattedDate =
+        new Date(
+          interview_date
+        ).toLocaleString(
+          "en-IN",
+          {
+            timeZone: "Asia/Kolkata",
+          }
+        );
+
+      await sendEmail({
+
+        from:
+          `"ACME Global Hub HR" <${process.env.HR_EMAIL}>`,
+
+        to:
+          candidate.email,
+
+        subject:
+          `Interview Rescheduled – ${candidate.role || "Application"} | ACME Global Hub`,
 
         html: `
 
@@ -337,7 +416,7 @@ export async function POST(
               color: #1A4FD6;
               margin-bottom: 20px;
             ">
-              Application Approved
+              Interview Rescheduled
             </h2>
 
             <p>
@@ -350,23 +429,16 @@ export async function POST(
             <p style="
               line-height: 28px;
             ">
-              Thank you for your interest in the ${candidate.role || "Application"} position at ACME Global Hub.
+              Your interview for the ${candidate.role || "Application"} position at ACME Global Hub has been rescheduled.
 
-              We are pleased to inform you that your application has been approved.
-            </p>
-
-            <p style="
-              margin-top: 30px;
-            ">
-              Regards,<br />
-              HR Team<br />
-              ACME Global Hub
+              The new interview date is ${formattedDate}.
             </p>
 
           </div>
         `,
       });
     }
+
 
     // ========================================
     // SUCCESS
