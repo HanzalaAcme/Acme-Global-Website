@@ -4,8 +4,7 @@ from "next/server";
 import { prisma }
 from "@/lib/prisma";
 
-import { transporter }
-from "@/lib/mail";
+import { sendEmail } from "@/lib/send-email";
 
 export async function POST(
   req: Request
@@ -146,7 +145,7 @@ export async function POST(
           }
         );
 
-      await transporter.sendMail({
+      await sendEmail({
 
         from:
           `"ACME Global Hub HR" <${process.env.HR_EMAIL}>`,
@@ -236,6 +235,124 @@ export async function POST(
               Please join the meeting
               5–10 minutes before the
               scheduled time.
+            </p>
+
+            <p style="
+              margin-top: 30px;
+            ">
+              Regards,<br />
+              HR Team<br />
+              ACME Global Hub
+            </p>
+
+          </div>
+        `,
+      });
+    }
+
+    // ========================================
+    // SEND REJECTION EMAIL 
+    // ========================================
+
+    if (status === "rejected") {
+      await sendEmail({
+
+        from:
+          `"ACME Global Hub HR" <${process.env.HR_EMAIL}>`,
+
+        to:
+          candidate.email,
+
+        subject:
+          `Application Rejected – ${candidate.role || "Application"} | ACME Global Hub`,
+
+        html: `
+
+          <div style="
+            font-family: Arial;
+            padding: 30px;
+            color: #111827;
+          ">
+
+            <h2 style="
+              color: #1A4FD6;
+              margin-bottom: 20px;
+            ">
+              Application Rejected
+            </h2>
+
+            <p>
+              Dear
+              <strong>
+                ${candidate.full_name}
+              </strong>,
+            </p>
+
+            <p style="
+              line-height: 28px;
+            ">
+              Thank you for your interest in the ${candidate.role || "Application"} position at ACME Global Hub.
+
+              We regret to inform you that your application has been rejected.
+            </p>
+
+            <p style="
+              margin-top: 30px;
+            ">
+              Regards,<br />
+              HR Team<br />
+              ACME Global Hub
+            </p>
+
+          </div>
+        `,
+      });
+    }
+
+    // ========================================
+    // SEND APPROVAL EMAIL
+    // ========================================
+
+    if (status === "approved") {
+      await sendEmail({
+
+        from:
+          `"ACME Global Hub HR" <${process.env.HR_EMAIL}>`,
+
+        to:
+          candidate.email,
+
+        subject:
+          `Application Approved – ${candidate.role || "Application"} | ACME Global Hub`,
+
+        html: `
+
+          <div style="
+            font-family: Arial;
+            padding: 30px;
+            color: #111827;
+          ">
+
+            <h2 style="
+              color: #1A4FD6;
+              margin-bottom: 20px;
+            ">
+              Application Approved
+            </h2>
+
+            <p>
+              Dear
+              <strong>
+                ${candidate.full_name}
+              </strong>,
+            </p>
+
+            <p style="
+              line-height: 28px;
+            ">
+              Thank you for your interest in the ${candidate.role || "Application"} position at ACME Global Hub.
+
+              We are pleased to inform you that your application has been approved.
             </p>
 
             <p style="

@@ -4,8 +4,7 @@ from "next/server";
 import { prisma }
 from "@/lib/prisma";
 
-import { transporter }
-from "@/lib/mail";
+import { sendEmail } from "@/lib/send-email";
 
 export async function POST(
   req: Request
@@ -99,7 +98,7 @@ export async function POST(
 
     if (status === "approved") {
 
-      await transporter.sendMail({
+      await sendEmail({
 
         from:
           `"ACME Global Partnerships" <${process.env.SALES_EMAIL}>`,
@@ -232,7 +231,7 @@ export async function POST(
 
     if (status === "rejected") {
 
-      await transporter.sendMail({
+      await sendEmail({
 
         from:
           `"ACME Global Partnerships" <${process.env.SALES_EMAIL}>`,
