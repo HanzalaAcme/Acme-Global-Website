@@ -45,9 +45,9 @@ export default async function Page({
         <div className="max-w-6xl mx-auto grid grid-cols-12 gap-10">
 
           {/* LEFT CONTENT */}
-          <div className="w-full min-w-0 overflow-hidden">
+          <div className="col-span-12 lg:col-span-8 w-full min-w-0 overflow-hidden">
             <JobContent content={content} />
-            <div className="mt-7">
+            <div className="mt-12">
 
             <a
               href={`/careers/apply?role=${encodeURIComponent(
