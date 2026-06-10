@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const platforms = [
   {
-    logo: "/media/partners/OCI.png",
+    logo: "/media/partners/Oracle_Logo.png",
     name: "Oracle Cloud Infrastructure",
     title: "Oracle Fusion Cloud Applications",
     desc: "A modern enterprise suite for finance, procurement, HR, supply chain, and performance management.",
@@ -40,7 +40,7 @@ const platforms = [
   },
 
   {
-    logo: "/media/partners/sap.png",
+    logo: "/media/partners/SAP_Logo.png",
     name: "SAP",
     title: "SAP ERP Solutions",
     desc: "Trusted enterprise platforms built for complex operations and global scale.",
@@ -167,13 +167,13 @@ export default function ERPPlatforms() {
 
                 {/* LOGO */}
                <div
-                className="mt-1">
+                className="mt-2">
                
                            <Image
                              src={item.logo}
                              alt={item.name}
-                             width={120}
-                             height={120}
+                             width={100}
+                             height={100}
                              className="object-contain"
                            />
                

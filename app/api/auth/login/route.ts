@@ -98,17 +98,26 @@ export async function POST(
         success: true,
       });
 
-    response.cookies.set(
-  "admin_token",
-  token,
-  {
-    httpOnly: true,
-    secure: false,
-    sameSite: "lax",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 7,
-  }
-);
+      response.cookies.set(
+
+      "admin_token",
+
+      token,
+
+      {
+
+        httpOnly: true,
+
+        secure:
+          process.env.NODE_ENV ===
+          "production",
+
+        sameSite:
+          "strict",
+
+        path: "/",
+      }
+    );
 
     return response;
 

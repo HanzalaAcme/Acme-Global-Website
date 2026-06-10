@@ -9,7 +9,7 @@ const platforms = [
   {
     name: "Amazon Web Services AWS – Innovation at Scale",
     desc: "Leverage the world's most comprehensive cloud platform with:",
-    logo: "/media/partners/aws.png",
+    logo: "/media/partners/AWS_Logo.png",
     color: "#F59E0B",
     href: "/services/cloud-services/aws",
     points: [
@@ -26,7 +26,7 @@ const platforms = [
   {
     name: "Microsoft Azure – Enterprise Cloud Transformation",
     desc: "Accelerate Microsoft-centric environments with:",
-    logo: "/media/partners/azure.png",
+    logo: "/media/partners/Microsoft_Azure.png",
     color: "#2563EB",
     href: "/services/cloud-services/azure",
     points: [
@@ -43,7 +43,7 @@ const platforms = [
   {
     name: "Oracle OCI – Built for Mission-Critical Workloads",
     desc: "Transform enterprise applications with:",
-    logo: "/media/partners/OCI.png",
+    logo: "/media/partners/Oracle_Logo.png",
     color: "#DC2626",
     href: "/services/cloud-services/oci",
     points: [
@@ -60,7 +60,7 @@ const platforms = [
   {
     name: "Google GCP – Data, AI & Modern Applications",
     desc: "Drive innovation through:",
-    logo: "/media/partners/GCP.png",
+    logo: "/media/partners/Google_Logo.png",
     color: "#2563EB",
     href: "/services/cloud-services/gcp",
     points: [
@@ -169,15 +169,15 @@ export default function CloudPlatforms() {
 
           {/* LOGO */}
           <div
-            className="mt-1
+            className="mt-3
             "
            >
 
             <Image
               src={platform.logo}
               alt={platform.name}
-              width={90}
-              height={90}
+              width={70}
+              height={70}
               className="object-contain"
             />
 

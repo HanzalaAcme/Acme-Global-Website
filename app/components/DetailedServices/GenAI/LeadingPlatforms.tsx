@@ -8,7 +8,7 @@ import {
 const platforms = [
   {
     title: "Microsoft AI",
-    logo: "/media/Copilot_AI.png",
+    logo: "/media/COPILOT.png",
     points: [
       "Microsoft Copilot for Microsoft 365",
       "Microsoft Azure AI",
@@ -28,7 +28,7 @@ const platforms = [
   },
   {
     title: "Google Cloud AI",
-    logo: "/media/Gemini.jpg",
+    logo: "/media/GEMINI.png",
     points: [
       "Vertex AI",
       "Gemini",
@@ -37,7 +37,7 @@ const platforms = [
   },
   {
     title: "Oracle AI",
-    logo: "/media/partners/OCI.png",
+    logo: "/media/partners/Oracle_logo.png",
     points: [
       "Oracle Cloud Infrastructure AI Services",
       "Oracle Fusion Applications",
