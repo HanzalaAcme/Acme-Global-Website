@@ -103,7 +103,6 @@ export async function POST(
         process.env
           .HR_EMAIL!,
 
-        replyTo: email,
 
       subject:
         `New Contact Form Submission from ${firstName} ${lastName}`,

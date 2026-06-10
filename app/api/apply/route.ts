@@ -38,10 +38,12 @@ export async function POST(
         "role"
       ) as string) || "";
 
-      const job_id=
-      (data.get(
-        "job_id"
-      ) as string) || "";
+      const job_id =
+  (data.get("job_id") as string) ||
+
+  (application_type === "generic"
+    ? "GENERIC"
+    : "");
 
     const full_name =
       (data.get(
@@ -85,26 +87,21 @@ export async function POST(
     /* REQUIRED VALIDATION */
 
     if (
-      !full_name ||
-      !email ||
-      !phone ||
-      !role ||
-      !job_id ||
-      !location ||
-      !file
-    ) {
-
-      return NextResponse.json(
-        {
-          success: false,
-
-          message:
-            "Please fill all required fields.",
-        },
-
-        { status: 400 }
-      );
-    }
+  !full_name ||
+  !email ||
+  !phone ||
+  !location ||
+  !file
+) {
+  return NextResponse.json(
+    {
+      success: false,
+      message:
+        "Please fill all required fields.",
+    },
+    { status: 400 }
+  );
+} 
 
     /* EMAIL VALIDATION */
 
@@ -269,7 +266,6 @@ export async function POST(
       to:
         process.env.HR_EMAIL!,
 
-      replyTo: email,
 
       subject:
         `New Application — ${role}`,

@@ -441,8 +441,6 @@ export async function POST(
   to:
     process.env.SALES_EMAIL!,
 
-    replyTo:
-      email_address,
 
   subject:
     `New Partner Application - ${legal_company_name}`,

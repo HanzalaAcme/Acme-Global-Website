@@ -53,10 +53,10 @@ export default async function Page({
 
             <a
               href={`/careers/apply?role=${encodeURIComponent(
-  job.title.replace(/<[^>]+>/g, "")
-)}&job_slug=${slug}&job_id=ACME-${job.ID
-  .toString()
-  .padStart(4, "0")}`}
+                  job.title.replace(/<[^>]+>/g, "")
+                )}&job_slug=${slug}&job_id=ACME-${job.ID
+                  .toString()
+                  .padStart(4, "0")}`}
               
               className="
                 inline-flex

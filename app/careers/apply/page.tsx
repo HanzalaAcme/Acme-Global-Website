@@ -17,7 +17,7 @@ export default function ApplyPage() {
         <div className="text-center mb-12">
 
           <p className="text-[#1A4FD6] uppercase tracking-[2px] text-sm font-semibold mb-4">
-            Careers at ACME Global
+            Careers at ACME Global Hub
           </p>
 
           <h1 className="font-playfair text-4xl md:text-5xl font-bold text-[#0B1120] mb-6">
