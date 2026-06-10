@@ -6,9 +6,11 @@ type Props = {
   date: string;
   type: string;
   mode: string;
+  jobId: string;
+  slug: string;
 };
 
-export default function JobHero({ title, date, type, mode }: Props) {
+export default function JobHero({ title, date, type, mode, jobId, slug }: Props) {
   return (
     <section className="w-full min-h-[480px] bg-[#07142A] pt-[72px] 
         flex items-center justify-center overflow-hidden
@@ -55,14 +57,20 @@ export default function JobHero({ title, date, type, mode }: Props) {
           <span className="opacity-50">•</span>
 
           <div>Posted on {date}</div>
+          <div className="flex items-center gap-2">
+  <span className="opacity-50">•</span>
+  <span className="text-blue-400 font-medium">
+    {jobId}
+  </span>
+</div>
         </div>
           {/* BUTTONS */}
           <div className="flex justify-center gap-4 flex-wrap mb-10">
 
             <a
               href={`/careers/apply?role=${encodeURIComponent(
-                title.replace(/<[^>]+>/g, "")
-              )}`}
+  title.replace(/<[^>]+>/g, "")
+)}&job_slug=${slug}&job_id=${jobId}`}
               
               rel="noopener noreferrer"
               className="

@@ -130,6 +130,10 @@ export default function ApplicationsPage() {
                 search.toLowerCase()
               );
 
+               item.job_id
+    ?.toLowerCase()
+    .includes(search.toLowerCase());
+
           const matchesStatus =
 
             statusFilter === "all"
@@ -305,7 +309,7 @@ export default function ApplicationsPage() {
         <input
           type="text"
           
-          placeholder="Search candidate,email or role"
+          placeholder="Search candidate, email, role or job id"
 
           value={search}
 
@@ -437,7 +441,7 @@ export default function ApplicationsPage() {
               </th>
 
               <th className="text-left p-5 text-sm font-semibold text-[#0B1120]">
-                Resume
+                Job Id
               </th>
 
             </tr>
@@ -570,63 +574,14 @@ export default function ApplicationsPage() {
                     </td>
 
                     <td className="p-5">
+                          
+                     <p className="text-[#0B1120]">
+                      {item.job_id ||
+                          "-"}
+                      </p>
+                    
 
-  <div
-    className="
-      flex
-      items-center
-      gap-2
-    "
-  >
-
-    <div
-      className="
-        w-10
-        h-10
-
-        rounded-xl
-
-        bg-[#EEF4FF]
-
-        flex
-        items-center
-        justify-center
-
-        text-[#1A4FD6]
-      "
-    >
-      📄
-    </div>
-
-    <div>
-
-      <p
-        className="
-          text-sm
-
-          font-medium
-
-          text-[#0B1120]
-        "
-      >
-        View Details
-      </p>
-
-      <p
-        className="
-          text-xs
-
-          text-gray-500
-        "
-      >
-        Open ATS Profile
-      </p>
-
-    </div>
-
-  </div>
-
-</td>
+                    </td>
 
                   </tr>
                 )

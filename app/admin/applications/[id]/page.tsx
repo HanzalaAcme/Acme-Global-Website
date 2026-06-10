@@ -456,6 +456,11 @@ export default function ApplicationDetailPage() {
               />
 
               <Info
+              label="Job Id"
+              value={candidate.job_id}
+              />
+
+              <Info
                 label="Phone"
                 value={candidate.phone}
               />

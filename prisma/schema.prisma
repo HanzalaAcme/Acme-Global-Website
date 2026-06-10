@@ -18,6 +18,7 @@ model Application {
   phone              String
 
   role               String?
+  job_id             String?
 
   experience         String?
   location           String?

@@ -38,6 +38,11 @@ export async function POST(
         "role"
       ) as string) || "";
 
+      const job_id=
+      (data.get(
+        "job_id"
+      ) as string) || "";
+
     const full_name =
       (data.get(
         "full_name"
@@ -84,6 +89,7 @@ export async function POST(
       !email ||
       !phone ||
       !role ||
+      !job_id ||
       !location ||
       !file
     ) {
@@ -234,6 +240,8 @@ export async function POST(
 
           role,
 
+          job_id,
+
           location,
 
           experience,
@@ -333,6 +341,28 @@ export async function POST(
                 ${role}
               </td>
             </tr>
+
+            <tr>
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                  font-weight: bold;
+                "
+              >
+                Job ID
+              </td>
+
+              <td
+                style="
+                  padding: 12px;
+                  border: 1px solid #E5E7EB;
+                "
+              >
+                ${job_id}
+              </td>
+            </tr>
+
 
             <tr>
               <td

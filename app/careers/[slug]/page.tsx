@@ -38,6 +38,8 @@ export default async function Page({
         date={date}
         type={meta.type}
         mode={meta.mode}
+        jobId={`ACME-${job.ID.toString().padStart(4, "0")}`}
+        slug={slug}
       />
 
       {/* CONTENT */}
@@ -51,8 +53,10 @@ export default async function Page({
 
             <a
               href={`/careers/apply?role=${encodeURIComponent(
-                job.title.replace(/<[^>]+>/g, "")
-              )}&job_slug=${slug}`}
+  job.title.replace(/<[^>]+>/g, "")
+)}&job_slug=${slug}&job_id=ACME-${job.ID
+  .toString()
+  .padStart(4, "0")}`}
               
               className="
                 inline-flex

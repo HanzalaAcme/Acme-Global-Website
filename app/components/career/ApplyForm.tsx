@@ -29,6 +29,9 @@ export default function ApplyForm() {
     const jobSlug =
   params.get("job_slug") || "";
 
+  const jobId =
+  params.get("job_id") || "";
+
   const [loading, setLoading] =
     useState(false);
 
@@ -174,16 +177,16 @@ export default function ApplyForm() {
       "
     >
       <input
-  type="hidden"
-  name="application_type"
-  value="job"
-/>
+        type="hidden"
+        name="application_type"
+        value="job"
+      />
 
-<input
-  type="hidden"
-  name="job_slug"
-  value={jobSlug}
-/>
+  <input
+    type="hidden"
+    name="job_slug"
+    value={jobSlug}
+  />
 
       {/* ROLE + JOB ID */}
 
@@ -264,7 +267,7 @@ export default function ApplyForm() {
         <input
           type="text"
           name="job_id"
-          defaultValue={jobSlug}
+          defaultValue={jobId}
           required
           readOnly
 
