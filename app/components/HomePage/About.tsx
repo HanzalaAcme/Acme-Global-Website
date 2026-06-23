@@ -541,6 +541,7 @@ export default function AboutSection() {
                 rounded-xl
 
                 bg-[#1A4FD6]
+                hover:bg-[#2E66FF]
 
                 text-white
                 font-semibold
@@ -549,7 +550,7 @@ export default function AboutSection() {
                 duration-300
 
                 shadow-[0_4px_12px_rgba(26,79,214,0.25)]
-                hover:shadow-[0_14px_35px_rgba(26,79,214,0.38)]
+                hover:shadow-[0_12px_30px_rgba(26,79,214,0.45)]
 
                 hover:-translate-y-[2px]
               "

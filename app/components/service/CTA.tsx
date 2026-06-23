@@ -22,7 +22,7 @@ export default function CTA() {
           and optimize digital operations through Everything-as-a-Service.
         </p>
         <Link
-        href="/contact"
+        href="/contact#contact_form"
          className="px-6 py-3 bg-[#FFFFFF] text-[#1A4FD6] font-medium rounded-lg cursor-pointer ">
           Get Started Today
         </Link>

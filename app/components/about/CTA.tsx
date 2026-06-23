@@ -22,7 +22,7 @@ export default function CTA() {
           you business achieve its next stage of growth.
         </p>
         <Link 
-        href="/contact"
+        href="/contact#contact_form"
          className=" px-7 py-4 bg-[#FFFFFF] text-[#1A4FD6] font-medium rounded-lg cursor-pointer shadow-[0_6px_20px_rgba(255,255,255,0.35)]
          hover:bg-gray-100 ">
           Get in Touch

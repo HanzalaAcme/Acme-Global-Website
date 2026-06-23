@@ -73,7 +73,7 @@ export default function WhyPartnership() {
             {data.map((item, i) => (
               <motion.div
                 key={i}
-                whileHover={{ x: 8, y: -2 }}  
+                whileHover={{ x: 8 }}  
                 transition={{ duration: 0.2 }}
                 className="group relative bg-[#F4F6FB] border border-[#1A4FD6]/10 rounded-2xl 
                 px-5 py-4 flex gap-4 cursor-pointer 

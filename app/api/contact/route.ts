@@ -90,18 +90,16 @@ export async function POST(
         },
       });
 
-    // ========================================
     // SEND EMAIL VIA AWS SES
-    // ========================================
 
     await sendEmail({
 
       from:
-     `"ACME Global Hub Contact" <${process.env.HR_EMAIL}>`,
+     `"ACME Global Hub Contact" <${process.env.SALES_EMAIL}>`,
 
       to:
         process.env
-          .HR_EMAIL!,
+          .SALES_EMAIL!,
 
 
       subject:

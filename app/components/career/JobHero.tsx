@@ -100,7 +100,7 @@ export default function JobHero({ title, date, type, mode, jobId, slug }: Props)
 
 
 
-           <Link href="/careers">
+           <Link href="/careers#open-positions">
             <button className="bg-white text-gray-800 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition cursor-pointer">
               ← View All Roles
             </button>
@@ -109,7 +109,7 @@ export default function JobHero({ title, date, type, mode, jobId, slug }: Props)
         </div>
 
         {/* BREADCRUMB */}
-        <div className="flex justify-center items-center gap-2 text-sm text-white/60">
+        <div className="flex justify-center items-center gap-2 text-sm text-white/40">
 
           <Link href="/" className="hover:text-white transition">
             Home
@@ -123,7 +123,7 @@ export default function JobHero({ title, date, type, mode, jobId, slug }: Props)
 
           <span>/</span>
 
-          <span className="text-white/40">
+          <span className="text-white/60">
             {title.replace(/<[^>]+>/g, "")}
           </span>
 

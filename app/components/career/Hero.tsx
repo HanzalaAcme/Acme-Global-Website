@@ -293,7 +293,7 @@ export default function AboutHero() {
               className="
                 text-sm
 
-                text-white/60
+                text-white/40
 
                 flex
                 items-center
@@ -318,7 +318,7 @@ export default function AboutHero() {
 
               <span>/</span>
 
-              <span className="text-white/40">
+              <span className="text-white/60">
                 Careers
               </span>
 

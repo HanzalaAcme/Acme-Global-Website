@@ -108,7 +108,7 @@ export default function WhatWeDo() {
 
         py-16
         md:py-24
-        lg:py-28
+        lg:py-24
 
         px-5
         sm:px-6

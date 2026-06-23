@@ -141,7 +141,7 @@ export default function FAQSection() {
             className="
               flex items-center gap-3
 
-              text-[#2563EB]
+              text-[#2E66FF]
 
               text-[11px]
               md:text-[12px]
