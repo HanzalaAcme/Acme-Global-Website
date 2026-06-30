@@ -542,6 +542,163 @@ export async function POST(
       
     });
 
+    try {
+
+  await sendEmail({
+    from: `"ACME Global Hub Careers" <${process.env.HR_EMAIL}>`,
+
+  to: email,
+
+  subject:
+    `Application Received – ACME Global Hub`,
+
+  html: `
+  <div
+    style="
+      font-family: Arial, Helvetica, sans-serif;
+      max-width:700px;
+      margin:auto;
+      background:#ffffff;
+      border:1px solid #E5E7EB;
+      border-radius:12px;
+      overflow:hidden;
+    "
+  >
+
+    <div
+      style="
+        background:#1A4FD6;
+        padding:24px;
+        text-align:center;
+      "
+    >
+      <h2
+        style="
+          color:#ffffff;
+          margin:0;
+        "
+      >
+        ACME Global Hub
+      </h2>
+
+      <p
+        style="
+          color:#DCE8FF;
+          margin-top:8px;
+        "
+      >
+        Careers Team
+      </p>
+    </div>
+
+    <div style="padding:32px;">
+
+      <p>Dear <strong>${full_name}</strong>,</p>
+
+      <p
+        style="
+          line-height:28px;
+          color:#374151;
+        "
+      >
+        Thank you for applying at <strong>ACME Global Hub</strong>.
+      </p>
+
+      <p
+        style="
+          line-height:28px;
+          color:#374151;
+        "
+      >
+        We have successfully received your application and resume.
+      </p>
+
+      <table
+        style="
+          width:100%;
+          border-collapse:collapse;
+          margin:24px 0;
+        "
+      >
+
+
+        <tr>
+          <td
+            style="
+              padding:12px;
+              border:1px solid #E5E7EB;
+              font-weight:bold;
+            "
+          >
+            Application Status
+          </td>
+
+          <td
+            style="
+              padding:12px;
+              border:1px solid #E5E7EB;
+            "
+          >
+            Application Received
+          </td>
+        </tr>
+
+      </table>
+
+      <p
+        style="
+          line-height:28px;
+          color:#374151;
+        "
+      >
+        Our Talent Acquisition team will carefully review your profile against the requirements of the role.
+      </p>
+
+      <p
+        style="
+          line-height:28px;
+          color:#374151;
+        "
+      >
+        If your profile is shortlisted, one of our recruiters will contact you regarding the next steps in the recruitment process.
+      </p>
+
+      <p
+        style="
+          line-height:28px;
+          color:#374151;
+        "
+      >
+        We appreciate your interest in joining ACME Global Hub and thank you for taking the time to apply.
+      </p>
+
+      <br>
+
+      <p>Kind Regards,</p>
+
+      <strong>Talent Acquisition Team</strong><br/>
+
+      ACME Global Hub<br/>
+
+      <a href="mailto:${process.env.HR_EMAIL}">
+        ${process.env.HR_EMAIL}
+      </a>
+
+    </div>
+
+  </div>
+  `
+  });
+
+} catch (err) {
+
+  console.error(
+    "Candidate acknowledgement email failed:",
+    err
+  );
+
+}
+
     /* SUCCESS */
 
     return NextResponse.json({

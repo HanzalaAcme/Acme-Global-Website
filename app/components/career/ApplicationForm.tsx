@@ -500,7 +500,7 @@ export default function ApplicationForm()  {
                       mt-2
                     "
                   >
-                    PDF, DOC, DOCX — max 5MB
+                    PDF, DOC, DOCX 
                   </p>
 
                   <label

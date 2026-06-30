@@ -477,14 +477,13 @@ export default function JobList() {
 
               <div
                 className={`
-                  flex
-                  flex-col
-                  md:flex-row
+                  grid
+                  grid-cols-1
+                  md:grid-cols-[1.8fr_1fr_1fr_1fr]
 
-                  md:items-center
-                  justify-between
+                  items-center
 
-                  gap-4
+                  gap-6
 
                   p-6
                   border-b
