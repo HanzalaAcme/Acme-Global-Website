@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
@@ -48,6 +49,7 @@ export default function RootLayout({
     >
       <body className="overflow-x-hidden min-h-full flex flex-col">
         <Navbar />
+        <GoogleAnalytics/>
         {children}
         <Footer />
       </body>
