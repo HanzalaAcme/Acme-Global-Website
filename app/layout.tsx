@@ -4,6 +4,7 @@ import "./globals.css";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const playfair = localFont({
   src: [
@@ -52,6 +53,7 @@ export default function RootLayout({
         <GoogleAnalytics/>
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
