@@ -281,6 +281,7 @@ export default function AboutHero() {
                   hover:shadow-[0_12px_30px_rgba(26,79,214,0.45)]
 
                   hover:-translate-y-[2px]
+                  cursor-pointer
                 "
               >
                 View All Roles
