@@ -29,7 +29,7 @@ Parameters:
   DesiredCount:
     Type: Number
     Default: 1
-    MinValue: 1
+    MinValue: 0
     MaxValue: 3
 
 Resources:
@@ -232,7 +232,6 @@ Resources:
     Properties:
       DBInstanceIdentifier: acme-gh-ws-db
       Engine: postgres
-      EngineVersion: "16.4"
       DBInstanceClass: db.t4g.micro
       AllocatedStorage: 20
       StorageType: gp3
@@ -242,7 +241,7 @@ Resources:
       VPCSecurityGroups:
         - !Ref DBSecurityGroup
       DBSubnetGroupName: !Ref DBSubnetGroup
-      BackupRetentionPeriod: 7
+      BackupRetentionPeriod: 1
       MultiAZ: false
       PubliclyAccessible: false
       DeletionProtection: false
@@ -390,10 +389,13 @@ Resources:
 
   ECSService:
     Type: AWS::ECS::Service
-    DependsOn: ALBListener
+    DependsOn:
+      - ALBListener
+      - TaskDefinition
     Properties:
       ServiceName: acme-gh-website-service
       Cluster: !Ref ECSCluster
+      TaskDefinition: !Ref TaskDefinition
       LaunchType: FARGATE
       DesiredCount: !Ref DesiredCount
       NetworkConfiguration:
@@ -417,7 +419,7 @@ Resources:
     Type: AWS::ApplicationAutoScaling::ScalableTarget
     Properties:
       MaxCapacity: 3
-      MinCapacity: 1
+      MinCapacity: 0
       ResourceId: !Sub "service/${ECSCluster}/${ECSService.Name}"
       RoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService"
       ScalableDimension: ecs:service:DesiredCount
