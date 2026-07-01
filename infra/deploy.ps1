@@ -1,6 +1,6 @@
 # Deploy ACME-GH-WS optimized AWS stack and initial container image
 param(
-  [string]$Region = "us-east-1",
+  [string]$Region = "eu-north-1",
   [string]$StackName = "ACME-GH-WS",
   [string]$DbPassword = "",
   [string]$JwtSecret = "",

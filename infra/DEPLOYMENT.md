@@ -12,7 +12,7 @@ Optimized ECS Fargate cluster for the ACME Global Hub Next.js website.
 
 ```powershell
 cd D:\ACME_GH_Website
-.\infra\deploy.ps1 -Region us-east-1
+.\infra\deploy.ps1 -Region eu-north-1
 ```
 
 This creates:
