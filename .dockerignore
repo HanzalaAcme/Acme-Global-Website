@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+Archi
+README.md
+*.md
+coverage
+.vercel
+npm-debug.log*
+Dockerfile
+.dockerignore
+infra
