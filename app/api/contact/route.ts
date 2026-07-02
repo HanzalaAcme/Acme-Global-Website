@@ -90,22 +90,27 @@ export async function POST(
         },
       });
 
-    // SEND EMAIL VIA AWS SES
+    const fromEmail =
+      process.env.SES_FROM_EMAIL ||
+      process.env.SALES_EMAIL;
 
-    await sendEmail({
+    const toEmail =
+      process.env.SALES_EMAIL ||
+      process.env.HR_EMAIL;
 
-      from:
-     `"ACME Global Hub Contact" <${process.env.SES_FROM_EMAIL}>`,
+    if (fromEmail && toEmail) {
+      try {
+        await sendEmail({
 
-      to:
-        process.env
-          .HR_EMAIL!,
+          from:
+            `"ACME Global Hub Contact" <${fromEmail}>`,
 
+          to: toEmail,
 
-      subject:
-        `New Contact Form Submission from ${firstName} ${lastName}`,
+          subject:
+            `New Contact Form Submission from ${firstName} ${lastName}`,
 
-      html: `
+          html: `
 
         <div style="
           font-family: Arial, sans-serif;
@@ -210,7 +215,11 @@ export async function POST(
 
         </div>
       `,
-    });
+        });
+      } catch (emailError) {
+        console.error("CONTACT EMAIL ERROR:", emailError);
+      }
+    }
 
     // SUCCESS
 

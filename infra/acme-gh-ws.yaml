@@ -346,6 +346,8 @@ Resources:
               Value: !Ref HREmail
             - Name: SALES_EMAIL
               Value: !Ref SalesEmail
+            - Name: SES_FROM_EMAIL
+              Value: !Ref SalesEmail
             - Name: NEXT_PUBLIC_SITE_URL
               Value: !Ref SiteUrl
             - Name: JWT_SECRET
