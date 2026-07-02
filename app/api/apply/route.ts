@@ -258,19 +258,28 @@ export async function POST(
 
     /* SEND EMAIL */
 
-    await sendEmail({
+    const fromEmail =
+      process.env.SES_FROM_EMAIL ||
+      process.env.SALES_EMAIL ||
+      process.env.HR_EMAIL;
 
-      from:
-        `"ACME Global Hub Careers" <${process.env.SES_FROM_EMAIL}>`,
+    const hrEmail =
+      process.env.HR_EMAIL ||
+      process.env.SALES_EMAIL;
 
-      to:
-        process.env.HR_EMAIL!,
+    if (fromEmail && hrEmail) {
+      try {
+        await sendEmail({
 
+          from:
+            `"ACME Global Hub Careers" <${fromEmail}>`,
 
-      subject:
-        `New Application — ${role}`,
+          to: hrEmail,
 
-      html: `
+          subject:
+            `New Application — ${role}`,
+
+          html: `
         <div
           style="
             font-family: Arial, sans-serif;
@@ -540,12 +549,19 @@ export async function POST(
       `,
 
       
-    });
+        });
+      } catch (emailError) {
+        console.error(
+          "HR application notification email failed:",
+          emailError
+        );
+      }
+    }
 
     try {
 
   await sendEmail({
-    from: `"ACME Global Hub Careers" <${process.env.HR_EMAIL}>`,
+    from: `"ACME Global Hub Careers" <${fromEmail || process.env.HR_EMAIL}>`,
 
   to: email,
 
