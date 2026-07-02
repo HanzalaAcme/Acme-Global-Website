@@ -16,12 +16,6 @@ ENV DATABASE_URL="postgresql://build:build@localhost:5432/build"
 RUN npx prisma generate
 RUN npm run build
 
-FROM base AS migrator
-WORKDIR /migrate
-COPY package.json package-lock.json prisma.config.ts ./
-COPY prisma ./prisma
-RUN npm ci
-
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
@@ -34,7 +28,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
-COPY --from=migrator /migrate /migrate
 COPY infra/init-schema.sql ./infra/init-schema.sql
 COPY scripts/init-db.js ./scripts/init-db.js
 COPY docker-entrypoint.sh ./docker-entrypoint.sh
