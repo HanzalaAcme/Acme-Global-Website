@@ -433,6 +433,8 @@ export async function POST(
     // SEND EMAIL NOTIFICATION
     // ========================================
 
+    try{
+
     await sendEmail({
 
   from:
@@ -705,6 +707,17 @@ export async function POST(
         
   
 });
+
+ console.log("Partner notification email sent successfully.");
+
+} catch (emailError) {
+
+  console.error(
+    "Failed to send partner notification email:",
+    emailError
+  );
+
+}
 
     // SUCCESS
 

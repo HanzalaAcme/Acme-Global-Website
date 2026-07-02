@@ -87,7 +87,7 @@ export default function StaffAugmentationApproach() {
       >
 
         {/* IMAGE */}
-        <div className="relative">
+        <div className="relative py-18">
 
           <div
             className="

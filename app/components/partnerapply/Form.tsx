@@ -112,7 +112,7 @@ export default function PartnerApply() {
 
       px-5
       py-4
-      mt-3
+      
       outline-none
 
       bg-white
@@ -1309,7 +1309,7 @@ export default function PartnerApply() {
               hover:bg-[#2E66FF]
 
               text-white
-              mt-10
+              mt-7
 
               text-lg
 
