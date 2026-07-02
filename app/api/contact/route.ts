@@ -95,11 +95,11 @@ export async function POST(
     await sendEmail({
 
       from:
-     `"ACME Global Hub Contact" <${process.env.SES_FROM_EMAIL}>`,
+     `"ACME Global Hub Contact" <${process.env.SALES_EMAIL}>`,
 
       to:
         process.env
-          .HR_EMAIL!,
+          .SALES_EMAIL!,
 
 
       subject:
