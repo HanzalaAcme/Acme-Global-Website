@@ -1,9 +1,14 @@
 #!/bin/sh
 set -e
 
-if [ -n "$DATABASE_URL" ] && [ -f "./node_modules/prisma/build/index.js" ]; then
+if [ -n "$DATABASE_URL" ]; then
   echo "Applying database schema..."
-  node ./node_modules/prisma/build/index.js db push --skip-generate || echo "Schema push skipped or failed"
+  if [ -f "/app/scripts/init-db.js" ]; then
+    node /app/scripts/init-db.js || echo "Schema init script failed"
+  elif [ -d "/migrate/node_modules/prisma" ]; then
+    cd /migrate
+    DATABASE_URL="$DATABASE_URL" ./node_modules/.bin/prisma db push --skip-generate || echo "Prisma db push failed"
+    cd /app
+  fi
 fi
-
 exec node server.js
