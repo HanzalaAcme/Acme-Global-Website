@@ -261,7 +261,7 @@ export async function POST(
     await sendEmail({
 
       from:
-        `"ACME Global Hub Careers" <${process.env.HR_EMAIL}>`,
+        `"ACME Global Hub Careers" <${process.env.SES_FROM_EMAIL}>`,
 
       to:
         process.env.HR_EMAIL!,
