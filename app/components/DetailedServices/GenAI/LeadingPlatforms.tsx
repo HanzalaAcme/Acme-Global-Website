@@ -37,7 +37,7 @@ const platforms = [
   },
   {
     title: "Oracle AI",
-    logo: "/media/partners/Oracle_logo.png",
+    logo: "/media/partners/Oracle_Logo.png",
     points: [
       "Oracle Cloud Infrastructure AI Services",
       "Oracle Fusion Applications",

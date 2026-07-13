@@ -22,15 +22,15 @@ export default function WhyChooseAcme() {
         bg-[radial-gradient(circle_at_100%_20%,rgba(0,180,255,0.25),transparent_60%)]">
       </div>
 
-      <div className="max-w-[1300px] mx-auto grid lg:grid-cols-2 gap-[60px] items-center relative z-10">
+      <div className="max-w-[1300px] mx-auto grid lg:grid-cols-2 gap-[50px] items-center relative z-10">
 
         {/* LEFT IMAGE */}
-        <div className="w-full h-[400px] rounded-[24px] overflow-hidden">
+        <div className="w-full h-[500px] rounded-[24px] overflow-hidden">
           <Image
             src="/media/RIM_Diff.jpg"   
             alt="why acme"
-            width={600}
-            height={450}
+            width={700}
+            height={500}
             className="w-full h-full object-cover"
           />
         </div>

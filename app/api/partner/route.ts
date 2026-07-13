@@ -433,13 +433,15 @@ export async function POST(
     // SEND EMAIL NOTIFICATION
     // ========================================
 
+    try{
+
     await sendEmail({
 
   from:
     `"ACME Global Hub Partnerships" <${process.env.SES_FROM_EMAIL}>`,
 
   to:
-    process.env.HR_EMAIL!,
+    process.env.SALES_EMAIL!,
 
   subject:
     `New Partner Application - ${legal_company_name}`,
@@ -705,6 +707,17 @@ export async function POST(
         
   
 });
+
+ console.log("Partner notification email sent successfully.");
+
+} catch (emailError) {
+
+  console.error(
+    "Failed to send partner notification email:",
+    emailError
+  );
+
+}
 
     // SUCCESS
 
