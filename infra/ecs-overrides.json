@@ -1,0 +1,12 @@
+{
+  "containerOverrides": [
+    {
+      "name": "acme-gh-website",
+      "command": [
+        "node",
+        "-e",
+        "const {PrismaClient}=require('@prisma/client');(async()=>{const p=new PrismaClient();const sql=`CREATE TABLE IF NOT EXISTS \"Contact\" (\"id\" TEXT NOT NULL,\"created_at\" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,\"first_name\" TEXT NOT NULL,\"last_name\" TEXT NOT NULL,\"phone\" TEXT NOT NULL,\"email\" TEXT NOT NULL,\"message\" TEXT NOT NULL,CONSTRAINT \"Contact_pkey\" PRIMARY KEY (\"id\"));CREATE TABLE IF NOT EXISTS \"Application\" (\"id\" TEXT NOT NULL,\"created_at\" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,\"full_name\" TEXT NOT NULL,\"email\" TEXT NOT NULL,\"phone\" TEXT NOT NULL,\"role\" TEXT,\"job_id\" TEXT,\"experience\" TEXT,\"location\" TEXT,\"linkedin_url\" TEXT,\"cover_letter\" TEXT,\"resume_url\" TEXT,\"status\" TEXT NOT NULL DEFAULT 'new',\"notes\" TEXT,\"interview_date\" TIMESTAMP(3),\"interview_link\" TEXT,\"recruiter_name\" TEXT,\"recruiter_email\" TEXT,CONSTRAINT \"Application_pkey\" PRIMARY KEY (\"id\"));CREATE TABLE IF NOT EXISTS \"Admin\" (\"id\" TEXT NOT NULL,\"email\" TEXT NOT NULL,\"password\" TEXT NOT NULL,\"name\" TEXT,\"role\" TEXT NOT NULL DEFAULT 'admin',\"created_at\" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,CONSTRAINT \"Admin_pkey\" PRIMARY KEY (\"id\"));CREATE UNIQUE INDEX IF NOT EXISTS \"Admin_email_key\" ON \"Admin\"(\"email\");`;for(const s of sql.split(';').filter(Boolean)){await p.$executeRawUnsafe(s);}await p.$disconnect();console.log('SCHEMA_OK');})().catch(e=>{console.error(e);process.exit(1);});"
+      ]
+    }
+  ]
+}
