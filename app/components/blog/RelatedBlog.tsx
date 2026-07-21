@@ -4,12 +4,22 @@ import { useEffect, useState } from "react";
 
 import Link from "next/link";
 
+import {WP_API } from "@/lib/wordpress";
+
 interface Blog {
-  ID: number;
-  title: string;
+  id: number;
   slug: string;
-  excerpt: string;
-  featured_image: string;
+  title: {
+    rendered: string;
+  };
+  excerpt: {
+    rendered: string;
+  };
+  _embedded?: {
+    "wp:featuredmedia": {
+      source_url: string;
+    }[];
+  };
 }
 
 export default function RelatedBlogs({
@@ -28,18 +38,14 @@ export default function RelatedBlogs({
       try {
 
         const res = await fetch(
-          "https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/?category=blogs&number=4"
+          `${WP_API}/posts/?categories=1&per_page=4&_embed`
         );
 
         const data = await res.json();
 
         // REMOVE CURRENT BLOG
-        const filtered =
-          data.posts
-            .filter(
-              (post: Blog) =>
-                post.slug !== currentSlug
-            )
+        const filtered = data
+            .filter((post: Blog) => post.slug !== currentSlug )
             .slice(0, 3);
 
         setBlogs(filtered);
@@ -87,7 +93,7 @@ export default function RelatedBlogs({
         {blogs.map((blog) => (
 
           <Link
-            key={blog.ID}
+            key={blog.id}
             href={`/blogs/${blog.slug}`}
           >
 
@@ -119,11 +125,11 @@ export default function RelatedBlogs({
 
                 <img
                   src={
-                    blog.featured_image ||
+                    blog._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
                     "/media/fallback-blog.jpg"
                   }
 
-                  alt={blog.title}
+                  alt={blog.title.rendered.replace(/<[^>]+>/g, "")}
 
                   className="
                     w-full
@@ -153,7 +159,7 @@ export default function RelatedBlogs({
                     line-clamp-2
                   "
                 >
-                  {blog.title}
+                  {blog.title.rendered.replace(/<[^>]+>/g, "")}
                 </h3>
 
                {/* <div

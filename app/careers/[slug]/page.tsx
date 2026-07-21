@@ -6,14 +6,17 @@ import JobContent from "@/app/components/career/JobContent";
 import JobSidebar from "@/app/components/career/JobSidebar";
 import JobCTA from "@/app/components/career/JobCTA";
 import { parseJob, cleanContent } from "@/lib/parsejob";
+import { WP_API } from "@/lib/wordpress";
+import { SITE_URL } from "@/lib/wordpress";
 
 async function getJob(slug: string) {
   const res = await fetch(
-    `https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/slug:${slug}`,
+    `${WP_API}/posts?slug=${slug}&_embed`,
     { cache: "no-store" }
   );
 
-  return res.json();
+  const data = await res.json();
+  return data[0] || null;
 }
 
 export default async function Page({
@@ -26,19 +29,19 @@ export default async function Page({
 
   if (!job) return <div>Job not found</div>;
 
-  const meta = parseJob(job.content);          
-  const content = cleanContent(job.content);   
+  const meta = parseJob(job.content.rendered);          
+  const content = cleanContent(job.content.rendered);   
   const date = new Date(job.date).toLocaleDateString("en-GB");
 
   return (
     <>
       {/* HERO */}
       <JobHero
-        title={job.title}
+        title={job.title.rendered}
         date={date}
         type={meta.type}
         mode={meta.mode}
-        jobId={`ACME-${job.ID.toString().padStart(4, "0")}`}
+        jobId={`ACME-${job.id.toString().padStart(4, "0")}`}
         slug={slug}
       />
 
@@ -53,8 +56,8 @@ export default async function Page({
 
             <a
               href={`/careers/apply?role=${encodeURIComponent(
-                  job.title.replace(/<[^>]+>/g, "")
-                )}&job_slug=${slug}&job_id=ACME-${job.ID
+                  job.title.rendered.replace(/<[^>]+>/g, "")
+                )}&job_slug=${slug}&job_id=ACME-${job.id
                   .toString()
                   .padStart(4, "0")}`}
               
@@ -94,7 +97,7 @@ export default async function Page({
             <JobSidebar
               meta={meta}
               date={date}
-              url={`${process.env.NEXT_PUBLIC_SITE_URL}/careers/${slug}`}
+              url={`${SITE_URL}/careers/${slug}`}
             />
           </div>
 

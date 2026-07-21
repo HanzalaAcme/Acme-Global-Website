@@ -14,6 +14,8 @@ from "next/image";
 import Blog
 from "@/app/components/blog/Hero";
 
+import { WP_API } from "@/lib/wordpress";
+
 export default function BlogsClient() {
 
   const [posts, setPosts] =
@@ -46,23 +48,19 @@ export default function BlogsClient() {
         const res =
           await fetch(
 
-            `https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/?category=blogs&number=${POSTS_PER_PAGE}&page=${page}`
+            `${WP_API}/posts?categories=1&per_page=${POSTS_PER_PAGE}&page=${page}&_embed`
           );
 
         const data =
           await res.json();
 
         setPosts(
-          data.posts || []
+          data || []
         );
 
-        const total =
-          Math.ceil(
-            data.found /
-            POSTS_PER_PAGE
-          );
+        const totalPages = Number(res.headers.get("X-WP-TotalPages") || 1);
 
-        setTotalPages(total);
+setTotalPages(totalPages);
 
       } catch (err) {
 
@@ -142,7 +140,7 @@ export default function BlogsClient() {
                   (post: any) => (
 
                     <Link
-                      key={post.ID}
+                      key={post.id}
 
                       href={`/blogs/${post.slug}`}
                     >
@@ -188,11 +186,14 @@ export default function BlogsClient() {
 
                           <Image
                             src={
-                              post.featured_image ||
+                              post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
                               "/fallback.jpg"
                             }
 
-                            alt={post.title}
+                            alt={post.title.rendered.replace(
+                              /<[^>]+>/g,
+                              ""
+                            )}
 
                             fill
 
@@ -248,7 +249,10 @@ export default function BlogsClient() {
 
                             dangerouslySetInnerHTML={{
                               __html:
-                                post.title,
+                                post.title.rendered.replace(
+                                  /<[^>]+>/g,
+                                  ""
+                                ),
                             }}
                           />
 

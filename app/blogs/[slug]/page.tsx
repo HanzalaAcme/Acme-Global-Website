@@ -13,14 +13,35 @@ import BlogEnhancements from "../../components/blog/BlogEnhancements";
 import BlogShare from "@/app/components/blog/BlogShare";
 import RelatedBlogs from "../../components/blog/RelatedBlog";
 import CTA from "../../components/blog/CTA";
+import { WP_API } from "@/lib/wordpress";
 
 async function getPost(slug: string) {
   const res = await fetch(
-    `https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/slug:${slug}`,
-    { cache: "no-store" }
+    `${WP_API}/posts?slug=${slug}&_embed`,
+    {
+      cache: "no-store",
+    }
   );
 
-  if (!res.ok) return null;
+  if (!res.ok) {
+    console.log("HTTP Error:", res.status);
+    return null;
+  }
+
+  const data = await res.json();
+
+  return data[0] ?? null;
+}
+
+async function getTags(tagIds: number[]) {
+  if (!tagIds.length) return [];
+
+  const res = await fetch(
+    `${WP_API}/tags?include=${tagIds.join(",")}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   return res.json();
 }
@@ -34,22 +55,26 @@ export default async function BlogDetail({
 
   const post = await getPost(slug);
 
-  const tags = Object.values(post.tags || {});
+  if (!post) {
+  return (
+    <div className="text-center py-20 text-xl font-semibold">
+      Blog not found
+    </div>
+  );
+}
 
-  if (!post || !post.ID) {
-    return (
-      <div className="text-center py-20 text-xl font-semibold">
-        Blog not found
-      </div>
-    );
-  }
+  const tags = await getTags(post.tags || []);
 
   // DATE
   const date = new Date(post.date).toLocaleDateString("en-GB");
-  const author =post.author?.name || "ACME Global Hub";
+  const author = post._embedded?.author?.[0]?.name || "ACME Global Hub";
 
   //  READ TIME
-  const words = post.content.replace(/<[^>]+>/g, "").split(" ").length;
+  const words = post.content.rendered
+  .replace(/<[^>]+>/g, "")
+  .split(/\s+/)
+  .length;
+
   const readTime = Math.ceil(words / 200);
 
   return (
@@ -89,7 +114,7 @@ export default async function BlogDetail({
 
           {/* CURRENT PAGE */}
           <span className="text-gray-800 text-center break-words">
-            {post.title.replace(/<[^>]+>/g, "")}
+            {post.title.rendered.replace(/<[^>]+>/g, "")}
           </span>
 
         </div>
@@ -116,7 +141,7 @@ export default async function BlogDetail({
 
             break-words
           "
-          dangerouslySetInnerHTML={{ __html: post.title }}
+          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
 
         {/* META */}
@@ -179,8 +204,11 @@ export default async function BlogDetail({
           className="rounded-2xl overflow-hidden mb-10 justify-center flex"
          >
           <Image
-            src={post.featured_image}
-            alt="blog"
+            src={
+    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+    "/images/blog-placeholder.jpg"
+  }
+            alt={post.title.rendered.replace(/<[^>]+>/g, "")}
             width={700}
             height={450}
             className="
@@ -283,7 +311,7 @@ export default async function BlogDetail({
       "
 
       dangerouslySetInnerHTML={{
-        __html: post.content,
+        __html: post.content.rendered,
       }}
     />
 
@@ -334,7 +362,7 @@ export default async function BlogDetail({
           {tags.map((tag: any) => (
 
             <span
-              key={tag.ID}
+              key={tag.id}
 
               className="
                 px-3

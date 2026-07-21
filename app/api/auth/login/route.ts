@@ -89,6 +89,9 @@ export async function POST(
 
         process.env
           .JWT_SECRET!,
+         {
+          expiresIn: "1d",
+         } 
 
       );
 

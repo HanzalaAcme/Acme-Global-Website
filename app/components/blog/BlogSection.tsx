@@ -8,12 +8,22 @@ import { motion } from "framer-motion";
 
 import { ArrowRight } from "lucide-react";
 
+import { WP_API } from "@/lib/wordpress";
+
 interface Blog {
-  ID: number;
-  title: string;
+  id: number;
   slug: string;
-  excerpt: string;
-  featured_image: string;
+  title: {
+    rendered: string;
+  };
+  excerpt: {
+    rendered: string;
+  };
+  _embedded?: {
+    "wp:featuredmedia": {
+      source_url: string;
+    }[];
+  };
 }
 
 export default function Blogs() {
@@ -23,25 +33,28 @@ export default function Blogs() {
   useEffect(() => {
 
     async function fetchBlogs() {
-
-      try {
-
-        const res = await fetch(
-          "https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/?category=blogs&number=3"
-        );
-
-        const data = await res.json();
-
-        setBlogs(data.posts);
-
-      } catch (error) {
-
-        console.error(
-          "BLOG FETCH ERROR:",
-          error
-        );
+  try {
+    const res = await fetch(
+      `${WP_API}/posts?categories=1&per_page=3&_embed`,
+      {
+        cache: "no-store",
       }
+    );
+
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
     }
+
+    const data = await res.json();
+
+    console.log("Homepage Blogs:", data);
+
+    setBlogs(Array.isArray(data) ? data : []);
+  } catch (error) {
+    console.error("BLOG FETCH ERROR:", error);
+    setBlogs([]);
+  }
+}
 
     fetchBlogs();
 
@@ -66,7 +79,7 @@ export default function Blogs() {
           {blogs.map((blog, index) => (
 
             <Link
-              key={blog.ID}
+              key={blog.id}
               href={`/blogs/${blog.slug}`}
             >
 
@@ -108,11 +121,11 @@ export default function Blogs() {
 
                   <img
                     src={
-                      blog.featured_image ||
+                      blog._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
                       "/media/fallback-blog.jpg"
                     }
 
-                    alt={blog.title}
+                    alt={blog.title.rendered}
 
                     className="w-full h-full object-cover
                               transition-transform duration-500 ease-in-out
@@ -127,7 +140,7 @@ export default function Blogs() {
                   {/* TITLE */}
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 leading-relaxed line-clamp-2">
 
-                    {blog.title}
+                    {blog.title.rendered}
 
                   </h3>
 

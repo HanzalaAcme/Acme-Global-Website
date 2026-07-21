@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { parseJobMeta } from "@/lib/parsejob";
 import Link from "next/link";
+import {WP_API } from "@/lib/wordpress";
 
 type Job = {
   id: number;
@@ -64,28 +65,28 @@ export default function JobList() {
   useEffect(() => {
 
     fetch(
-      "https://public-api.wordpress.com/rest/v1.1/sites/acmeglobal3.wordpress.com/posts/?category=careers"
+      `${WP_API}/posts?categories=2&per_page=100&_embed`
     )
       .then((res) => res.json())
       .then((data) => {
 
-        const parsed = data.posts.map((post: any) => {
+        const parsed = data.map((post: any) => {
 
-          const meta = parseJobMeta(post.content);
+          const meta = parseJobMeta(post.content.rendered);
 
           return {
-            id: post.ID,
-            title: post.title,
+            id: post.id,
+            title: post.title.rendered,
             slug: post.slug,
             date: post.date,
 
-            location: meta.location || "Unknown",
+            location: meta.location || "Global",
 
             type: meta.type || "Full-Time",
 
             mode: meta.mode || "On-site",
 
-            department: meta.department || "Unknown",
+            department: meta.department || "General",
           };
         });
 

@@ -69,8 +69,8 @@ export default function JobHero({ title, date, type, mode, jobId, slug }: Props)
 
             <a
               href={`/careers/apply?role=${encodeURIComponent(
-  title.replace(/<[^>]+>/g, "")
-)}&job_slug=${slug}&job_id=${jobId}`}
+                title.replace(/<[^>]+>/g, "")
+              )}&job_slug=${slug}&job_id=${jobId}`}
               
               rel="noopener noreferrer"
               className="

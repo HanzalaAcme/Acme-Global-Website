@@ -1,12 +1,12 @@
 "use client";
 
-
-
 import {
   FaLinkedinIn,
   FaXTwitter,
   FaLink
 } from "react-icons/fa6";
+
+import { SITE_URL } from "@/lib/wordpress";
 
 export default function BlogShare({
   slug,
@@ -15,7 +15,7 @@ export default function BlogShare({
 }) {
 
   const shareUrl =
-    `${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${slug}`;
+    `${SITE_URL}/blogs/${slug}`;
 
   const copyLink = async () => {
 
@@ -53,6 +53,7 @@ export default function BlogShare({
 
     transition-all
     duration-300
+    cursor-pointer
   `;
 
   return (
