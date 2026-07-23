@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 import { ArrowRight } from "lucide-react";
 
-import { WP_API } from "@/lib/wordpress";
+import { getWordPressApi } from "@/lib/wordpress";
 
 interface Blog {
   id: number;
@@ -35,7 +35,7 @@ export default function Blogs() {
     async function fetchBlogs() {
   try {
     const res = await fetch(
-      `${WP_API}/posts?categories=1&per_page=3&_embed`,
+      `${getWordPressApi()}/posts?categories=1&per_page=3&_embed`,
       {
         cache: "no-store",
       }

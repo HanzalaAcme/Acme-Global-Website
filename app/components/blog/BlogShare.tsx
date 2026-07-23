@@ -6,7 +6,7 @@ import {
   FaLink
 } from "react-icons/fa6";
 
-import { SITE_URL } from "@/lib/wordpress";
+import { getSiteUrl } from "@/lib/wordpress";
 
 export default function BlogShare({
   slug,
@@ -15,7 +15,7 @@ export default function BlogShare({
 }) {
 
   const shareUrl =
-    `${SITE_URL}/blogs/${slug}`;
+    `${getSiteUrl()}/blogs/${slug}`;
 
   const copyLink = async () => {
 

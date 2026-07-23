@@ -2,6 +2,8 @@ export const metadata = {
   title: "Blogs - ACME Global Hub",
 };
 
+export const dynamic = "force-dynamic";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -13,11 +15,11 @@ import BlogEnhancements from "../../components/blog/BlogEnhancements";
 import BlogShare from "@/app/components/blog/BlogShare";
 import RelatedBlogs from "../../components/blog/RelatedBlog";
 import CTA from "../../components/blog/CTA";
-import { WP_API } from "@/lib/wordpress";
+import { getWordPressApi } from "@/lib/wordpress";
 
 async function getPost(slug: string) {
   const res = await fetch(
-    `${WP_API}/posts?slug=${slug}&_embed`,
+    `${getWordPressApi()}/posts?slug=${slug}&_embed`,
     {
       cache: "no-store",
     }
@@ -37,7 +39,7 @@ async function getTags(tagIds: number[]) {
   if (!tagIds.length) return [];
 
   const res = await fetch(
-    `${WP_API}/tags?include=${tagIds.join(",")}`,
+    `${getWordPressApi()}/tags?include=${tagIds.join(",")}`,
     {
       cache: "no-store",
     }

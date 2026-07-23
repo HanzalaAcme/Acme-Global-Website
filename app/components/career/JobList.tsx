@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { parseJobMeta } from "@/lib/parsejob";
 import Link from "next/link";
-import {WP_API } from "@/lib/wordpress";
+import {getWordPressApi } from "@/lib/wordpress";
 
 type Job = {
   id: number;
@@ -65,7 +65,7 @@ export default function JobList() {
   useEffect(() => {
 
     fetch(
-      `${WP_API}/posts?categories=2&per_page=100&_embed`
+      `${getWordPressApi()}/posts?categories=2&per_page=100&_embed`
     )
       .then((res) => res.json())
       .then((data) => {

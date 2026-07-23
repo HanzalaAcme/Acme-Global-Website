@@ -1,17 +1,20 @@
 export const metadata = {
   title: "Careers - ACME Global Hub",
 };
+
+export const dynamic = "force-dynamic";
+
 import JobHero from "@/app/components/career/JobHero";
 import JobContent from "@/app/components/career/JobContent";
 import JobSidebar from "@/app/components/career/JobSidebar";
 import JobCTA from "@/app/components/career/JobCTA";
 import { parseJob, cleanContent } from "@/lib/parsejob";
-import { WP_API } from "@/lib/wordpress";
-import { SITE_URL } from "@/lib/wordpress";
+import { getWordPressApi} from "@/lib/wordpress";
+import { getSiteUrl } from "@/lib/wordpress";
 
 async function getJob(slug: string) {
   const res = await fetch(
-    `${WP_API}/posts?slug=${slug}&_embed`,
+    `${getWordPressApi()}/posts?slug=${slug}&_embed`,
     { cache: "no-store" }
   );
 
@@ -97,7 +100,7 @@ export default async function Page({
             <JobSidebar
               meta={meta}
               date={date}
-              url={`${SITE_URL}/careers/${slug}`}
+              url={`${getSiteUrl()}/careers/${slug}`}
             />
           </div>
 
