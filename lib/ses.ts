@@ -1,19 +1,19 @@
-import {
-  SESClient,
-} from "@aws-sdk/client-ses";
+import { SESClient } from "@aws-sdk/client-ses";
 
-const sesConfig: ConstructorParameters<typeof SESClient>[0] = {
-  region: process.env.AWS_REGION,
-};
-
-if (
-  process.env.AWS_ACCESS_KEY_ID &&
-  process.env.AWS_SECRET_ACCESS_KEY
-) {
-  sesConfig.credentials = {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+export function getSESClient() {
+  const config: ConstructorParameters<typeof SESClient>[0] = {
+    region: process.env.AWS_REGION,
   };
-}
 
-export const ses = new SESClient(sesConfig);
+  if (
+    process.env.AWS_ACCESS_KEY_ID &&
+    process.env.AWS_SECRET_ACCESS_KEY
+  ) {
+    config.credentials = {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    };
+  }
+
+  return new SESClient(config);
+}

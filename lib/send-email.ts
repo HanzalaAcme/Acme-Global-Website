@@ -2,7 +2,7 @@ import {
   SendEmailCommand,
 } from "@aws-sdk/client-ses";
 
-import { ses }
+import { getSESClient }
 from "./ses";
 
 type SendEmailProps = {
@@ -70,6 +70,7 @@ export async function sendEmail({
       },
     });
 
+  const ses = getSESClient();
   return await ses.send(
     command
   );

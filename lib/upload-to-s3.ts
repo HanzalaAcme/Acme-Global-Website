@@ -2,7 +2,7 @@ import {
   PutObjectCommand,
 } from "@aws-sdk/client-s3";
 
-import { s3 }
+import { getS3Client }
 from "./s3";
 
 export async function uploadToS3(
@@ -26,6 +26,7 @@ export async function uploadToS3(
   const key =
     `${folder}/${fileName}`;
 
+  const s3 = getS3Client();
   await s3.send(
 
     new PutObjectCommand({

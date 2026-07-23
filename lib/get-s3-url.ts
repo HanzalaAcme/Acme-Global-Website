@@ -6,7 +6,7 @@ import {
   getSignedUrl,
 } from "@aws-sdk/s3-request-presigner";
 
-import { s3 }
+import { getS3Client }
 from "./s3";
 
 export async function getS3FileUrl(
@@ -26,12 +26,12 @@ export async function getS3FileUrl(
   const signedUrl =
     await getSignedUrl(
 
-      s3,
+      getS3Client(),
 
       command,
 
       {
-        expiresIn: 3600,
+        expiresIn: 60 *60 * 24, // 1 day
       }
     );
 
