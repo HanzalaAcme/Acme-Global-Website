@@ -14,8 +14,6 @@ from "next/image";
 import Blog
 from "@/app/components/blog/Hero";
 
-import { getWordPressApi } from "@/lib/wordpress";
-
 export default function BlogsClient() {
 
   const [posts, setPosts] =
@@ -48,7 +46,7 @@ export default function BlogsClient() {
         const res =
           await fetch(
 
-            `${getWordPressApi()}/posts?categories=1&per_page=${POSTS_PER_PAGE}&page=${page}&_embed`
+            `/api/wordpress/posts?categories=1&per_page=${POSTS_PER_PAGE}&page=${page}&_embed`
           );
 
         const data =

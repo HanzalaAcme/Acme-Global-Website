@@ -8,8 +8,6 @@ import { motion } from "framer-motion";
 
 import { ArrowRight } from "lucide-react";
 
-import { getWordPressApi } from "@/lib/wordpress";
-
 interface Blog {
   id: number;
   slug: string;
@@ -35,7 +33,7 @@ export default function Blogs() {
     async function fetchBlogs() {
   try {
     const res = await fetch(
-      `${getWordPressApi()}/posts?categories=1&per_page=3&_embed`
+      `/api/wordpress/posts?categories=1&per_page=3&_embed`
     );
 
     console.log("Status:", res.status);

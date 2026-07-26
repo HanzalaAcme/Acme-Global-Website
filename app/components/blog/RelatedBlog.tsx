@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 
 import Link from "next/link";
 
-import { getWordPressApi } from "@/lib/wordpress";
-
 interface Blog {
   id: number;
   slug: string;
@@ -38,7 +36,7 @@ export default function RelatedBlogs({
       try {
 
         const res = await fetch(
-          `${getWordPressApi()}/posts/?categories=1&per_page=4&_embed`
+          `/api/wordpress/posts/?categories=1&per_page=4&_embed`
         );
 
         const data = await res.json();
