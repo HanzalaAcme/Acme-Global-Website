@@ -94,7 +94,7 @@ export default function Footer() {
                     transition-colors duration-300
                   "
                 >
-                  +91 4040117942
+                  +91 4040117924
                 </a>
 
               </div>
