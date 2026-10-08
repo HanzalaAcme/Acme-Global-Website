@@ -585,14 +585,14 @@ export default function ContactSection() {
                     name: "firstName",
                     type: "text",
                     placeholder:
-                      "First Name *",
+                      "Full Name *",
                   },
 
                   {
                     name: "lastName",
                     type: "text",
                     placeholder:
-                      "Last Name *",
+                      "Company Name *",
                   },
 
                   {

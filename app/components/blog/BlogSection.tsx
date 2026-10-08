@@ -74,7 +74,7 @@ export default function Blogs() {
         {/* BLOG GRID */}
         <div className="grid md:grid-cols-3 px-6 gap-8">
 
-          {blogs.map((blog, index) => (
+          {((blog, index) => (
 
             <Link
               key={blog.id}

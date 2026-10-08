@@ -14,8 +14,8 @@ export async function POST(
       await req.json();
 
     const {
-      firstName,
-      lastName,
+      fullName,
+      companyName,
       phone,
       email,
       message,
@@ -24,8 +24,8 @@ export async function POST(
     // VALIDATION
 
     if (
-      !firstName ||
-      !lastName ||
+      !fullName ||
+      !companyName ||
       !phone ||
       !email ||
       !message
@@ -76,11 +76,11 @@ export async function POST(
 
         data: {
 
-          first_name:
-            firstName,
+          full_name:
+            fullName,
 
-          last_name:
-            lastName,
+          company_name:
+            companyName,
 
           phone,
 
@@ -108,7 +108,7 @@ export async function POST(
           to: toEmail,
 
           subject:
-            `New Contact Form Submission from ${firstName} ${lastName}`,
+            `New Contact Form Submission from ${fullName}`,
 
           html: `
 
@@ -144,7 +144,7 @@ export async function POST(
                 padding:10px;
                 border:1px solid #ddd;
               ">
-                ${firstName}
+                ${fullName}
               </td>
             </tr>
 
@@ -153,14 +153,14 @@ export async function POST(
                 padding:10px;
                 border:1px solid #ddd;
               ">
-                <strong>Last Name</strong>
+                <strong>Company Name</strong>
               </td>
 
               <td style="
                 padding:10px;
                 border:1px solid #ddd;
               ">
-                ${lastName}
+                ${companyName}
               </td>
             </tr>
 

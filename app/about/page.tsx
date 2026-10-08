@@ -6,6 +6,7 @@
 import Hero from "@/app/components/about/Hero";
 import WhatWeDo from "@/app/components/about/WhatWeDo";
 import MissionVision from "@/app/components/about/MissionVision";
+import ValuesSection from "@/app/components/about/ValuesSection";
 import FAQs from "@/app/components/about/FAQs";
 import CTA from "@/app/components/about/CTA";
 
@@ -15,6 +16,7 @@ export default function AboutPage() {
       <Hero />
       <WhatWeDo />
       <MissionVision />
+      <ValuesSection />
       <CTA />
       <FAQs />
       

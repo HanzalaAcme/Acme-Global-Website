@@ -16,8 +16,8 @@ export default function ContactForm() {
       <div className="max-w-5xl mx-auto bg-black/60 backdrop-blur rounded-xl p-6 md:p-8 overflow-hidden">
 
         <div className="grid md:grid-cols-2 gap-6">
-          <input placeholder="First Name" className="input" />
-          <input placeholder="Last Name" className="input" />
+          <input placeholder="Full Name" className="input" />
+          <input placeholder="Company Name" className="input" />
           <input placeholder="Phone Number" className="input" />
           <input placeholder="Email" className="input" />
         </div>

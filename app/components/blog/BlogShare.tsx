@@ -12,24 +12,17 @@ export default function BlogShare({
   slug: string;
 }) {
 
-  const shareUrl =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/blogs/${slug}`
-      : `/blogs/${slug}`;
+  const getShareUrl = () => {
+  return `${window.location.origin}/blogs/${slug}`;
+};
 
   const copyLink = async () => {
-
-    try {
-
-      await navigator.clipboard.writeText(
-        shareUrl
-      );
-
-    } catch (err) {
-
-      console.error(err);
-    }
-  };
+  try {
+    await navigator.clipboard.writeText(getShareUrl());
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   const buttonStyles = `
     w-11
@@ -78,17 +71,24 @@ export default function BlogShare({
 
         {/* LINKEDIN */}
         <a
-          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-            shareUrl
-          )}`}
+  href="#"
+  onClick={(e) => {
+    e.preventDefault();
 
-          target="_blank"
-          rel="noopener noreferrer"
+    const shareUrl = getShareUrl();
 
-          className={buttonStyles}
-        >
-          <FaLinkedinIn className="w-4 h-4" />
-        </a>
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+        shareUrl
+      )}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  }}
+  className={buttonStyles}
+>
+  <FaLinkedinIn className="w-4 h-4" />
+</a>
 
         {/* TWITTER / X */}
        {/* <a
