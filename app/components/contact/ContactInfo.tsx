@@ -306,7 +306,7 @@ export default function ContactSection() {
                   opacity-90
                 "
               >
-                +91 4040117942
+                +91 4040117924
               </p>
 
             </div>

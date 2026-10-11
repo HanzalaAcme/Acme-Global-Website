@@ -62,10 +62,10 @@ const values = [
 export default function ValuesSection() {
   return (
     <section className="bg-white py-[80px] px-5 md:px-8 lg:px-10">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-[1400px] mx-auto min-w-0">
 
         {/* Section Heading */}
-        <div className="mb-10">
+        <div className="mb-10 min-w-0">
           <p className="font-Dm_Sans text-[13px] font-bold tracking-[0.25em] text-[#2563EB] uppercase mb-3">
             WHAT WE STAND FOR
           </p>
@@ -81,7 +81,17 @@ export default function ValuesSection() {
         </div>
 
         {/* Values Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div
+          className="
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-5
+            gap-3
+            items-start
+            min-w-0
+          "
+        >
           {values.map((value) => {
             const Icon = value.icon;
 
@@ -89,11 +99,15 @@ export default function ValuesSection() {
               <div
                 key={value.title}
                 className="
+                  min-w-0
+                  w-full
                   bg-white
-                  border border-[#E5E7EB]
+                  border
+                  border-[#E5E7EB]
                   rounded-[16px]
-                  p-6
-                  min-h-[300px]
+                  p-4
+                  min-h-[280px]
+                  overflow-hidden
                   hover:border-[#3B82F6]
                   hover:shadow-lg
                   hover:-translate-y-1
@@ -104,18 +118,19 @@ export default function ValuesSection() {
                 {/* Icon */}
                 <div
                   className="
-                    w-[56px]
-                    h-[56px]
+                    w-[50px]
+                    h-[50px]
                     rounded-[14px]
                     bg-[#DBEAFE]
                     flex
                     items-center
                     justify-center
                     mb-5
+                    flex-shrink-0
                   "
                 >
                   <Icon
-                    size={25}
+                    size={23}
                     strokeWidth={2}
                     className="text-[#2563EB]"
                   />
@@ -124,45 +139,59 @@ export default function ValuesSection() {
                 {/* Value Title */}
                 <h3
                   className="
+                    min-w-0
+                    max-w-full
                     font-playfair
-                    text-[20px]
+                    text-[18px]
                     font-bold
                     leading-tight
                     text-[#0b1120]
                     mb-5
+                    break-words
                   "
                 >
                   {value.title}
                 </h3>
 
                 {/* Value Points */}
-                <div className="space-y-3">
+                <div className="space-y-3 min-w-0 w-full">
                   {value.points.map((point) => (
                     <div
                       key={point}
                       className="
                         flex
-                        items-center
+                        items-start
                         gap-2
+                        min-w-0
+                        w-full
                         font-Dm_Sans
-                        text-[12px]
+                        text-[13px]
                         leading-5
                         text-[#475569]
                       "
                     >
                       {/* Black Dot */}
-                      <span className="text-black text-[8px] flex-shrink-0 ">
+                      <span
+                        className="
+                          text-black
+                          text-[7px]
+                          flex-shrink-0
+                          mt-[6px]
+                        "
+                      >
                         ●
                       </span>
 
                       {/* Point Text */}
                       <span
-                        className={
-                          point ===
-                          "Foster a Collaborative & Inclusive Environment"
-                            ? "whitespace-normal"
-                            : "whitespace-nowrap"
-                        }
+                        className="
+                          min-w-0
+                          flex-1
+                          max-w-full
+                          whitespace-normal
+                          break-words
+                          overflow-wrap-anywhere
+                        "
                       >
                         {point}
                       </span>

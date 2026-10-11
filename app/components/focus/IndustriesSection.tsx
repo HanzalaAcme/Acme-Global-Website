@@ -407,8 +407,7 @@ export default function IndustriesSection() {
             mx-auto
             grid
             grid-cols-1
-            md:grid-cols-2
-            xl:grid-cols-4
+            md:grid-cols-4
             gap-5
             items-stretch
           "
@@ -477,8 +476,8 @@ export default function IndustriesSection() {
                     >
                       <Icon
                         className="
-                          w-7
-                          h-7
+                          w-8
+                          h-8
                           text-[#2563EB]
                           group-hover:text-white
                         "
@@ -487,16 +486,18 @@ export default function IndustriesSection() {
                     </div>
 
                     <h3
-                      className="
-                        font-playfair
-                        text-[17px]
-                        leading-[1.2]
-                        font-bold
-                        text-[#0B1120]
-                      "
-                    >
-                      {industry.title}
-                    </h3>
+  className="
+    flex-1
+    min-w-0
+    font-playfair
+    text-[16px]
+    leading-[1.2]
+    font-bold
+    text-[#0B1120]
+  "
+>
+  {industry.title}
+</h3>
 
                   </div>
 
@@ -633,111 +634,110 @@ export default function IndustriesSection() {
 
             <div className="relative z-10">
 
-              <div
-  className="
-    w-14
-    h-14
-    rounded-xl
-    bg-[#1E40AF]
-    flex
-    items-center
-    justify-center
-    mb-8
-    overflow-hidden
-  "
->
-  <Image src="/media/acme_logo.png"
-    // src="media/focus/Acme1.logo.png"
+              {/* ACME Logo */}
+
+
+  
+  {/* Logo */}
+<div className="w-full h-[65px] bg-[#0B1120] rounded-[16px] flex items-start justify-start overflow-hidden mb-2">
+  <Image
+    src="/media/acme_logo.png"
     alt="ACME Global"
-    width={42}
-    height={42}
-    className="object-contain"
+    width={260}
+    height={100}
+    className="w-[160px] h-auto object-contain -mt-2"
   />
 </div>
 
-              {/* TITLE */}
-              <h3
-                className="
-                  font-playfair
-                  text-[23px]
-                  font-bold
-                  text-white
-                "
-              >
-                WORK WITH US.
-              </h3>
-
-              {/* HIGHLIGHT */}
-              <p
-                className="
-                  mt-6
-                  font-Dm_Sans
-                  text-[14px]
-                  leading-6
-                  font-semibold
-                  text-[#60A5FA]
-                "
-              >
-                Your industry. Our expertise.
-              </p>
-
-              {/* DESCRIPTION */}
-              <p
-                className="
-                  mt-6
-                  font-Dm_Sans
-                  text-[13px]
-                  leading-7
-                  text-[#CBD5E1]
-                "
-              >
-                Tell us about your business challenge and our specialists
-                will work with you to identify the right technology
-                approach and solution.
-              </p>
-
-              {/* BUTTON */}
-              <Link
-                href="/contact"
-                className="
-                  mt-8
-                  inline-flex
-                  items-center
-                  justify-center
-                  gap-2
-                  px-6
-                  py-3
-                  rounded-lg
-                  bg-[#2563EB]
-                  text-white
-                  font-Dm_Sans
-                  text-[13px]
-                  font-semibold
-                  transition-all
-                  duration-300
-                  hover:bg-[#3B82F6]
-                  hover:-translate-y-1
-                "
-              >
-                Talk to an Expert
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            {/* CONTACT DETAILS */}
-<div className="mt-6 space-y-2">
-  <a
-    href="mailto:sales@acmeglobal.tech"
-    className="block font-Dm_Sans text-[13px] text-[#CBD5E1] hover:text-white transition-colors"
+  {/* Heading */}
+  <h3
+    className="
+      font-playfair
+      text-[16px]
+      leading-tight
+      font-bold
+      text-white
+      mb-2
+    "
   >
-    sales@acmeglobal.tech
+    WORK WITH US.
+  </h3>
+
+  {/* Sub Heading */}
+  <p
+    className="
+      font-Dm_Sans
+      text-[13px]
+      leading-6
+      font-semibold
+      text-[#3B82F6]
+      mb-2
+    "
+  >
+    Your industry. Our expertise.
+  </p>
+
+  {/* Description */}
+  <p
+    className="
+      font-Dm_Sans
+      text-[13px]
+      leading-7
+      text-[#E2E8F0]
+      mb-2
+  "
+  >
+    Tell us about your business challenge and our specialists will work with
+    you to identify the right technology approach and solution.
+  </p>
+
+  {/* Button */}
+  <a
+    href="#contact"
+    className="
+      inline-flex
+      items-center
+      gap-3
+      bg-[#2563EB]
+      text-white
+      font-Dm_Sans
+      text-[13px]
+      font-semibold
+      px-6
+      py-3
+      rounded-[8px]
+      mb-2
+    "
+  >
+    Talk to an Expert
+    <ArrowRight size={18} />
   </a>
 
-  <p className="font-Dm_Sans text-[13px] text-[#CBD5E1]">
-  +91 4040117942
-</p>
+  {/* Contact */}
+  <div className="space-y-2">
+    <a
+      href="mailto:sales@acmeglobal.tech"
+      className="
+        block
+        font-Dm_Sans
+        text-[13px]
+        text-[#E2E8F0]
+      "
+    >
+      sales@acmeglobal.tech
+    </a>
+
+    <p
+      className="
+        font-Dm_Sans
+        text-[13px]
+        text-[#E2E8F0]
+      "
+    >
+      +91 4040117924
+    </p>
+  </div>
 </div>
-
-            </div>
-
           </motion.article>
 
         </div>

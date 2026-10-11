@@ -53,7 +53,7 @@ export default function GlobalOffices() {
               </p>
 
               <p className="text-[14px] text-[#5E6E90]">
-                +91 4040117942
+                +91 4040117924
               </p>
             </div>
           </div>
