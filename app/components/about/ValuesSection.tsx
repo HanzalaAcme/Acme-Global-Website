@@ -1,9 +1,10 @@
+
 import {
   Star,
   Heart,
   Users,
   Clock3,
-  CircleCheck,
+  Handshake,
 } from "lucide-react";
 
 const values = [
@@ -42,13 +43,13 @@ const values = [
     title: "EMBRACE THE EXPERIENCE",
     points: [
       "Own your Impact",
-      "Learn, Unlearn & Learn",
+      "Learn, Adapt & Evolve",
       "Passion & Enthusiasm Always",
       "Inspire through Actions",
     ],
   },
   {
-    icon: CircleCheck,
+    icon: Handshake,
     title: "VALUE PARTNERSHIPS",
     points: [
       "Drive Shared Success Consistently",
@@ -61,148 +62,73 @@ const values = [
 
 export default function ValuesSection() {
   return (
-    <section className="bg-white py-[80px] px-5 md:px-8 lg:px-10">
-      <div className="max-w-[1400px] mx-auto min-w-0">
-
+    <section className="bg-white py-12 sm:py-16 lg:py-20 px-5 md:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-[1400px] min-w-0">
         {/* Section Heading */}
         <div className="mb-10 min-w-0">
-          <p className="font-Dm_Sans text-[13px] font-bold tracking-[0.25em] text-[#2563EB] uppercase mb-3">
+          <p className="mb-3 font-Dm_Sans text-[13px] font-bold tracking-[0.25em] text-[#2563EB] uppercase">
             WHAT WE STAND FOR
           </p>
 
-          <h2 className="font-playfair text-[42px] md:text-[48px] font-bold leading-tight text-[#111827]">
+          <h2 className="font-playfair text-4xl md:text-[48px] font-bold leading-tight text-[#111827]">
             OUR <span className="text-[#2563EB]">VALUES.</span>
           </h2>
 
-          <p className="font-Dm_Sans mt-4 text-[16px] leading-7 text-[#6B7280]">
+          <p className="mt-4 max-w-full font-Dm_Sans text-base leading-7 text-[#6B7280]">
             Five principles that guide every decision, interaction and solution
             we deliver.
           </p>
         </div>
 
-        {/* Values Cards */}
-        <div
-          className="
-            grid
-            grid-cols-1
-            md:grid-cols-2
-            lg:grid-cols-5
-            gap-3
-            items-start
-            min-w-0
-          "
-        >
+        {/* Responsive Values Grid */}
+        <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {values.map((value) => {
             const Icon = value.icon;
 
             return (
               <div
                 key={value.title}
-                className="
-                  min-w-0
-                  w-full
-                  bg-white
-                  border
-                  border-[#E5E7EB]
-                  rounded-[16px]
-                  p-4
-                  min-h-[280px]
-                  overflow-hidden
-                  hover:border-[#3B82F6]
-                  hover:shadow-lg
-                  hover:-translate-y-1
-                  transition-all
-                  duration-300
-                "
+                className="flex h-full min-w-0 flex-col rounded-2xl border border-[#E5E7EB] bg-white p-4 transition-all duration-300 hover:border-[#60A5FA] hover:shadow-lg"
               >
                 {/* Icon */}
-                <div
-                  className="
-                    w-[50px]
-                    h-[50px]
-                    rounded-[14px]
-                    bg-[#DBEAFE]
-                    flex
-                    items-center
-                    justify-center
-                    mb-5
-                    flex-shrink-0
-                  "
-                >
+                <div className="mb-5 flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-[14px] bg-[#DBEAFE]">
                   <Icon
                     size={23}
                     strokeWidth={2}
                     className="text-[#2563EB]"
+                    aria-hidden="true"
                   />
                 </div>
 
                 {/* Value Title */}
-                <h3
-                  className="
-                    min-w-0
-                    max-w-full
-                    font-playfair
-                    text-[18px]
-                    font-bold
-                    leading-tight
-                    text-[#0b1120]
-                    mb-5
-                    break-words
-                  "
-                >
+                <h3 className="mb-5 min-w-0 max-w-full break-words [overflow-wrap:anywhere] font-playfair text-base font-bold leading-tight text-[#0B1120]">
                   {value.title}
                 </h3>
 
                 {/* Value Points */}
-                <div className="space-y-3 min-w-0 w-full">
+                <ul className="flex min-w-0 flex-1 flex-col gap-3">
                   {value.points.map((point) => (
-                    <div
+                    <li
                       key={point}
-                      className="
-                        flex
-                        items-start
-                        gap-2
-                        min-w-0
-                        w-full
-                        font-Dm_Sans
-                        text-[13px]
-                        leading-5
-                        text-[#475569]
-                      "
+                      className="flex min-w-0 items-start gap-2 font-Dm_Sans text-[13px] leading-5 text-[#475569]"
                     >
-                      {/* Black Dot */}
                       <span
-                        className="
-                          text-black
-                          text-[7px]
-                          flex-shrink-0
-                          mt-[6px]
-                        "
+                        className="mt-0 shrink-0 text-[7px] leading-5 text-black"
+                        aria-hidden="true"
                       >
                         ●
                       </span>
 
-                      {/* Point Text */}
-                      <span
-                        className="
-                          min-w-0
-                          flex-1
-                          max-w-full
-                          whitespace-normal
-                          break-words
-                          overflow-wrap-anywhere
-                        "
-                      >
+                      <span className="min-w-0 flex-1 break-words [overflow-wrap:anywhere]">
                         {point}
                       </span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );
