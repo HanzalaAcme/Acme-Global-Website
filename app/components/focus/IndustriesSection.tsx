@@ -693,7 +693,7 @@ export default function IndustriesSection() {
 
   {/* Button */}
   <a
-    href="#contact"
+    href="contact"
     className="
       inline-flex
       items-center
