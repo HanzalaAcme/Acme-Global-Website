@@ -1,5 +1,8 @@
 export const metadata = {
   title: "Contact Us - ACME Global Hub",
+  description:
+    "Contact ACME Global Hub to discuss cloud, cybersecurity, enterprise applications, AI and managed IT services tailored to your organization’s needs.",
+  alternates: { canonical: "/contact" },
 };
 
 import Hero from "@/app/components/contact/Hero";

@@ -193,16 +193,19 @@ export async function generateMetadata({
 
   const { slug } = await params;
 
-  return (
-    serviceMetadata[slug] || {
+  const pageMetadata = serviceMetadata[slug] || {
 
       title:
         "Services | ACME Global Hub",
 
       description:
         "Enterprise technology and digital transformation services.",
-    }
-  );
+    };
+
+  return {
+    ...pageMetadata,
+    alternates: { canonical: `/services/${slug}` },
+  };
 }
 
 export default async function ServicePage({
@@ -362,4 +365,4 @@ export default async function ServicePage({
         </div>
       );
   }
-} 
+}

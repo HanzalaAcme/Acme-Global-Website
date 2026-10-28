@@ -1,5 +1,8 @@
 export const metadata = {
   title: "Azure Cloud Services - ACME Global Hub",
+  description:
+    "Modernize workloads and manage Microsoft Azure environments with ACME Global Hub’s cloud migration, architecture and consulting services for enterprises.",
+  alternates: { canonical: "/services/cloud-services/azure" },
 };
 import AzureHero from "@/app/components/DetailedServices/CloudService/Azure/Hero";
 import AzureBenefits from "@/app/components/DetailedServices/CloudService/Azure/AzureBenefits";

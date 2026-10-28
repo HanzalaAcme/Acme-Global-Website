@@ -10,6 +10,9 @@ import CTA from "@/app/components/HomePage/CTA";
 
 export const metadata = {
   title: "Home - ACME Global Hub",
+  description:
+    "ACME Global Hub delivers cloud, cybersecurity, enterprise applications, AI and managed IT services that help businesses modernize, work securely and grow.",
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {

@@ -2,6 +2,9 @@
 
  export const metadata = {
   title: "About Us - ACME Global Hub",
+  description:
+    "Learn how ACME Global Hub helps organizations across the GCC modernize with trusted technology expertise, enterprise solutions and long-term support.",
+  alternates: { canonical: "/about" },
 };
 import Hero from "@/app/components/about/Hero";
 import WhatWeDo from "@/app/components/about/WhatWeDo";

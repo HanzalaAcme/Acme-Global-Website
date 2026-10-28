@@ -1,6 +1,9 @@
 
 export const metadata = {
   title: "OCI Cloud Services - ACME Global Hub",
+  description:
+    "Move and operate workloads on Oracle Cloud Infrastructure with ACME Global Hub’s enterprise cloud consulting, implementation and ongoing support.",
+  alternates: { canonical: "/services/cloud-services/oci" },
 };
 
 import OCICTA from "@/app/components/DetailedServices/CloudService/OCI/CTA";

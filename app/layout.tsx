@@ -30,10 +30,12 @@ const Dm_Sans = localFont({
 });
 
 
-export const metadata = {
-
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.acmeglobal.tech"),
+  title: "ACME Global Hub",
+  description:
+    "ACME Global Hub delivers cloud, cybersecurity, enterprise applications, AI and managed IT services that help businesses modernize, work securely and grow.",
   icons: {
-
     icon: "/icon2.png",
   },
 };

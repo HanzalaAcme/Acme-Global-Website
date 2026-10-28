@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
   description:
     "Find answers to common questions about ACME Global Hub services, cloud solutions, cybersecurity, managed IT services, careers, and enterprise digital transformation.",
-
+  alternates: { canonical: "/faqs" },
 };
 
 export default function FAQsPage() {

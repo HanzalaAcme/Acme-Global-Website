@@ -1,5 +1,8 @@
 export const metadata = {
   title: "AWS Cloud Services - ACME Global Hub",
+  description:
+    "Plan, migrate and manage secure AWS cloud environments with ACME Global Hub’s cloud consulting and implementation services.",
+  alternates: { canonical: "/services/cloud-services/aws" },
 };
 import AWSHero from "@/app/components/DetailedServices/CloudService/AWS/Hero";
 import AWSDeliver from "@/app/components/DetailedServices/CloudService/AWS/AWSDeliver";

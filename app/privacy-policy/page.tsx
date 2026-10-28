@@ -1,5 +1,6 @@
 export const metadata = {
   title: "Privacy Policy - ACME Global Hub",
+  alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {

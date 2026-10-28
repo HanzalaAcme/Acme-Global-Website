@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
   description:
     "Explore enterprise technology insights, cloud solutions, AI innovation, cybersecurity trends, and digital transformation updates from ACME Global Hub.",
-
+  alternates: { canonical: "/blogs" },
 };
 
 export default function BlogsPage() {

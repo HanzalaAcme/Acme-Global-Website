@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-
-  title:
-    "Services | ACME Global Hub",
+  title: "Services",
+  description:
+    "Explore ACME Global Hub services in cloud, cybersecurity, enterprise applications, AI, infrastructure and IT talent for modern businesses across the GCC.",
+  alternates: { canonical: "/services" },
 };
 
 import Hero from "@/app/components/service/Hero";

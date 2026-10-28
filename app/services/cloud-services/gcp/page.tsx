@@ -1,5 +1,8 @@
 export const metadata = {
   title: "GCP Cloud Services - ACME Global Hub",
+  description:
+    "Build and manage Google Cloud Platform environments with ACME Global Hub’s cloud architecture, migration and ongoing operations expertise for businesses.",
+  alternates: { canonical: "/services/cloud-services/gcp" },
 };
 import GCPHero from "@/app/components/DetailedServices/CloudService/GCP/Hero";
 import GCPBenefits from "@/app/components/DetailedServices/CloudService/GCP/GCPBenefits";
