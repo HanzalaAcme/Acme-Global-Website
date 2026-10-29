@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Partners - ACME Global Hub",
+  title: "Partner Ecosystem and Technology Alliances | ACME Global Hub",
   description:
-    "Explore ACME Global Hub’s technology partnerships and partner ecosystem supporting enterprise transformation across the GCC and global markets.",
+    "technology alliances; vendor ecosystem; solution partnerships; joint delivery capabilities; partner credentials; approved technology relationships",
   alternates: { canonical: "/partner" },
 };
 import Hero from "@/app/components/partner/Hero";

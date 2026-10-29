@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Careers - ACME Global Hub",
+  title: "Careers and Open Positions | ACME Global Hub ",
   description:
-    "Explore career opportunities at ACME Global Hub and join teams delivering cloud, cybersecurity and digital transformation solutions for organizations across the GCC.",
+    "technology vacancies; IT career opportunities; cloud roles; cybersecurity positions; application development careers; recruitment information",
   alternates: { canonical: "/careers" },
 };
 

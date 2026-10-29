@@ -1,5 +1,6 @@
 export const metadata = {
-  title: "Careers - ACME Global Hub",
+  title: "Careers and Open Positions | ACME Global Hub",
+  description: "technology vacancies; IT career opportunities; cloud roles; cybersecurity positions; application development careers; recruitment information"
 };
 import { Suspense } from "react";
 

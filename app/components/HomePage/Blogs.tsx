@@ -36,11 +36,11 @@ export default function Blogs() {
       `/api/wordpress/posts?categories=1&per_page=3&_embed`
     );
 
-    console.log("Status:", res.status);
+    //console.log("Status:", res.status);
 
     const data = await res.json();
 
-    console.log("Response:", data);
+    //console.log("Response:", data);
 
     setBlogs(data);
 

@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Contact Us - ACME Global Hub",
+  title: "Start a Conversation | ACME Global Hub",
   description:
-    "Contact ACME Global Hub to discuss cloud, cybersecurity, enterprise applications, AI and managed IT services tailored to your organization’s needs.",
+    "technology consultation request; business enquiry; project discussion; service assessment; contact team ",
   alternates: { canonical: "/contact" },
 };
 

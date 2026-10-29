@@ -87,10 +87,10 @@ const serviceMetadata: Record<
 
   "cloud-services": {
     title:
-      "Cloud Services | ACME Global Hub",
+      "Cloud Architecture, Migration and Optimization | ACME Global Hub",
 
     description:
-      "Scalable cloud transformation, migration, and managed cloud services for modern enterprises.",
+      "cloud architecture; cloud migration; infrastructure optimization; cloud governance; workload management; cloud operations",
   },
 
   "application-services": {
