@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import { useState } from "react";
+import TurnstileWidget from "@/app/components/forms/TurnstileWidget";
 
 export default function ContactSection() {
 
@@ -21,11 +22,22 @@ export default function ContactSection() {
   const [error, setError] =
     useState("");
 
+  const [turnstileToken, setTurnstileToken] =
+    useState("");
+
+  const [turnstileResetKey, setTurnstileResetKey] =
+    useState(0);
+
   const handleSubmit = async (
     e: any
   ) => {
 
     e.preventDefault();
+
+    if (!turnstileToken) {
+      setError("Please complete human verification before sending.");
+      return;
+    }
 
     setLoading(true);
 
@@ -52,6 +64,8 @@ export default function ContactSection() {
 
       message:
         formData.get("message"),
+
+      turnstileToken,
     };
 
     try {
@@ -99,6 +113,8 @@ export default function ContactSection() {
     }
 
     setLoading(false);
+    setTurnstileToken("");
+    setTurnstileResetKey((key) => key + 1);
   };
 
   return (
@@ -697,13 +713,18 @@ export default function ContactSection() {
                 "
               />
 
+              <TurnstileWidget
+                onTokenChange={setTurnstileToken}
+                resetKey={turnstileResetKey}
+              />
+
               {/* BUTTON */}
               <div className="flex justify-center">
 
                 <button
                   type="submit"
 
-                  disabled={loading}
+                  disabled={loading || !turnstileToken}
 
                   className="
                     px-8

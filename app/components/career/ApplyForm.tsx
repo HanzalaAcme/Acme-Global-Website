@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import TurnstileWidget from "@/app/components/forms/TurnstileWidget";
 
 import {
   Upload,
@@ -44,11 +45,22 @@ export default function ApplyForm() {
   const [fileName, setFileName] =
     useState("");
 
+  const [turnstileToken, setTurnstileToken] =
+    useState("");
+
+  const [turnstileResetKey, setTurnstileResetKey] =
+    useState(0);
+
   const handleSubmit = async (
     e: any
   ) => {
 
     e.preventDefault();
+
+    if (!turnstileToken) {
+      setError("Please complete human verification before submitting.");
+      return;
+    }
 
     setLoading(true);
 
@@ -56,6 +68,8 @@ export default function ApplyForm() {
 
     const formData =
       new FormData(e.target);
+
+    formData.set("cf-turnstile-response", turnstileToken);
 
     try {
 
@@ -94,6 +108,8 @@ export default function ApplyForm() {
     }
 
     setLoading(false);
+    setTurnstileToken("");
+    setTurnstileResetKey((key) => key + 1);
   };
 
   /* SUCCESS */
@@ -1079,10 +1095,15 @@ export default function ApplyForm() {
 
       )}
 
+      <TurnstileWidget
+        onTokenChange={setTurnstileToken}
+        resetKey={turnstileResetKey}
+      />
+
       {/* BUTTON */}
       <button
         type="submit"
-        disabled={loading}
+        disabled={loading || !turnstileToken}
 
         className="
           w-full
