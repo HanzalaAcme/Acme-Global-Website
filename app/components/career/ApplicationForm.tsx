@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import TurnstileWidget from "@/app/components/forms/TurnstileWidget";
 
 import {
   Briefcase,
@@ -28,6 +29,12 @@ export default function ApplicationForm()  {
 
   const [error, setError] =
     useState("");
+
+  const [turnstileToken, setTurnstileToken] =
+    useState("");
+
+  const [turnstileResetKey, setTurnstileResetKey] =
+    useState(0);
 
  
 
@@ -69,6 +76,11 @@ export default function ApplicationForm()  {
 
     e.preventDefault();
 
+    if (!turnstileToken) {
+      setError("Please complete human verification before submitting.");
+      return;
+    }
+
     setLoading(true);
 
     setError("");
@@ -79,6 +91,8 @@ export default function ApplicationForm()  {
     if (file) {
       formData.set("resume", file);
     }
+
+    formData.set("cf-turnstile-response", turnstileToken);
 
     try {
 
@@ -108,6 +122,8 @@ export default function ApplicationForm()  {
     }
 
     setLoading(false);
+    setTurnstileToken("");
+    setTurnstileResetKey((key) => key + 1);
   };
 
   const inputStyles = `
@@ -655,10 +671,15 @@ export default function ApplicationForm()  {
 
           )}
 
+          <TurnstileWidget
+            onTokenChange={setTurnstileToken}
+            resetKey={turnstileResetKey}
+          />
+
           {/* SUBMIT */}
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || !turnstileToken}
 
             className="
               w-full

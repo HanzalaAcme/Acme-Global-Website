@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 import { sendEmail } from "@/lib/send-email";
+import { verifyTurnstileToken } from "@/lib/verify-turnstile";
 
 export async function POST(
   req: Request
@@ -12,6 +13,21 @@ export async function POST(
 
     const body =
       await req.json();
+
+    const isHuman = await verifyTurnstileToken(
+      body.turnstileToken,
+      req,
+    );
+
+    if (!isHuman) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Human verification failed. Please try again.",
+        },
+        { status: 400 },
+      );
+    }
 
     const {
       firstName,
