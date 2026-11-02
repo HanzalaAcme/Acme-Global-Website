@@ -116,12 +116,12 @@ export default function BlogEnhancements() {
   return (
     <>
       {/* Progress Bar */}
-      <div className="fixed top-[72px] left-0 w-full h-[3px] z-50 bg-white">
-        <div
-          className="h-full bg-blue-600 transition-all duration-200"
-          style={{ width: `${progress}%` }}
-        />
-       </div>
+      <progress
+        className="blog-reading-progress fixed top-[72px] left-0 z-50"
+        value={progress}
+        max={100}
+        aria-label="Article reading progress"
+      />
 
        
     </>
