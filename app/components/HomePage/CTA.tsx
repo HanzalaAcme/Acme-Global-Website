@@ -6,7 +6,7 @@ export default function CTA() {
   return (
     <motion.section
       id="contact"
-      className="brand-gradient py-20 text-white text-center"
+      className="brand-gradient bg-[#1A4FD6] py-20 text-white text-center"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
