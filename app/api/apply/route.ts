@@ -9,7 +9,6 @@ from "@/lib/upload-to-s3";
 
 import { getS3FileUrl }
 from "@/lib/get-s3-url";
-import { verifyTurnstileToken } from "@/lib/verify-turnstile";
 
 
 
@@ -21,21 +20,6 @@ export async function POST(
 
     const data =
       await req.formData();
-
-    const isHuman = await verifyTurnstileToken(
-      data.get("cf-turnstile-response"),
-      req,
-    );
-
-    if (!isHuman) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Human verification failed. Please try again.",
-        },
-        { status: 400 },
-      );
-    }
 
     /* FORM DATA */
 
