@@ -228,6 +228,7 @@ export default function ContactSection() {
           <div
             className="
               contact-gradient
+              bg-[#1A4FD6]
               rounded-[18px]
 
               px-6
@@ -725,6 +726,7 @@ export default function ContactSection() {
 
                   className="
                     contact-gradient
+                    bg-[#1A4FD6]
                     px-8
                     py-3
 
