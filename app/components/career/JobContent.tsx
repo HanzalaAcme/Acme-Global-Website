@@ -18,6 +18,7 @@ export default function JobContent({
 
     <div
       className="
+        cms-rich-content
         prose
         prose-lg
         lg:prose-xl

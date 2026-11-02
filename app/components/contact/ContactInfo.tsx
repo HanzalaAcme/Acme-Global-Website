@@ -211,6 +211,7 @@ export default function ContactSection() {
 
           <div
             className="
+              contact-info-card
               contact-gradient
               bg-[#1A4FD6]
               rounded-[18px]
@@ -516,6 +517,7 @@ export default function ContactSection() {
             "
 
             className="
+              contact-form-background
               w-full
 
               h-[950px]
@@ -557,6 +559,7 @@ export default function ContactSection() {
               onSubmit={handleSubmit}
 
               className="
+                contact-info-form
                 w-full
 
                 max-w-[900px]
@@ -622,6 +625,7 @@ export default function ContactSection() {
                     }
 
                     className="
+                      contact-info-form-field
                       w-full
 
                       px-5
@@ -665,6 +669,7 @@ export default function ContactSection() {
                 placeholder="Write Message *"
 
                 className="
+                  contact-info-form-field
                   w-full
 
                   px-5
@@ -704,6 +709,7 @@ export default function ContactSection() {
                   disabled={loading}
 
                   className="
+                    contact-info-submit
                     contact-gradient
                     bg-[#1A4FD6]
                     px-8
