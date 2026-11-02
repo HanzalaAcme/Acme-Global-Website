@@ -102,3 +102,119 @@ body {
   background: #2563eb;
   transition: width 200ms ease;
 }
+
+.contact-info-card {
+  background-color: #1a4fd6;
+  background-image: linear-gradient(30deg, #1a4fd6 0%, #0ea5e9 60%, #06b6d4 100%);
+  color: #fff;
+}
+
+.contact-info-form {
+  width: 100%;
+  max-width: 900px;
+}
+
+.contact-form-background {
+  display: block;
+  width: 100%;
+  height: 950px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .contact-form-background {
+    height: 520px;
+  }
+}
+
+.contact-info-form-field {
+  display: block;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  padding: 0.75rem 1.25rem;
+  color: #111827;
+  font: inherit;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-info-form-field::placeholder {
+  color: #6b7280;
+}
+
+.contact-info-form-field:focus {
+  border-color: #2e66ff;
+  box-shadow: 0 0 0 4px rgb(46 102 255 / 10%);
+}
+
+.contact-info-submit {
+  border: 0;
+  background-color: #1a4fd6;
+  background-image: linear-gradient(30deg, #1a4fd6 0%, #0ea5e9 60%, #06b6d4 100%);
+  color: #fff;
+}
+
+.cms-rich-content img {
+  display: block;
+  margin: 2rem auto !important;
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 12px;
+}
+
+.cms-rich-content figure,
+.cms-rich-content .wp-block-image {
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 2rem auto !important;
+}
+
+.cms-rich-content figure img,
+.cms-rich-content .wp-block-image img {
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.cms-rich-content .alignleft {
+  float: left;
+  max-width: 50% !important;
+  margin: 0.5rem 1.5rem 1rem 0 !important;
+}
+
+.cms-rich-content .alignright {
+  float: right;
+  max-width: 50% !important;
+  margin: 0.5rem 0 1rem 1.5rem !important;
+}
+
+.cms-rich-content .aligncenter {
+  display: block;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.cms-rich-content iframe,
+.cms-rich-content video {
+  display: block;
+  max-width: 100% !important;
+  margin: 2rem auto;
+}
+
+.cms-rich-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 640px) {
+  .cms-rich-content .alignleft,
+  .cms-rich-content .alignright {
+    float: none;
+    max-width: 100% !important;
+    margin: 1.5rem auto !important;
+  }
+}

@@ -249,6 +249,7 @@ export default async function BlogDetail({
 
     <div
       className="
+        cms-rich-content
         prose
         prose-lg
         lg:prose-xl
