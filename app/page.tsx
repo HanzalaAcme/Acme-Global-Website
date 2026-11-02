@@ -9,9 +9,9 @@ import Blogs from "@/app/components/HomePage/Blogs";
 import CTA from "@/app/components/HomePage/CTA";
 
 export const metadata = {
-  title: "Home - ACME Global Hub",
+  title: "ACME Global Hub | XaaS and Digital Transformation",
   description:
-    "ACME Global Hub delivers cloud, cybersecurity, enterprise applications, AI and managed IT services that help businesses modernize, work securely and grow.",
+    "XaaS delivery model; digital transformation strategy; technology modernization; integrated digital capabilities; business technology roadmap",
   alternates: { canonical: "/" },
 };
 

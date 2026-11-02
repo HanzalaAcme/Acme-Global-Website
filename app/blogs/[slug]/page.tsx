@@ -1,5 +1,6 @@
 export const metadata = {
-  title: "Blogs - ACME Global Hub",
+  title: "Technology Insights | AI, Cloud and Cybersecurity ",
+  description: "AI adoption insights; cloud computing analysis; cyber risk management; application modernization trends; IT strategy commentary"
 };
 
 export const dynamic = "force-dynamic";

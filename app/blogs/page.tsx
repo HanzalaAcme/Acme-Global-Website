@@ -5,10 +5,10 @@ import BlogsClient from "@/app/components/blog/BlogsClient";
 export const metadata: Metadata = {
 
   title:
-    "Blogs - ACME Global Hub",
+    "Technology Insights | AI, Cloud and Cybersecurity ",
 
   description:
-    "Explore enterprise technology insights, cloud solutions, AI innovation, cybersecurity trends, and digital transformation updates from ACME Global Hub.",
+    "AI adoption insights; cloud computing analysis; cyber risk management; application modernization trends; IT strategy commentary",
   alternates: { canonical: "/blogs" },
 };
 

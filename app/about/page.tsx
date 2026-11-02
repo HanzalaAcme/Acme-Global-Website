@@ -1,9 +1,9 @@
 
 
  export const metadata = {
-  title: "About Us - ACME Global Hub",
+  title: "Our Capabilities and Approach | ACME Global Hub",
   description:
-    "Learn how ACME Global Hub helps organizations across the GCC modernize with trusted technology expertise, enterprise solutions and long-term support.",
+    "company capabilities; delivery approach; technology expertise; service model; organizational background",
   alternates: { canonical: "/about" },
 };
 import Hero from "@/app/components/about/Hero";

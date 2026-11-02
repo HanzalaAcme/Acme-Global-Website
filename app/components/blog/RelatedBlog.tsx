@@ -60,7 +60,7 @@ export default function RelatedBlogs({
 
   return (
 
-    <section className=" pl-10 bg-[#f3f4f6] py-10">
+    <section className=" px-10 bg-[#f3f4f6] py-10">
 
       {/* HEADING */}
       <div className="mb-10">
