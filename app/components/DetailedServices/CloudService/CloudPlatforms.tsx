@@ -10,7 +10,7 @@ const platforms = [
     name: "Amazon Web Services AWS – Innovation at Scale",
     desc: "Leverage the world's most comprehensive cloud platform with:",
     logo: "/media/partners/AWS_Logo.png",
-    color: "#F59E0B",
+    dotColorClass: "bg-[#F59E0B]",
     href: "/services/cloud-services/aws",
     points: [
       "Elastic Compute Cloud (EC2)",
@@ -27,7 +27,7 @@ const platforms = [
     name: "Microsoft Azure – Enterprise Cloud Transformation",
     desc: "Accelerate Microsoft-centric environments with:",
     logo: "/media/partners/Microsoft_Azure.png",
-    color: "#2563EB",
+    dotColorClass: "bg-[#2563EB]",
     href: "/services/cloud-services/azure",
     points: [
       "Azure Virtual Machines",
@@ -44,7 +44,7 @@ const platforms = [
     name: "Oracle OCI – Built for Mission-Critical Workloads",
     desc: "Transform enterprise applications with:",
     logo: "/media/partners/Oracle_Logo.png",
-    color: "#DC2626",
+    dotColorClass: "bg-[#DC2626]",
     href: "/services/cloud-services/oci",
     points: [
       "OCI Compute & Storage",
@@ -61,7 +61,7 @@ const platforms = [
     name: "Google GCP – Data, AI & Modern Applications",
     desc: "Drive innovation through:",
     logo: "/media/partners/Google_Logo.png",
-    color: "#2563EB",
+    dotColorClass: "bg-[#2563EB]",
     href: "/services/cloud-services/gcp",
     points: [
       "Google Compute Engine",
@@ -231,10 +231,7 @@ export default function CloudPlatforms() {
 
               {/* DOT */}
               <div
-                className="w-[6px] h-[6px] rounded-full mt-[9px] shrink-0"
-                style={{
-                  backgroundColor: platform.color,
-                }}
+                className={`w-[6px] h-[6px] rounded-full mt-[9px] shrink-0 ${platform.dotColorClass}`}
               />
 
               {/* TEXT */}

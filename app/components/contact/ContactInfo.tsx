@@ -211,6 +211,7 @@ export default function ContactSection() {
 
           <div
             className="
+              contact-gradient
               rounded-[18px]
 
               px-6
@@ -232,10 +233,6 @@ export default function ContactSection() {
               gap-8
               md:gap-0
             "
-            style={{
-              background:
-                "linear-gradient(30deg, #1A4FD6 0%, #0EA5E9 60%, #06B6D4 100%)",
-            }}
           >
 
             {/* ITEM 1 */}
@@ -706,6 +703,7 @@ export default function ContactSection() {
                   disabled={loading}
 
                   className="
+                    contact-gradient
                     px-8
                     py-3
 
@@ -725,10 +723,6 @@ export default function ContactSection() {
 
                     cursor-pointer
                   "
-                  style={{
-                    background:
-                      "linear-gradient(30deg, #1A4FD6 0%, #0EA5E9 60%, #06B6D4 100%)",
-                  }}
                 >
 
                   {loading

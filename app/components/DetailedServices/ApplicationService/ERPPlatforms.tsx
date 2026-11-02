@@ -20,7 +20,7 @@ const platforms = [
       "Procurement & Supplier Management",
       "Workflow Automation",
     ],
-    color: "#D24726",
+    bulletColorClass: "bg-[#D24726]",
   },
 
   {
@@ -36,7 +36,7 @@ const platforms = [
       "HR & Talent Management",
       "AI-driven insights",
     ],
-    color: "#0078D4",
+    bulletColorClass: "bg-[#0078D4]",
   },
 
   {
@@ -52,7 +52,7 @@ const platforms = [
       "Manufacturing & Production",
       "Analytics & Reporting",
     ],
-    color: "#008FD3",
+    bulletColorClass: "bg-[#008FD3]",
   },
 
   {
@@ -68,7 +68,7 @@ const platforms = [
       "CRM",
       "Multi-entity operations",
     ],
-    color: "#3B63FF",
+    bulletColorClass: "bg-[#3B63FF]",
   },
 ];
 
@@ -254,16 +254,7 @@ export default function ERPPlatforms() {
                   >
 
                     <div
-                      className="
-                        w-2.5 h-2.5 rounded-full
-
-                        mt-2
-
-                        shrink-0
-                      "
-                      style={{
-                        background: item.color,
-                      }}
+                      className={`w-2.5 h-2.5 rounded-full mt-2 shrink-0 ${item.bulletColorClass}`}
                     />
 
                     <p
