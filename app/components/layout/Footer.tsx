@@ -42,11 +42,16 @@ export default function Footer() {
             </div>
 
             {/* DESC */}
-            <p className="text-[13px] leading-[2.1] mb-5 text-[#7E8799]">
+           {/* <p className="text-[13px] leading-[2.1] mb-5 text-[#7E8799]">
               Enabling enterprises to access critical digital
               capabilities as scalable, subscription-based
               services — across cloud, security, and IT
               operations.
+            </p> */}
+
+            <p className="text-[13px] leading-[2.1] mb-5 text-[#7E8799]">
+              Helping enterprises scale with flexible, subscription-based services
+              across cloud, cybersecurity, and IT operations.
             </p>
 
             {/* ADDRESS */}
@@ -56,11 +61,16 @@ export default function Footer() {
 
                 <MapPin className="w-[18px] h-[18px] text-[#7AADFF] mt-[3px] shrink-0" />
 
-                <p className="text-[13px] leading-[2] text-[#7E8799]">
+                <a
+                href="https://www.google.com/maps/place/ACME+Global+Hub/@17.4409404,78.3821759,19.78z/data=!3m1!5s0x3bcb93e017da50cb:0x294c39389493e271!4m6!3m5!1s0x3bcb915936aaaaab:0x65532dedf49fee9c!8m2!3d17.4409993!4d78.3824895!16s%2Fg%2F11ts08dq19?entry=ttu&g_ep=EgoyMDI2MTEwNC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] leading-[2] hover:text-white
+                    transition-colors duration-300 text-[#7E8799]">
                   504 & 506, 4th Floor, KTC Illumination,
                   HITEC City, Madhapur, Hyderabad,
                   Telangana 500081, India
-                </p>
+                </a>
 
               </div>
 
@@ -70,7 +80,7 @@ export default function Footer() {
                 <Mail className="w-[17px] h-[17px] text-[#7AADFF] shrink-0" />
 
                 <a
-                  href="mailto:support@acmeglobal.tech"
+                  href="mailto:sales@acmeglobal.tech"
                   className="
                     text-[13px]
                     hover:text-white
@@ -88,6 +98,7 @@ export default function Footer() {
                 <Phone className="w-[17px] h-[17px] text-[#7AADFF] shrink-0" />
 
                 <a
+                href="tel:+914040117924"
                   className="
                     text-[13px]
                     hover:text-white
