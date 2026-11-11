@@ -50,7 +50,7 @@ export default function Footer() {
             </p> */}
 
             <p className="text-[13px] leading-[2.1] mb-5 text-[#7E8799]">
-              Helping enterprises scale with flexible, subscription-based services
+              Helping enterprises scale with flexible, subscription-based services 
               across cloud, cybersecurity, and IT operations.
             </p>
 
