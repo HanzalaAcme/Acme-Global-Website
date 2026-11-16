@@ -219,6 +219,9 @@ export default function ContactSection() {
               contact-info-card
               contact-gradient
               bg-[#1A4FD6]
+              contact-info-card
+              contact-gradient
+              bg-[#1A4FD6]
               rounded-[18px]
 
               px-6
@@ -301,7 +304,8 @@ export default function ContactSection() {
                 Contact Us
               </h3>
 
-              <p
+              <a
+              href="tel:+914040117924"
                 className="
                   text-[14px]
 
@@ -310,8 +314,8 @@ export default function ContactSection() {
                   opacity-90
                 "
               >
-                +91 4040117942
-              </p>
+                +91 4040117924
+              </a>
 
             </div>
 
@@ -385,7 +389,8 @@ export default function ContactSection() {
                 Email Us
               </h3>
 
-              <p
+              <a
+              href="mailto:sales@acmeglobal.tech"
                 className="
                   text-[14px]
 
@@ -398,7 +403,7 @@ export default function ContactSection() {
                 "
               >
                 sales@acmeglobal.tech
-              </p>
+              </a>
 
             </div>
 
@@ -472,9 +477,14 @@ export default function ContactSection() {
                 Our Location
               </h3>
 
-              <p
+              <a
+              href="https://www.google.com/maps/place/ACME+Global+Hub/@17.4409404,78.3821759,19.78z/data=!3m1!5s0x3bcb93e017da50cb:0x294c39389493e271!4m6!3m5!1s0x3bcb915936aaaaab:0x65532dedf49fee9c!8m2!3d17.4409993!4d78.3824895!16s%2Fg%2F11ts08dq19?entry=ttu&g_ep=EgoyMDI2MTEwNC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
                 className="
                   text-[14px]
+                  hover:text-white
+                  transition-colors duration-300
 
                   mt-2
 
@@ -489,7 +499,7 @@ export default function ContactSection() {
                 KTC Illumination,
                 Madhapur, Hyderabad,
                 Telangana, India
-              </p>
+              </a>
 
             </div>
 
@@ -543,6 +553,7 @@ export default function ContactSection() {
               onSubmit={handleSubmit}
 
               className="
+                contact-info-form
                 contact-info-form
                 w-full
 
@@ -610,6 +621,7 @@ export default function ContactSection() {
 
                     className="
                       contact-info-form-field
+                      contact-info-form-field
                       w-full
 
                       px-5
@@ -653,6 +665,7 @@ export default function ContactSection() {
                 placeholder="Write Message *"
 
                 className="
+                  contact-info-form-field
                   contact-info-form-field
                   w-full
 
@@ -700,6 +713,9 @@ export default function ContactSection() {
                   disabled={loading || !turnstileToken}
 
                   className="
+                    contact-info-submit
+                    contact-gradient
+                    bg-[#1A4FD6]
                     contact-info-submit
                     contact-gradient
                     bg-[#1A4FD6]
@@ -777,3 +793,4 @@ export default function ContactSection() {
     </section>
   );
 }
+
