@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import TurnstileWidget from "@/app/components/forms/TurnstileWidget";
 
 import {
   Upload,
@@ -44,6 +45,9 @@ export default function ApplyForm() {
   const [fileName, setFileName] =
     useState("");
 
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+
   const handleSubmit = async (
     e: any
   ) => {
@@ -56,6 +60,7 @@ export default function ApplyForm() {
 
     const formData =
       new FormData(e.target);
+    formData.set("turnstileToken", turnstileToken);
 
     try {
 
@@ -77,6 +82,7 @@ export default function ApplyForm() {
         e.target.reset();
 
         setFileName("");
+        setTurnstileToken("");
 
       } else {
 
@@ -84,6 +90,8 @@ export default function ApplyForm() {
           data.message ||
           "Something went wrong."
         );
+        setTurnstileToken("");
+        setTurnstileResetKey((key) => key + 1);
       }
 
     } catch (err) {
@@ -1079,10 +1087,16 @@ export default function ApplyForm() {
 
       )}
 
+      <TurnstileWidget
+        onTokenChange={setTurnstileToken}
+        resetKey={turnstileResetKey}
+        className="mb-5"
+      />
+
       {/* BUTTON */}
       <button
         type="submit"
-        disabled={loading}
+        disabled={loading || !turnstileToken}
 
         className="
           w-full

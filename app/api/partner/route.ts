@@ -7,6 +7,7 @@ import { sendEmail } from "@/lib/send-email";
 import { getS3FileUrl } from "@/lib/get-s3-url";
 
 import { uploadToS3 } from "@/lib/upload-to-s3";
+import { verifyTurnstileToken } from "@/lib/verify-turnstile";
 
 
 // POST API
@@ -19,6 +20,14 @@ export async function POST(
 
     const formData =
       await req.formData();
+
+    const isHuman = await verifyTurnstileToken(formData.get("turnstileToken"), req);
+    if (!isHuman) {
+      return NextResponse.json(
+        { error: "Please complete the human verification and try again." },
+        { status: 403 },
+      );
+    }
 
     // ========================================
     // TEXT FIELDS

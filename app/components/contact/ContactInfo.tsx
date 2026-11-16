@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 import {
   Phone,
   Mail,
@@ -9,6 +7,7 @@ import {
 } from "lucide-react";
 
 import { useState } from "react";
+import TurnstileWidget from "@/app/components/forms/TurnstileWidget";
 
 export default function ContactSection() {
 
@@ -20,6 +19,9 @@ export default function ContactSection() {
 
   const [error, setError] =
     useState("");
+
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
   const handleSubmit = async (
     e: any
@@ -49,6 +51,8 @@ export default function ContactSection() {
 
       email:
         formData.get("email"),
+
+      turnstileToken,
 
       message:
         formData.get("message"),
@@ -82,6 +86,8 @@ export default function ContactSection() {
         );
 
         e.target.reset();
+        setTurnstileToken("");
+        setTurnstileResetKey((key) => key + 1);
 
       } else {
 
@@ -89,6 +95,8 @@ export default function ContactSection() {
           data.message ||
           "Failed to send message."
         );
+        setTurnstileToken("");
+        setTurnstileResetKey((key) => key + 1);
       }
 
     } catch {
@@ -203,9 +211,6 @@ export default function ContactSection() {
           className="
             relative
             z-10
-
-            mb-[-260px]
-            md:mb-[-80px]
           "
         >
 
@@ -497,36 +502,15 @@ export default function ContactSection() {
           className="
             relative
 
+            -mt-8
+
             rounded-[18px]
 
             overflow-hidden
+            bg-[#030712]
+            contact-form-surface
           "
         >
-
-          <Image
-            src="/media/Form_Bg.jpg"
-
-            alt="contact form"
-
-            width={1200}
-            height={600}
-
-            sizes="
-              (max-width: 768px) 100vw,
-              1200px
-            "
-
-            className="
-              contact-form-background
-              w-full
-
-              h-[950px]
-              md:h-[520px]
-
-              object-cover
-            "
-          />
-
           {/* OVERLAY */}
           <div
             className="
@@ -540,18 +524,18 @@ export default function ContactSection() {
           {/* FORM */}
           <div
             className="
-              absolute
-              inset-0
-
+              relative
+              z-10
               flex
-              items-center
+              items-start
               justify-center
 
               px-5
               sm:px-6
 
-              pt-[300px]
-              md:pt-[80px]
+              pb-8
+              pt-8
+              md:pt-[100px]
             "
           >
 
@@ -700,13 +684,20 @@ export default function ContactSection() {
                 "
               />
 
+              <div className="mb-5 flex justify-start">
+                <TurnstileWidget
+                  onTokenChange={setTurnstileToken}
+                  resetKey={turnstileResetKey}
+                />
+              </div>
+
               {/* BUTTON */}
               <div className="flex justify-center">
 
                 <button
                   type="submit"
 
-                  disabled={loading}
+                  disabled={loading || !turnstileToken}
 
                   className="
                     contact-info-submit

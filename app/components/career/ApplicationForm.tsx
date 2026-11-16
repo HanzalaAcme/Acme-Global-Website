@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import TurnstileWidget from "@/app/components/forms/TurnstileWidget";
 
 import {
   Briefcase,
@@ -28,6 +29,9 @@ export default function ApplicationForm()  {
 
   const [error, setError] =
     useState("");
+
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
  
 
@@ -75,6 +79,7 @@ export default function ApplicationForm()  {
 
     const formData =
       new FormData(e.target);
+    formData.set("turnstileToken", turnstileToken);
 
     if (file) {
       formData.set("resume", file);
@@ -97,6 +102,7 @@ export default function ApplicationForm()  {
       }
 
       setSuccess(true);
+      setTurnstileToken("");
 
       
 
@@ -105,6 +111,8 @@ export default function ApplicationForm()  {
       setError(
         "Failed to submit application. Please try again."
       );
+      setTurnstileToken("");
+      setTurnstileResetKey((key) => key + 1);
     }
 
     setLoading(false);
@@ -655,10 +663,16 @@ export default function ApplicationForm()  {
 
           )}
 
+          <TurnstileWidget
+            onTokenChange={setTurnstileToken}
+            resetKey={turnstileResetKey}
+            className="mb-5"
+          />
+
           {/* SUBMIT */}
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || !turnstileToken}
 
             className="
               w-full

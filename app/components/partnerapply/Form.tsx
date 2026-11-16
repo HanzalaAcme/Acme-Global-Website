@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import TurnstileWidget from "@/app/components/forms/TurnstileWidget";
 
 import {
   Building2,
@@ -23,6 +24,9 @@ export default function PartnerApply() {
   const [error, setError] =
     useState("");
 
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+
   const handleSubmit = async (
     e: any
   ) => {
@@ -35,6 +39,7 @@ export default function PartnerApply() {
 
     const formData =
       new FormData(e.target);
+    formData.set("turnstileToken", turnstileToken);
 
     try {
 
@@ -61,6 +66,7 @@ export default function PartnerApply() {
       setSuccess(true);
 
       e.target.reset();
+      setTurnstileToken("");
 
     } catch (err: any) {
 
@@ -68,6 +74,8 @@ export default function PartnerApply() {
         err.message ||
         "Something went wrong."
       );
+      setTurnstileToken("");
+      setTurnstileResetKey((key) => key + 1);
     }
 
     setLoading(false);
@@ -212,7 +220,7 @@ export default function PartnerApply() {
         <form
           onSubmit={handleSubmit}
 
-          className="space-y-16"
+          className="space-y-8"
         >
 
           {/* ================================================= */}
@@ -1267,68 +1275,41 @@ export default function PartnerApply() {
 
           </section>
 
-          {/* ERROR */}
+          <div className="space-y-4">
+            {/* ERROR */}
+            {error && (
+              <div className="rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-red-600">
+                {error}
+              </div>
+            )}
 
-          {error && (
+            <TurnstileWidget
+              onTokenChange={setTurnstileToken}
+              resetKey={turnstileResetKey}
+            />
 
-            <div
+            {/* BUTTON */}
+            <button
+              type="submit"
+              disabled={loading || !turnstileToken}
               className="
+                w-full
+                h-[50px]
                 rounded-2xl
-
-                bg-red-50
-
-                border
-                border-red-200
-
-                px-5
-                py-4
-
-                text-red-600
+                bg-[#1A4FD6]
+                hover:bg-[#2E66FF]
+                text-white
+                text-lg
+                font-semibold
+                transition-all
+                duration-300
+                cursor-pointer
+                disabled:opacity-50
               "
             >
-              {error}
-            </div>
-
-          )}
-
-          {/* BUTTON */}
-
-          <button
-            type="submit"
-
-            disabled={loading}
-
-            className="
-              w-full
-
-              h-[50px]
-
-              rounded-2xl
-
-              bg-[#1A4FD6]
-              hover:bg-[#2E66FF]
-
-              text-white
-              mt-7
-
-              text-lg
-
-              font-semibold
-
-              transition-all
-              duration-300
-
-              cursor-pointer
-
-              disabled:opacity-50
-            "
-          >
-
-            {loading
-              ? "Submitting..."
-              : "Submit Partnership Request"}
-
-          </button>
+              {loading ? "Submitting..." : "Submit Partnership Request"}
+            </button>
+          </div>
 
         </form>
 
